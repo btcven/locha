@@ -1,4 +1,4 @@
-# locha
+# Locha
 Nos encanta que nos visites y puedas leer mas acerca de nosotros. Aquí puedes encontrar el firmware para tu dispositivo compatible con **lochaMesh** y estar al tanto del proceso de desarrollo. 
 
 ## ¿Que es locha?
@@ -50,6 +50,11 @@ _([descubre Harpia](saber mas sobre Harpia))_
 * En el siguiente repo puedes encontrar el firmware para [Turpial](Turpial) y [Harpia](Harpia) (soon).
 * Documentos de carácter general y otras cosas [Docs](docs)
 * La aplicación movil usada por locha [aqui](https://)
+
+## Síguenos
+
+- Twitter [Locha_io](https://twitter.com/Locha_io)
+- Web [locha.io](https://locha.io)
 
 #### Atención
 Nos encanta que leas el código y compartas tus ideas, algunas cosas en los repositorios estan en una etapa muy temprana. Recomendamos encarecidamente que esperes a futuras releases del software antes de usarlo.
