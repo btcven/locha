@@ -8,7 +8,7 @@ We are happy of your visit and that you can read more about us. Here you can fin
 The locha mesh network is a radio network for text messaging and bitcoin transactions.
 The main objetive is a long range network for everyone and everywhere, for this reason, we are working not only in a protocol, also the firmware for affordable devices like "Turpial" or "Harpia".
 
-Check out [/documentss](documents) for to know more.
+Check out [/documents](documents) for to know more.
 
 
 ---
@@ -69,5 +69,4 @@ Copyright (c) 2019 locha.io developers.
 
 This software is under a [MIT](LICENSE) license and you can read the full text in the LICENSE file in the root folder.
 
-Readme in: [Español](README_ES.md), [Portugués](README_PT)
-Twitter: @Locha_io
+Readme in: [Español](README_ES.md), [Portugués](README_PT.md)
