@@ -4,7 +4,7 @@ Nos encanta que nos visites y puedas leer mas acerca de nosotros. Aquí puedes e
 ## ¿Que es locha?
 
 La red mesh de Locha es una red via radio para el intercambio de **mensajes de texto** o **transacciones Bitcoin**
-El principal objetivo es conseguir establecer una red de largo alcance para cualquier persona en cualquier lugar, por esta razón, estamos trabajando no solo en la creación del protocolo, tambien en el firmware de dispositivos asequibles, como **Turpial** ó **Harpia**.  _([saber más](sobre locha y objetivos))_
+El principal objetivo es conseguir establecer una red de largo alcance para cualquier persona en cualquier lugar, por esta razón, estamos trabajando no solo en la creación del protocolo, tambien en el firmware de dispositivos asequibles, como **Turpial** ó **Harpia**.  [saber más](https://)
 
 ---
 
@@ -56,7 +56,7 @@ _([descubre Harpia](saber mas sobre Harpia))_
 - Twitter [Locha_io](https://twitter.com/Locha_io)
 - Web [locha.io](https://locha.io)
 
-#### Atención
+#### :warning: Atención
 Nos encanta que leas el código y compartas tus ideas, algunas cosas en los repositorios estan en una etapa muy temprana. Recomendamos encarecidamente que esperes a futuras releases del software antes de usarlo.
 
 ## Licencia
