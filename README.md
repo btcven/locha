@@ -8,7 +8,7 @@ We are happy of your visit and that you can read more about us. Here you can fin
 The locha mesh network is a radio network for text messaging and bitcoin transactions.
 The main objetive is a long range network for everyone and everywhere, for this reason, we are working not only in a protocol, also the firmware for affordable devices like "Turpial" or "Harpia".
 
-Check out [/docs](docs) for to know more.
+Check out [/documentss](documents) for to know more.
 
 
 ---
@@ -53,7 +53,7 @@ Sure! we was tested some routers running the OpenWRT OS ,also some ARM MCUs can 
 
 ## The Code
 * In this repo you can find the source code for [Turpial](Turpial) and [Harpia](Harpia) (soon).
-* Documents and other stuffs are in [Docs](docs)
+* Documents and other stuffs are in [Docs](documents)
 * The mobile App may be located [here](https://)
 
 #### Warning
