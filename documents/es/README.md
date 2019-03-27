@@ -1,5 +1,7 @@
 ### LOCHA MESH PROJECT
+
 ---
+
 ### Resumen
 Los conceptos de red inalámbrica de tipo malla o Ad-hoc, han sido estudiados a lo largo del tiempo, estableciendo diversos protocolos que con mayor o menor éxito lidian con uno de sus mayores enemigos; “single-hop” (único salto).
 
@@ -11,7 +13,7 @@ Por todo lo anterior, el presente proyecto se marca como objetivo el desarrollo 
 
 ### I Introducción
 
-Redes inalámbricas como Wi-Fi (Wireless Fidelity) [ref**] son usadas en la cotidianidad por muchos de nosotros, posibilitando una comunicación local, bidireccional, segura y eficaz, además de ofrecernos una ventana a Internet y por lo tanto un acceso global a la comunicación. Los productos suministrados al mercado de consumo, no ofrecen gran cobertura, son diseñados para un entorno casero donde deben cubrir unas pocas decenas de metros, generalmente se usa una topología en estrella.
+Redes inalámbricas como **WiFi** (**Wi**reless **Fi**delity) [ref**] son usadas en la cotidianidad por muchos de nosotros, posibilitando una comunicación local, bidireccional, segura y eficaz, además de ofrecernos una ventana a Internet y por lo tanto un acceso global a la comunicación. Los productos suministrados al mercado de consumo, no ofrecen gran cobertura, son diseñados para un entorno casero donde deben cubrir unas pocas decenas de metros, generalmente se usa una topología en estrella.
 
 ---
 
@@ -24,7 +26,7 @@ Los dispositivos participantes se conectan a un nodo central (Router)[ref**] de 
 
 [fig]
 
-La banda de radiofrecuencia en muchos casos es la denominada  ISM (Industrial, Scientific,Medical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso y rango electromagnético a ubicación geográfica.
+La banda de radiofrecuencia en muchos casos es la denominada **ISM** (**I**ndustrial, **S**cientific,**M**edical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso y rango electromagnético a ubicación geográfica.
 
 
 | Región    | Límite inferior | Límite superior | Punto medio |
@@ -38,3 +40,12 @@ LoRaWAN por lo tanto se aleja del objetivo marcado al disponer  de uno o varios 
 
 Sin embargo **LoRa** (**Lo**ng **Ra**nge)[ref**], la modulación sobre la que se establece LoRaWAN, resulta una vehículo de transporte interesante sobre el que desarrollar este proyecto.
 
+
+
+
+
+
+#### License
+(c) Copyright 2019 locha.io developers and advisors _[@rdymac](), [luisan00](https://github.com/luisan00), [@JazB](https://github.com/Jazbhttps://github.com/Jazb), [@rdesanctis](https://github.com/rdesanctis)_
+
+Licensed under LICENSE
