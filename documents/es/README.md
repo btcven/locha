@@ -20,11 +20,11 @@ Los dispositivos participantes se conectan a un nodo central (Router)[ref**] de 
 
 ---
 
-LoRaWAN (Long Range Wide Area Network)[ref**], es una especificación inalámbrica, que fue diseñada teniendo en cuenta factores como baja potencia, largo alcance y bajo consumo. La arquitectura típica suele ser de estrella, los nodos de la red  se comunican a través de una puerta de enlace (Gateway). A su vez este Gateway puede ser enlazado con un servidor central, construyendo de esta forma una doble estrella.
+**LoRaWAN** (**Lo**ng **Ra**nge **W**ide **A**rea **N**etwork)[ref**], es una especificación inalámbrica, que fue diseñada teniendo en cuenta factores como baja potencia, largo alcance y bajo consumo. La arquitectura típica suele ser de estrella, los nodos de la red  se comunican a través de una puerta de enlace (Gateway). A su vez este Gateway puede ser enlazado con un servidor central, construyendo de esta forma una doble estrella.
 
 [fig]
 
-La banda de radiofrecuencia en muchos casos es la denominada  ISM (Industrial, Scientific,Medical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso rango electromagnético a ubicación geográfica.
+La banda de radiofrecuencia en muchos casos es la denominada  ISM (Industrial, Scientific,Medical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso y rango electromagnético a ubicación geográfica.
 
 
 | Región    | Límite inferior | Límite superior | Punto medio |
@@ -33,4 +33,8 @@ La banda de radiofrecuencia en muchos casos es la denominada  ISM (Industrial, S
 | Europa    | 433.05 MHz      | 434.79 MHz      | 422.92 MHz  |
 | Europa(*) |                 |                 |             |
 | Asia      |                 |                 |             |
+
+LoRaWAN por lo tanto se aleja del objetivo marcado al disponer  de uno o varios nodos que hacen de concentradores o enrutadores de la comunicación, cuyo fallo desconectará a los nodos que dependen de él, tal como se describe en el caso de aplicaciones Wi-Fi.
+
+Sin embargo **LoRa** (**Lo**ng **Ra**nge)[ref**], la modulación sobre la que se establece LoRaWAN, resulta una vehículo de transporte interesante sobre el que desarrollar este proyecto.
 
