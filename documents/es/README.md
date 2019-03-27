@@ -46,6 +46,6 @@ Sin embargo **LoRa** (**Lo**ng **Ra**nge)[ref**], la modulación sobre la que se
 
 
 #### License
-(c) Copyright 2019 locha.io developers and advisors _[@rdymac](https://github.com/rdymac), [luisan00](https://github.com/luisan00), [@JazB](https://github.com/Jazbhttps://github.com/Jazb), [@rdesanctis](https://github.com/rdesanctis)_
+(c) Copyright 2019 locha.io developers and advisors _[@rdymac](https://github.com/rdymac), [luisan00](https://github.com/luisan00), [@JazB](https://github.com/Jazb), [@rdesanctis](https://github.com/rdesanctis)_
 
 Licensed under LICENSE
