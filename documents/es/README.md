@@ -1,5 +1,5 @@
-## __ LOCHA MESH PROJECT __
-
+### LOCHA MESH PROJECT
+---
 ### Resumen
 Los conceptos de red inalámbrica de tipo malla o Ad-hoc, han sido estudiados a lo largo del tiempo, estableciendo diversos protocolos que con mayor o menor éxito lidian con uno de sus mayores enemigos; “single-hop” (único salto).
 
