@@ -48,7 +48,7 @@ _([descubre Harpia](saber mas sobre Harpia))_
 
 ## El Código
 * En el siguiente repo puedes encontrar el firmware para [Turpial](https://github.com/btcven/locha-mesh-app/tree/master/Turpial) y [Harpia](Harpia) (soon).
-* Documentos de carácter general y otras cosas [Docs](documents/es)
+* Documentos de carácter general y otras cosas [Docs](documents/README_ES.md)
 * La aplicación movil usada por locha [aqui](https://gitlab.com/btcven/locha/mobile-app)
 
 ## Síguenos
