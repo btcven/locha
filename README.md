@@ -2,14 +2,19 @@
 <Achieving hyperbitcoinization in Venezuela>
 
 
-We are happy of your visit and that you can read more about us. Here you can find the main firmware for your device compatible with **lochaMesh** and be aware of our development process.
 
-## What's locha?
-The locha mesh network is a radio network for text messaging and bitcoin transactions.
-The main objetive is a long range network for everyone and everywhere, for this reason, we are working not only in a protocol, also the firmware for affordable devices like "Turpial" or "Harpia".
+## Locha Mesh
+The Locha Mesh is a radio network for communications and Bitcoin transactions without internet or even electricity.
+We are working not only in a protocol, but also the firmware for affordable devices like the "Turpial" or "Harpia".
 
-Check out [/documents](documents) for to know more.
+---
 
+## What's in the code
+* The main software running on Turpial devices (ESP32 LoRa V2) can be found [here](https://github.com/btcven/locha-mesh-app)
+* Messages routing code can be found [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/route.cpp) and [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
+* The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android >5.0
+
+Documentario can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
 ---
 
@@ -26,9 +31,7 @@ Is a small and portable device [ESP32](https://www.espressif.com/en/products/har
 - micro USB for charging and software updates.
 - 0.96" OLED screen.
  
-In each Turpial can be connected up to 3 clients via WiFi for to send/receive bitcoin transactions or text messages.
-
-See more about [Turpial](Turpial) 
+In each Turpial can be connected up to 3 clients via WiFi for to send/receive text messages or Bitcoin transactions.
 
 ---
 
@@ -43,18 +46,12 @@ See more about [Turpial](Turpial)
 - Ethernet port.
 - 4 USB ports.
 
-See more about [Harpia](Harpia)
-
 ---
 
-### Can locha be installed on other devices?
+### Can Locha Mesh software be installed on other devices?
 
-Sure! we was tested some routers running the OpenWRT OS ,also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep the "vendor agnostic" rule.
+Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
 
-## The Code
-* In this repo you can find the source code for [Turpial](Turpial) and [Harpia](Harpia) (soon).
-* Documents and other stuffs are in [Docs](documents)
-* The mobile App may be located [here](https://)
 
 ## Stay connected
 
@@ -62,7 +59,7 @@ Sure! we was tested some routers running the OpenWRT OS ,also some ARM MCUs can 
 - Web [locha.io](https://locha.io)
 
 #### :warning: Warning
-We are delighted if you read the code and share your ideas but somethings in this repo are in a early stage, we strongly recommend that you wait for future releases.
+Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub. Please take into account that some things in this repo are in a very early stage.
 
 ## License
 Copyright (c) 2019 locha.io developers.
