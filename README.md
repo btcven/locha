@@ -7,7 +7,7 @@
 The Locha Mesh is a radio network for communications and Bitcoin transactions without internet or even electricity.
 We are working not only in a protocol, but also the firmware for affordable devices like the "Turpial" or "Harpia".
 
----
+
 
 ## What's in the code
 * The main software running on Turpial devices (ESP32 LoRa V2) can be found [here](https://github.com/btcven/locha-mesh-app)
@@ -16,7 +16,19 @@ We are working not only in a protocol, but also the firmware for affordable devi
 
 Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
+
+
+### Can Locha Mesh software be installed on other devices?
+
+Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
+
+
+#### :warning: Warning
+Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub. Please take into account that some things in this repo are in a very early stage.
+
 ---
+
+## Supported devices
 
 #### Turpial
 Is a small and portable device [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview) based system.
@@ -33,9 +45,7 @@ Is a small and portable device [ESP32](https://www.espressif.com/en/products/har
  
 In each Turpial can be connected up to 3 clients via WiFi for to send/receive text messages or Bitcoin transactions.
 
----
-
-#### Harpia
+#### Harpia _(soon)_
 
 **Overview**
 - Quad core 64 bits at 1.4 Ghz.
@@ -46,20 +56,14 @@ In each Turpial can be connected up to 3 clients via WiFi for to send/receive te
 - Ethernet port.
 - 4 USB ports.
 
----
-
-### Can Locha Mesh software be installed on other devices?
-
-Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
-
+----
 
 ## Stay connected
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io)
 - Web [locha.io](https://locha.io)
 
-#### :warning: Warning
-Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub. Please take into account that some things in this repo are in a very early stage.
+----
 
 ## License
 Copyright (c) 2019 locha.io developers.
