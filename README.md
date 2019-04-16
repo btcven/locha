@@ -14,7 +14,7 @@ We are working not only in a protocol, but also the firmware for affordable devi
 * Messages routing code can be found [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/route.cpp) and [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
 * The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android >5.0
 
-Documentario can be found [here](https://github.com/btcven/locha/tree/master/documents)
+Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
 ---
 
