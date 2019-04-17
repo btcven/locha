@@ -5,7 +5,7 @@
 
 ## Locha Mesh
 The Locha Mesh is a radio network for communications and Bitcoin transactions without internet or even electricity.
-We are working not only in a protocol, but also the firmware for affordable devices like the "Turpial" or "Harpia".
+We are working not only in a protocol, but also the firmware for affordable devices like the _Turpial_ or _Harpia_.
 
 
 
