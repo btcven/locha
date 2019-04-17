@@ -11,7 +11,7 @@ We are working not only in a protocol, but also the firmware for affordable devi
 
 ## What's in the code
 * The main software running on Turpial devices (ESP32 LoRa V2) can be found [here](https://github.com/btcven/locha-mesh-app)
-* Messages routing code can be found [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/route.cpp) and [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
+* Messages routing protocol code can be found [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
 * The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android >5.0
 
 Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
@@ -23,10 +23,15 @@ Documentation can be found [here](https://github.com/btcven/locha/tree/master/do
 Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
 
 
+---
+
+
 #### :warning: Warning
-Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub. Please take into account that some things in this repo are in a very early stage.
+Please take into account that some things in this repo are in a very early stage. Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub.
+
 
 ---
+
 
 ## Supported devices
 
