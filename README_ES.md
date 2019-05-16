@@ -4,7 +4,7 @@
 
 <h1 align="center"> Locha </h1>
 
-Nos encanta que nos visites y puedas leer mas acerca de nosotros. Aquí puedes encontrar el firmware para tu dispositivo compatible con **lochaMesh** y estar al tanto del proceso de desarrollo. 
+Nos encanta que nos visites y puedas leer más acerca de nosotros. Aquí puedes encontrar el firmware para tu dispositivo compatible con **lochaMesh** y estar al tanto del proceso de desarrollo. 
 
 
 <sumary>
