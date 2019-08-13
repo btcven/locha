@@ -81,4 +81,4 @@ Lee el texto completo:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
 ----
-Leeme en: [Spanish](README_ES.md), [Portuguese](README_PT.md)
+Leeme en: [Inglés](README.md), [Portugués](README_PT.md)
