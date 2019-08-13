@@ -1,54 +1,33 @@
 
-<p align="center"> 
-<img src="./images/locha1.svg">
-</p>
+<img height="200px" src="./images/locha1.svg">
 
-<h1 align="center"> Locha </h1>
-
-<Achieving hyperbitcoinization in Venezuela>
-
-
-<sumary>
-
-<h2 align="center"> Locha Mesh </h2>
-</sumary>
-<details>
+## Locha Mesh
 
 The Locha Mesh is a radio network for communications and Bitcoin transactions without internet or even electricity.
-We are working not only in a protocol, but also the firmware for affordable devices like the _Turpial_ or _Harpia_.
-</details>
+We are working not only in a protocol, but also the firmware for affordable devices like the *Turpial* or *Harpia*.
 
-<sumary>
+## What's in the code
 
-<h2 align="center"> What's in the code </h2>
-</sumary>
-<details>
-
-* The main software running on Turpial devices (ESP32 LoRa V2) can be found [here](https://github.com/btcven/locha-mesh-app)
+* The main software running on Turpial devices (ESP32) can be found [here](https://github.com/btcven/locha-mesh-app)
 
 * Messages routing protocol code can be found [here](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
 
-* The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android >5.0
+* The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android versions equal or greater  than 5.0
+
+* We are working in the new mobile application, will work on iOS or Android and we hope to publish it in the corresponding application store. Check out [here](https://) the repository.
 
 * Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
-</details>
 
-<sumary>
-<h2 align="center"> Can Locha Mesh software be installed on other devices? </h2>
-</sumary>
-<details>
+
+## Can the Locha Mesh software to be installed on other devices? </h2>
 
 Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
-</details>
+
+## Supported devices
 
 ---
 
-<sumary>
-<h2 align="center"> Supported devices </h2>
-</sumary>
-<details>
-
-<h2 align="center"> Turpial </h2>
+### Turpial
 Is a small and portable device [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview) based system.
 
 **Overview**
@@ -59,11 +38,14 @@ Is a small and portable device [ESP32](https://www.espressif.com/en/products/har
 - Radio module (for the long range mesh network)
 - 1000 mAh Battery
 - micro USB for charging and software updates.
-- 0.96" OLED screen.
- 
+- ~~0.96" OLED screen.~~ (*)
+
 In each Turpial can be connected up to 3 clients via WiFi for to send/receive text messages or Bitcoin transactions.
 
-<h2 align="center"> Harpia (soon) </h2>
+_(*) The screen has been removed from the reference hardware to improve battery performance._
+
+---
+### Harpia (soon)
 **Overview**
 - Quad core 64 bits at 1.4 Ghz.
 - Storage up to 128Gb.
@@ -72,7 +54,6 @@ In each Turpial can be connected up to 3 clients via WiFi for to send/receive te
 - Radio module (for the long range mesh network).
 - Ethernet port.
 - 4 USB ports.
-</details>
 
 ----
 
@@ -82,7 +63,7 @@ Please take into account that some things in this repo are in a very early stage
 
 ----
 
-<h2 align="center"> Stay connected </h2>
+## Stay connected
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io)
 - Web [locha.io](https://locha.io)
