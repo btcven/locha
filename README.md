@@ -89,9 +89,24 @@ Please take into account that some things in this repo are in a very early stage
 
 ----
 
-<h2 align="center"> License </h2>
-Copyright (c) 2019 locha.io developers.
+## License
 
-This software is under a [MIT](LICENSE) license and you can read the full text in the LICENSE file in the root folder.
+Copyright (c) 2019 Bitcoin Venezuela and Locha Mesh developers.
+
+Licensed under the **Apache License, Version 2.0**
+
+---
+**A text quote is shown below**
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+___
+Read the full text:
+[Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
+
+----
 
 Readme in: [Spanish](README_ES.md), [Portuguese](README_PT.md)
