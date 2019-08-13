@@ -14,12 +14,11 @@ We are working not only in a protocol, but also the firmware for affordable devi
 
 * The current Cordova mobile app can be found [here](https://gitlab.com/btcven/locha/mobile-app) , it runs on Android versions equal or greater  than 5.0
 
-* We are working in the new mobile application, will work on iOS or Android and we hope to publish it in the corresponding application store. Check out [here](https://) the repository.
+* We are working in the new mobile application, will work on iOS or Android and we hope to publish it in the corresponding application store. Check out [here](https://github.com/btcven/LochaMesh-Chat) the repository.
 
 * Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
-
-## Can the Locha Mesh software to be installed on other devices? </h2>
+## Can the Locha Mesh software to be installed on other devices?
 
 Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
 
@@ -84,7 +83,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-___
+
 Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
