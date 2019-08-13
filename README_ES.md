@@ -1,100 +1,84 @@
-<p align="center"> 
-<img src="./images/locha1.svg">
-</p>
+<img height="200px" src="./images/locha_logo.png">
 
-<h1 align="center"> Locha </h1>
+# Locha Mesh
 
-Nos encanta que nos visites y puedas leer más acerca de nosotros. Aquí puedes encontrar el firmware para tu dispositivo compatible con **lochaMesh** y estar al tanto del proceso de desarrollo. 
+Locha Mesh es una red de radio que permite tanto comunicacion entre individuos como transacciones Bitcoin, sin internet o incluso sin electricidad procedente de la red electrica. Estamos trabajando no solo en el protocolo, tambien desarrollamos el firmware para dispositivos asequibles como **Turpial** o **Harpia**.
 
+## Sobre el código
+* El firmware que corre sobre los dispositivos Turpial puede ser encontrado [aquí](https://github.com/btcven/locha-mesh-app)
 
-<sumary>
+* Ejemplo de algunos mensajes del protocolo de enrutado puedes encontrarlos [aquí](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
 
-<h2 align="center"> ¿Qué es locha? </h2>
-</sumary>
-<details>
+* La actual aplicación móvil puedes encontrarla [aquí](https://gitlab.com/btcven/locha/mobile-app), corre sobre Android, en versiones igual o superior a la 5.0
 
+* Estamos trabajando en la nueva aplicación móvil, funcinará sobre iOS o Android y esperamos publicarla en las correspondientes tiendas de aplicaciones. Visita [aquí](https://github.com/btcven/LochaMesh-Chat) el repositorio.
 
-La red mesh de Locha es una red via radio para el intercambio de **mensajes de texto** o **transacciones en la blockchain de Bitcoin**
-El principal objetivo es conseguir establecer una red de largo alcance para cualquier persona en cualquier lugar, por esta razón, estamos trabajando no sólo en la creación del protocolo, si no también en el firmware de dispositivos asequibles, como **Turpial** ó **Harpia** [más info](https://es.wikipedia.org/wiki/Red_en_malla).
-</details>
+* Documentacion y otras cosas, echa un vistazo por [aquí](https://github.com/btcven/locha/tree/master/documents)
 
----
+## ¿El software para Locha Mesh puede ser instalado en otros dispositivos?
 
-<sumary>
+¡Claro!, hemos testeado el código en algunos routers ejecutando OpenWRT, también algunas MCUs de ARM pueden ser una buena elección. El firmware tiene muy bajo impacto sobre la RAM e intentamos mantenerlo "vendor agnostic".
 
-<h2 align="center"> Turpial </h2>
-</sumary>
-<details>
+## Dispositivos soportados
 
-Es un pequeño dispositivo portátil basado en un MCU [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview).
+### Turpial
+
+Es un dispositivo pequeño y portable basado en [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview).
 
 **Características**
-- Doble nucleo de 32 bits a 240 MHz de reloj.
+
+- Doble nucleo de 32 bits corriendo a 240MHz.
 - 8MB de almacenamiento flash.
-- WiFi b/g/n doble modo Punto de acceso(AP) y cliente(ST)
-- Bluetooth (Para acceso al administrador)
-- Módulo de radio (para la red mesh de largo alcance)
+- WiFi b/g/n modo dual, punto de acceso y estación cliente (AP/Station).
+- Bluetooth (para administración)
+- Módulo de radio (para la red en maya de larga distancia)
 - Batería de 1000 mAh
-- micro USB para cargar la bateria y actualización de software.
-- Pantalla OLED de 0.96".
+- micro USB para carga y actualizar el software.
+- ~~Pantalla OLED de 0.96".~~ (*)
 
-_([descubre Turpial](saber mas sobre Turpial))_
-</details>
+En cada Turpial podemos conectar hasta 3 clientes via WiFi para enviar/recibir mensajes de texto o transacciones Bitcoin.
 
----
+_(*) La pantalla se ha eliminado del hardware de referencia para mejorar el rendimiento de la batería._
 
-<sumary>
-
-<h2 align="center"> Harpia </h2>
-</sumary>
-<details>
+### Harpia (pronto)
 
 **Características**
-- Cuádruple nucleo de 64 bits a 1.4 Ghz de reloj.
-- Almacena hasta 128Gb.
-- WiFi doble modo, doble banda 2.4Ghz/5Ghz.
+
+- Quad core 64 bits a 1.4 Ghz.
+- Almacenamiento de hasta 128Gb.
+- WiFi doble modo y doble banda 2.4Ghz/5Ghz.
 - Bluetooth 4.2
-- Módulo de radio (para la red mesh de largo alcance).
-- Ethernet port.
-- 4 USB ports.
+- Módulo de radio (para la red en maya de larga distancia).
+- Puerto Ethernet.
+- 4 puertos USB.
 
-_([descubre Harpia](saber mas sobre Harpia))_
-</details>
+----
+#### :warning: Warning :warning:
+Por favor, tenga en cuenta que en este y otros repositorios relacionados con Locha Mesh algunas cosas están en una fase temprana. Gracias por leer el código, compartir tus ideas en Twitter ó mejoras en la sección *Issues* aquí en GitHub.
 
----
+----
+## Conecta con nosotros
 
-
-<sumary>
-
-<h2 align="center"> ¿Es posible instalar el firmware de locha en otros dispositivos? </h2>
-</sumary>
-<details>
-
-**¡Claro!** Hemos probado su instalación en routers domésticos con [openWRT](https://es.wikipedia.org/wiki/OpenWrt), algunos MCUs de ARM pueden ser una estupenda opción para hacerlo. El firmware usa poca memoria RAM y estamos intentando seguir la linea de un producto agnóstico al hardware o marca concreta.
-</details>
-
-<sumary>
-
-<h2 align="center"> El Código </h2>
-</sumary>
-<details>
-
-* En el siguiente repo puedes encontrar el firmware para [Turpial](https://github.com/btcven/locha-mesh-app/tree/master/Turpial) y [Harpia](Harpia) (soon).
-* Documentos de carácter general y otras cosas [Docs](documents/README_ES.md)
-* La aplicación movil usada por locha [aqui](https://gitlab.com/btcven/locha/mobile-app)
-</details>
-
-<h2 align="center"> Síguenos! </h2>
-
-- Twitter [Locha_io](https://twitter.com/Locha_io)
+- Twitter [@Locha_io](https://twitter.com/Locha_io)
 - Web [locha.io](https://locha.io)
 
-#### :warning: Atención :warning:
-**Nos encanta que leas el código y compartas tus ideas, algunas cosas en los repositorios estan en una etapa muy temprana. Recomendamos encarecidamente que esperes a futuras releases del software antes de usarlo.**
+## Licencia
 
-<h2 align="center"> Licencia </h2>
-Copyright (c) 2019 desarrolladores de locha.io
+Copyright (c) 2019 Bitcoin Venezuela y desarrolladores de Locha Mesh.
 
-El software está bajo una licencia [MIT](LICENSE), puedes leer el texto completo de la misma _[aquí](LICENSE)_.
+Licenciado bajo la **Apache License, Version 2.0**
 
-Léeme en: [English](README.md) y [Portugués](README_PT.md)
+---
+**Un extracto de la licencia es mostrado a continuación**
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Lee el texto completo:
+[Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
+
+----
+Leeme en: [Spanish](README_ES.md), [Portuguese](README_PT.md)
