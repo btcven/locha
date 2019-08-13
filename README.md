@@ -24,8 +24,6 @@ Sure! We have tested the code in some routers running the OpenWRT OS, also some 
 
 ## Supported devices
 
----
-
 ### Turpial
 Is a small and portable device [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview) based system.
 
@@ -43,8 +41,8 @@ In each Turpial can be connected up to 3 clients via WiFi for to send/receive te
 
 _(*) The screen has been removed from the reference hardware to improve battery performance._
 
----
 ### Harpia (soon)
+
 **Overview**
 - Quad core 64 bits at 1.4 Ghz.
 - Storage up to 128Gb.
@@ -55,19 +53,14 @@ _(*) The screen has been removed from the reference hardware to improve battery 
 - 4 USB ports.
 
 ----
-
-
 #### :warning: Warning :warning:
 Please take into account that some things in this repo are in a very early stage. Thank you for reading through the code and for sharing your ideas on Twitter and the Issues section here at GitHub.
 
 ----
-
 ## Stay connected
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io)
 - Web [locha.io](https://locha.io)
-
-----
 
 ## License
 
@@ -88,5 +81,4 @@ Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
 ----
-
 Readme in: [Spanish](README_ES.md), [Portuguese](README_PT.md)
