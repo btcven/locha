@@ -25,11 +25,12 @@ Is a small and portable device [ESP32](https://www.espressif.com/en/products/har
 Radio module, battery type, and more details are currently described [here](https://docs.google.com/document/d/12sjBhGs7FgMGoDsuASq4MyQFnGfmT4qZNib8H_P6eSw/edit)
 
 
-## Can the Locha Mesh software be installed on other devices?
-
+### Can the Locha Mesh software be installed on other devices?
 Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
 
 
+## Contribution guidelines
+TBD
 
 ----
 #### :warning: Warning :warning:
@@ -58,4 +59,7 @@ limitations under the License.
 
 Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
+
+### Contributor license agreements
+TBD
 
