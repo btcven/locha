@@ -3,13 +3,16 @@
 Locha Mesh es una red de radio que permite tanto comunicacion entre individuos como transacciones Bitcoin, sin internet o incluso sin electricidad procedente de la red electrica. Estamos trabajando no solo en el protocolo, tambien desarrollamos el firmware para dispositivos asequibles como **Turpial** o **Harpia**.
 
 ## Sobre el código
-* El firmware que corre sobre los dispositivos Turpial puede ser encontrado [aquí](https://github.com/btcven/locha-mesh-app)
+
+* El firmware que corre sobre los dispositivos Turpial puede ser encontrado [aquí](https://github.com/btcven/turpial-firmware)
+
+ > :warning: El anterior firmware puedes enontrarlo [aquí](https://github.com/btcven/locha-mesh-app) el repositorio en el futuro no será mantenido y se archivará quedando solo como referencia.
 
 * Ejemplo de algunos mensajes del protocolo de enrutado puedes encontrarlos [aquí](https://github.com/btcven/locha-mesh-app/blob/master/Turpial/routing_incoming.cpp)
 
-* La actual aplicación móvil puedes encontrarla [aquí](https://gitlab.com/btcven/locha/mobile-app), corre sobre Android, en versiones igual o superior a la 5.0
+* La actual aplicación móvil puedes encontrarla [aquí](https://github.com/btcven/LochaMesh-Chat), corre sobre Android y en breve sobre iOS. No será subida a las corresponfientes tiendas de aplicaciones hasta no tener una primera version estable.
 
-* Estamos trabajando en la nueva aplicación móvil, funcinará sobre iOS o Android y esperamos publicarla en las correspondientes tiendas de aplicaciones. Visita [aquí](https://github.com/btcven/LochaMesh-Chat) el repositorio.
+> :warning: La antigüa aplicacion movil puedes encontrarla [aquí](https://gitlab.com/btcven/locha/mobile-app), el repositorio en el futuro no será mantenido y se archivará quedando solo como referencia.
 
 * Documentacion y otras cosas, echa un vistazo por [aquí](https://github.com/btcven/locha/tree/master/documents)
 
@@ -21,22 +24,27 @@ Locha Mesh es una red de radio que permite tanto comunicacion entre individuos c
 
 ### Turpial
 
-Es un dispositivo pequeño y portable basado en [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview).
+Es un dispositivo pequeño y portable basado en [ESP32-WROVER](DS/esp32-wrover_datasheet_en.pdf).
 
 **Características**
 
 - Doble nucleo de 32 bits corriendo a 240MHz.
-- 8MB de almacenamiento flash.
+- 4MB SPI flash y 8MB de PSRAM.
 - WiFi b/g/n modo dual, punto de acceso y estación cliente (AP/Station).
 - Bluetooth (para administración)
-- Módulo de radio (para la red en maya de larga distancia)
-- Batería de 1000 mAh
-- micro USB para carga y actualizar el software.
-- ~~Pantalla OLED de 0.96".~~ (*)
+- Módulo de radio _(*1)_ max out. _(*2)_ 27dBm
+- Sistema de gestion de energía y batería de 2200 mAh
+- USB-C para carga y actualizar el software.
+- ~~Pantalla OLED de 0.96".~~ _(*3)_
 
 En cada Turpial podemos conectar hasta 3 clientes via WiFi para enviar/recibir mensajes de texto o transacciones Bitcoin.
 
-_(*) La pantalla se ha eliminado del hardware de referencia para mejorar el rendimiento de la batería._
+_(*1) Modulo de radio para la comunicación de larga distancia via mesh._
+
+_(*2) Sujeto a regulaciones regionales._
+
+_(*3) La pantalla se ha eliminado del hardware de referencia para mejorar el rendimiento de la batería._
+
 
 ### Harpia (pronto)
 
@@ -79,4 +87,4 @@ Lee el texto completo:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
 ----
-Leeme en: [Inglés](README.md), [Portugués](README_PT.md)
+Read me: [English](README.md)
