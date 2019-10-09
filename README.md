@@ -1,6 +1,6 @@
-[English](https://github.com/btcven/locha/blob/master/README.md) | [Spanish](https://github.com/btcven/locha/blob/master/README_ES.md)
 
-<img height="200px" src="images/locha_logo.png">
+
+<img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
 
 # Locha Mesh
 
@@ -60,6 +60,5 @@ limitations under the License.
 Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
-### Contributor license agreements
-TBD
+Readme available in [English](https://github.com/btcven/locha/blob/master/README.md) | [Spanish](https://github.com/btcven/locha/blob/master/README_ES.md)
 
