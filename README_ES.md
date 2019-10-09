@@ -51,12 +51,17 @@ _(*3) La pantalla se ha eliminado del hardware de referencia para mejorar el ren
 **Características**
 
 - Quad core 64 bits a 1.4 Ghz.
-- Almacenamiento de hasta 128Gb.
+- Hasta 4GB de RAM.
+- Almacenamiento SSD de hasta 1TB.
 - WiFi doble modo y doble banda 2.4Ghz/5Ghz.
-- Bluetooth 4.2
-- Módulo de radio (para la red en maya de larga distancia).
+- Bluetooth 4.2.
+- Módulo de radio Sub-GHz (*1) max out. 27dB (*2)
 - Puerto Ethernet.
 - 4 puertos USB.
+
+_(*1) Para la red mesh de larga distancia_
+
+_(*2) Sujeto a regulaciones regionales_
 
 ----
 #### :warning: Warning :warning:
