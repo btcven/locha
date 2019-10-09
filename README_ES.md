@@ -1,6 +1,4 @@
-<img height="200px" src="images/locha_logo.png">
-
-# Locha Mesh
+<img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
 
 Locha Mesh es una red de radio que permite tanto comunicacion entre individuos como transacciones Bitcoin, sin internet o incluso sin electricidad procedente de la red electrica. Estamos trabajando no solo en el protocolo, tambien desarrollamos el firmware para dispositivos asequibles como **Turpial** o **Harpia**.
 
