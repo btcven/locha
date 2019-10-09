@@ -1,6 +1,6 @@
 <img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
 
-Locha Mesh es una red de radio que permite tanto comunicacion entre individuos como transacciones Bitcoin, sin internet o incluso sin electricidad procedente de la red electrica. Estamos trabajando no solo en el protocolo, tambien desarrollamos el firmware para dispositivos asequibles como **Turpial** o **Harpia**.
+Locha Mesh es una red de radio Sub-GHz que permite la comunicacion entre individuos mediante mensajes de texto, intercambio de imágenes o notas de voz así como transacciones Bitcoin, sin internet o incluso sin electricidad procedente de la red electrica. Estamos trabajando no solo en el protocolo, tambien desarrollamos el firmware para dispositivos asequibles como **Turpial** o **Harpia**.
 
 ## Sobre el código
 
@@ -37,7 +37,7 @@ Es un dispositivo pequeño y portable basado en [ESP32-WROVER](DS/esp32-wrover_d
 - USB-C para carga y actualizar el software.
 - ~~Pantalla OLED de 0.96".~~ _(*3)_
 
-En cada Turpial podemos conectar hasta 3 clientes via WiFi para enviar/recibir mensajes de texto o transacciones Bitcoin.
+En cada Turpial podemos conectar hasta 3 clientes via WiFi para enviar/recibir mensajes de texto, archivos de imagen, notas de voz o transacciones Bitcoin.
 
 _(*1) Modulo de radio para la comunicación de larga distancia via mesh._
 
