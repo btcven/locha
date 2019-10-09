@@ -58,5 +58,5 @@ limitations under the License.
 Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
-Readme available in [English](https://github.com/btcven/locha/blob/master/README.md) | [Spanish](https://github.com/btcven/locha/blob/master/README_ES.md)
-
+----
+Leeme en: [Español](README.md)
