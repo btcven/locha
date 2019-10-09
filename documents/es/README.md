@@ -33,18 +33,9 @@ La banda de radiofrecuencia en muchos casos es la denominada **ISM** (**I**ndust
 |-----------|-----------------|-----------------|-------------|
 | América   | 902.00 MHz      | 928.00 MHz      | 915.00 MHz  |
 | Europa    | 433.05 MHz      | 434.79 MHz      | 422.92 MHz  |
-| Europa(*) |                 |                 |             |
+| Europa(*) |                 |                 | 868.00 MHz  |
 | Asia      |                 |                 |             |
-
-LoRaWAN por lo tanto se aleja del objetivo marcado al disponer  de uno o varios nodos que hacen de concentradores o enrutadores de la comunicación, cuyo fallo desconectará a los nodos que dependen de él, tal como se describe en el caso de aplicaciones Wi-Fi.
-
-Sin embargo **LoRa** (**Lo**ng **Ra**nge)[ref**], la modulación sobre la que se establece LoRaWAN, resulta una vehículo de transporte interesante sobre el que desarrollar este proyecto.
-
-
-
-
 
 
 #### License
-(c) Copyright 2019 locha.io developers and advisors _[@rdymac](https://github.com/rdymac), [luisan00](https://github.com/luisan00), [@JazB](https://github.com/Jazb), [@rdesanctis](https://github.com/rdesanctis)_
-
+(c) Copyright 2019 locha.io developers and advisors _[@rdymac](https://github.com/rdymac), [luisan00](https://github.com/luisan00)
