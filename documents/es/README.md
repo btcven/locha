@@ -24,9 +24,13 @@ Los dispositivos participantes se conectan a un nodo central (Router)[ref**] de 
 
 **LoRaWAN** (**Lo**ng **Ra**nge **W**ide **A**rea **N**etwork)[ref**], es una especificación inalámbrica, que fue diseñada teniendo en cuenta factores como baja potencia, largo alcance y bajo consumo. La arquitectura típica suele ser de estrella, los nodos de la red  se comunican a través de una puerta de enlace (Gateway). A su vez este Gateway puede ser enlazado con un servidor central, construyendo de esta forma una doble estrella.
 
-[fig]
+**LoRa** (**Lo**ng **Ra**nge), es la modulación usada en la especificación LoRaWAN, no está limitado su uso a esta y puede ser considerado un buen candidato a la hora de desarrollar un stack de red con la posibilidad de implementar topologías de tipo malla o simplemente realizar conexiones punto a punto.
+LoRa es ideal para cubrir grandes distancias entre nodos, pero sin embargo tenemos como contrapartida una ancho de banda demasiado reducido para nuestro propósito.
+Por otro lado encontramos otra limitación, esta es que tan solo existe un fabricante de chips LoRa, lo que podría considerarse un problema a futuro.
 
-La banda de radiofrecuencia en muchos casos es la denominada **ISM** (**I**ndustrial, **S**cientific,**M**edical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso y rango electromagnético a ubicación geográfica.
+
+
+La banda usada es la denominada **ISM** (**I**ndustrial, **S**cientific,**M**edical) [ref**] , abierta a todo el mundo sin necesidad de licencia, limitada en cuanto a potencia de transmisión, factor de uso y rango electromagnético a ubicación geográfica.
 
 
 | Región    | Límite inferior | Límite superior | Punto medio |
