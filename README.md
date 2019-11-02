@@ -28,7 +28,8 @@ Sure! We have tested the code in some routers running the OpenWRT OS, also some 
 
 
 ## Contribution guidelines
-TBD
+
+Please read our [contributing guide.](CONTRIBUTING.md)
 
 ----
 #### :warning: Warning :warning:
