@@ -2,16 +2,22 @@
 
 <img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
 
-The Locha Mesh is a radio network for communications and Bitcoin transactions without internet or even power grid.
-We are working not only in a protocol, but also the firmware for affordable devices like the *Turpial* or *Harpia*.
+The Locha Mesh is a radio network for communications and cryptocurrency transactions without internet or even power grid.
+We are working not only in a protocol, but also the firmware for affordable devices like the *Turpial*, *Harpia*, or their DIY equivalents. We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
 
 ## What's in the code
 
 * The main software running on Turpial devices (ESP32) can be found [here](https://github.com/btcven/locha-mesh-app)
 
+* Our firmware for the ESP32 (Turpial) chip boards can be found [here](https://github.com/btcven/turpial-firmware)
+
+* Our firmware for the radio modules can be found [here](https://github.com/btcven/radio-firmware). In practice the firmware can be installed on any platform capable of running [contiki-ng](https://github.com/contiki-ng/contiki-ng/wiki), but currently our focus is on support for the [SimpleLink platform](https://github.com/contiki-ng/contiki-ng/wiki/Platform-simplelink).
+
 * Messages routing protocol code can be found [here]() (link needs to be updated)
 
 * The current React Native mobile app can be found [here](https://github.com/btcven/LochaMesh-Chat)
+
+* Find Locha Mesh simulator, datasheets, and more on the [btcven repository](https://github.com/btcven).
 
 * Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
