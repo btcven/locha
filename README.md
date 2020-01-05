@@ -9,9 +9,15 @@ We are working not only in a protocol, but also the firmware for affordable devi
 
 * The main software running on Turpial devices (ESP32) can be found [here](https://github.com/btcven/locha-mesh-app)
 
+* Our firmware for the ESP32 (Turpial) chip boards can be found [here](https://github.com/btcven/turpial-firmware)
+
+* Our firmware for the CC1312R radio modules can be found [here](https://github.com/btcven/radio-firmware)
+
 * Messages routing protocol code can be found [here]() (link needs to be updated)
 
 * The current React Native mobile app can be found [here](https://github.com/btcven/LochaMesh-Chat)
+
+* Find Locha Mesh simulator, datasheets, and more on the [btcven repository](https://github.com/btcven).
 
 * Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
 
