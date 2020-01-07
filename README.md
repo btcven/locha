@@ -1,37 +1,73 @@
+<p align="center">
+  <a href="https://locha.io/">
+  <img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
+  </a>
+</p>
 
+<p align="center">
+  <a href="https://locha.io/">Project Website</a> |
+  <a href="https://locha.io/donate">Donate</a> |
+  <a href="https://github.com/sponsors/rdymac">Sponsor</a> |
+  <a href="https://locha.io/buy">Buy</a>
+</p>
 
-<img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
+<h1 align="center">Locha Mesh</h1>
 
-The Locha Mesh is a radio network for communications and cryptocurrency transactions without internet or even power grid.
-We are working not only in a protocol, but also the firmware for affordable devices like the *Turpial*, *Harpia*, or their DIY equivalents. We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
+The Locha Mesh is a radio network for communications and cryptocurrency
+transactions without internet or even power grid. We are working not only in a
+protocol, but also the firmware for affordable devices like the *Turpial*,
+*Harpia*, or their DIY equivalents. We adhere to open source ethos at every
+step and aim to make this tool as decentralized as possible so users can
+transmit with freedom.
 
-## What's in the code
+## What's in the code?
 
-* The main software running on Turpial devices (ESP32) can be found [here](https://github.com/btcven/locha-mesh-app)
+* The main application that communicates with the Turpial devices (ESP32 &
+SimpleLink radio MCUs) can be found
+[here](https://github.com/btcven/locha-mesh-chat).
 
-* Our firmware for the ESP32 (Turpial) chip boards can be found [here](https://github.com/btcven/turpial-firmware)
+* Our firmware for the Turpial boards (ESP32) can be found
+[here](https://github.com/btcven/turpial-firmware).
 
-* Our firmware for the radio modules can be found [here](https://github.com/btcven/radio-firmware). In practice the firmware can be installed on any platform capable of running [contiki-ng](https://github.com/contiki-ng/contiki-ng/wiki), but currently our focus is on support for the [SimpleLink platform](https://github.com/contiki-ng/contiki-ng/wiki/Platform-simplelink).
+* Our firmware for the radio modules (SimpleLink radio MCUs) can be found
+[here](https://github.com/btcven/radio-firmware). In practice the firmware can
+be installed on any platform capable of running
+[Contiki-NG](https://github.com/contiki-ng/contiki-ng/wiki), but currently our
+focus is on support for the
+[SimpleLink platform](https://github.com/contiki-ng/contiki-ng/wiki/Platform-simplelink).
 
-* Messages routing protocol code can be found [here]() (link needs to be updated)
+* Routing protocol and code for the mesh network be found in
+[radio-firmware](https://github.com/btcven/radio-firmware) and in our
+[Contiki-NG fork](https://github.com/btcven/contiki-ng) repositories.
 
-* The current React Native mobile app can be found [here](https://github.com/btcven/LochaMesh-Chat)
+* Find Locha Mesh simulator, datasheets, and more on the
+[Bitcoin Venezuela organization](https://github.com/btcven).
 
-* Find Locha Mesh simulator, datasheets, and more on the [btcven repository](https://github.com/btcven).
-
-* Documentation can be found [here](https://github.com/btcven/locha/tree/master/documents)
+* Documentation can be found
+[here](https://github.com/btcven/locha/tree/master/documents).
 
 ## Supported devices
 
 ### Turpial
-Is a small and portable device [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview) based system.
+It is a small and portable device
+[ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview)
+based system.
 
-Radio module, battery type, and more details are currently described [here](https://docs.google.com/document/d/12sjBhGs7FgMGoDsuASq4MyQFnGfmT4qZNib8H_P6eSw/edit)
+Radio module, battery type, and more details about the board are currently
+described
+[here](https://docs.google.com/document/d/12sjBhGs7FgMGoDsuASq4MyQFnGfmT4qZNib8H_P6eSw/edit).
 
+<p align="center">
+  <img height="533px" width="400px" src="images/turpial-finished-board.jpg">
+  <br/>
+  <i>Actual board photo</i>
+</p>
 
-### Can the Locha Mesh software be installed on other devices?
-Sure! We have tested the code in some routers running the OpenWRT OS, also some ARM MCUs can be a good choice. The firmware has a low RAM footprint and we are trying to keep it "vendor agnostic".
-
+<p align="center">
+  <img height="338px" width="600px" src="images/turpial-size-compared.jpg">
+  <br/>
+  <i>Size comparision of a Turpial board</i>
+</p>
 
 ## Contribution guidelines
 
@@ -39,13 +75,17 @@ Please read our [contributing guide.](CONTRIBUTING.md)
 
 ----
 #### :warning: Warning :warning:
-Please take into account that some things in this repo are in a very early stage. Thank you for reading through the code and for sharing your ideas on Twitter and the [ISSUES](https://github.com/btcven/locha/issues) section here at GitHub or under each specific repo.
+
+Please take into account that some things in this repo are in a very early
+stage. Thank you for reading through the code and for sharing your ideas on
+Twitter and the [Issues](https://github.com/btcven/locha/issues) section here
+at GitHub or under each specific repo.
 
 ----
 ## Stay connected
 
-- Twitter [@Locha_io](https://twitter.com/Locha_io)
-- Web [locha.io](https://locha.io)
+- Twitter [@Locha_io](https://twitter.com/Locha_io).
+- Website [locha.io](https://locha.io).
 
 ## License
 
@@ -66,4 +106,4 @@ Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
 ----
-Leeme en: [Español](README.md)
+Leeme en: [Español](README.es.md)
