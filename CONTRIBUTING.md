@@ -19,3 +19,9 @@ You may find that your skills or interests can be best used on a specific projec
 - [turpial-firmware](https://github.com/btcven/turpial-firmware) (ESP32 boards)
 - [locha-mesh-simulator](https://github.com/btcven/locha-mesh-simulator) (radio link simulator)
 - [btcven](https://github.com/btcven) (Bitcoin Venezuela organization repos)
+
+## Locha Mesh Contributors 
+
+Many of our original contributors have been doing this work on their own in oppressed countries. We are working on helping them find and use tools like [Tor](https://www.torproject.org/) to safely connect to GitHub and add their contributions to help make this technology more open and available to all. We appreciate your patience and support as we transition into a more open project and consolidate all of the great work that has been done outside of GitHub to this point. 
+
+The future is ours, when we work together.
