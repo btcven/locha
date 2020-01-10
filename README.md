@@ -13,8 +13,8 @@
 
 <h1 align="center">Locha Mesh</h1>
 
-The Locha Mesh is a radio network for communications and cryptocurrency
-transactions without internet or even power grid. We are working not only in a
+The Locha Mesh is a radio network for off-grid messaging and cryptocurrency
+transactions without access to the internet. We are working not only in a
 protocol, but also the firmware for affordable devices like the *Turpial*,
 *Harpia*, or their DIY equivalents. We adhere to open source ethos at every
 step and aim to make this tool as decentralized as possible so users can
@@ -86,6 +86,7 @@ at GitHub or under each specific repo.
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io).
 - Website [locha.io](https://locha.io).
+- Telegram [Locha](t.me/Locha_io) 
 
 ## License
 
