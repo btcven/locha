@@ -13,7 +13,7 @@ We are working to improve our labeling system to help contributors and supporter
 
 ## Other Locha Mesh Repositories 
 
-You may find that your skills or interests can be best used on a specific project within the Locah Mesh repositories. Please review these repositories to find which ones you would like to contribute to:
+You may find that your skills or interests can be best used on a specific project within the Locha Mesh repositories. Please review these repositories to find which ones you would like to contribute to:
 - [locha-mesh-chat](https://github.com/btcven/locha-mesh-chat) (mobile application)
 - [radio-firmware](https://github.com/btcven/radio-firmware) (radio module)
 - [turpial-firmware](https://github.com/btcven/turpial-firmware) (ESP32 boards)
