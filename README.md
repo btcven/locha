@@ -55,7 +55,7 @@ based system.
 
 Radio module, battery type, and more details about the board are currently
 described
-[here](https://docs.google.com/document/d/12sjBhGs7FgMGoDsuASq4MyQFnGfmT4qZNib8H_P6eSw/edit).
+[here](https://github.com/btcven/locha/blob/master/documents/turpial-description.md).
 
 <p align="center">
   <img height="533px" width="400px" src="images/turpial-finished-board.jpg">
