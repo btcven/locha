@@ -18,12 +18,13 @@ https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076P8
 V2
 https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076T28KWG/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid = 1I6U573FU3RRH & keywords = heltec% 2Blora & qid = 1567694750 & s = gateway & sprefix = helte% 2Caps% 2C154 & sr = 8-1 & th = 1
 
-### WROOM modules 
+### WROVER modules 
 Offer provide 4MB of flash storage and 8MB of PSRAM, in addition to the RAM whose quantity is common to WROOM models, this is the one chosen for version 2 of the Turpial.
 
 Any distributor like Digikey, Mouser, Sparkfun will have them in their catalog.
 
-https://www.digikey.es/product-detail/es/schtoeta-engineering-limited/ESP32-DEVKITC-32D-F/1965-1003-ND/9693290?utm_adgroup=RF+Boards&mkwid=sL3aXk1j2&pcrid=2418584w&&t & pdv = c & productid = 9693290 & slid = & gclid = EAIaIQobChMIsd7Z5uS55AIVWYXVCh16Hw8lEAYYBCABEgK_TPD_BwE
+https://www.espressif.com/en/products/hardware/esp-wrover-kit/overview
+
 
 
 ## Radio system
