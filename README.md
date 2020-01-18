@@ -49,7 +49,7 @@ focus is on support for the
 ## Supported devices
 
 ### Turpial
-It is a small and portable device
+A Turpial is a small and portable device
 [ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview)
 based system.
 
@@ -66,7 +66,7 @@ described
 <p align="center">
   <img height="338px" width="600px" src="images/turpial-size-compared.jpg">
   <br/>
-  <i>Size comparision of a Turpial board</i>
+  <i>Size comparison of a Turpial board</i>
 </p>
 
 ## Contribution guidelines
@@ -86,7 +86,7 @@ at GitHub or under each specific repo.
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io).
 - Website [locha.io](https://locha.io).
-- Telegram [Locha](t.me/Locha_io) 
+- Telegram [Locha](t.me/Locha_io)
 
 ## License
 
