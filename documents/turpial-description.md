@@ -13,10 +13,10 @@ It can be purchased on the manufacturer's own website, www.adafruit.com or at an
 The first has a storage of 4MB, the second of 8MB (more than enough). It includes a charging and battery management system, it also has a small OLED screen of 128x64 points that could be used to monitor some parameters without having to connect it to a PC.
 
 V1
-https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076P8GRWV/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid = 1I6U573FU3RRH & keywords = heltec% 2Blora & qid = 1567694750 & s = gateway & sprefix = helte% 2Caps% 2C154 & sr = 8-1 & th = 1
+https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076P8GRWV/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1I6U573FU3RRH&keywords=heltec%2Blora&qid=1567694750&s=gateway&sprefix=helte%2Caps%2C154&sr=8-1&th=1
 
 V2
-https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076T28KWG/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid = 1I6U573FU3RRH & keywords = heltec% 2Blora & qid = 1567694750 & s = gateway & sprefix = helte% 2Caps% 2C154 & sr = 8-1 & th = 1
+https://www.amazon.es/MakerHawk-desarrollo-Bluetooth-pantalla-pulgadas/dp/B076T28KWG/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1I6U573FU3RRH&keywords=heltec%2Blora&qid=1567694750&s=gateway&sprefix=helte%2Caps%2C154&sr=8-1&th=1
 
 ### WROVER modules 
 Offer provide 4MB of flash storage and 8MB of PSRAM, in addition to the RAM whose quantity is common to WROOM models, this is the one chosen for version 2 of the Turpial.
