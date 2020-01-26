@@ -11,11 +11,15 @@
   <a href="https://locha.io/buy">Buy</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/btcven/locha/graphs/contributors">Contributors</a> |
+  <a href="#backers">Backers</a>
+</p>
+
 <h1 align="center">Locha Mesh</h1>
 
-The Locha Mesh is a radio network for off-grid messaging and cryptocurrency
-transactions without access to the internet. We are working not only in a
-protocol, but also the firmware for affordable devices like the *Turpial*,
+The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
+transactions without access to the Internet. We are developing the protocol and the firmware for affordable devices like the *Turpial*,
 *Harpia*, or their DIY equivalents. We adhere to open source ethos at every
 step and aim to make this tool as decentralized as possible so users can
 transmit with freedom.
