@@ -31,6 +31,16 @@ transmit with freedom.
 
 You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $350 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
 
+* Become a Sponsor here in GitHub: https://github.com/sponsors/rdymac (your sponsorship may be matched by GitHub!)
+
+* Donate any amount using Bitcoin and Lightning Network to the open-source efforts: https://locha.io/donate
+
+* Pre-order 3 Turpial devices for a $1000 USD worth of BTC donation to the open-source efforts: https://locha.io/buy
+
+* Support and donate XMR to our Monero Community Crowdfunding System (CCS) proposal [here](https://repo.getmonero.org/monero-project/ccs-proposals/merge_requests/115).
+
+* Donate ETH and ERC20 tokens through the Gitcoin Grants page [here](https://gitcoin.co/grants/385/locha-mesh-private-txs-censorship-resistant-dapps?tab=activity).
+
 ## Getting started
 
 The Locha Mesh is under active development. If you want to join the development efforts, please follow the instructions below on how to get started.
