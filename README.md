@@ -47,7 +47,7 @@ You can support the Locha Mesh open-source software and hardware efforts by dona
 
 ## Getting started
 
-The Locha Mesh is under active development. If you want to join the development efforts, please follow the instructions below on how to get started.
+The Locha Mesh is under active development. If you are a C/C++ developer and you want to join the development efforts, or you are a maker and would like to setup the development kits to have them ready for when the firmwares are ready, or if you are a phreaker and you want to hack new ways for decentralized communications, please follow the instructions below on how to get started.
 
 * You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or [compatible development hardware](https://github.com/btcven/locha/blob/master/documents/turpial-description.md) which is comprised of an ESP32 and a radio module.
 
