@@ -24,31 +24,47 @@ transactions without access to the Internet. We are developing the protocol and 
 step and aim to make this tool as decentralized as possible so users can
 transmit with freedom.
 
+## Backers
+
+
+### Become a backer
+
+You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $350 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
+
+## Getting started
+
+The Locha Mesh is under active development. If you want to join the development efforts, please follow the instructions below on how to get started.
+
+* You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or [compatible development hardware](https://github.com/btcven/locha/blob/master/documents/turpial-description.md) which is comprised of an ESP32 and a radio module.
+
+* Once you have the hardware you need to follow the instructions on [how to flash the ESP32](https://github.com/btcven/turpial-firmware#getting-started), and [how to flash the radio module](https://github.com/btcven/radio-firmware#getting-started).
+
+* If you need help, please join our Telegram group [here](https://t.me/Locha_io).
+
+
 ## What's in the code?
 
-* The main application that communicates with the Turpial devices (ESP32 &
-SimpleLink radio MCUs) can be found
+* The first application that communicates with the Turpial devices can be found
 [here](https://github.com/btcven/locha-mesh-chat).
 
 * Our firmware for the Turpial boards (ESP32) can be found
 [here](https://github.com/btcven/turpial-firmware).
 
-* Our firmware for the radio modules (SimpleLink radio MCUs) can be found
-[here](https://github.com/btcven/radio-firmware). In practice the firmware can
-be installed on any platform capable of running
-[Contiki-NG](https://github.com/contiki-ng/contiki-ng/wiki), but currently our
-focus is on support for the
-[SimpleLink platform](https://github.com/contiki-ng/contiki-ng/wiki/Platform-simplelink).
+* Our firmware for the radio modules can be found
+[here](https://github.com/btcven/radio-firmware).
 
-* Routing protocol and code for the mesh network be found in
-[radio-firmware](https://github.com/btcven/radio-firmware) and in our
-[Contiki-NG fork](https://github.com/btcven/contiki-ng) repositories.
+* The routing protocol and code for the mesh network can be found
+[here](https://github.com/btcven/radio-firmware).
 
-* Find Locha Mesh simulator, datasheets, and more on the
+* You can find a Locha Mesh simulator, datasheets, and more in the
 [Bitcoin Venezuela organization](https://github.com/btcven).
 
 * Documentation can be found
 [here](https://github.com/btcven/locha/tree/master/documents).
+
+## Contribution guidelines
+
+Please read our [contributing guide.](CONTRIBUTING.md)
 
 ## Supported devices
 
@@ -72,10 +88,6 @@ described
   <br/>
   <i>Size comparison of a Turpial board</i>
 </p>
-
-## Contribution guidelines
-
-Please read our [contributing guide.](CONTRIBUTING.md)
 
 ----
 #### :warning: Warning :warning:
