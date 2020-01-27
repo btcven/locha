@@ -24,6 +24,8 @@ transactions without access to the Internet. We are developing the protocol and 
 step and aim to make this tool as decentralized as possible so users can
 transmit with freedom.
 
+<br>
+
 ## Backers
 
 
@@ -41,6 +43,8 @@ You can support the Locha Mesh open-source software and hardware efforts by dona
 
 * Donate ETH and ERC20 tokens through the Gitcoin Grants page [here](https://gitcoin.co/grants/385/locha-mesh-private-txs-censorship-resistant-dapps?tab=activity).
 
+<br>
+
 ## Getting started
 
 The Locha Mesh is under active development. If you want to join the development efforts, please follow the instructions below on how to get started.
@@ -51,6 +55,7 @@ The Locha Mesh is under active development. If you want to join the development 
 
 * If you need help, please join our Telegram group [here](https://t.me/Locha_io).
 
+<br>
 
 ## What's in the code?
 
@@ -72,9 +77,13 @@ The Locha Mesh is under active development. If you want to join the development 
 * Documentation can be found
 [here](https://github.com/btcven/locha/tree/master/documents).
 
+<br>
+
 ## Contribution guidelines
 
 Please read our [contributing guide.](CONTRIBUTING.md)
+
+<br>
 
 ## Supported devices
 
@@ -99,6 +108,8 @@ described
   <i>Size comparison of a Turpial board</i>
 </p>
 
+<br>
+
 ----
 #### :warning: Warning :warning:
 
@@ -108,11 +119,16 @@ Twitter and the [Issues](https://github.com/btcven/locha/issues) section here
 at GitHub or under each specific repo.
 
 ----
+
+<br>
+
 ## Stay connected
 
-- Twitter [@Locha_io](https://twitter.com/Locha_io).
-- Website [locha.io](https://locha.io).
+- Twitter [@Locha_io](https://twitter.com/Locha_io)
+- Website [locha.io](https://locha.io)
 - Telegram [Locha](t.me/Locha_io)
+
+<br>
 
 ## License
 
