@@ -126,7 +126,7 @@ at GitHub or under each specific repo.
 
 - Twitter [@Locha_io](https://twitter.com/Locha_io)
 - Website [locha.io](https://locha.io)
-- Telegram [Locha](t.me/Locha_io)
+- Telegram [Locha](https://t.me/Locha_io)
 
 <br>
 
