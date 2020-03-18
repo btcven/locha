@@ -24,7 +24,7 @@
 - [Trabajo propuesto](#trabajo-propuesto)
 - [Modificaciones propuestas](#modificaciones-propuestas)
 - [Estructura de descomposición del proyecto](#estructura-de-descomposici%c3%b3n-del-proyecto)
-- [Base Teorica](#base-teorica)
+- [Base Teórica](#base-te%c3%b3rica)
   - [Protocolos de Enrutamiento](#protocolos-de-enrutamiento)
   - [Clasificación de los protocolos según su funcionamiento.](#clasificaci%c3%b3n-de-los-protocolos-seg%c3%ban-su-funcionamiento)
     - [Protocolos Proactivos](#protocolos-proactivos)
@@ -87,7 +87,7 @@
 - [Tabla de operaciones para los mensajes de ruta multicast](#tabla-de-operaciones-para-los-mensajes-de-ruta-multicast)
   - [fetch_rte_msg_table_entry](#fetchrtemsgtableentry)
   - [update_rte_msg_table](#updatertemsgtable)
-- [Generacion y procesamineto de mensajes](#generacion-y-procesamineto-de-mensajes)
+- [Generación y procesamiento de mensajes](#generaci%c3%b3n-y-procesamiento-de-mensajes)
   - [build_rfc_5444_message_header](#buildrfc5444messageheader)
   - [receive_RREQ](#receiverreq)
   - [generate_rreq](#generaterreq)
@@ -97,23 +97,24 @@
   - [regenerate_rrep](#regeneraterrep)
 
 # Introducción
-El objetvo de este proyecto es la implementacion del protocolo **AODVv2**, el cual se enmarca en uno de mayor envergadura que comprende las siguientes fases.
+El objetivo de este proyecto es la implementación del protocolo **AODVv2**, el cual se enmarca en uno de mayor envergadura que comprende las siguientes fases.
 
-1. Implementacion del protocolo **AODVv2** en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
+1. Implementación del protocolo **AODVv2** en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
 2. Verificar el rendimiento del protocolo **AODVv2** en escenarios reales y contrastarlo con lo previsto por el marco teórico desarrollado con anterioridad.
+3. Desarrollo del driver necesario para la integracion con el sistema operativo.
+4. cálculo y establecimiento de valores de constantes para el funcionamiento de la red.
 
 
-El protocolo AODVv2 enfrenta algunos desafios para poder trabajar de manera optima en las areas de aplicacion provistas para este tipo de resdes, como lo son :
-
+El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera optima en las areas de aplicación provistas para este tipo de redes, como lo son:
 
 <ul class="w3-ul w3-border">
- <li><h4>Topologia dinamica.</h4></li>
+ <li><h4>Topología dinámica.</h4></li>
  <li><h4>Restricciones de recursos(hardware).</h4></li>
- <li><h4>heterogeneidad entre nodos(diferencias en el hardware).</h4></li>
+ <li><h4>Heterogeneidad entre nodos(diferencias en el hardware).</h4></li>
 </ul>
 
 
-La red LOCHA-MESH es un intento para reunir gente interesada en las comunicaciones inalámbricas, es un proyecto open source en el cual se intenta construir una red de datos libre, para así contar con un nuevo medio de comunicación libre. Una red libre, es una red (en este caso inalámbrica ) creada, administrada y gestionada por los propios usuarios. Una red libre mesh es distribuida, que no pertenece a nadie en particular pero nos pertenece a todos. Una red libre mesh ofrece acceso libre y gratuito a la propia red. Por acceso libre se entiende que cualquier persona puede acceder a la red en cualquier momento y puede llegar hasta cualquier parte de la red.
+**LOCHA-MESH** es un intento para reunir gente interesada en redes y comunicaciones inalámbricas, es un proyecto **open source** en el cual se intenta construir una red de datos libre, para así contar con un nuevo medio de comunicación abierto, libre y resiliente . Una red, en este caso inalámbrica, creada, administrada y gestionada por los propios usuarios. Una red libre mesh es distribuida, no pertenece a nadie en particular pero nos pertenece a todos. Una red libre mesh ofrece acceso libre y gratuito a la propia red. Por acceso libre se entiende que cualquier persona puede acceder a la red en cualquier momento y puede llegar hasta cualquier parte de la red.
 
 
 
@@ -139,8 +140,10 @@ El dispositivo debe ser capaz de comportarse como un cliente y un servidor de la
 
 # Modificaciones propuestas
 
-En el actual trabajo se pretende utilizar el protocolo de ruteo AODVv2 como punto de partida para hacer los test iniciales funcionando desde el dispositivo embebido basado en microcontrolador;
+En el actual trabajo se pretende utilizar el protocolo de ruteo AODVv2 como punto de partida para hacer los test iniciales funcionando desde el dispositivo embebido basado en microcontrolador.
+
 Una de las principales ventajas de reemplazar IPv4 a IPv6 es habilitar un espacio de IPs muy amplio debido a que se incrementa de 32 bits a 128 bits el espacio de direcciones, con 128 bits hay aproximadamente 10 exp 38 direcciones posibles.
+
 Otro cambio interesante es el uso de módulos de radiofrecuencia en el rango del sub-gigahercio.
 
 
@@ -163,13 +166,13 @@ La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo q
 
 **Seguimiento y control**: Seguimiento del proyecto.
 
-**Reuniones**: Reuniones realizadas con el director el proyecto.
+**Reuniones**: Reuniones realizadas con el director del proyecto.
 
 **Documentación**: Documentación recogiendo todo lo trabajado en el proyecto. 
 
 
 
-# Base Teorica
+# Base Teórica
 
 ## Protocolos de Enrutamiento
 
@@ -211,9 +214,9 @@ Otros ejemplos de protocolos híbridos son IS-IS de OSI (Intermediate System to 
 
 # AODVv2
 
-AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nacio en Julio del 2005 y en el an'o 2013 adopta el nombre de **AODVv2**. 
+AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
 
-El AODV es uno de los protocolos más utilizados de los algoritmos reactivos, siendo ideal para las redes Ad-Hoc. Este protocolo intercambia mensajes cuando necesita establecer una comunicación, es decir, envía mensajes a los vecinos para calcular cada ruta. Gracias a las mejoras incorporadas en AODV se evita la problemática que tiene DSDV, pero por el contrario se incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
+El AODV es uno de los protocolos más utilizados de los algoritmos reactivos, siendo ideal para las redes Ad-Hoc. Este protocolo intercambia mensajes cuando necesita establecer una comunicación, es decir, envía mensajes a los vecinos para calcular cada ruta. Gracias a las mejoras incorporadas en AODV se evita la problemática que tiene DYMO, pero por el contrario se incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
 
 
 En la siguiente figura podemos observar las diferentes versiones de AODVv2 y DYMO.
@@ -280,9 +283,10 @@ Uno de los campos es el identificador que se va modificando cada vez que se gene
 
 ![RREQ](imple_pic/route-request-flooding.png "RREQ")
 
-De la figura anterior podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**, el primer paso sera buscar en su tabla de rutas y ver si tiene una ruta almacenada hacia el destino, de no ser asi debe inicar un proceso de descubrimiento de ruta, donde envia un mensaje multicast a todos sus vecinos en el radio de alcance de la senal de radio frecuencia.
+De la figura anterior podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**, el primer paso sera buscar en su tabla de rutas y ver si tiene una ruta almacenada hacia el destino, de no ser así debe iniciar un proceso de descubrimiento de ruta, donde envía un mensaje multicast a todos sus vecinos al alcance de la señal de radio frecuencia.
 
-Este proceso comparandolo con la vida cotidiana es igual a cuanod sales a la calle a buscar a tu hijo pero no lo ves,lo primero que haces es gritar, para esperar si responde, este grito representa un mensaje multicast que puede ser escuchado por tus vecinos, y si ellos saben donde esta tu hijo, pueden informarte con un nuevo mensaje entregando una coordenada de donde se encuentra, peor si no saben donde esta este chico, podrian iniciar un nuevo grito a sus vecinos mas cercanos o mensaje de multicast, para ver si pueden ayudar en la busqueda.
+Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la calle a buscar a tu hijo pero no lo ves, lo primero que haces es gritar, para esperar si responde, este grito representa un mensaje multicast que puede ser escuchado por tus vecinos, y si ellos saben donde esta tu hijo, pueden informarte con un nuevo mensaje entregando una coordenada de donde se encuentra, pero si no saben donde esta este chico, podrían iniciar un nuevo grito a sus vecinos mas cercanos o mensaje de multicast, para ver si pueden ayudar en la búsqueda.
+
 
 ```en desarrollo aun ```
 
@@ -1143,7 +1147,7 @@ loop_free(advRte, rte)
 
 ## check_route_state
 
-Actualice el estado de la entrada de ruta en función de los tiempos de espera. si la ruta se puede usar para reenviar un paquete
+Actualice el estado de la entrada de ruta en función de los tiempos de espera. Si la ruta se puede usar para reenviar un paquete.
 
 ```cpp
 check_route_state(route)
@@ -1254,12 +1258,12 @@ update_rte_msg_table(rteMsg)
 
 
 
-# Generacion y procesamineto de mensajes
+# Generación y procesamiento de mensajes
 
-El procesamiento de mensajes sigue el siguiente esquema general:
+El procesamiento de mensajes toma el siguiente esquema general:
 - Recibir mensajes entrantes de ruta.
-- Actualizar tablas de rutas segun corresponda.
-- Responder segun sea necesario, a menudo regenerando el mensaje entrante con informacion actualizada.
+- Actualizar tablas de rutas según corresponda
+- Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
 
 Despues de procesar un mensaje, la informacion se almacena en la tabla de rutas. Por este motivo, es igualmente apropiado establecer valores de campos de mensajes salientes, utilizando la informacion de la tabla de rutas o los campos del mensaje entrante.
 
