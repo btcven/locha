@@ -36,7 +36,7 @@ Este tipo de mensaje es con el fin de iniciar su emision desde el nodo destino, 
 
 ¿Cómo se logra devolver un mensaje **RREP** desde el destino hacia el originador? ¿Cuál es la magia detrás de todo?
 
-veremos el caso de uso que despejara algunas de las dudas que se generan al tratar de entender el procedimiento.
+Veremos el caso de uso que despejara algunas de las dudas que se generan al tratar de entender el procedimiento.
 
 ## Como se logra encontrar un ruta a un destino ?
 
@@ -123,6 +123,7 @@ Sabiendo esto hagamos un esquema de como se debe ver la tabla de rutas de cada n
 En cada tabla tenemos la distancia que necesita un nodo para alcanzar a cada nodo de la red, por ejemplo en la tabla del **nodo 1** el primer valor de distancia es cero para alcanzar al mismo nodo, pero si el **nodo 1** quiere alcanzar al **nodo 5**, debera pasar a traves del **nodo 3** y **nodo 4** antes de llegar al destino , lo que da una distancia total de 7.
 
 Hasta este punto hemos visto los tres tipos de mensajes utilizados para la opracion de AODVV2 y como se extiende un mensaje de requerimiento de ruta o RREQ en la red para encontrar un destino, tambien hemos visto que es lo que contiene una tabla de rutas.
+
 Ahora tratare de ilustrar con un ejemplo muy sencillo como es el proceso de crear el mensaje de requerimiento de ruta y como es el proceso de retransmision del mensaje hasta encontrar la ruta hacia el destinatario.
 
 ## Manejo de tabla de rutas a partir de mensajes de requerimiento y confirmacion de rutas (RREQ,RREP)
@@ -181,6 +182,7 @@ el **nodo C** al  no tener informacion sobre el **nodo E** debera incrementar el
 el hop count en este caso representa la distancia entre el nodo origen del mensaje (nodo A) y el que recibe el mensaje (nodo C)
 
 ```<A, 1, 1, E, , 1>```
+
 el ultimo parametro del paquete llamado  hop count , nos esta diciendo que desde el nodo C hasta el nodo A hay un salto de distancia. 
 
 En la siguiente imagen observamos como se deberia de ver la tabla de rutas del nodo C; La linea roja indica que estamos almacenando la informacion del nodo que genero el RREQ dentro de la tabla de rutas, con el fin de tener la manera de regresarle un mensaje si la ruta buscada es encontrada; Tambien hay otro campo llamado next o next hop , dicho campo almacena la direccion del nodo vecino que transmite o retransmite el paquete.

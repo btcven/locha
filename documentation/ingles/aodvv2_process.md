@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://locha.io/">
-  <img height="200px" src="pictures/LogotipoTurpial-Color.20-09-19.svg">
+  <img height="200px" src="../../images/LogotipoTurpial-Color.20-09-19.svg">
   </a>
   <br/>
   <a href="https://travis-ci.com/btcven/radio-firmware">
@@ -30,8 +30,6 @@
   - [Route Tables](#route-tables)
     - [Updating AODVv2 routing table](#updating-aodvv2-routing-table)
  
-
-
 ## Introduction
 Ad hoc networking has gained popularity and is applied in a wide range of applications, such as public safety and emergency response networks. Mobile Ad-hoc Networks (MANETs) are self-conﬁguring networks that support broadband communication without relying on wired infrastructure. Routing protocols of ad-hoc networks are main factors determining performance and reliability of these networks. 
 They specify the way of communication among diﬀerent nodes by ﬁnding appropriate paths on which data packets must be sent.
