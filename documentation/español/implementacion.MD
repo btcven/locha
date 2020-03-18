@@ -333,15 +333,6 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
   </tr>
 </table>
 
-
-## Diagrama de flujo general del funcionamiento de un nodo.
-
-<img src="imple_pic/node-job.png" alt="drawing" height="600" width="600" align="center"/>
- 
-- En el punto 1 llegan todos los paquetes a traves de la interface de red.
-- En el punto 3 la API de sockets permite recibir y enviar paquetes por el puerto 269.
-- En el punto 2 el nodo procesa el Paquete y segun el caso envia un RREP o RREQ por medio de 4.
-
  <br>
 
 Hasta ahora se ha presentado una descripción general del funcionamiento del protocolo AODVv2. En los sucesivos apartados de este capítulo se entrará en profundidad en los procesos, estructura de datos y mensajes implementados y testados en escenarios reales. Estos procesos se enmarcan en el procedimiento de descubrimiento de la ruta. Dicha operación engloba varios procesos y hace uso  de  estructuras de datos para almacenar entre otras la información  de  las rutas.
