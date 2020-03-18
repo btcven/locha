@@ -125,7 +125,7 @@ Cuando un router AODVv2 precisa encontrar un camino hacia un destino, inicia el 
 En la Figura anterior podemos observar el proceso de descubrimiento de ruta, la cual se inicia desde el nodo **d** como originador del RREQ y finaliza en el nodo **g** como entidad que inicia la devolucion de un mensaje **route reply**, para afirmar que es el destino que se desea encontrar, y dicho mensaje sera devuelto a traves dela ruta que seaprendio del mensaje de solicitud de busqueda, debido a que en una solicitu de ruta, el nodo que recibe el mensaje debera almacenar informacion del nodo que envio el requerimiento de ruta , como alternativa para aprender una ruta de regreso hacia su vecino.
 
 ```Descripcion visual de como se inunda completamente la red en busca de una ruta especifica```.
-![RREQ](imple_pic/route-request.png "RREQ")
+![RREQ](imple_pic/route-request-flooding.png "RREQ")
 
 
 El mantenimiento de las rutas de las tablas de encaminamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de encaminamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
