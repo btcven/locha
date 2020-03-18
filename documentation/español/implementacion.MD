@@ -15,11 +15,11 @@
  <a href="https://locha.io/buy">Buy</a>
 </p>
 
-<h1 align="center">Implementacion del protocolo de enrutamineto AODVv2 </h1>
+<h1 align="center">Implementación del protocolo de enrutamiento AODVv2 </h1>
 
 # Tabla de contenido
 - [Tabla de contenido](#tabla-de-contenido)
-- [Introduccion](#introduccion)
+- [Introducción](#introducci%c3%b3n)
 - [Motivación](#motivaci%c3%b3n)
 - [Trabajo propuesto](#trabajo-propuesto)
 - [Modificaciones propuestas](#modificaciones-propuestas)
@@ -31,7 +31,7 @@
     - [Protocolos Reactivos](#protocolos-reactivos)
     - [Protocolos Híbridos](#protocolos-h%c3%adbridos)
 - [AODVv2](#aodvv2)
-  - [Caracteristicas](#caracteristicas)
+  - [Características](#caracter%c3%adsticas)
   - [Descubrimiento de Rutas](#descubrimiento-de-rutas)
   - [Tabla de rutas](#tabla-de-rutas)
   - [Establecimiento de rutas inversas](#establecimiento-de-rutas-inversas)
@@ -49,7 +49,7 @@
     - [Neighbor Set Update](#neighbor-set-update)
   - [Procesado de la información de los mensajes de ruta](#procesado-de-la-informaci%c3%b3n-de-los-mensajes-de-ruta)
     - [Evaluación de la información de ruta](#evaluaci%c3%b3n-de-la-informaci%c3%b3n-de-ruta)
-    - [Actualización dela información de las rutas](#actualizaci%c3%b3n-dela-informaci%c3%b3n-de-las-rutas)
+    - [Actualización de la información de las rutas](#actualizaci%c3%b3n-de-la-informaci%c3%b3n-de-las-rutas)
     - [Eliminación de los mensajes redundantes usando la Multicast Route Message Set](#eliminaci%c3%b3n-de-los-mensajes-redundantes-usando-la-multicast-route-message-set)
     - [Creación de mensajes RREQ](#creaci%c3%b3n-de-mensajes-rreq)
     - [Recepción de mensajes RREQ](#recepci%c3%b3n-de-mensajes-rreq)
@@ -96,7 +96,7 @@
   - [receive_rrep](#receiverrep)
   - [regenerate_rrep](#regeneraterrep)
 
-# Introduccion
+# Introducción
 El objetvo de este proyecto es la implementacion del protocolo **AODVv2**, el cual se enmarca en uno de mayor envergadura que comprende las siguientes fases.
 
 1. Implementacion del protocolo **AODVv2** en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
@@ -224,7 +224,7 @@ En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (A
 
 **AODV** es uno de los cuatro protocolos estandarizados por el grupo de trabajo **IETF MANET**. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero se pretende establecer una ruta entre un nodo de origen y un destino **(descubrimiento de ruta)**, y luego mantener una ruta entre los dos nodos durante los cambios de topología **(mantenimiento de la ruta)**.
 
-## Caracteristicas
+## Características
 
 <h2>Las características del protocolo son:</h2>
 
@@ -617,7 +617,7 @@ Como paso previo al proceso de evaluación, se convierten las estructuras de los
 
 Este proceso tiene como finalidad evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set, para ello se compara el coste y el número de secuencia del AdvRte con la entrada correspondiente en la tabla Local Route Set.
 
-### Actualización dela información de las rutas
+### Actualización de la información de las rutas
 
 Después de determinar que el AdvRte se utilizará para actualizar Local Route Set, este proceso se encarga de añadir una nueva entrada en la Local Route Set o actualizar una existente.
 

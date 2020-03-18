@@ -191,7 +191,7 @@ como ejemplo si el nodo a transmite un RREQ, el nodo C podra almacenar la direcc
 
 ![alt text](images/aodv-concept3.png "AODV")
 
-despues de actualizar la tabla de rutas, procedemos a retransmitir el mensaje
+Después de actualizar la tabla de rutas, procedemos a retransmitir el mensaje
 
 ![alt text](images/aodv-concept4.png "AODV")
 
@@ -205,7 +205,7 @@ Luego de eso debera retransmitir el mensaje
 
 La imagen anterior muestra como el RREQ ha alcanzado al destino buscado por el originador del paquete de busqueda de ruta. ahora es el nodo destino (nodo E) el encargado de preparar un paquete RREP, para ser enviado hasta el nodo A a traves de los nodos  intermedios, cabe recordar que los mensajes RREP son mensajes de tipo unicast, lo que quiere decir que se debe usar la informacion almacenada en las tablas de rutas para poder regresar hasta el origen del todo.
 
-antes de enviar cualquier mensaje desde el nodo E, hagamos una actualizacion en la tabla de rutas de dicho nodo y una preparacion del mensaje de RREP
+Antes de enviar cualquier mensaje desde el nodo E, hagamos una actualizacion en la tabla de rutas de dicho nodo y una preparacion del mensaje de RREP
 
 **<E, A, 120, 0>**
 
@@ -220,7 +220,7 @@ Luego de tener la tabla de rutas actualizada y de tener listo el paquete RREP de
 
 ![alt text](images/aodv-concept8.png "AODV")
 
-Despues de recibir el RREP, el nodo D debra actualizar su tabla de rutas con el fin de conocer un camino de regreso hacia el nodo E.
+Después de recibir el RREP, el nodo D deberá actualizar su tabla de rutas con el fin de conocer un camino de regreso hacia el nodo E.
 
 ![alt text](images/aodv-concept9.png "AODV")
 
@@ -241,4 +241,4 @@ por ultimo el nodo A debera crear una entrada para el nodo C, lo que quiere deci
 ![alt text](images/aodv-concept13.png "AODV")
 
 
-y con esto ya abremos encontrado una ruta hacia el destino o nodo E; Todos los nodo shan actualizado su tabla de rutas y tiene  informacion necesaria para enrutar paquetes hacia el nodo D.
+y con esto ya habremos encontrado una ruta hacia el destino o nodo E; Todos los nodos han actualizado su tabla de rutas y tiene  informacion necesaria para enrutar paquetes hacia el nodo D.
