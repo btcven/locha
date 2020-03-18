@@ -1,6 +1,6 @@
 <p align="center">
  <a href="https://locha.io/">
- <img height="200px" src="images/LogotipoTurpial-Color.20-09-19.svg">
+ <img height="200px" src="../../images/LogotipoTurpial-Color.20-09-19.svg">
  </a>
  <br/>
  <a href="https://travis-ci.com/btcven/radio-firmware">
