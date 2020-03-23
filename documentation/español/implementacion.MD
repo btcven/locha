@@ -22,9 +22,11 @@
 - [1. Introducción y objetivos](#1-introducci%c3%b3n-y-objetivos)
   - [1.1 Motivacion](#11-motivacion)
   - [1.2 Objetivos](#12-objetivos)
+  - [1.3 Planificacion](#13-planificacion)
 - [2. Trabajo propuesto](#2-trabajo-propuesto)
 - [3. Modificaciones propuestas](#3-modificaciones-propuestas)
 - [4. Estructura de descomposición del proyecto](#4-estructura-de-descomposici%c3%b3n-del-proyecto)
+- [Clasificacion de los protocolos de enrutamiento para redes ad hoc inalambricas](#clasificacion-de-los-protocolos-de-enrutamiento-para-redes-ad-hoc-inalambricas)
 - [5. Base Teórica](#5-base-te%c3%b3rica)
   - [5.1 Protocolos de Enrutamiento](#51-protocolos-de-enrutamiento)
   - [5.2 Clasificación de los protocolos según su funcionamiento.](#52-clasificaci%c3%b3n-de-los-protocolos-seg%c3%ban-su-funcionamiento)
@@ -32,13 +34,16 @@
     - [5.2.2 Protocolos Reactivos](#522-protocolos-reactivos)
     - [5.2.3 Protocolos Híbridos](#523-protocolos-h%c3%adbridos)
     - [5.2.4 Criterios para seleccionar el protocolo a utilizar](#524-criterios-para-seleccionar-el-protocolo-a-utilizar)
+- [Seleccion del protocolo para la implementacion de la red](#seleccion-del-protocolo-para-la-implementacion-de-la-red)
 - [6. AODVv2](#6-aodvv2)
   - [6.1 Características](#61-caracter%c3%adsticas)
   - [6.2 Descubrimiento de Rutas](#62-descubrimiento-de-rutas)
-  - [6.3 Mantenimiento de Rutas](#63-mantenimiento-de-rutas)
-  - [6.4 Describiendo de forma general el protocolo](#64-describiendo-de-forma-general-el-protocolo)
+  - [6.3 Describiendo el proceso de requerimiento de ruta en una red ad hoc.](#63-describiendo-el-proceso-de-requerimiento-de-ruta-en-una-red-ad-hoc)
+    - [6.3.1 Ventajas de la busqueda de rutas por inundacion de la red](#631-ventajas-de-la-busqueda-de-rutas-por-inundacion-de-la-red)
+    - [6.3.1 Desventajas de la inundacion de mensajes en la red.](#631-desventajas-de-la-inundacion-de-mensajes-en-la-red)
+    - [6.3.2 Entrada de ruta inversa](#632-entrada-de-ruta-inversa)
+  - [6.4 Mantenimiento de Rutas](#64-mantenimiento-de-rutas)
   - [6.5 Tabla de rutas](#65-tabla-de-rutas)
-  - [6.6 Establecimiento de rutas inversas](#66-establecimiento-de-rutas-inversas)
   - [6.7 Router Client Set](#67-router-client-set)
   - [6.8 Neighbor Set](#68-neighbor-set)
   - [6.9 Sequence Number](#69-sequence-number)
@@ -104,13 +109,13 @@
 <h1>Capitulo 1</h1>
 
 # 1. Introducción y objetivos
-En este capıtulo introductorio se describe el contexto en el que se circunscribe elpresente proyecto y sus aspectos organizativos.
+En este capıtulo introductorio se describe el contexto en el que se circunscribe el presente proyecto y sus aspectos organizativos.
 En primer lugar, en la Seccion 1.1, se exhibe el marco en el que cobra sentido este trabajo. En la Seccion 1.2, se enumeran los objetivos a cumplir para su correcta consecucion. La Seccion 1.3 muestra la secuencia de fases en las que se descompone el trabajo realizado y la planificacion programada para cada una de ellas.
 
 
 ## 1.1 Motivacion
 
-Es un hecho bien sabido que una de las revoluciones tecnologicas mas significativas en los ultimos tiempos ha sido la aparicion de las redes inalambricas. Desde su invencion en los anos 70, la historia de la industria de las telecomunicaciones ha sido testigo de suvertiginoso crecimiento durante la  ultima decada.
+Es un hecho bien sabido que una de las revoluciones tecnologicas mas significativas en los ultimos tiempos ha sido la aparicion de las redes inalambricas. Desde su invencion en los anos 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  ultima decada.
 
 Existen dos vertientes en cuanto a redes inalambricas se refiere, atendiendo a la arquitectura de red subyacente. En primer lugar se tienen las redes inalambricas con infraestructura. Dentro de este tipo de redes, uno de los ejemplos mas significativos son las redes celulares. 
 
@@ -146,11 +151,11 @@ Con el fin de comprender las tendencias en tecnologıas inalambricas y entender 
 
 Se puede afirmar que la historia comercial de las redes inalambricas comenzo entorno al ano 1980 con la primera generacion o 1G, en la que los telefonos eran analogicos. Estos dispositivos solo se podıan emplear dentro de un paıs, ya que existıan diferentes estandares, dependiendo del area geografica mundial. 
 
-El despliegue de la segunda generacion, 2G, surgio en la decada de los 90, anadiendo fax, datos y capacidades de mensajerıa al servicio de voz tradicional. Sin embargo, tampoco se adopto como un estandar homogeneo mundial. Recientemente,2G se ha extendido a 2.5G, con el fin de mejorar el soporte de transmison de datos debaja velocidad. Actualmente, los esfuerzos se focalizan en la transicion desde 2G hacia 3G, con la que se adoptara un estandar global y con capacidades de roaming en todo el planeta, ademas de incrementar considerablemente el ancho de banda. 
+El despliegue de la segunda generacion, 2G, surgio en la decada de los 90, anadiendo fax, datos y capacidades de mensajerıa al servicio de voz tradicional. Sin embargo, tampoco se adopto como un estandar homogeneo mundial. Recientemente,2G se ha extendido a 2.5G, con el fin de mejorar el soporte de transmison de datos de baja velocidad. Luego se hace la transicion desde 2G hacia 3G, con la que se adopta un estandar global y con capacidades de roaming en todo el planeta, ademas de incrementar considerablemente el ancho de banda. 
 
 Desafortunadamente, a pesar de las grandes expectativas puestas sobre 3G, estas redes experimentaron dificultades en ser desplegadas y en el cumplimiento de las prestaciones que se esperaba de ellas debido a las limitaciones de la arquitectura de la red. Por ello, nacio la nueva generacion 4G, una red global basada en una aproximacion de sistemas abiertos. Los dos principales objetivos de 4G son integrar diferentes tipos detecnologıas inalambricas con lıneas cableadas de manera transparente y la convergencia de voz, contenido multimedia y datos sobre una sola red troncal IP. Las redes ad hoc inalambricas moviles encajan en este contexto puesto que se espera que sean una de las partes mas importantes de la arquitectura de las redes 4G y 5G. 
 
-Gran parte de la investigacion realizada en el campo de las redes ad hoc inalambricas se ha centrado en los protocolos de encaminamiento. La razon principal por la que se hace necesario desarrollar protocolos eficientes para este tipo de redes es que la experiencia y el conocimiento adquiridos con las redes fijas no son aplicables a las redes ad hoc inalambricas. Mientras que en las redes fijas los enlaces son fiables y el encaminamiento se puede estudiar independientemente de las caracterısticas fısicas dela red, las redes ad hoc inalambricas no admiten esa asuncion basica. Ademas, la naturaleza de las redes ad hoc inalambricas conlleva cambios frecuentes e imprevisibles en la topologıa de la red, anadiendo complejidad al encaminamiento. 
+Gran parte de la investigacion realizada en el campo de las redes ad hoc inalambricas se ha centrado en los protocolos de encaminamiento. La razon principal por la que se hace necesario desarrollar protocolos eficientes para este tipo de redes es que la experiencia y el conocimiento adquiridos con las redes fijas no son aplicables a las redes ad hoc inalambricas. Mientras que en las redes fijas los enlaces son fiables y el encaminamiento se puede estudiar independientemente de las caracterısticas fısicas dela red, las redes ad hoc inalambricas no admiten esa asuncion basica. Ademas, la naturaleza de las redes ad hoc inalambricas conlleva cambios frecuentes e imprevisibles en la topologıa de la red, anadiendo complejidad al enrutamineto. 
 
 Estas nuevas dificultades, antes inexistentes en las redes cableadas, junto con la importancia crıtica de los protocolos de encaminamiento para establecer la comunicacion entre nodos, hacen que el area del encaminamiento sea una de las mas activas en la investigacion de las redes ad hoc inalambricas. 
 
@@ -160,10 +165,12 @@ El proposito del presente trabajo se enmarca aquı, ya que ofrece un estudio sob
 
 El objetivo de este proyecto es la implementación del protocolo de enrutamiento  **AODVv2**, el cual se enmarca en uno de mayor envergadura que comprende las siguientes fases.
 
-1. Implementación del protocolo **AODVv2** en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
-2. Verificar el rendimiento del protocolo **AODVv2** en escenarios reales y contrastarlo con lo previsto por el marco teórico desarrollado con anterioridad.
-3. Desarrollo del driver necesario para la integracion con el sistema operativo con el hardware.
-4. cálculo y establecimiento de valores de constantes para el funcionamiento de la red.
+1. Seleccion del protocolo de enrutamiento mas adecuado para este proyecto, basados en ciertos criterios expuestos mas adelante.
+2. Seleccion del hardware mas adecuado con los recursos necesarios para ejecutar el software y almacenar los datos necesarios. 
+3. Implementación del protocolo **AODVv2** en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
+4. Verificar el rendimiento del protocolo **AODVv2** en escenarios reales y contrastarlo con lo previsto por el marco teórico desarrollado con anterioridad.
+5. Desarrollo del driver necesario para la integracion con el sistema operativo con el hardware.
+6. cálculo y establecimiento de valores de constantes para el funcionamiento de la red.
 
 Este proposito fundamental puede a su vez descomponerse enlos objetivos parciales enumerados a continuacion:
 
@@ -175,8 +182,7 @@ Este proposito fundamental puede a su vez descomponerse enlos objetivos parciale
 - Generacion y analisis de resultados.
 - Extraccion de conclusiones.
 - Redaccion de la documentacion.
-- Seleccion del systema operativo a utilizar en el proyecto que cumpla con los requerimientos necesarios.
-
+- Seleccion del sistema operativo a utilizar en el proyecto que cumpla con los requerimientos necesarios, basados en criterios expuestos mas adelante.
 
 
 El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera optima en las areas de aplicación provistas para este tipo de redes, como lo son:
@@ -199,16 +205,30 @@ Hoy día, su uso se ha popularizado y ha dado pie a un campo emergente, el cual 
 
 << Sin embargo, este tipo de redes también pueden proporcionar un medio de comunicación fiable y seguro, donde ninguna persona, empresa o administración, aún siendo partícipe activo de la misma, pueda vetar, censurar o acceder a cualquier información, a menos que de forma expresa, sea el destinatario. Otro interesante campo de aplicación es en zonas afectadas por catástrofes naturales, pobre infraestructura, aquellas que han sufrido los efectos de conflictos bélicos o políticos, o simplemente personas que valoran su anonimato >>
 
+
+
+## 1.3 Planificacion
+Es de vital Importancia establecer y seguir una secuencia logica de pasos para llevar a cabo este proyecto;El desarrollo de este proyecto se puede dividir en las siguientes subtareas:
+- Preparacion y planificacion: Durante la fase de preparacion se acudio a diferentes fuentes bibliograficas para la obtencion del conocimiento necesario acerca de las redes ```ad-hoc``` y de los diferentes ```protocolos de enrutamineto``` para completar la fase dedocumentacion necesaria. 
+- Diseno del Hardware necesario para completar este proyecto; El diseno del harware a su vez se puede descomponer en varias subtareas como lo son:
+  - Diseno de la fuente de voltaje que provee eficiencia energetica y alimentacion al circuito digital.
+  - Diseno del circuito de carga para la bateria.
+  - Diseno del sistema de radio compatible conel estandar IEEE 802.15.4.
+  - Diseno del sistema de control, el cual sera el encargado de recibir informacion desde la aplicacion movil y transferirla al modulo de radio para su correcto manejo en la red ad-hoc.
+  - Diseno del circuito impreso necesario para montar todos los componentes.
+  - Test del hardware para comprobar que todos los perifericos necesarios son fncionales.
+- Diseno de la aplicacion movil,la cual sirve como GUI o interface grafica.
+- Diseno del driver necesario para hacer la integracion del hardware con el sistema operativo.
+
 # 2. Trabajo propuesto
 
-En el presente trabajo se pretende como objetivo principal desarrollar un dispositivo electrónico capaz de comportarse como un nodo de de la red LOCHA-MESH, dotado con un módulo de radiofrecuencia que puede interconectar nodos lejanos con distancias alrededor de los 6 Km, el dispositivo también posee un módulo wifi que puede comportarse como un modem wifi, servidor web, cliente web, servidor de websockets, cliente websocket entre otras bondades que lo hacen perfecto para este proyecto.
+En el presente trabajo se pretende como objetivo principal desarrollar un dispositivo electrónico capaz de comportarse como un nodo de de la red LOCHA-MESH, dotado con un módulo de radiofrecuencia que puede interconectar nodos lejanos con distancias alrededor de los 6 Km, el dispositivo también posee un módulo wifi que puede comportarse como un modem wifi, servidor web, cliente web, servidor de websockets, cliente websocket entre otras bondades que lo hacen perfecto para este proyecto y el cual nos permite interconectar .
 Como segundo objetivo implemnetar AODVv2, para que se adecue a las necesidades de la red Locha y pensando siempre en la seguridad y privacidad de la información que fluye por la red.
 El dispositivo debe ser capaz de comportarse como un cliente y un servidor de la red, debe ser capaz de comportarse como un router y conocer muy bien información relevante de los nodos vecinos que conforman la red.
 
-
 # 3. Modificaciones propuestas
 
-En el presente trabajo se pretende implementar la version mas actual del protocolo AODVv2 sin cambios notables en un sistema embebido con recursos limitados para analizar el comportamiento de la red funcionando con el nombrado protocolo de encaminamineto.
+En el presente trabajo se pretende implementar la version mas actual del protocolo AODVv2 sin cambios notables en un sistema embebido con recursos limitados para analizar el comportamiento de la red funcionando con el nombrado protocolo de encaminamiento; Tambien se pretende construir el hardware necesario para obtener y analizar resultados en entornos reales.
 
 Es bien sabido que si se varian los parametros de funcionamiento del protocolo, se puede mejorar o degradar el desempeno de los nodos en la red. Por ejemplo el tiempo TTl que indica la vida util de una ruta almacenada dentro de un router,es un parametro de vital importancia y que podria tener un fuerte impacto en el desempeno de la red y que ademas varia dependiendo del tamano de la red.
 
@@ -217,11 +237,15 @@ Es bien sabido que si se varian los parametros de funcionamiento del protocolo, 
 
 La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo que se realizará en el proyecto. A continuación se presenta la lista de tareas necesarias para alcanzar los objetivos:
 
-**Formación**: La formación para desarrollar el proyecto, se parte en dos:
+**Formación**: La formación para desarrollar el proyecto, se parte en tres:
 - RIOT OS: El sistema operativo en el que se basa la aplicación que se implementara.
-- El lenguaje de programación que se usará para desarrollar el proyecto.
+- Driver necesario para la integracion con el sistema operativo.
+- Hardware necesario para ejecutar la aplicacion.
 
-**Diseño**: Grupo de tareas necesarias para llevar a cabo el diseño de la aplicación.
+**Diseño**: Grupo de tareas necesarias para llevar a cabo el diseño de la aplicación, entre las que podemos destacar:
+- seleccion del protocolo mas adecuado para la tarea prevista.
+- seleccion del modulo de radio con el cual se pretende interconectar los nodos a la red.
+- Criterios de calidad, eficiencia y bajo consumo, para el diseno del software y el hardware.
 
 **Implementación**: Partes que habrá que implementar para llevar a cabo el proyecto, tales como la gestión de los módulos de radio, la simulación del movimiento de los nodos, del consumo de la batería y la implementación de estados.
 
@@ -236,6 +260,9 @@ La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo q
 **Documentación**: Documentación recogiendo todo lo trabajado en el proyecto. 
 
 
+# Clasificacion de los protocolos de enrutamiento para redes ad hoc inalambricas
+
+Se han propuesto numerosos protocolos de encaminamiento con la finalidad de cubrir las diferentes necesidades en funcion de los distintos entornos y condiciones de trafico. La gran variedad de protocolos existentes hace que existan diversos criterios para su clasificacion, que a su vez reflejan los aspectos mas importantes considerados para su diseno. Las fuentes consultadas proponen diferentes catalogaciones que en muchos casos son incompletas, ya que no contemplan todos los criterios existentes.
 
 # 5. Base Teórica
 
@@ -290,7 +317,28 @@ Entre los criterios mas importantes para seleccionar un protocolo de esta índol
 - No se sobrecargue la red con mensajes de control.
 - Sea tolerante a fallos.
 
-En todos los protocolos de encaminamiento usados para redes inalámbricas y de sensores uno de los factores más importantes es el establecimiento de ruta. Si un protocolo elige buenas rutas de encaminamiento ofrecerá menor latencia entre la fuente y el destino, por consiguiente se realizaran menos transmisiones de mensajes que a su vez se representa en consumo de energía.
+En todos los protocolos de encaminamiento usados para redes inalámbricas y de sensores uno de los factores más importantes es el establecimiento de ruta. Si un protocolo elige buenas rutas de encaminamiento ofrecerá menor latencia entre la fuente y el destino, por consiguiente se realizaran menos transmisiones de mensajes que a su vez se representa en menos consumo de energía.
+
+
+# Seleccion del protocolo para la implementacion de la red
+
+<p>
+<img src="imple_pic/protocolo_seleccion.svg"  height="650" width="650" align="left"/>
+</p>
+
+Este diagrama muestra los criterios mas importantes a la hora de seleccionar el protocolo que mas se adecue para el proyecto, la idea detras de esto es evaluar y comparar cada caracteristica ofrecida por el protocolo y tener una base para la seleccion de dicho protocolo.
+
+Entre los parametros mas importantes se pueden destacar que: 
+- Tiene que ser libre de ```loops```.
+- El costo computacional debe ser muy bajo, debido a que se ejecuta dentro de un sistema embebido con recursos limitados.
+- El protocolo debe ser reactivo, para evitar inundar la red con mensajes aun cuando las rutas no se estan utilizando, y para ahorrar bateria mientras no se requieren rutas por parte del usuario.
+
+Como se puede apreciar en la tabla la puntuacion mas alta despues de sumar cada columna es para el protocolo **AODVv2** y **TORA**, hemos decidido trabajar con el protocolo AODVv2, debido a que tiene documentacion muy actualizada en la web, aunque TORA tambien mereceria la pena revisarlo.
+
+Otro punto a tener en cuenta es el tipo de topologia de red se utilizara para la implementacion, y segun la tabla y respetando los criterios por parte del cliente y resaltando que se deben reducir los puntos de fallo, la topologia en estrella es descartada y en su lugar se utilizara la topologia en malla para el actual proyecto.
+
+
+
 
 # 6. AODVv2
 
@@ -303,7 +351,7 @@ En la siguiente figura podemos observar las diferentes versiones de AODVv2 y DYM
 
 ![draft version](imple_pic/aodv-versions.png "draft version")
 
-En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (AODV) llamado protocolo de enrutamiento AODVv2.
+En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (AODV) llamado protocolo de enrutamiento AODVv2, pero simplemente hablaremos de AODV para referirnos indistintivamente a la version mas actual del protocolo.
 
 **AODV** es uno de los cuatro protocolos estandarizados por el grupo de trabajo **IETF MANET**. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero se pretende establecer una ruta entre un nodo de origen y un destino **(descubrimiento de ruta)**, y luego mantener una ruta entre los dos nodos durante los cambios de topología **(mantenimiento de la ruta)**.
 
@@ -361,15 +409,164 @@ En el formato del paquete RREQ del protocolo de encaminamiento AODV, nos encontr
 
 Uno de los campos es el identificador que se va modificando cada vez que se genera un envío de RREQ. Esto sirve para que los nodos que lo vayan recibiendo (nodos intermedios) sepan si el paquete es idéntico al anterior (tiene el mismo identificador) y deben descartarlo, o por el contrario, si deben retransmitirlo (porque el identificador de paquetes es distinto). 
 
-![RREQ](imple_pic/route-request-flooding.png "RREQ")
+<p>
+<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
 
-De la figura anterior podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**, el primer paso sera buscar en su tabla de rutas y ver si tiene una ruta almacenada hacia el destino, de no ser así debe iniciar un proceso de descubrimiento de ruta, donde envía un mensaje multicast a todos sus vecinos al alcance de la señal de radio frecuencia.
+En esta figura podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**, el primer paso sera buscar en su tabla de rutas y ver si tiene una ruta almacenada hacia el destino, de no ser así debe iniciar un proceso de descubrimiento de ruta, donde envía un mensaje multicast a todos sus vecinos al alcance de la señal de radiofrecuencia.
 
-Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la calle a buscar a tu hijo pero no lo ves, lo primero que haces es gritar, para esperar si responde, este grito representa un mensaje multicast que puede ser escuchado por tus vecinos, y si ellos saben donde esta tu hijo, pueden informarte con un nuevo mensaje entregando una coordenada de donde se encuentra, pero si no saben donde esta este chico, podrían iniciar un nuevo grito a sus vecinos mas cercanos o mensaje de multicast, para ver si pueden ayudar en la búsqueda.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+
+<img src="imple_pic/aodv-family.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la calle a buscar a tu hijo pero no lo ves, lo primero que haces es gritar, para esperar si responde, este grito representa un mensaje multicast que puede ser escuchado por tus vecinos, y si ellos saben donde esta tu hijo, pueden informarte con un nuevo mensaje el cual se asemeja a un mensaje de ```Route Reply``` RREP entregando una ruta hacia donde se encuentra tu hijo, pero si no saben donde esta este chico, podrían iniciar un nuevo grito a sus vecinos mas cercanos o mensaje de multicast, para ver si pueden ayudar en la búsqueda y asi sucesivamente hasta encontrar ese destino que buscas, que en este caso es tu hijo.
+
+
+<br>
+<br>
+
+## 6.3 Describiendo el proceso de requerimiento de ruta en una red ad hoc.
+
+<h2> Paso 1. </h2>
+
+<p>
+<img src="imple_pic/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- El nodo **S** desea enviar un paquete con informacion hacia el nodo **D**,primero debe buscar en su tabla de rutas y confirmar si la ruta hacia el destino existe o no.
+
+- Si la ruta hacia el destino existe no debera iniciar ningun proceso diferente a enviar el mensaje con la informacion del usuario de la aplicacion, pero si no se tiene una ruta hacia el destino, el nodo debe iniciar un proceso de busqueda de ruta. En este caso asumimos que no tenemos la ruta deseada hacia el destino
+
+- Este tipo de mensaje, es un mensaje Multicast, el cual sera escuchado por todos sus vecinos dentro del radio de cobertura.
 
 
 
-## 6.3 Mantenimiento de Rutas 
+<h2> Paso 2. </h2>
+
+<p>
+<img src="imple_pic/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+
+- El nodo **S** envia un mensaje de requerimiento de ruta llamado RREQ a todos sus vecinos, los cuales son **B**, **C** y **E**. Como se puede ver en el grafico, los vecinos directos del nodo **S**, no tienen informacion de la ruta requerida, asi que deben inicar la retransmision del mensaje Route Request, a sus vecinos mas cercanos; Cabe aclarar que los nodos pueden recibir el mismo paquete de requerimiento de ruta desde diferentes nodos, como veremos a continucacion.
+
+<br>
+<br>
+<br>
+
+<h2> Paso 3. </h2>
+
+<p>
+<img src="imple_pic/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- Como se puede observar en la imagen, el **nodo H** recibe el requerimiento de ruta de dos vecinos distintos. lo que podria dar lugar a una colision.
+
+- AOdvv2 maneja una tabla de mensajes de ruta para verificar que no se ha regenerado antes un mensaje que proviene del mismo intento por conseguir una ruta en particular de un mismo origen hacia un mismo destino, com lo que se quiere decir que nunca un nodo recreara un mensaje de requerimiento de ruta que ya ha recreado antes, no importa de donde proviene.
+
+<br>
+
+<h2> Paso 4. </h2>
+
+<p>
+<img src="imple_pic/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- Podemos apreciar graficamente como el **nodo C** recibe el mensaje de requerimeinto de ruta **RREQ** desde el ```nodo G``` y el ```nodo H```, pero no lo recrea, porque el **nodo C** ya ha recreado este mensaqje antes.
+  
+- La verificacion de si se ha recreado este mensaje antes se hace por medio de la tabla de mensajes de ruta, la cual debe ser interpolada cada que se recibe algun mensaje tipo **RREQ** o **RREP**.
+
+<br>
+<br>
+<br>
+
+<h2> Paso 5. </h2>
+
+<p>
+<img src="imple_pic/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- En este caso ambos ```nodo J``` y ```nodo K``` retransmiten el paquete hacia el **nodo D**, debido a que estos nodos no conocen el uno del otro y sus transmisiones podrian colisionar. 
+
+- Es posible que el paquete con el requerimiento de ruta RREQ no se entregue al nodo D, a pesar del uso de inundacion de mensajes en la red.
+
+
+<br>
+<br>
+<br>
+<br>
+
+<h2> Paso 6. </h2>
+
+<p>
+<img src="imple_pic/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- El **nodo D** no recrea el paquete debido a que es el destinatario del mensaje de solicitud de ruta.
+- En el proceso descrito hasta aqui cada nodo intermedio deberia conocer la manera de regresar a su vecino que recreo el mensaje RREQ.
+- Cabe destacar que cuando se ejecuta el proceso de requerimiento de ruta, cada nodo involucrado en el proceso esta aprendiendo una ruta inversa al nodo originador del mensaje de requerimiento de ruta.
+- Cuando se empiezan a crear los mensajes de respuesta de ruta o comunmente llamados RREP, los nodos intermedioos aprenden una ruta inversa hacia el nodo originador del mensaje de ```RREP```, y de esta manera se podria establecer una ruta bidireccional entre los nodos **S** y **D**.
+
+<h2> Paso 7. </h2>
+
+<p>
+<img src="imple_pic/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
+</p>
+
+- Hasta este punto, ya se a completado la inundacion del mensaje de requerimiento de ruta por toda la red.
+
+- Los nodos que no estan en la ruta de **S** o aislados de la red no recibiran el paquete, por ejemplo el ```nodo Z```
+
+- Nodos que pasan a traves del destinatario tampoco reciben el paquete, por ejemplo el ```nodo N```.
+
+<br>
+
+<br>
+<br>
+<br>
+
+### 6.3.1 Ventajas de la busqueda de rutas por inundacion de la red
+
+- simplicidad.
+- Podria ser mas eficiente que muchos otros protocolos cuando la frecuencia de la transmision de informaicon es lo suficientemente baja.
+- Confiable en la entrega de paquetes.
+  - Porque los paquetes al destino podrian ser entregados por distintas rutas. 
+
+
+### 6.3.1 Desventajas de la inundacion de mensajes en la red.
+
+- Potencialmente, se pueden entregar paquetes de datos de sobrecarga muy altos a demasiados nodos que no necesitan recibirlos.
+
+- En el ejemplo anterior, el ```nodoJ``` y el ```nodo K``` pueden transmitir al ```nodo D``` simultaneamente, resultando en la perdida del paquete.
+  - En este caso el destinatario podria no recibir el paquete.
+
+### 6.3.2 Entrada de ruta inversa
+
+Una vez que un nodo intermedio recibe un mensaje de requerimiento de ruta ```RREQ``` el nodo debe configurar una entrada en una tabla de rutas local conteniendo la siguiente informacion:
+  - Direccion Ip de la fuente del mensaje.
+  - Numero de secuencia de la fuente.
+  - Numero de saltos al nodo fuente.
+  - Direccion IP del nodo del cual el RREQ fue recibido.  
+  - Usando una ruta inversa un nodo puede enviar un RREP (Route Reply Packet) a la fuente.
+  - Una entrada en la tabla de rutas tambien incluye un time to live o tiempo de vida de una ruta.
+
+Cabe aclarar que estas rutas aprendidas por medio de los mensajes de requerimiento de ruta o RREQ, aun no se pueden confirmar como bidireccionales, son enlaces que de antemano se sabe son capaces de enviar mensajes , pero debemos asegurarnos de que puede recibir tambien, y esto se consigue por medio de los mensajes RREQ_ack o por medio del mismo mensaje RREP del cual hablaremos mas adelante.
+
+## 6.4 Mantenimiento de Rutas 
+El mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
+
+- Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento. En este caso el nodo enviara un RERR a la fuente para informar que no existe una ruta hacia el destino.
+- Cuando no se puede reenviar un mensaje RREP porque la ruta hacia el generador del RREQ no es válida. En este caso el nodo debe enviar en RERR hacia el generador del mensaje RREP para infórmale que la ruta hacia el origen del mensaje RREQ no es válida.
+- Cuando un nodo detecta que uno de los enlaces de un vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas que han pasado a ser invalidas.
+
+
 Cuando una ruta es encontrada se le da un tiempo de vida y se considera útil hasta que un temporizador asociado a esta ruta no expire. Esto se utiliza para no tener que iniciar un descubrimiento de ruta para cada mensaje de información que se quiere enviar. 
 
 Durante una comunicación entre el nodo fuente y el destino pude ocurrir que alguno de los nodos modifique su posición. Esto puede dar lugar a que se rompa el enlace y que la ruta quede inutilizada. 
@@ -383,230 +580,217 @@ AODV presenta una serie de opciones de optimización, como la posibilidad de rep
 Los paquetes de datos se quedan almacenados en este nodo esperando recibir un RREP con una nueva ruta disponible hacia el destino. Si este nuevo procedimiento de Descubrimiento de Ruta no tiene éxito y el RREP no llega, entonces sí que será necesario informar a la fuente acerca de la rotura del enlace enviándole un paquete RERR.
 
 
-## 6.4 Describiendo de forma general el protocolo 
 
-
-```bash
-Descripcion visual de como se inunda completamente la red en busca de una ruta especifica
-```
-
-![RREQ](imple_pic/route-request-flooding.png "RREQ")
-
-De la figura anterior podemos suponer, deducir y preguntarnos muchas cosas, hagamos un ejercicio y tratemos de entender el proceso mediante el cual el nodo ```A``` puede comunicarse con el nodo I, sin estar en el radio de cobertura.
-
-1. El nodo **A** desea enviar un paquete con informacion hacia el nodo **I**,pero no tiene idea en donde se encuentra dicho destino.
-
-Si pensamos en la vida cotidiana nuestra, no es tan diferente cuando queremos encontrar a alguien y no sabemos donde esta; Lo primero que hacemos es preguntar a nuestros vecinos si han visto a esa persona que queremos encontrar
-
-
-
-El mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
-
-- Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento. En este caso el nodo enviara un RERR a la fuente para informar que no existe una ruta hacia el destino.
-- Cuando no se puede reenviar un mensaje RREP porque la ruta hacia el generador del RREQ no es válida. En este caso el nodo debe enviar en RERR hacia el generador del mensaje RREP para infórmale que la ruta hacia el origen del mensaje RREQ no es válida.
-- Cuando un nodo detecta que uno de los enlaces de un vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas que han pasado a ser invalidas.
 
 
 
 ## 6.5 Tabla de rutas
 
-A continuacion veremos como nodos remotos pueden enviar informacion a otros nodos que estan fuera del rango de visibilidad o no pertenecene a la red local.
+En la seccion 6.6 se vio como un nodo inunda la red para encontrar a un destino, luego de que el mensaje de control RREQ llega al destino este debe responder con un mensaje de RREP, el cual es de tipo unicast , es decir un mensaje que va dirigido a un nodo especifico identificado con su direccion IP 
+
+A continuacion se expone un ejemplo para ilustrar como deberia verse la tabla de rutas en cada nodo despues de un requerimiento de ruta a todos los nodos
 
 La siguiente figura muestra una topologia de nodos basica y la tabla de rutas que es usada para encontrar a otros nodos.
 
-## 6.6 Establecimiento de rutas inversas 
-
 <p>
-<img src="imple_pic/aodv-topology.png" alt="drawing" height="250" width="350" align="center"/>
+<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
 </p>
 
 
-<h3>Tabla de Rutas para nodo 7</h3>
+<h3>Tabla de Rutas para nodo A</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
  <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
+    <th>Seq</th>
+    <th>Dest</th>
+    <th>Next</th>
+    <th>Hop</th>
+ </tr>
+  <tr>
+    <td>1</td>
+    <td>B</td>
+    <td>B</td>
+    <td>1</td>
  </tr>
  <tr>
- <td>S</td>
- <td>4</td>
- <td>4</td>
- <td>-200dbm</td>
- <td>3seg</td>
+    <td>1</td>
+    <td>E</td>
+    <td>B</td>
+    <td>2</td>
  </tr>
-</table>
-</div>
+ <tr>
+    <td>1</td>
+    <td>H</td>
+    <td>B</td>
+    <td>3</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>J</td>
+    <td>B</td>
+    <td>4</td>
+ </tr>
 
-
-<h3>Tabla de Rutas para nodo 5</h3>
-<div>
-<table id="tblOne" style="width:100%; float:left">
- <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
- </tr>
- <tr>
- <td>S</td>
- <td>2</td>
- <td>2</td>
- <td>-210dbm</td>
- <td>4seg</td>
- </tr>
-</table>
-</div>
-
-
-<h3>Tabla de Rutas para nodo 8</h3>
-<div>
-<table id="tblOne" style="width:100%; float:left">
- <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
- </tr>
- <tr>
- <td>S</td>
- <td>6</td>
- <td>3</td>
- <td>-175dbm</td>
- <td>2seg</td>
- </tr>
 </table>
 </div>
 
 
 
+<h3>Tabla de Rutas para nodo B</h3>
 
-
-<p>
-<img src="imple_pic/aodv-topology2.png" alt="drawing" height="250" width="350" align="center"/>
-</p>
-
-
-
-<h3>Tabla de rutas para nodo S</h3>
 <div>
 <table id="tblOne" style="width:100%; float:left">
  <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
+    <th>Seq</th>
+    <th>Dest</th>
+    <th>Next</th>
+    <th>Hop</th>
+ </tr>
+  <tr>
+    <td>1</td>
+    <td>A</td>
+    <td>A</td>
+    <td>1</td>
  </tr>
  <tr>
- <td>1</td>
- <td>1</td>
- <td>1</td>
- <td>-40dbm</td>
- <td>2seg</td>
+    <td>1</td>
+    <td>E</td>
+    <td>E</td>
+    <td>1</td>
  </tr>
  <tr>
- <td>2</td>
- <td>2</td>
- <td>1</td>
- <td>-50dbm</td>
- <td>1seg</td>
+    <td>1</td>
+    <td>H</td>
+    <td>E</td>
+    <td>2</td>
  </tr>
  <tr>
- <td>3</td>
- <td>3</td>
- <td>1</td>
- <td>-55dbm</td>
- <td>5seg</td>
+    <td>1</td>
+    <td>J</td>
+    <td>E</td>
+    <td>3</td>
  </tr>
- <tr>
- <td>4</td>
- <td>1</td>
- <td>2</td>
- <td>-90dbm</td>
- <td>2seg</td>
- </tr>
- <tr>
- <td>5</td>
- <td>2</td>
- <td>2</td>
- <td>-110dbm</td>
- <td>1seg</td>
- </tr>
- <tr>
- <td>6</td>
- <td>3</td>
- <td>2</td>
- <td>-98dbm</td>
- <td>4seg</td>
- </tr>
- <tr>
- <td>7</td>
- <td>1</td>
- <td>3</td>
- <td>-180dbm</td>
- <td>1seg</td>
- </tr>
- <tr>
- <td>8</td>
- <td>3</td>
- <td>3</td>
- <td>-140dbm</td>
- <td>3seg</td>
- </tr>
+
 </table>
 </div>
 
 
-<br>
+<h3>Tabla de Rutas para nodo E</h3>
 
-
-<h3>Tabla de rutas para nodo 4</h3>
 <div>
 <table id="tblOne" style="width:100%; float:left">
  <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
+    <th>Seq</th>
+    <th>Dest</th>
+    <th>Next</th>
+    <th>Hop</th>
+ </tr>
+  <tr>
+    <td>1</td>
+    <td>B</td>
+    <td>B</td>
+    <td>1</td>
  </tr>
  <tr>
- <td>S</td>
- <td>1</td>
- <td>2</td>
- <td>-90dbm</td>
- <td>3seg</td>
+    <td>1</td>
+    <td>A</td>
+    <td>B</td>
+    <td>2</td>
  </tr>
-</table>
+ <tr>
+    <td>1</td>
+    <td>H</td>
+    <td>H</td>
+    <td>1</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>J</td>
+    <td>H</td>
+    <td>2</td>
+ </tr>
 
-<h3>Tabla de rutas para nodo 2</h3>
+</table>
+</div>
+
+
+<h3>Tabla de Rutas para nodo H</h3>
+
 <div>
 <table id="tblOne" style="width:100%; float:left">
  <tr>
- <th>DST</th>
- <th>Next_Hop</th>
- <th>Hops</th>
- <th>Signal</th>
- <th>Link_lifetime</th>
+    <th>Seq</th>
+    <th>Dest</th>
+    <th>Next</th>
+    <th>Hop</th>
+ </tr>
+  <tr>
+    <td>1</td>
+    <td>A</td>
+    <td>E</td>
+    <td>3</td>
  </tr>
  <tr>
- <td>S</td>
- <td>S</td>
- <td>1</td>
- <td>-50dbm</td>
- <td>4seg</td>
+    <td>1</td>
+    <td>B</td>
+    <td>E</td>
+    <td>2</td>
  </tr>
+ <tr>
+    <td>1</td>
+    <td>E</td>
+    <td>E</td>
+    <td>1</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>J</td>
+    <td>J</td>
+    <td>1</td>
+ </tr>
+
 </table>
+</div>
 
- <br>
 
+<h3>Tabla de Rutas para nodo J</h3>
+
+<div>
+<table id="tblOne" style="width:100%; float:left">
+ <tr>
+    <th>Seq</th>
+    <th>Dest</th>
+    <th>Next</th>
+    <th>Hop</th>
+ </tr>
+  <tr>
+    <td>1</td>
+    <td>A</td>
+    <td>H</td>
+    <td>4</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>B</td>
+    <td>H</td>
+    <td>3</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>E</td>
+    <td>H</td>
+    <td>2</td>
+ </tr>
+ <tr>
+    <td>1</td>
+    <td>H</td>
+    <td>H</td>
+    <td>1</td>
+ </tr>
+
+</table>
+</div>
 Hasta ahora se ha presentado una descripción general del funcionamiento del protocolo AODVv2. En los sucesivos apartados de este capítulo se entrará en profundidad en los procesos, estructura de datos y mensajes implementados y testados en escenarios reales. Estos procesos se enmarcan en el procedimiento de descubrimiento de la ruta. Dicha operación engloba varios procesos y hace uso de estructuras de datos para almacenar entre otras la información de las rutas.
 
 ## 6.7 Router Client Set
@@ -682,12 +866,12 @@ A continuacion se dara un descripcion corta de cada uno los procesos involucrado
 
 Este proceso tiene como finalidad asegurar que no se establecen rutas a través de enlaces unidireccionales, para ello los routers AODV2 deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
 
-- Para comprobar si un enlace es bidireccional con un router upstreamse utiliza el mensaje de control Route Reply Acknowledgement (RREP_Ack). Al enviar un RREP_Ack, se espera un RREP_Ack como respuesta, si este llega en un tiempo menor a RREP_Ack_SENT_TIMEOUT demuestra que el enlace esbidireccional, en caso contrario el enlace se considera unidireccional.
+- Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control Route Reply Acknowledgement (RREP_Ack). Al enviar un RREP_Ack, se espera un RREP_Ack como respuesta, si este llega en un tiempo menor a RREP_Ack_SENT_TIMEOUT demuestra que el enlace esbidireccional, en caso contrario el enlace se considera unidireccional.
 - Para un router downstream,el hecho de recibir un mensaje RREP que contiene en el campo TargAddr la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que, un mensaje RREP requiere que un mensaje RREQ previamente haya recorrido el enlace en dirección contraria.
 
 ### 6.13.2 Neighbor Set Update
 
-- Este proceso tiene como finalidad de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set, esto permite registrar los vecinos del router AODVv2 y establecer la relación que mantiene con cada una de ellos. 
+- Este proceso tiene como finalidad la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set, esto permite registrar los vecinos del router AODVv2 y establecer la relación que mantiene con cada una de ellos. 
 
 - Cuando un router recibe un mensaje RREP y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la NeighborSet cambia a Confirmed. 
 - Cuando un router recibe un mensaje RREP_Ack y este es debido al envío de un RREP_Ack con AckReq. El enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
