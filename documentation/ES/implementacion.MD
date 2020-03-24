@@ -1,6 +1,6 @@
 <p align="center">
  <a href="https://locha.io/">
- <img height="200px" src="../../images/LogotipoTurpial-Color.20-010-19.svg">
+ <img height="200px" src="../../images/LogotipoTurpial-Color.20-09-19.svg">
  </a>
  <br/>
  <a href="https://travis-ci.com/btcven/radio-firmware">
@@ -373,7 +373,7 @@ Para la seleccion del modulo de radio el cual contiene el microcontrolador, la e
 - Al menos 2 puertos USART.
 - De bajo costo.
 - Facil de utilizar.
-- Soporte para la banda del Subgigahercio a 915Mhz. entre otras.
+- Soporte para la banda del Subgigahercio a 915Mhz.
 
 La tabla de la imagen muestra 3 familias de micrcontroladores con interface de radio frecuencia con los cuales se aplicaron los criterios basados en la necesidad actual y se eligio el ```cc1312r1``` como el modulo mas economico, robusto,con un amplio rango de covertura y de muy bajo consumo para desempenar la tarea que el ```turpial``` requiere como dispositivo transceptor.
 
@@ -381,9 +381,25 @@ La familia de microcontroladores ```cc135x``` tambien es un dispositivo que cump
 
 <br>
 <br>
-<br>
 
 ## 6.2 Seleccion de la fuente  de voltaje
+
+En esta seccion se muestran algunas opciones a la hora de seleccionar el dispositivo que se encarga de regular la corriente proveniente de la bateria y que provee la corriente necesaria al Turpial, para funcionar de una manera optima, libre de ruidos y bajas de corriente que puedan afectar el funcionamiento del sistema completo.
+
+<br>
+<img src="imple_pic/powerSupply-selection.svg"  height="650" width="450" align="left"/>
+
+Entre Los parametros mas importantes a tener en cuenta a la hora de seleccionar el dispositvo que alimenta al circuito tenemos:
+- Corriente: La corriente del circuito debe ser mayor o igual a 2 Amperios.
+- Voltaje: El dispositivo seleccionado debe ser capaz de entregar un voltaje estable de salida de 3.3 Voltios, sin inportar que la entrada que lo alimenta este por encima o por debajo del humbral requerido.
+- ALta eficiencia: El dispositivo seleccionado debe ser eficiente en la transformacion de la energia, lo que se traduce en libre de sobre calentamientos extremos.
+- Ruido: Este parametro es muy importante debido a que cualquier ruido en la senal de salida de voltaje, puede afectaral sistema completo.
+
+Al realizar la ponderacion de los diferentes dispositivos se observa que el ```LTC3113``` tiene muy buenas prestaciones, es full bridge y entrega corrientes por encima de los 2.5 Amperios,pero se ha decidido utilizar el ```TPS63802``` debido a que es facil de conseguir economico y tiene las prestaciones requeridas para el proyecto, en cuanto al ```LTC313```, es de muy buenas prestaciones pero su costo es realmemte elevado para utilizarlo en este proyecto.
+
+<br>
+<br>
+<br>
 
 ## 6.2 Seleccion del cargador de Bateria
 
