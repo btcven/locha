@@ -103,13 +103,12 @@ described
 
 
 
-<figure>
-  <img src="images/turpial-finished-board.jpg" alt="drawing" height="533" width="400" align="center" />
+<figure align="center">
+  <img src="images/turpial-finished-board.jpg" alt="drawing" height="533" width="400" />
   <figcaption>Turpial Board</figcaption>
 </figure>
-
-<figure>
-  <img src="images/turpial-size-compared.jpg" alt="drawing" height="533px" width="400px" align="center" />
+<figure align="center">
+  <img src="images/turpial-size-compared.jpg" alt="drawing" height="338px" width="600px" />
   <figcaption>Size comparison of a Turpial board</figcaption>
 </figure>
 
