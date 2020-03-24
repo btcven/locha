@@ -57,10 +57,9 @@ You can support the Locha Mesh open-source software and hardware efforts by dona
 <br>
 
 
-
 ## Getting started
 
-In this page you will find all the information related to the progress of the project, mainly in two diferents languages,[Spanish](./documentation/ES/implementacion.MD), and [English](./documentation/EN/implementation.MD). This work are still under development stage, but all day we are uodating the information to expose all the progress about the project.
+In this page you will find all the information related to the progress of the project, in two languages, [Spanish](./documentation/ES/implementacion.MD), and [English](./documentation/EN/implementation.MD). This work is still under development stage, but all days we are updating the information to expose all the progress about the project
 
 The Locha Mesh is under active development. If you are a C/C++ developer and you want to join the development efforts, or you are a maker and would like to setup the development kits to have them ready for when the firmwares are ready, or if you are a phreaker and you want to hack new ways for decentralized communications, please follow the instructions below on how to get started.
 
