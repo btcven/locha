@@ -18,16 +18,27 @@
 
 <h1 align="center">Locha Mesh</h1>
 
-The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
-transactions without access to the Internet. We are developing the protocol and the firmware for affordable devices like the *Turpial*,
-*Harpia*, or their DIY equivalents. We adhere to open source ethos at every
-step and aim to make this tool as decentralized as possible so users can
-transmit with freedom.
 
-<br>
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Backers](#backers)
+    - [Become a backer](#become-a-backer)
+  - [Getting started](#getting-started)
+  - [What's in the code?](#whats-in-the-code)
+  - [Contribution guidelines](#contribution-guidelines)
+  - [Supported devices](#supported-devices)
+    - [Turpial](#turpial)
+      - [:warning: Warning :warning:](#warning-warning-warning)
+  - [Stay connected](#stay-connected)
+  - [License](#license)
+
+The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
+transactions could be possible without access to the Internet. We are implementing and inproving the protocol and developing the firmware for affordable devices like the ```Turpial```,
+```Harpia```, or their DIY equivalents. 
+
+We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
 
 ## Backers
-
 
 ### Become a backer
 
@@ -45,17 +56,19 @@ You can support the Locha Mesh open-source software and hardware efforts by dona
 
 <br>
 
+
+
 ## Getting started
+
+In this page you will find all the information related to the progress of the project, mainly in two diferents languages,[Spanish](./documentation/ES/implementacion.MD), and [English](./documentation/EN/implementation.MD). This work are still under development stage, but all day we are uodating the information to expose all the progress about the project.
 
 The Locha Mesh is under active development. If you are a C/C++ developer and you want to join the development efforts, or you are a maker and would like to setup the development kits to have them ready for when the firmwares are ready, or if you are a phreaker and you want to hack new ways for decentralized communications, please follow the instructions below on how to get started.
 
 * You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or [compatible development hardware](https://github.com/btcven/locha/blob/master/documents/turpial-description.md) which is comprised of an ESP32 and a radio module.
 
-* Once you have the hardware you need to follow the instructions on [how to flash the ESP32](https://github.com/btcven/turpial-firmware#getting-started), and [how to flash the radio module](https://github.com/btcven/radio-firmware#getting-started).
+* Once you have the hardware you need to follow the instructions on [how to flash the ESP32](https://github.com/btcven/turpial-firmware#getting-started), and [how to flash the radio module](https://github.com/btcven/radio-firmware#getting-started); If you want to collaborate in transcription in other different languages, you are welcome.
 
 * If you need help, please join our Telegram group [here](https://t.me/Locha_io).
-
-<br>
 
 ## What's in the code?
 
@@ -74,16 +87,9 @@ The Locha Mesh is under active development. If you are a C/C++ developer and you
 * You can find a Locha Mesh simulator, datasheets, and more in the
 [Bitcoin Venezuela organization](https://github.com/btcven).
 
-* Documentation can be found
-[here](https://github.com/btcven/locha/tree/master/documents).
-
-<br>
-
 ## Contribution guidelines
 
 Please read our [contributing guide.](CONTRIBUTING.md)
-
-<br>
 
 ## Supported devices
 
@@ -96,17 +102,18 @@ Radio module, battery type, and more details about the board are currently
 described
 [here](https://github.com/btcven/locha/blob/master/documents/turpial-description.md).
 
-<p align="center">
-  <img height="533px" width="400px" src="images/turpial-finished-board.jpg">
-  <br/>
-  <i>Actual board photo</i>
-</p>
 
-<p align="center">
-  <img height="338px" width="600px" src="images/turpial-size-compared.jpg">
-  <br/>
-  <i>Size comparison of a Turpial board</i>
-</p>
+
+<figure>
+  <img src="images/turpial-finished-board.jpg" alt="drawing" height="533" width="400" align="center" />
+  <figcaption>Turpial Board</figcaption>
+</figure>
+
+<figure>
+  <img src="images/turpial-size-compared.jpg" alt="drawing" height="533px" width="400px" align="center" />
+  <figcaption>Size comparison of a Turpial board</figcaption>
+</figure>
+
 
 <br>
 
