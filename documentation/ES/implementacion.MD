@@ -42,6 +42,7 @@
   - [6.1 Seleccion del modulo de radio frecuencia](#61-seleccion-del-modulo-de-radio-frecuencia)
   - [6.2 Seleccion de la fuente  de voltaje](#62-seleccion-de-la-fuente-de-voltaje)
   - [6.2 Seleccion del cargador de Bateria](#62-seleccion-del-cargador-de-bateria)
+  - [6.3 Seleccion del control de energia de la bateria](#63-seleccion-del-control-de-energia-de-la-bateria)
   - [6.3 Seleccion del microcontrolador (Interface)](#63-seleccion-del-microcontrolador-interface)
   - [6.4 Diagrama en bloques del hardware del Turpial](#64-diagrama-en-bloques-del-hardware-del-turpial)
   - [6.5 Diagrama en bloques de la aplicacion de control](#65-diagrama-en-bloques-de-la-aplicacion-de-control)
@@ -423,6 +424,37 @@ Al realizar la ponderacion de los diferentes dispositivos se observa que el ```L
 <br>
 
 ## 6.2 Seleccion del cargador de Bateria
+
+<img src="imple_pic/BatteryChargerSelection.svg"  height="450" width="450" align="left"/>
+<br>
+
+Para la seleccion del chip encargado de cargar la bateria de litio, exiten diversas familias de integrados que tienen muy buenas prestaciones y precios bajos, hemos decidido utilizar el chip de la familia ```BQ2407x```, el cual es de facil adquisicion y se ajusta a los requerimientos de carga lineal y durabilidad en las baterias, el cual es el objetivo principal al tener un sistema de carga robusto, como el que se presenta en el diseno del Turpial.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 6.3 Seleccion del control de energia de la bateria
+
+<img src="imple_pic/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
+
+El control de energia, es el sistema que se enecarga de leer variables relacionadas con la bateria, como energia disponible, tiempo de carga, corriente suministrada etc.
+
+A la hora de seleccionar el dispositivo que se encargara de dicha tarea, se tiene un requerimiento importante y es que tenga soporte para I2C, en la tabla se pueden apreciar dos diferentes dispositivos de dos fabricantes diferentes, los cuales tienen prestaciones similares, pero difieren mucho del costo por unidad, asi que se utiliza el BQ27441-G1 como dispositivo para la recoleccion de datos relacionados con la bateria, para ser enviada a la unidad principal de control. 
+
+
+<br>
+<br>
+
+
+
+
 
 ## 6.3 Seleccion del microcontrolador (Interface)
 
