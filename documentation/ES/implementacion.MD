@@ -209,8 +209,6 @@ El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera opt
 
 **LOCHA-MESH** es un intento para reunir gente interesada en redes y comunicaciones inalámbricas, es un proyecto **open source** en el cual se intenta construir una red de datos libre, para así contar con un nuevo medio de comunicación abierto, libre y resiliente . Una red, en este caso inalámbrica, creada, administrada y gestionada por los propios usuarios. Una red libre mesh es distribuida, no pertenece a nadie en particular pero nos pertenece a todos. Una red libre mesh ofrece acceso libre y gratuito a la propia red. Por acceso libre se entiende que cualquier persona puede acceder a la red en cualquier momento y puede llegar hasta cualquier parte de la red.
 
-
-
 Los conceptos de red inalámbrica de tipo malla o Ad-hoc, han sido estudiados a lo largo del tiempo, estableciendo diversos protocolos que con mayor o menor éxito lidian con uno de sus mayores enemigos; “single-hop” (único salto) o ¿Hay vida más allá de mis vecinos?.
 
 Hoy día, su uso se ha popularizado y ha dado pie a un campo emergente, el cual ofrece una gran cantidad de aplicaciones en las que impera la necesidad de mantener dispositivos interconectados sin desplegar una red cableada y que estos interactúen con la mayor eficiencia sin renunciar a la seguridad en la comunicación.
@@ -458,7 +456,31 @@ A la hora de seleccionar el dispositivo que se encargara de dicha tarea, se tien
 
 ## 6.3 Seleccion del microcontrolador (Interface)
 
+Para la seleccion del microcontrolador, existen una serie de requisitos que al dia de hoy facilmente muchas familias de microcontroladores podria satisfacer, nos hemos centrado en la famila de microcontroladores de ```espressif```, debido a que esta es una marca que ofrece una gran variaded de dispositivos con increibles caracteristicas, como los es Bluetooth y WiFi a muy bajo costo, que dificilmente otra marca podria ofrecer.
+
+Otra de las razones es la cantidad de informacion y ejemplos que se pueden encontrar en la web para este dispositivo
+
+Facilmente se pueden listar algunas de las bondades de la familia ESP32:
+- Economico.
+- Bien documentado.
+- Comunidad de desarrolladores en continuo crecimiento.
+- Ejemplos en la plataforma de Arduino que facilmente se pueden portar al entorno de espressif.
+- Bajo consumo.
+- Incorpora BLE, el cual deja  a la mano un abanico de posibilidades.
+
+Para este trabajo especificamente se trabaja con el ESP32 WROVER, el cual consta de:
+- 4Mb Flash SPI.
+- 8MB PSRAM.
+- Frecuencia de 80Mhz a 240Mhz.
+- WiFi.
+- BlueTooth.
+- USART x3.
+- Dual core.
+Este dispositivo e sperfecto para el diseno del turpial, ya que cuenta con varios puertos USART, para poder comunicarnos con el modulo de radio y el Pc a traves del USB; Tambien cuenta con un adaptador de red el cual permite implementar un servidor Web, para servir la aplicacion de control y configuracion del Turpial.
+
 ## 6.4 Diagrama en bloques del hardware del Turpial
+
+<img src="imple_pic/Hardware-Block.svg" height="450" width="900" align="center"/>
 
 ## 6.5 Diagrama en bloques de la aplicacion de control
 
@@ -2058,3 +2080,7 @@ Regenerate_RREP(inRREP, rte)
 
 
 ```
+
+
+
+
