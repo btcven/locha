@@ -47,7 +47,13 @@
   - [6.4 Diagrama en bloques del hardware del Turpial](#64-diagrama-en-bloques-del-hardware-del-turpial)
   - [6.5 Diagrama en bloques de la aplicacion de control](#65-diagrama-en-bloques-de-la-aplicacion-de-control)
   - [6.6 Vision General del Turpial como dispositivo](#66-vision-general-del-turpial-como-dispositivo)
-- [7. AODVv2](#7-aodvv2)
+- [7. Seleccion del Sistema Operativo](#7-seleccion-del-sistema-operativo)
+  - [7.1 Modularidad](#71-modularidad)
+  - [7.2 Conectividad](#72-conectividad)
+  - [7.3 Contiki y Tiny OS](#73-contiki-y-tiny-os)
+  - [7.4 RIOT OS](#74-riot-os)
+  - [7.5 Tabla comparativa de los sistemas operativos.](#75-tabla-comparativa-de-los-sistemas-operativos)
+- [8. AODVv2](#8-aodvv2)
   - [7.1 Características](#71-caracter%c3%adsticas)
   - [7.2 Descubrimiento de Rutas](#72-descubrimiento-de-rutas)
   - [7.3 Describiendo el proceso de requerimiento de ruta en una red ad hoc.](#73-describiendo-el-proceso-de-requerimiento-de-ruta-en-una-red-ad-hoc)
@@ -415,7 +421,7 @@ Entre Los parametros mas importantes a tener en cuenta a la hora de seleccionar 
 - ALta eficiencia: El dispositivo seleccionado debe ser eficiente en la transformacion de la energia, lo que se traduce en libre de sobre calentamientos extremos.
 - Ruido: Este parametro es muy importante debido a que cualquier ruido en la senal de salida de voltaje, puede afectaral sistema completo.
 
-Al realizar la ponderacion de los diferentes dispositivos se observa que el ```LTC3113``` tiene muy buenas prestaciones, es full bridge y entrega corrientes por encima de los 2.5 Amperios,pero se ha decidido utilizar el ```TPS63802``` debido a que es facil de conseguir economico y tiene las prestaciones requeridas para el proyecto, en cuanto al ```LTC313```, es de muy buenas prestaciones pero su costo es realmemte elevado para utilizarlo en este proyecto.
+Al realizar la ponderacion de los diferentes dispositivos se observa que el ```LTC3113``` tiene muy buenas prestaciones, es full bridge y entrega corrientes por encima de los 2.5 Amperios,pero se ha decidido utilizar el ```TPS63802``` debido a que es facil de conseguir economico y tiene las prestaciones requeridas para el proyecto, en cuanto al ```LTC3113```, es de muy buenas prestaciones pero su costo es realmemte elevado para utilizarlo en este proyecto.
 
 <br>
 <br>
@@ -452,8 +458,6 @@ A la hora de seleccionar el dispositivo que se encargara de dicha tarea, se tien
 
 
 
-
-
 ## 6.3 Seleccion del microcontrolador (Interface)
 
 Para la seleccion del microcontrolador, existen una serie de requisitos que al dia de hoy facilmente muchas familias de microcontroladores podria satisfacer, nos hemos centrado en la famila de microcontroladores de ```espressif```, debido a que esta es una marca que ofrece una gran variaded de dispositivos con increibles caracteristicas, como los es Bluetooth y WiFi a muy bajo costo, que dificilmente otra marca podria ofrecer.
@@ -476,7 +480,7 @@ Para este trabajo especificamente se trabaja con el ESP32 WROVER, el cual consta
 - BlueTooth.
 - USART x3.
 - Dual core.
-Este dispositivo e sperfecto para el diseno del turpial, ya que cuenta con varios puertos USART, para poder comunicarnos con el modulo de radio y el Pc a traves del USB; Tambien cuenta con un adaptador de red el cual permite implementar un servidor Web, para servir la aplicacion de control y configuracion del Turpial.
+Este dispositivo es perfecto para el diseno del turpial, ya que cuenta con varios puertos USART, para poder comunicarnos con el modulo de radio y el Pc a traves del USB; Tambien cuenta con un adaptador de red el cual permite implementar un servidor Web, para servir la aplicacion de control y configuracion del Turpial.
 
 ## 6.4 Diagrama en bloques del hardware del Turpial
 
@@ -486,11 +490,169 @@ Este dispositivo e sperfecto para el diseno del turpial, ya que cuenta con vario
 
 ## 6.6 Vision General del Turpial como dispositivo
 
+<img src="imple_pic/turpial.svg" height="450" width="400" align="center"/>
+
+
+
 <br>
 <h1 align="center">Capitulo 7</h1>
 <br>
 
-# 7. AODVv2
+# 7. Seleccion del Sistema Operativo
+
+En esta seccion ilustramos algunos aspectos importantes a la hora de seleccionar el sistema operativo para trabajar con este tipo de tecnologias, debido a que los requisitos de software para redes de sensores puede diferir bastante, Aunque podrian compartir un Kernel en comun y algunos servicios de bajo nivel.
+
+Un dispositivo de red para funcionar en una red de sensores debe tener ciertas caracteristicas, entre las cuales se incluyen:
+- Bajo costo.
+- Bajo consumo
+- Que pueda funcionar completamente con bateria.
+
+Para cumplir el objetivo se debe emplear un protocolo de red altamente eficiente como 6LowPAN para reducir el tiempo de transmision y ahorrar energia.
+
+
+## 7.1 Modularidad
+
+El dispositivo IoT requerirá un sistema operativo modularque separe el kernel del middleware, protocolos y
+aplicaciones. Las razones son la facilidad de desarrollo y el mantenimiento.
+
+Usando un RTOS modular simplifica nuestro proceso de desarrollo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades. 
+
+Confiar en un núcleo común permite que toda familia de dispositivos puedan compartir una base de código común.
+
+A diferencia de un sistema operativo monolitico que agrupa un conunto completo de software, un ```RTOS``` modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, ademas de que reduce los costos.
+
+
+## 7.2 Conectividad
+
+La conectividad de red es esencial para las redes de sensores e internet de las cosas.
+
+Si estamos hablando de redes de sensores inalámbricos. 
+la industria ahora espera que los dispositivos integrados se conecten entre sí, y para comunicarse con redes publicas y privadas. 
+
+- Nuestro RTOS de elección debe soportar comunicaciones estandares y protocolos como IEEE 802.15.4, Wi-Fi y Bluetooth. 
+
+- Nuestro dispositivo debe poder conectarse a redes IP usando protocolos de ancho de banda eficiente como 6LoWPAN. 
+
+- Un RTOS nos permitirá seleccionar el protocolo específico, el stack de red que necesitemos, ahorrando memoria en el dispositivo y reduciendo nuestros costos Y puede ayudarnos a adaptar los dispositivos existentes con nuevos opciones de conectividad sin reelaborar el núcleo de nuestro software embebido
+
+- El sistema operativo para esta red debe tener en cuenta todos las limitaciones del hardware, manteniendo una alta usabilidad.
+- Es deseable encontrar interfaces estandar como lo son POSIX, para portabilidad de aplicaciones.
+- La facilidad de uso debe ser un factor crucial para todo desarrollador
+
+## 7.3 Contiki y Tiny OS
+
+- Contiki y Tiny OS nos son sistemas operativos en tiempo real, pero podemos ver su presencia en el mercado es dominante, principalmente en redes de sensores inhalambricos; Por lo tanto se aplican como referencia, la misma razon podemos aplicar a Linux.
+
+- El sistema operativo Contiki tiene una arquitectura en capas mientras que Tiny OS esta contruido sobre un nucleo monolitico, igual que en Linux, Contiki es impulsado por eventos y es muy similar a Tiny OS, el cual usa una estrategia ```FIFO```, por otro lado Linux usa un planificador, que garantiza un horario de ejecucion para las tareas.
+
+- El modelo de programacion de Contiki y Tiny OS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
+
+- Ofrecen soporte parcial para el multi-thread.
+- Contiki usa un lenguaje similar a C, peor no puede usar ciertas palabras clave.
+- TinyOS esta escrito en un lenguaje llamado NesC, el cual es similar pero no compatible con C.
+  
+Cabe destacar que unos de los parametros mas importantes a la hora de seleccionar un Sistema Operativo para redes de sensores, es la cantidad de documentacion, ejemplos y actividad en el repositorio, hablando acerca de constantes actualizaciones.
+
+## 7.4 RIOT OS
+
+RIOT (sistema operativo en tiempo real para IoT) llena el vacío entre sistemas operativos de redes de sensores inalámbricos y Sistemas operativos tradicionales. Además, este sistema operativo está diseñado para: 
+- Cuidar la eficiencia energética del dispositivo. 
+- Para ocupar el menor espacio de memoria posible.
+- Tener un API única, independientemente del hardware subyacente.
+
+RIOT se basa en una arquitectura de microkernel, que es heredado de FireKernel, lo que permite multi-hilo utilizando una API estándar. Repleto de características heredado de FireKernel, RIOT también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para la pila de red TCP/IP; Este enfoque modular hace que RIOT sea robusto contra fallas de sus componentes individuales, proporcionando alta confiabilidad
+con una API amigable para los programadores.
+
+RIOT permite a los programadores crear tantos hilos como necesitan. La única restricción es la cantidad de memoria  disponible para cada hilo. 
+
+Gracias a la API de mensajes del Kernel y usando estos hilos, es posible Implementar sistemas distribuidos de una manera simple.
+
+Para cumplir con los requisitos en tiempo real, RIOT hace cumplir períodos constantes para las tareas del núcleo (por ejemplo, ejecución del planificador, inter comunication  process, operaciones de temporizador).
+
+
+Como hemos visto, cada RTOS es muy bueno en un dominio particular, pero teniendo en cuenta nuestros requisitos, nosotros hemos elegido RIOT. 
+
+En el extremo superior en términos de hardware MCU y capacidades de memoria, RIOT compite principalmente con Linux. En comparación con Linux, RIOT puede reducirse a órdenes con menos requerimientos de memoria y esta construido con soporte incorporado para 
+Eficiencia energética y capacidades en tiempo real. 
+
+En el extremo bajo en términos de hardware MCU / capacidades de memoria, RIOT compite
+principalmente con Contiki, TinyOS y FreeRTOS.
+En comparación con Contiki y TinyOS, RIOT ofrece capacidades en tiempo real y subprocesos múltiples. 
+
+En contraste con FreeRTOS, RIOT proporciona eficiencia energética nativa y un sistema operativo con todas las funciones incluyendo red interoperable de código abierto, actualizada y gratuita.
+
+RIOT también ofrece API estandar POSIX y la capacidad de codificar en lenguajes de programación estandar como (C y C ++) usando herramientas de depuración estandar, lo que reduce la curva de aprendizaje de los desarrolladores
+y el proceso del ciclo de vida del desarrollo de software.
+
+
+## 7.5 Tabla comparativa de los sistemas operativos.
+
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>OS</th>
+    <th>min RAM</th>
+    <th>min ROM</th>
+    <th>C support</th>
+    <th>C++ support</th>
+    <th>Multi-threading</th>
+    <th>MCU w/o MMU</th>
+    <th>Modularity</th>
+    <th>Real-time</th>
+ </tr>
+  <tr align="center">
+    <td>TinyOS</td>
+    <td>< 1KB</td>
+    <td>< 4KB</td>
+    <td> &#10008 </td>
+    <td> &#10008 </td>
+    <td>&#10061</td>
+    <td>&#10004</td>
+    <td>&#10008</td>
+    <td>&#10008</td>
+ </tr>
+ <tr align="center">
+    <td>Contiki</td>
+    <td>< 2KB</td>
+    <td>< 30KB</td>
+    <td> &#10061 </td>
+    <td> &#10008 </td>
+    <td>&#10061</td>
+    <td>&#10004</td>
+    <td>&#10061</td>
+    <td>&#10061</td>
+ </tr>
+ <tr align="center">
+    <td>RIOT OS</td>
+    <td>~ 1.5KB</td>
+    <td>~ 5KB</td>
+    <td> &#10004 </td>
+    <td> &#10004 </td>
+    <td>&#10004</td>
+    <td>&#10004</td>
+    <td>&#10004</td>
+    <td>&#10004</td>
+ </tr>
+ <tr align="center">
+    <td>Linux</td>
+    <td>~ 1MB</td>
+    <td>~ 1MB</td>
+    <td> &#10004 </td>
+    <td> &#10004 </td>
+    <td>&#10004</td>
+    <td>&#10008</td>
+    <td>&#10061</td>
+    <td>&#10061</td>
+ </tr>
+</table>
+</div>
+
+<br>
+
+<h1 align="center">Capitulo 8</h1>
+<br>
+
+# 8. AODVv2
 
 AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
 
@@ -2084,3 +2246,9 @@ Regenerate_RREP(inRREP, rte)
 
 
 
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|  :x: |  :white_check_mark:  |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
