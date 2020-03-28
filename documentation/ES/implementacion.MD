@@ -257,7 +257,7 @@ Este tipo de red se ajusta a la necesidad actual de interconectar nodos que usua
 
 ## 2.3 Por que no usar 2.4Ghz como frecuencia base en la transmision de paquetes?
 
-Si analizamos el espectro electromagnetico podemos ver que la banda de 2.4 Ghz es en la actualidad una banda muy usada para las interconexiones de internet a traves del medio inhalambrico, es por esta razon que se decide usar el subgigahercio (915Mhz), como frecuencia base, ademas de que este tipo de frecuencias tienen un mejor desempeno en zonas pobladas, debido a que la longitud de onda de la senal de RF es mayor cuando su frecuenco a es menor, lo que quiere decir que son inversaqmente proporcionales, si la frecuancia aumenta la longitud de onda disminuye y viceversa.
+Si analizamos el espectro electromagnetico podemos ver que la banda de 2.4 Ghz es en la actualidad una banda muy usada para las interconexiones de internet a traves del medio inhalambrico, es por esta razon que se decide usar el subgigahercio (915Mhz), como frecuencia base, ademas de que este tipo de frecuencias tienen un mejor desempeno en zonas pobladas, debido a que la longitud de onda de la senal de RF es mayor cuando su frecuencia es menor, lo que quiere decir que son inversamente proporcionales, si la frecuancia aumenta la longitud de onda disminuye y viceversa.
 
 
 ## 2.4 Por que la red Locha usa el stack de red?
@@ -491,6 +491,8 @@ Este dispositivo es perfecto para el diseno del turpial, ya que cuenta con vario
 ## 6.6 Vision General del Turpial como dispositivo
 
 <img src="imple_pic/turpial.svg" height="450" width="400" align="center"/>
+
+La figura muestra el primer prototipo 
 
 
 
