@@ -18,7 +18,7 @@ La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo q
 
 **Implementación**: Partes que habrá que implementar para llevar a cabo el proyecto, tales como la gestión de los módulos de radio, la simulación del movimiento de los nodos, del consumo de la batería y la implementación de estados.
 
-**Gestion**: Procesos técnicos del proyecto.
+**Gestión**: Procesos técnicos del proyecto.
 
 **Planificación**: Definir los pasos a seguir para llevar a cabo el proyecto.
 
