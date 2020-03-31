@@ -44,7 +44,7 @@ Al realizar la ponderacion de los diferentes dispositivos se observa que el ```L
 <br>
 <br>
 
-## 6.2 Seleccion del cargador de Bateria
+## 6.3 Seleccion del cargador de Bateria
 
 <img src="imple_pic/BatteryChargerSelection.svg"  height="450" width="450" align="left"/>
 <br>
@@ -61,7 +61,7 @@ Para la seleccion del chip encargado de cargar la bateria de litio, exiten diver
 <br>
 <br>
 
-## 6.3 Seleccion del control de energia de la bateria
+## 6.4 Seleccion del control de energia de la bateria
 
 <img src="imple_pic/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
 
@@ -72,7 +72,7 @@ A la hora de seleccionar el dispositivo que se encargara de dicha tarea, se tien
 <br>
 <br>
 
-## 6.3 Seleccion del microcontrolador (Interface)
+## 6.5 Seleccion del microcontrolador (Interface)
 
 Para la seleccion del microcontrolador, existen una serie de requisitos que al dia de hoy facilmente muchas familias de microcontroladores podria satisfacer, nos hemos centrado en la famila de microcontroladores de ```espressif```, debido a que esta es una marca que ofrece una gran variaded de dispositivos con increibles caracteristicas, como los es Bluetooth y WiFi a muy bajo costo, que dificilmente otra marca podria ofrecer.
 
@@ -96,13 +96,13 @@ Para este trabajo especificamente se trabaja con el ESP32 WROVER, el cual consta
 - Dual core.
 Este dispositivo es perfecto para el diseno del turpial, ya que cuenta con varios puertos USART, para poder comunicarnos con el modulo de radio y el Pc a traves del USB; Tambien cuenta con un adaptador de red el cual permite implementar un servidor Web, para servir la aplicacion de control y configuracion del Turpial.
 
-## 6.4 Diagrama en bloques del hardware del Turpial
+## 6.6 Diagrama en bloques del hardware del Turpial
 
 <img src="imple_pic/Hardware-Block.svg" height="450" width="900" align="center"/>
 
-## 6.5 Diagrama en bloques de la aplicacion de control
+## 6.7 Diagrama en bloques de la aplicacion de control
 
-## 6.6 Vision General del Turpial como dispositivo
+## 6.8 Vision General del Turpial como dispositivo
 
 <img src="imple_pic/turpial.svg" height="450" width="400" align="center"/>
 
