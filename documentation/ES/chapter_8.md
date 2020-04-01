@@ -204,14 +204,14 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
   - Porque los paquetes al destino podrian ser entregados por distintas rutas. 
 
 
-### 8.3.1 Desventajas de la inundacion de mensajes en la red.
+### 8.3.2 Desventajas de la inundacion de mensajes en la red.
 
 - Potencialmente, se pueden entregar paquetes de datos de sobrecarga muy altos a demasiados nodos que no necesitan recibirlos.
 
 - En el ejemplo anterior, el ```nodoJ``` y el ```nodo K``` pueden transmitir al ```nodo D``` simultaneamente, resultando en la perdida del paquete.
   - En este caso el destinatario podria no recibir el paquete.
 
-### 8.3.2 Entrada de ruta inversa
+### 8.3.3 Entrada de ruta inversa
 
 Una vez que un nodo intermedio recibe un mensaje de requerimiento de ruta ```RREQ``` el nodo debe configurar una entrada en una tabla de rutas local conteniendo la siguiente informacion:
   - Direccion Ip de la fuente del mensaje.
