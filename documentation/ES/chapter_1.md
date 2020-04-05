@@ -1,5 +1,3 @@
-# Capitulo 1
-
 # 1. Introducción y Objetivos
 
 En este capítulo se describe el contexto en el que se circunscribe el presente proyecto y sus aspectos organizativos. En primer lugar, en la Sección 1.1, se exhibe el marco en el que cobra sentido este trabajo. En la Sección 1.2, se enumeran los objetivos a cumplir para su correcta consecución. La Sección 1.3 muestra la secuencia de fases en las que se descompone el trabajo realizado y la planificación programada para cada una de ellas.

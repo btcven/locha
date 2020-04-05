@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 4</h1>
-<br>
-
 # 4. Estructura de descomposición del proyecto
 
 La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo que se realizará en el proyecto. A continuación se presenta la lista de tareas necesarias para alcanzar los objetivos:

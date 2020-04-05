@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 5</h1>
-<br>
-
 # 5. Base Teórica
 
 ## 5.1 Protocolos de Enrutamiento

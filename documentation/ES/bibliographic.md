@@ -14,10 +14,17 @@ Febrero 2011.
 [6] M.  O.  Farooq  and  T.  Kunz,  “Operating  systems  for  wireless  sensor networks: A survey,”Sensors Journal, 2011.
 
 
-[7] Dr. Awerbuch, Dr. Mishra, "Advanced Topics in Wireless Networks", Department of Computer ScienceJohns Hopkins
+[7] Dr. Awerbuch, Dr. Mishra, "Advanced Topics in Wireless Networks", Department of Computer Science Johns Hopkins
 
 [8] Gupta, Anuj & Rao, Vikram. "A comprehensive study of AODVv2-02 routing protocol in MANET", (2015). 
 
+[9] https://tools.ietf.org/html/draft-ietf-manet-aodvv2-16, Abril 2016
 
-[x] “RIOT Operating System,” http://www.riot-os.org.
-[x] 
+[10] https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/, Febrero 2019.
+
+[11] https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1
+
+[12] https://datatracker.ietf.org/doc/draft-ietf-manet-aodvv2/12/?include_text=1
+
+[13] Y. Behnaz, G. Fatemeh, "An Efficient Loop-free Version of ADOVv2", Septiembre 2017.
+

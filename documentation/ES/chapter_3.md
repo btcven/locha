@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 3</h1>
-<br>
-
 # 3. Modificaciones propuestas
 
 En el presente trabajo se pretende implementar la version mas actual del protocolo AODVv2 sin cambios notables, en un sistema embebido con recursos limitados, para analizar el comportamiento de la red funcionando con el nombrado protocolo de encaminamiento; También se pretende construir el hardware necesario para obtener y analizar resultados en entornos reales.

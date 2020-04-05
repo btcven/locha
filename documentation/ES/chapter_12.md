@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 12</h1>
-<br>
-
 # 12. Tabla de operaciones para los mensajes de ruta multicast
 
 ## 12.1 fetch_rte_msg_table_entry

@@ -1,14 +1,9 @@
-
-<br>
-<h1 align="center">Capitulo 11</h1>
-<br>
-
 # 11. Operaciones generales del protocolo AODVv2
-A continuacion se muestran las operaciones involucradas en el protocolo AODVv2, dichas operaciones envuelven comparar mensajes entrantes, actualizar tabla de rutas locales entre otras.
+A continuación se muestran las operaciones involucradas en el protocolo AODVv2, dichas operaciones envuelven comparar mensajes entrantes, actualizar tabla de rutas locales entre otras.
 
 
 ## 11.1 Operaciones de ruteo
-Existen diferente funciones involucradas en el proceso de busqueda de rutas delas cuales hablaremos de cada algoritmo en detalle. Las funciones que implementaremos seran las siguientes:
+Existen diferente funciones involucradas en el proceso de búsqueda de rutas delas cuales hablaremos de cada algoritmo en detalle. Las funciones que implementaremos serán las siguientes:
 
 - check_route_state.
 - process_routing_info.
@@ -28,7 +23,7 @@ Primero que todo definimos los siguientes terminos utilizados en los algoritmos.
 
 Cada mensaje de ruta recibido contiene una ruta y en consecuencia se evalúa para comprobar cualquier mejora. Tenga en cuenta que un mensjae **RREQ** contiene una ruta a su origen, mientras un mensaje de respuesta **RREP** contiene una ruta a su destino.
 
-Por lo tanto, como las rutas estan identificadas por sus destinos, en e primer caso el destino de la ruta es el creador del mensaje y en este ultimo, es el destino del mensaje.
+Por lo tanto, como las rutas están identificadas por sus destinos, en e primer caso el destino de la ruta es el creador del mensaje y en este ultimo, es el destino del mensaje.
 
 Tenga en cuenta que decimos que un enrutador es mejor que otros si tiene un numero de secuencia mayor que otros o un numero de secuencia igual, mientras que su costo por ejemplo, conteo de saltos, es menor que otros.
 
@@ -36,7 +31,7 @@ La tabla de rutas se debe actualizar ante algunas de las siguientes condiciones:
 
 - **No existe una ruta en la tabla de rutas**: la ruta debe ser adicionada a la tabla de rutas
 - **Todas las rutas existentes en la tabla de rutas estan en estado no confirmado**, es decir, sus proximos saltos no estan confirmados: la rura es agregada a la tabla de rutas 
-- **La ruta entrante es mejor que la ruta valida existente**: si el proximo salto de la ruta es confirmado, se actualiza la ruta valida existente con la ruta entrante. En otro caso se agrega la ruta a la tabla de rutas, ya que se podria confirmar en el futuro, y en consecuencia reemplazar la ruta existente.
+- **La ruta entrante es mejor que la ruta valida existente**: si el próximo salto de la ruta es confirmado, se actualiza la ruta valida existente con la ruta entrante. En otro caso se agrega la ruta a la tabla de rutas, ya que se podría confirmar en el futuro, y en consecuencia reemplazar la ruta existente.
 - Si la ruta entrante es mejor que la ruta existente "invalida", esta ruta invalida puede ser reemplazada con la ruta entrante.
 
 ```cpp

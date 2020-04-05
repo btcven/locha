@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 9</h1>
-<br>
-
 # 9. Formato de paquetes para redes MANET
 
 AODVv2 especifica en su draft que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (MANET) Packet/Message Format[RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
@@ -10,10 +6,10 @@ El RFC5444 dota de una mayor eficiencia a las trasmisiones de los mensajes de co
 
 El formato RFC5444 define los siguientes elementos:
 - Paquete: Es la entidad de mayor nivel. Un paquete contiene una cabecera y cero o más mensajes.
-- Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje estáformado por una cabecera, un bloque TLV y un bloque de direcciones.
+- Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje está formado por una cabecera, un bloque TLV y un bloque de direcciones.
 - Bloque de direcciones: Está formado por una o más direcciones, y un bloque de atributos.
 - Bloque TLV: Está formado por uno o másTLV.
-- TLV: Es una estructuraque tiene la forma “type-length-value”. Donde 
+- TLV: Es una estructura que tiene la forma “type-length-value”. Donde 
  - Type: Es el identificador del tipo de dato que viene a continuación.
  - Length: Este campo indica cuantos bytes ocupa el campo value.
  - Value: Es el valor concreto del objeto al que se refiere.
@@ -31,7 +27,7 @@ En el encabezado del paquete AODVv2 usa:
 - **msg-hop-limit**.
 - **msg-addr-length**.
 
-**msg-addr-length** indica el tamano de la direccion en el mensaje, el cual su valor corresponde a ```addr_length en octetos -1```, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
+**msg-addr-length** indica el tamaño de la dirección en el mensaje, el cual su valor corresponde a ```addr_length en octetos -1```, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
 
  Para esto primero vamos a revisar cuales son los campos de cabecera del paquete RFC5444 que AODVv2 utiliza.
 
@@ -49,11 +45,11 @@ Esta definido como sigue:
 **pkt-flag**: Es un campo de 4 bits que especifica la interpretación del resto del encabezado del paquete:
 - **bit 0**(phaseseqnum) si esta seteado a uno('1'), entonces significa que el **pkt-seq--num** esta incluido en el **pkt-header**, en caso contrario no lo esta.
 - **bit 1**(phastlv): Si esta seteado en uno('1'), significa que el **tlv-block** esta incluido en el **pkt-header**, en caso contrario no lo esta.
-- **bit 2-3**: Estan reservados y deberian ser limpiados en cada transmision y deben ser ignorados en cada recepcion.
+- **bit 2-3**: Estan reservados y deberían ser limpiados en cada transmisión y deben ser ignorados en cada recepción.
  
 **pkt-seq-num**: Es omitido si el ```phaseseqnum``` flag esta establecido en cero('0'), en caso contrario es un entero sin signo de 16 bits, especificando el numero de secuencia de un paquete.
 
-**tlv*block**: Es omitido si el ```phastlv``` flag esta seteado en cero('0'), en caso contrario, se define en el [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
+**tlv*block**: Es omitido si el ```phastlv``` flag esta seteado en cero('0'), en caso contrario, se define en el [RFC4544 sección 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
 
 
 

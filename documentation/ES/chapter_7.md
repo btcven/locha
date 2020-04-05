@@ -1,12 +1,8 @@
-<br>
-<h1 align="center">Capitulo 7</h1>
-<br>
-
 # 7. Selección del Sistema Operativo
 
 En esta sección ilustramos algunos aspectos importantes a la hora de seleccionar el sistema operativo para trabajar con este tipo de tecnologías, debido a que los requisitos de software para redes de sensores puede diferir bastante, Aunque podrían compartir un Kernel en común y algunos servicios de bajo nivel.
 
-Un dispositivo de red para funcionar en una red de sensores debe tener ciertas características,[4, 5, 6] entre las cuales se incluyen:
+Un dispositivo de red para funcionar en una red de sensores debe tener ciertas características,[4,5,6] entre las cuales se incluyen:
 - Bajo costo.
 - Bajo consumo
 - Que pueda funcionar completamente con batería.

@@ -1,8 +1,3 @@
-
-<br>
-<h1 align="center">Capitulo 13</h1>
-<br>
-
 # 13. Generación y procesamiento de mensajes
 
 El procesamiento de mensajes toma el siguiente esquema general:
@@ -10,7 +5,7 @@ El procesamiento de mensajes toma el siguiente esquema general:
 - Actualizar tablas de rutas según corresponda
 - Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
 
-Despues de procesar un mensaje, la informacion se almacena en la tabla de rutas. Por este motivo, es igualmente apropiado establecer valores de campos de mensajes salientes, utilizando la informacion de la tabla de rutas o los campos del mensaje entrante.
+Después de procesar un mensaje, la información se almacena en la tabla de rutas. Por este motivo, es igualmente apropiado establecer valores de campos de mensajes salientes, utilizando la información de la tabla de rutas o los campos del mensaje entrante.
 
 
 ## 13.1 build_rfc_5444_message_header
