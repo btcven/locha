@@ -7,7 +7,7 @@ En este capítulo se describe el contexto en el que se circunscribe el presente 
 
 ## 1.1 Motivación
 
-Es un hecho que una de las revoluciones tecnológicas más significativas en los últimos tiempos ha sido la aparición de las redes inalámbricas. Desde su invención en los años 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  última década.
+[1] Es un hecho que una de las revoluciones tecnológicas más significativas en los últimos tiempos ha sido la aparición de las redes inalámbricas. Desde su invención en los años 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  última década.
 
 Existen dos vertientes en cuanto a redes inalámbricas se refiere, atendiendo a la arquitectura de red subyacente. En primer lugar, se tienen las redes inalámbricas con infraestructura; dentro de este tipo de redes, uno de los ejemplos más significativos son las redes celulares.
 
