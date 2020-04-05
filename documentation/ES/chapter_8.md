@@ -4,7 +4,7 @@
 
 # 8. AODVv2
 
-AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
+[7] AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
 
 El AODV es uno de los protocolos más utilizados de los algoritmos reactivos, siendo ideal para las redes Ad-Hoc. Este protocolo intercambia mensajes cuando necesita establecer una comunicación, es decir, envía mensajes a los vecinos para calcular cada ruta. Gracias a las mejoras incorporadas en AODV se evita la problemática que tiene DYMO, pero por el contrario se incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
 
@@ -13,7 +13,7 @@ En la siguiente figura podemos observar las diferentes versiones de AODVv2 y DYM
 
 ![draft version](imple_pic/aodv-versions.png "draft version")
 
-En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (AODV) llamado protocolo de enrutamiento AODVv2, pero simplemente hablaremos de AODV para referirnos indistintivamente a la version mas actual del protocolo.
+En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (AODV) llamado protocolo de enrutamiento AODVv2, pero simplemente hablaremos de AODV para referirnos indistintamente a la version mas actual del protocolo.
 
 **AODV** es uno de los cuatro protocolos estandarizados por el grupo de trabajo **IETF MANET**. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero se pretende establecer una ruta entre un nodo de origen y un destino **(descubrimiento de ruta)**, y luego mantener una ruta entre los dos nodos durante los cambios de topología **(mantenimiento de la ruta)**.
 
@@ -24,8 +24,8 @@ En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (A
 <h2>Las características del protocolo son:</h2>
 
 <ol>
- <li>Señalización de control baja. </li>
- <li>Señalización de procesamiento mínima.</li>
+ <li>[7] Señales de control baja. </li>
+ <li>Señales de procesamiento mínima.</li>
  <li>Prevención de bucles.</li>
  <li>Funciona sólo con enlaces bidireccionales.</li>
 </ol> 
@@ -54,7 +54,7 @@ Existe otro concepto conocido como mantenimiento de ruta, que sirve para actuar 
 
 
 ## 8.2 Descubrimiento de Rutas 
-Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de encaminamiento a ver si existe una ruta hacia este destino previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de encaminamiento es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un camino válido. 
+[7] Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de encaminamiento a ver si existe una ruta hacia este destino previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de encaminamiento es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un camino válido. 
 
 El proceso comienza con el envío de un paquete RREQ (Route Request) en modo broadcast. Este paquete llega a los nodos vecinos que se encuentran a un salto de distancia y estos a su vez lo reenvían a sus vecinos y así sucesivamente hasta llegar al destino. 
 
@@ -98,15 +98,19 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 
 ## 8.3 Describiendo el proceso de requerimiento de ruta en una red ad hoc.
 
+En este apartado se ilustra [7] gráficamente como se inunda la red con mensajes de requerimiento de ruta, con el fin de encontrar un nodo destino del cual no se conoce mas que la dirección IP que tiene asignada.
+
+El protocolo AODV por su naturaleza de ser un protocolo reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto; las siguientes imágenes representan la secuencia lógica que debe seguirse hasta llegar al nodo destino.
+
 <h2> Paso 1. </h2>
 
 <p>
 <img src="imple_pic/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-- El nodo **S** desea enviar un paquete con informacion hacia el nodo **D**,primero debe buscar en su tabla de rutas y confirmar si la ruta hacia el destino existe o no.
+- El nodo **S** desea enviar un paquete con información hacia el nodo **D**,primero debe buscar en su tabla de rutas y confirmar si la ruta hacia el destino existe o no.
 
-- Si la ruta hacia el destino existe no debera iniciar ningun proceso diferente a enviar el mensaje con la informacion del usuario de la aplicacion, pero si no se tiene una ruta hacia el destino, el nodo debe iniciar un proceso de busqueda de ruta. En este caso asumimos que no tenemos la ruta deseada hacia el destino
+- Si la ruta hacia el destino existe no deberá iniciar ningún proceso diferente a enviar el mensaje con la información del usuario de la aplicación, pero si no se tiene una ruta hacia el destino, el nodo debe iniciar un proceso de búsqueda de ruta. En este caso asumimos que no tenemos la ruta deseada hacia el destino
 
 - Este tipo de mensaje, es un mensaje Multicast, el cual sera escuchado por todos sus vecinos dentro del radio de cobertura.
 
@@ -119,7 +123,7 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 </p>
 
 
-- El nodo **S** envia un mensaje de requerimiento de ruta llamado RREQ a todos sus vecinos, los cuales son **B**, **C** y **E**. Como se puede ver en el grafico, los vecinos directos del nodo **S**, no tienen informacion de la ruta requerida, asi que deben inicar la retransmision del mensaje Route Request, a sus vecinos mas cercanos; Cabe aclarar que los nodos pueden recibir el mismo paquete de requerimiento de ruta desde diferentes nodos, como veremos a continucacion.
+- El nodo **S** enviá un mensaje de requerimiento de ruta llamado RREQ a todos sus vecinos, los cuales son **B**, **C** y **E**. Como se puede ver en el gráfico, los vecinos directos del nodo **S**, no tienen información de la ruta requerida, asi que deben iniciar la retransmisión del mensaje Route Request, a sus vecinos mas cercanos; Cabe aclarar que los nodos pueden recibir el mismo paquete de requerimiento de ruta desde diferentes nodos, como veremos a continuación.
 
 <br>
 <br>
@@ -131,7 +135,7 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 <img src="imple_pic/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-- Como se puede observar en la imagen, el **nodo H** recibe el requerimiento de ruta de dos vecinos distintos. lo que podria dar lugar a una colision.
+- Como se puede observar en la imagen, el **nodo H** recibe el requerimiento de ruta de dos vecinos distintos. lo que podría dar lugar a una colisión.
 
 - AOdvv2 maneja una tabla de mensajes de ruta para verificar que no se ha regenerado antes un mensaje que proviene del mismo intento por conseguir una ruta en particular de un mismo origen hacia un mismo destino, com lo que se quiere decir que nunca un nodo recreara un mensaje de requerimiento de ruta que ya ha recreado antes, no importa de donde proviene.
 
@@ -143,9 +147,9 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 <img src="imple_pic/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-- Podemos apreciar graficamente como el **nodo C** recibe el mensaje de requerimeinto de ruta **RREQ** desde el ```nodo G``` y el ```nodo H```, pero no lo recrea, porque el **nodo C** ya ha recreado este mensaqje antes.
+- Podemos apreciar gráficamente como el **nodo C** recibe el mensaje de requerimiento de ruta **RREQ** desde el ```nodo G``` y el ```nodo H```, pero no lo recrea, porque el **nodo C** ya ha recreado este mensaqje antes.
   
-- La verificacion de si se ha recreado este mensaje antes se hace por medio de la tabla de mensajes de ruta, la cual debe ser interpolada cada que se recibe algun mensaje tipo **RREQ** o **RREP**.
+- La verificación de si se ha recreado este mensaje antes se hace por medio de la tabla de mensajes de ruta, la cual debe ser interpolada cada que se recibe algun mensaje tipo **RREQ** o **RREP**.
 
 <br>
 <br>
@@ -159,7 +163,7 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 
 - En este caso ambos ```nodo J``` y ```nodo K``` retransmiten el paquete hacia el **nodo D**, debido a que estos nodos no conocen el uno del otro y sus transmisiones podrian colisionar. 
 
-- Es posible que el paquete con el requerimiento de ruta RREQ no se entregue al nodo D, a pesar del uso de inundacion de mensajes en la red.
+- Es posible que el paquete con el requerimiento de ruta RREQ no se entregue al nodo D, a pesar del uso de inundación de mensajes en la red.
 
 
 <br>
@@ -174,9 +178,9 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 </p>
 
 - El **nodo D** no recrea el paquete debido a que es el destinatario del mensaje de solicitud de ruta.
-- En el proceso descrito hasta aqui cada nodo intermedio deberia conocer la manera de regresar a su vecino que recreo el mensaje RREQ.
+- En el proceso descrito hasta aquí cada nodo intermedio debería conocer la manera de regresar a su vecino que recreo el mensaje RREQ.
 - Cabe destacar que cuando se ejecuta el proceso de requerimiento de ruta, cada nodo involucrado en el proceso esta aprendiendo una ruta inversa al nodo originador del mensaje de requerimiento de ruta.
-- Cuando se empiezan a crear los mensajes de respuesta de ruta o comunmente llamados RREP, los nodos intermedioos aprenden una ruta inversa hacia el nodo originador del mensaje de ```RREP```, y de esta manera se podria establecer una ruta bidireccional entre los nodos **S** y **D**.
+- Cuando se empiezan a crear los mensajes de respuesta de ruta o comúnmente llamados RREP, los nodos intermedios aprenden una ruta inversa hacia el nodo originador del mensaje de ```RREP```, y de esta manera se podría establecer una ruta bidireccional entre los nodos **S** y **D**.
 
 <h2> Paso 7. </h2>
 
@@ -184,11 +188,11 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 <img src="imple_pic/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-- Hasta este punto, ya se a completado la inundacion del mensaje de requerimiento de ruta por toda la red.
+- Hasta este punto, ya se a completado la inundación del mensaje de requerimiento de ruta por toda la red.
 
-- Los nodos que no estan en la ruta de **S** o aislados de la red no recibiran el paquete, por ejemplo el ```nodo Z```
+- Los nodos que no están en la ruta de **S** o aislados de la red no recibirán el paquete, por ejemplo el ```nodo Z```
 
-- Nodos que pasan a traves del destinatario tampoco reciben el paquete, por ejemplo el ```nodo N```.
+- Nodos que pasan a través del destinatario tampoco reciben el paquete, por ejemplo el ```nodo N```.
 
 <br>
 
@@ -199,35 +203,35 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 ### 8.3.1 Ventajas de la busqueda de rutas por inundacion de la red
 
 - simplicidad.
-- Podria ser mas eficiente que muchos otros protocolos cuando la frecuencia de la transmision de informaicon es lo suficientemente baja.
+- Podría ser mas eficiente que muchos otros protocolos cuando la frecuencia de la transmisión de información es lo suficientemente baja.
 - Confiable en la entrega de paquetes.
-  - Porque los paquetes al destino podrian ser entregados por distintas rutas. 
+  - Porque los paquetes al destino podrían ser entregados por distintas rutas. 
 
 
 ### 8.3.2 Desventajas de la inundacion de mensajes en la red.
 
 - Potencialmente, se pueden entregar paquetes de datos de sobrecarga muy altos a demasiados nodos que no necesitan recibirlos.
 
-- En el ejemplo anterior, el ```nodoJ``` y el ```nodo K``` pueden transmitir al ```nodo D``` simultaneamente, resultando en la perdida del paquete.
+- En el ejemplo anterior, el ```nodoJ``` y el ```nodo K``` pueden transmitir al ```nodo D``` simultáneamente, resultando en la perdida del paquete.
   - En este caso el destinatario podria no recibir el paquete.
 
 ### 8.3.3 Entrada de ruta inversa
 
-Una vez que un nodo intermedio recibe un mensaje de requerimiento de ruta ```RREQ``` el nodo debe configurar una entrada en una tabla de rutas local conteniendo la siguiente informacion:
-  - Direccion Ip de la fuente del mensaje.
+Una vez que un nodo intermedio recibe un mensaje de requerimiento de ruta ```RREQ``` el nodo debe configurar una entrada en una tabla de rutas local conteniendo la siguiente información:
+  - Dirección Ip de la fuente del mensaje.
   - Numero de secuencia de la fuente.
   - Numero de saltos al nodo fuente.
-  - Direccion IP del nodo del cual el RREQ fue recibido.  
+  - Dirección IP del nodo del cual el RREQ fue recibido.  
   - Usando una ruta inversa un nodo puede enviar un RREP (Route Reply Packet) a la fuente.
   - Una entrada en la tabla de rutas tambien incluye un time to live o tiempo de vida de una ruta.
 
-Cabe aclarar que estas rutas aprendidas por medio de los mensajes de requerimiento de ruta o RREQ, aun no se pueden confirmar como bidireccionales, son enlaces que de antemano se sabe son capaces de enviar mensajes , pero debemos asegurarnos de que puede recibir tambien, y esto se consigue por medio de los mensajes RREQ_ack o por medio del mismo mensaje RREP del cual hablaremos mas adelante.
+Cabe aclarar que estas rutas aprendidas por medio de los mensajes de requerimiento de ruta o RREQ, aun no se pueden confirmar como bidireccionales, son enlaces que de antemano se sabe son capaces de enviar mensajes , pero debemos asegurarnos de que puede recibir también, y esto se consigue por medio de los mensajes RREQ_ack o por medio del mismo mensaje RREP del cual hablaremos mas adelante.
 
 ## 8.4 Mantenimiento de Rutas 
-El mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
+El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
 
 - Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento. En este caso el nodo enviara un RERR a la fuente para informar que no existe una ruta hacia el destino.
-- Cuando no se puede reenviar un mensaje RREP porque la ruta hacia el generador del RREQ no es válida. En este caso el nodo debe enviar en RERR hacia el generador del mensaje RREP para infórmale que la ruta hacia el origen del mensaje RREQ no es válida.
+- Cuando no se puede reenviar un mensaje RREP porque la ruta hacia el generador del RREQ no es válida. En este caso el nodo debe enviar en RERR hacia el generador del mensaje RREP para infórmarle que la ruta hacia el origen del mensaje RREQ no es válida.
 - Cuando un nodo detecta que uno de los enlaces de un vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas que han pasado a ser invalidas.
 
 
@@ -245,11 +249,11 @@ Los paquetes de datos se quedan almacenados en este nodo esperando recibir un RR
 
 ## 8.5 Tabla de rutas
 
-En la seccion 8.3 se vio como un nodo inunda la red para encontrar a un destino, luego de que el mensaje de control RREQ llega al destino este debe responder con un mensaje de RREP, el cual es de tipo unicast , es decir un mensaje que va dirigido a un nodo especifico identificado con su direccion IP 
+En la sección 8.3 se vio como un nodo inunda la red para encontrar a un destino, luego de que el mensaje de control RREQ llega al destino este debe responder con un mensaje de RREP, el cual es de tipo unicast , es decir un mensaje que va dirigido a un nodo especifico identificado con su dirección IP 
 
-A continuacion se expone un ejemplo para ilustrar como deberia verse la tabla de rutas en cada nodo despues de un requerimiento de ruta a todos los nodos
+A continuación se expone un ejemplo para ilustrar como debería verse la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos
 
-La siguiente figura muestra una topologia de nodos basica y la tabla de rutas que es usada para encontrar a otros nodos.
+La siguiente figura muestra una topologia de nodos básica y la tabla de rutas que es usada para encontrar a otros nodos.
 
 <p>
 <img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
@@ -460,8 +464,8 @@ La tabla Neighbor Set contiene información relativa a los routers vecinos. Esta
 
 ## 8.9 Sequence Number
 Los números de secuencia permiten a los enrutadores AODVv2 determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse.Cada router AODVv2 debe mantener su propio Sequence Number, este se incluye en todos los mensajes RREQ y RREP creados por él.
-Se debe Garantizar que el numero de secuencia crece de uno en uno cada que se crea un Route Request o un route Reply es creado, si el valor se desborda llegando a 65535, se debe resetear este valor a 1, el valor 0 esta reservado para indicar que el numero de secuencoa del nodo no se conoce.
-Para determinar si un mensaje de ruta es obsoleto, se debe comparar el numero de secuencia adjunto en el mensaje con informacion existente sobre la misma ruta.
+Se debe Garantizar que el numero de secuencia crece de uno en uno cada que se crea un Route Request o un route Reply es creado, si el valor se desborda llegando a 65535, se debe resetear este valor a 1, el valor 0 esta reservado para indicar que el numero de secuencia del nodo no se conoce.
+Para determinar si un mensaje de ruta es obsoleto, se debe comparar el numero de secuencia adjunto en el mensaje con información existente sobre la misma ruta.
 
 ## 8.10 Local Route Set
 
@@ -519,7 +523,7 @@ En este apartado se definen los mensajes de control que el protocolo utiliza par
 
 ## 8.13 Procesos involucrados en el protocolo AODvv2
 
-A continuacion se dara un descripcion corta de cada uno los procesos involucrados en el protocolo.
+A continuación se dará un descripción corta de cada uno los procesos involucrados en el protocolo.
 
 ### 8.13.1 Next Hop Monitoring
 
