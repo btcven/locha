@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 10</h1>
-<br>
-
 # 10. Modelado de AODVv2
 
 Describiremos el modelo del protocolo desde el punto de vista de un nodo llamado **H**.
@@ -33,7 +29,7 @@ Cada mensaje tiene los siguientes componentes
 - **tlv** = (sO, sT): Numero de secuencia para el origen, y destino, posiblemente indefinido este ultimo.
 - **(O, T)**: El par Origen y destino.
 
-Por ejemplo podriamos escribir un mensaje como sigue:
+Por ejemplo podríamos escribir un mensaje como sigue:
 
 ```
 RREQ(h,(sO,sT),(O,T)).
@@ -65,11 +61,11 @@ true ==>
 
 ## 10.6 Modelo para recibir un Route Request
 
-***rreq-recv(RREQ(m),K)**: Esta accion procesa un mensaje Route Request 
+***rreq-recv(RREQ(m),K)**: Esta acción procesa un mensaje Route Request 
 ```
 m = (h,(sO, sT),(O, T)) de un vecino K. 
 ```
-Esta protegido por la condicion de que una ruta en **m** es mejor que una ruta al origen en el nodo **H**. 
+Esta protegido por la condición de que una ruta en **m** es mejor que una ruta al origen en el nodo **H**. 
 ```
 (m.sO,m.h,Active) >> H.route[O].e ==> // m tiene una mejor ruta al origen 
 // update the origin route

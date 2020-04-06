@@ -1,7 +1,3 @@
-<br>
-<h1 align="center">Capitulo 2</h1>
-<br>
-
 # 2. Trabajo propuesto
 
 En el presente trabajo se pretende como objetivo principal desarrollar un dispositivo electrónico capaz de comportarse como un nodo de de la red LOCHA-MESH, dotado con un módulo de radiofrecuencia que puede interconectar nodos lejanos con distancias alrededor de los 6 Km, el dispositivo también posee un módulo wifi que puede comportarse como un módem wifi, servidor web, cliente web, servidor de websocket, cliente websocket entre otras bondades que lo hacen perfecto para este proyecto y el cual nos permite interconectar .
