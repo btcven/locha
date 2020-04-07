@@ -1,5 +1,3 @@
-# Capitulo 1
-
 # 1. Introducción y Objetivos
 
 En este capítulo se describe el contexto en el que se circunscribe el presente proyecto y sus aspectos organizativos. En primer lugar, en la Sección 1.1, se exhibe el marco en el que cobra sentido este trabajo. En la Sección 1.2, se enumeran los objetivos a cumplir para su correcta consecución. La Sección 1.3 muestra la secuencia de fases en las que se descompone el trabajo realizado y la planificación programada para cada una de ellas.
@@ -7,7 +5,7 @@ En este capítulo se describe el contexto en el que se circunscribe el presente 
 
 ## 1.1 Motivación
 
-Es un hecho que una de las revoluciones tecnológicas más significativas en los últimos tiempos ha sido la aparición de las redes inalámbricas. Desde su invención en los años 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  última década.
+[1] Es un hecho que una de las revoluciones tecnológicas más significativas en los últimos tiempos ha sido la aparición de las redes inalámbricas. Desde su invención en los años 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la última década.
 
 Existen dos vertientes en cuanto a redes inalámbricas se refiere, atendiendo a la arquitectura de red subyacente. En primer lugar, se tienen las redes inalámbricas con infraestructura; dentro de este tipo de redes, uno de los ejemplos más significativos son las redes celulares.
 
@@ -43,7 +41,7 @@ Con el fin de comprender las tendencias en tecnologías inalámbricas y entender
 
 Se puede afirmar que la historia comercial de las redes inalámbricas comenzó entorno al año 1980 con la primera generación o 1G, en la que los teléfonos eran analógicos. Estos dispositivos solo se podían emplear dentro de un país, ya que existían diferentes estándares, dependiendo del área geográfica mundial. 
 
-El despliegue de la segunda generación, 2G, surgió en la década de los 90, añadiendo fax, datos y capacidades de mensajería al servicio de voz tradicional. Sin embargo, tampoco se adopto como un estándar homogéneo mundial. Recientemente,2G se ha extendido a 2.5G, con el fin de mejorar el soporte de transmisión de datos de baja velocidad. Luego se hace la transición desde 2G hacia 3G, con la que se adopta un estándar global y con capacidades de roaming en todo el planeta, además de incrementar considerablemente el ancho de banda. 
+El despliegue de la segunda generación, 2G, surgió en la década de los 90, añadiendo fax, datos y capacidades de mensajería al servicio de voz tradicional. Sin embargo, tampoco se adoptó como un estándar homogéneo mundial. Recientemente, 2G se ha extendido a 2.5G, con el fin de mejorar el soporte de transmisión de datos de baja velocidad. Luego se hace la transición desde 2G hacia 3G, con la que se adopta un estándar global y con capacidades de roaming en todo el planeta, además de incrementar considerablemente el ancho de banda. 
 
 Desafortunadamente, a pesar de las grandes expectativas puestas sobre 3G, estas redes experimentaron dificultades en ser desplegadas y en el cumplimiento de las prestaciones que se esperaba de ellas debido a las limitaciones de la arquitectura de la red. Por ello, nació la nueva generación 4G, una red global basada en una aproximación de sistemas abiertos. Los dos principales objetivos de las redes 4G son integrar diferentes tipos de tecnologías inalámbricas con líneas cableadas de manera transparente y la convergencia de voz, contenido multimedia y datos sobre una sola red troncal IP. Las redes ad hoc inalámbricas móviles encajan en este contexto puesto que se espera que sean una de las partes más importantes de la arquitectura de las redes 4G y 5G.
 
