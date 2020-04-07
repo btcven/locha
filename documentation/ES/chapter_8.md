@@ -4,12 +4,12 @@
 
 # 8. AODVv2
 
-AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
+[7,9] AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) y redes ad-hoc inalámbricas. AODV es la evolución de su anterior protocolo llamado **DYMO**, que nació en Julio del 2005 y en el año 2013 adopta el nombre de **AODVv2**.
 
 El AODV es uno de los protocolos más utilizados de los algoritmos reactivos, siendo ideal para las redes Ad-Hoc. Este protocolo intercambia mensajes cuando necesita establecer una comunicación, es decir, envía mensajes a los vecinos para calcular cada ruta. Gracias a las mejoras incorporadas en AODV se evita la problemática que tiene DYMO, pero por el contrario se incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
 
 
-En la siguiente figura podemos observar las diferentes versiones de AODVv2 y DYMO.
+En la siguiente figura [11] podemos observar las diferentes versiones de AODVv2 y DYMO.
 
 ![draft version](imple_pic/aodv-versions.png "draft version")
 
@@ -17,14 +17,18 @@ En este trabajo, nos centramos en la evolución del protocolo de enrutamiento (A
 
 **AODV** es uno de los cuatro protocolos estandarizados por el grupo de trabajo **IETF MANET**. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero se pretende establecer una ruta entre un nodo de origen y un destino **(descubrimiento de ruta)**, y luego mantener una ruta entre los dos nodos durante los cambios de topología **(mantenimiento de la ruta)**.
 
+Las versiones mas recientes aplican [13] aún más restricciones para actualizar la tabla de enrutamiento y de esta manera garantizar la libertad del bucle.
 
+Mantiene como máximo dos rutas para cada destino mientras una es inválida y la otra no está confirmada.
+
+Para evitar bucles en esta versión, una ruta entrante actualiza la ruta existente con el mismo estado En caso de que no exista una ruta con el mismo estado, será añadido a la tabla . Por lo tanto, la tabla de enrutamiento siempre mantiene mejores rutas para cada estado.
 
 ## 8.1 Características
 
 <h2>Las características del protocolo son:</h2>
 
 <ol>
- <li>Señalización de control baja. </li>
+ <li>[7] Señalización de control baja. </li>
  <li>Señalización de procesamiento mínima.</li>
  <li>Prevención de bucles.</li>
  <li>Funciona sólo con enlaces bidireccionales.</li>
@@ -54,7 +58,7 @@ Existe otro concepto conocido como mantenimiento de ruta, que sirve para actuar 
 
 
 ## 8.2 Descubrimiento de Rutas 
-Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de encaminamiento a ver si existe una ruta hacia este destino previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de encaminamiento es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un camino válido. 
+[7] Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de encaminamiento a ver si existe una ruta hacia este destino previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de encaminamiento es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un camino válido. 
 
 El proceso comienza con el envío de un paquete RREQ (Route Request) en modo broadcast. Este paquete llega a los nodos vecinos que se encuentran a un salto de distancia y estos a su vez lo reenvían a sus vecinos y así sucesivamente hasta llegar al destino. 
 
@@ -98,6 +102,10 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 
 ## 8.3 Describiendo el proceso de requerimiento de ruta en una red ad hoc.
 
+En este apartado se ilustra [7] gráficamente como se inunda la red con mensajes de requerimiento de ruta, con el fin de encontrar un nodo destino del cual no se conoce mas que la dirección IP que tiene asignada.
+
+El protocolo AODV por su naturaleza de ser un protocolo reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto; las siguientes imágenes representan la secuencia lógica que debe seguirse hasta llegar al nodo destino.
+
 <h2> Paso 1. </h2>
 
 <p>
@@ -133,7 +141,7 @@ Este proceso comparándolo con la vida cotidiana es igual a cuando sales a la ca
 
 - Como se puede observar en la imagen, el **nodo H** recibe el requerimiento de ruta de dos vecinos distintos. lo que podria dar lugar a una colision.
 
-- AOdvv2 maneja una tabla de mensajes de ruta para verificar que no se ha regenerado antes un mensaje que proviene del mismo intento por conseguir una ruta en particular de un mismo origen hacia un mismo destino, com lo que se quiere decir que nunca un nodo recreara un mensaje de requerimiento de ruta que ya ha recreado antes, no importa de donde proviene.
+- AOdvv2 maneja una tabla de mensajes de ruta [10] para verificar que no se ha regenerado antes un mensaje que proviene del mismo intento por conseguir una ruta en particular de un mismo origen hacia un mismo destino, com lo que se quiere decir que nunca un nodo recreara un mensaje de requerimiento de ruta que ya ha recreado antes, no importa de donde proviene.
 
 <br>
 
@@ -224,7 +232,7 @@ Una vez que un nodo intermedio recibe un mensaje de requerimiento de ruta ```RRE
 Cabe aclarar que estas rutas aprendidas por medio de los mensajes de requerimiento de ruta o RREQ, aun no se pueden confirmar como bidireccionales, son enlaces que de antemano se sabe son capaces de enviar mensajes , pero debemos asegurarnos de que puede recibir tambien, y esto se consigue por medio de los mensajes RREQ_ack o por medio del mismo mensaje RREP del cual hablaremos mas adelante.
 
 ## 8.4 Mantenimiento de Rutas 
-El mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
+El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla de enrutamiento siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message(RERR), estos mensajes de control los genera un router AODVv2 cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan él envió de un mensaje RERR:
 
 - Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento. En este caso el nodo enviara un RERR a la fuente para informar que no existe una ruta hacia el destino.
 - Cuando no se puede reenviar un mensaje RREP porque la ruta hacia el generador del RREQ no es válida. En este caso el nodo debe enviar en RERR hacia el generador del mensaje RREP para infórmale que la ruta hacia el origen del mensaje RREQ no es válida.
@@ -519,36 +527,35 @@ En este apartado se definen los mensajes de control que el protocolo utiliza par
 
 ## 8.13 Procesos involucrados en el protocolo AODvv2
 
-A continuacion se dara un descripcion corta de cada uno los procesos involucrados en el protocolo.
-
+A continuación se dará un descripción corta de cada uno los procesos involucrados en el protocolo. Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
 ### 8.13.1 Next Hop Monitoring
 
-Este proceso tiene como finalidad asegurar que no se establecen rutas a través de enlaces unidireccionales, para ello los routers AODV2 deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
+Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a través de enlaces unidireccionales, para ello los routers AODV2 deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
 
 - Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control Route Reply Acknowledgement (RREP_Ack). Al enviar un RREP_Ack, se espera un RREP_Ack como respuesta, si este llega en un tiempo menor a RREP_Ack_SENT_TIMEOUT demuestra que el enlace esbidireccional, en caso contrario el enlace se considera unidireccional.
 - Para un router downstream,el hecho de recibir un mensaje RREP que contiene en el campo TargAddr la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que, un mensaje RREP requiere que un mensaje RREQ previamente haya recorrido el enlace en dirección contraria.
 
 ### 8.13.2 Neighbor Set Update
 
-- Este proceso tiene como finalidad la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set, esto permite registrar los vecinos del router AODVv2 y establecer la relación que mantiene con cada una de ellos. 
+- Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set, esto permite registrar los vecinos del router AODVv2 y establecer la relación que mantiene con cada una de ellos. 
 
 - Cuando un router recibe un mensaje RREP y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la NeighborSet cambia a Confirmed. 
 - Cuando un router recibe un mensaje RREP_Ack y este es debido al envío de un RREP_Ack con AckReq. El enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
 
 ## 8.14 Procesado de la información de los mensajes de ruta
 
-En todos los mensajes de ruta hay información sobre una ruta, los RREQ contienen la ruta hacia OrigPrefix, y los RREP hacia TargPrefix.Esta información se almacena en Local Route Set. 
+En todos los mensajes de ruta [10] hay información sobre una ruta, los RREQ contienen la ruta hacia OrigPrefix, y los RREP hacia TargPrefix.Esta información se almacena en Local Route Set. 
 
 Como paso previo al proceso de evaluación, se convierten las estructuras de los mensajes RREQ y RREP a una estructura tipo AdvRte,común para ambos, esto facilita el proceso de desarrollo reduciendo el número de funciones a implementar.
 
 
 ### 8.14.1 Evaluación de la información de ruta
 
-Este proceso tiene como finalidad evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set, para ello se compara el coste y el número de secuencia del AdvRte con la entrada correspondiente en la tabla Local Route Set.
+Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set, para ello se compara el coste y el número de secuencia del AdvRte con la entrada correspondiente en la tabla Local Route Set.
 
 ### 8.14.2 Actualización de la información de las rutas
 
-Después de determinar que el AdvRte se utilizará para actualizar Local Route Set, este proceso se encarga de añadir una nueva entrada en la Local Route Set o actualizar una existente.
+Después de determinar [10] que el AdvRte se utilizará para actualizar Local Route Set, este proceso se encarga de añadir una nueva entrada en la Local Route Set o actualizar una existente.
 
 ### 8.14.3 Eliminación de los mensajes redundantes usando la Multicast Route Message Set
 
