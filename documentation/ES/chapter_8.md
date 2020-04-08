@@ -628,7 +628,3 @@ un AckReq iniciara el proceso para enviar un RREP_Ack Response, si no es así y 
 
 ### 8.14.11 Generación de RREP_Ack Response
 Un router AODvv2 generará un RREP_Ack Response cuando reciba un RREP_Ack que contenga un AckReq.
-
-<br>
-<h1 align="center">Capitulo 8</h1>
-<br>
