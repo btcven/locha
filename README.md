@@ -83,6 +83,8 @@ The Locha Mesh is under active development. If you are a C/C++ developer and you
 
 Please read our [contributing guide.](CONTRIBUTING.md)
 
+Pull Requests need to be made to the latest `dev` branch.
+
 <br>
 
 ## Supported devices
