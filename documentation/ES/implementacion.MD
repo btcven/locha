@@ -115,7 +115,7 @@ En primer lugar, en la Seccion 1.1, se exhibe el marco en el que cobra sentido e
 
 ## 1.1 Motivacion
 
-Es un hecho bien sabido que una de las revoluciones tecnologicas mas significativas en los ultimos tiempos ha sido la aparicion de las redes inalambricas. Desde su invencion en los anos 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  ultima decada.
+Es un hecho bien sabido que una de las revoluciones tecnologicas mas significativas en los ultimos tiempos ha sido la aparicion de las redes inalambricas. Desde su invencion en los años 70, la historia de la industria de las telecomunicaciones ha sido testigo de su vertiginoso crecimiento durante la  ultima decada.
 
 Existen dos vertientes en cuanto a redes inalambricas se refiere, atendiendo a la arquitectura de red subyacente. En primer lugar se tienen las redes inalambricas con infraestructura. Dentro de este tipo de redes, uno de los ejemplos mas significativos son las redes celulares. 
 
@@ -149,7 +149,7 @@ En la Figura 1.1(a) se representan tres estaciones base que se comunican con sus
 
 Con el fin de comprender las tendencias en tecnologıas inalambricas y entender porque las redes ad hoc inalambricas estan preparadas para desempenar un papel fundamental en la evolucion de las redes inalambricas del futuro, se hace necesaria una revision sucinta de las generaciones tecnologicas en este campo. 
 
-Se puede afirmar que la historia comercial de las redes inalambricas comenzo entorno al ano 1980 con la primera generacion o 1G, en la que los telefonos eran analogicos. Estos dispositivos solo se podıan emplear dentro de un paıs, ya que existıan diferentes estandares, dependiendo del area geografica mundial. 
+Se puede afirmar que la historia comercial de las redes inalambricas comenzo entorno al año 1980 con la primera generacion o 1G, en la que los telefonos eran analogicos. Estos dispositivos solo se podıan emplear dentro de un paıs, ya que existıan diferentes estandares, dependiendo del area geografica mundial. 
 
 El despliegue de la segunda generacion, 2G, surgio en la decada de los 90, anadiendo fax, datos y capacidades de mensajerıa al servicio de voz tradicional. Sin embargo, tampoco se adopto como un estandar homogeneo mundial. Recientemente,2G se ha extendido a 2.5G, con el fin de mejorar el soporte de transmison de datos de baja velocidad. Luego se hace la transicion desde 2G hacia 3G, con la que se adopta un estandar global y con capacidades de roaming en todo el planeta, ademas de incrementar considerablemente el ancho de banda. 
 
@@ -159,7 +159,7 @@ Gran parte de la investigacion realizada en el campo de las redes ad hoc inalamb
 
 Estas nuevas dificultades, antes inexistentes en las redes cableadas, junto con la importancia crıtica de los protocolos de encaminamiento para establecer la comunicacion entre nodos, hacen que el area del encaminamiento sea una de las mas activas en la investigacion de las redes ad hoc inalambricas. 
 
-El proposito del presente trabajo se enmarca aquı, ya que ofrece un estudio sobre las prestaciones de uno de los protocolos de encaminamiento para redes ad hoc inalambricas mas ampliamente extendidos. Concretamente, se busca evaluar las prestaciones del protocolo en un ambiente real ademas de las simulaciones para lograr obtener resultados cuando el numero de componentes de la red es elevado;Puesto que el despliegue de la red real con un numero considerable de nodos no es facil en la etapa de inicio del proyecto,por esto es necesario hacer un estudio previo que sirva como base para las futuras mejoras del producto final. Por ello, la evaluacion del protocolo de encaminamiento se realiza mediante herramientas de simulacion que modelan el sistema real cuyo comportamiento se pretende analizar para grandes cantidades de nodos.
+El proposito del presente trabajo se enmarca aquı, ya que ofrece un estudio sobre las prestaciones de uno de los protocolos de encaminamiento para redes ad hoc inalambricas mas ampliamente extendidos. Concretamente, se busca evaluar las prestaciones del protocolo en un ambiente real ademas de las simulaciones para lograr obtener resultados cuando el numero de componentes de la red es elevado. Puesto que el despliegue de la red real con un numero considerable de nodos no es facil en la etapa de inicio del proyecto, por esto es necesario hacer un estudio previo que sirva como base para las futuras mejoras del producto final. Por ello, la evaluacion del protocolo de encaminamiento se realiza mediante herramientas de simulacion que modelan el sistema real cuyo comportamiento se pretende analizar para grandes cantidades de nodos.
 
 ## 1.2 Objetivos
 
@@ -208,7 +208,7 @@ Sin embargo, este tipo de redes también pueden proporcionar un medio de comunic
 
 
 ## 1.3 Planificacion
-Es de vital Importancia establecer y seguir una secuencia logica de pasos para llevar a cabo este proyecto;El desarrollo de este proyecto se puede dividir en las siguientes subtareas:
+Es de vital Importancia establecer y seguir una secuencia logica de pasos para llevar a cabo este proyecto. El desarrollo de este proyecto se puede dividir en las siguientes subtareas:
 - Preparacion y planificacion: Durante la fase de preparacion se acudio a diferentes fuentes bibliograficas para la obtencion del conocimiento necesario acerca de las redes ```ad-hoc``` y de los diferentes ```protocolos de enrutamineto``` para completar la fase dedocumentacion necesaria. 
 - Diseno del Hardware necesario para completar este proyecto; El diseno del harware a su vez se puede descomponer en varias subtareas como lo son:
   - Diseno de la fuente de voltaje que provee eficiencia energetica y alimentacion al circuito digital.
