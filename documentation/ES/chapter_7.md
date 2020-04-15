@@ -25,19 +25,20 @@ A diferencia de un sistema operativo monolítico que agrupa un conunto completo 
 
 ## 7.2 Conectividad
 
-La conectividad de red es esencial para las redes de sensores e internet de las cosas.
+La conectividad es esencial para las redes de sensores e IoT.
 
-Si estamos hablando de redes de sensores inalámbricos. 
-la industria ahora espera que los dispositivos integrados se conecten entre sí, y para comunicarse con redes publicas y privadas. 
+Hablando de redes de sensores inalámbricos, se espera que los dispositivos se conecten entre sí para comunicarse con redes publicas y privadas. 
 
-- Nuestro RTOS de elección debe soportar comunicaciones estandares y protocolos como IEEE 802.15.4, Wi-Fi y Bluetooth. 
+En el caso de Locha:
 
-- Nuestro dispositivo debe poder conectarse a redes IP usando protocolos de ancho de banda eficiente como 6LoWPAN. 
+- Nuestro RTOS de elección debe soportar comunicaciones estandares y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
 
-- Un RTOS nos permitirá seleccionar el protocolo específico, el stack de red que necesitemos, ahorrando memoria en el dispositivo y reduciendo nuestros costos Y puede ayudarnos a adaptar los dispositivos existentes con nuevos opciones de conectividad sin reelaborar el núcleo de nuestro software embebido
+- Un RTOS nos permitirá adoptar el stack de red que necesitamos, ahorrando memoria en el dispositivo y reduciendo nuestros costes. Además puede ayudarnos a usar  dispositivos existentes y añadir nuevas funciones sin grandes cambios en el software.
 
-- El sistema operativo para esta red debe tener en cuenta todos las limitaciones del hardware, manteniendo una alta usabilidad.
-- Es deseable encontrar interfaces estandar como lo son POSIX, para portabilidad de aplicaciones.
+- El sistema operativo para esta red debe tener en cuenta todos las limitaciones del hardware, manteniendo una alta disponibilidad.
+
+- Es deseable encontrar interfaces estandar como es POSIX, para facilitar la portabilidad de aplicaciones.
+
 - La facilidad de uso debe ser un factor crucial para todo desarrollador
 
 ## 7.3 Contiki y Tiny OS
