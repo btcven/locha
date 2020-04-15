@@ -1,29 +1,26 @@
-<br>
-<h1 align="center">Capitulo 7</h1>
-<br>
 
-# 7. Seleccion del Sistema Operativo
+# 7. Selección del sistema operativo
 
-En esta seccion ilustramos algunos aspectos importantes a la hora de seleccionar el sistema operativo para trabajar con este tipo de tecnologias, debido a que los requisitos de software para redes de sensores puede diferir bastante, Aunque podrian compartir un Kernel en comun y algunos servicios de bajo nivel.
+Los criterios para elegir sistema operativo en este caso son similares a los de una red de sensores.
 
-Un dispositivo de red para funcionar en una red de sensores debe tener ciertas caracteristicas, [4,5,6]  entre las cuales se incluyen:
-- Bajo costo.
-- Bajo consumo
-- Que pueda funcionar completamente con bateria.
+Nuestro dispositivo de red debe tener ciertas caracteristicas especiales, [4,5,6]  entre las cuales se incluyen:
+- Bajo coste.
+- Bajo consumo.
+- Que pueda funcionar con bateria.
 
-Para cumplir el objetivo se debe emplear un protocolo de red altamente eficiente como 6LowPAN para reducir el tiempo de transmision y ahorrar energia.
+Para cumplir el objetivo se debe emplear un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmision y ahorrar energia.
 
 
 ## 7.1 Modularidad
 
-El dispositivo IoT requerirá un sistema operativo modularque separe el kernel del middleware, protocolos y
-aplicaciones. Las razones son la facilidad de desarrollo y el mantenimiento.
+El dispositivo de Locha requerirá un sistema operativo modular que separe el kernel del middleware, protocolos y
+aplicaciones, debido a la facilidad de desarrollo y el mantenimiento.
 
-Usando un RTOS modular simplifica nuestro proceso de desarrollo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades. 
+Usar un _RTOS_ modular simplifica nuestro trabajo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades. 
 
 Confiar en un núcleo común permite que toda familia de dispositivos puedan compartir una base de código común.
 
-A diferencia de un sistema operativo monolitico que agrupa un conunto completo de software, un ```RTOS``` modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, ademas de que reduce los costos.
+A diferencia de un sistema operativo monolítico que agrupa un conunto completo de software, un _RTOS_ modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, además de reducir costes.
 
 
 ## 7.2 Conectividad
