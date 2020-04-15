@@ -3,35 +3,34 @@
 
 Los criterios para elegir sistema operativo (OS) en este caso son similares a los de una red de sensores.
 
-Nuestro dispositivo de red debe tener ciertas caracteristicas especiales, [4,5,6]  entre las cuales se incluyen:
+Nuestro dispositivo de red debe tener ciertas características especiales, [4,5,6]  entre las cuales se incluyen:
 - Bajo coste.
 - Bajo consumo.
-- Que pueda funcionar con bateria.
+- Que pueda funcionar con batería.
 
-Para cumplir el objetivo se debe emplear un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmision y ahorrar energia.
+Para cumplir el objetivo se debe emplear un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmisión y ahorrar energía.
 
 
 ## 7.1 Modularidad
 
-El dispositivo de Locha Mesh requerirá un OS modular que separe el kernel del middleware, protocolos y
-aplicaciones, debido a la facilidad de desarrollo y el mantenimiento.
+El dispositivo de Locha Mesh requerirá un OS modular que separe el kernel del middleware, protocolos y aplicaciones que permita mayor facilidad de desarrollo y mantenimiento.
 
 Usar un _RTOS_ modular simplifica nuestro trabajo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades. 
 
 Confiar en un núcleo común permite que toda familia de dispositivos puedan compartir una base de código común.
 
-A diferencia de un OS monolítico que agrupa un conunto completo de software, un _RTOS_ modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, además de reducir costes.
+A diferencia de un OS monolítico que agrupa un conjunto completo de software, un _RTOS_ modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, además de reducir costes.
 
 
 ## 7.2 Conectividad
 
 La conectividad es esencial para las redes de sensores e IoT.
 
-Hablando de redes de sensores inalámbricos, se espera que los dispositivos se conecten entre sí para comunicarse con redes publicas y privadas. 
+Hablando de redes de sensores inalámbricos, se espera que los dispositivos se conecten entre sí para comunicarse con redes públicas y privadas. 
 
 En el caso de Locha:
 
-- Nuestro _RTOS_ elegido debe soportar comunicaciones estandares y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
+- Nuestro _RTOS_ elegido debe soportar comunicaciones estándares y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
 
 - Un _RTOS_ nos permitirá adoptar el stack de red que necesitamos, ahorrando memoria en el dispositivo y reduciendo nuestros costes. Además puede ayudarnos a usar  dispositivos existentes y añadir nuevas funciones sin grandes cambios en el software.
 
@@ -45,8 +44,8 @@ En el caso de Locha:
 
 - Contiki-ng y TinyOS no son sistemas operativos en tiempo real, pero son la referencia en redes de sensores inalámbricos.
 
-- El OS Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta contruido sobre un nucleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_.
-Por otro lado Linux usa un planificador, que garantiza un horario de ejecucion para las tareas.
+- El OS Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta construido sobre un nucleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_.
+Por otro lado Linux usa un planificador, que garantiza un horario de ejecución para las tareas.
 
 - El modelo de programación de Contiki-ng y TinyOS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
 
@@ -56,7 +55,7 @@ Por otro lado Linux usa un planificador, que garantiza un horario de ejecucion p
 
 - TinyOS está escrito en un lenguaje llamado NesC, el cual es similar pero no compatible con C.
   
-Cabe destacar que unos de los parámetros mas importantes a la hora de seleccionar el OS, es la cantidad de documentacion, ejemplos y actividad en el repositorio de constantes actualizaciones.
+Cabe destacar que unos de los parámetros mas importantes a la hora de seleccionar el OS, es la cantidad de documentación, ejemplos y actividad en el repositorio de constantes actualizaciones.
 
 ## 7.4 RIOT-OS
 
