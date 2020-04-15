@@ -37,7 +37,7 @@ En el caso de Locha:
 
 - El sistema operativo para esta red debe tener en cuenta todos las limitaciones del hardware, manteniendo una alta disponibilidad.
 
-- Es deseable encontrar interfaces estandar como es POSIX, para facilitar la portabilidad de aplicaciones.
+- Es deseable encontrar interfaces estándar como es POSIX, para facilitar la portabilidad de aplicaciones.
 
 - La facilidad de uso debe ser un factor crucial para todo desarrollador
 
@@ -58,35 +58,30 @@ Por otro lado Linux usa un planificador, que garantiza un horario de ejecucion p
   
 Cabe destacar que unos de los parámetros mas importantes a la hora de seleccionar el _OS_, es la cantidad de documentacion, ejemplos y actividad en el repositorio de constantes actualizaciones.
 
-## 7.4 RIOT OS
+## 7.4 RIOT-OS
 
-RIOT (sistema operativo en tiempo real para IoT) llena el vacío entre sistemas operativos de redes de sensores inalámbricos y Sistemas operativos tradicionales. Además, este sistema operativo está diseñado para: 
+RIOT-OS (sistema operativo en tiempo real para IoT) llena el vacío entre sistemas operativos de redes de sensores inalámbricos y tradicionales. Además, este sistema operativo está diseñado para: 
 - Cuidar la eficiencia energética del dispositivo. 
 - Para ocupar el menor espacio de memoria posible.
-- Tener un API única, independientemente del hardware subyacente.
+- Tener una API única, independiente del hardware.
 
-RIOT se basa en una arquitectura de microkernel, que es heredado de FireKernel, lo que permite multi-hilo utilizando una API estándar. Repleto de características heredado de FireKernel, RIOT también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para la pila de red TCP/IP; Este enfoque modular hace que RIOT sea robusto contra fallas de sus componentes individuales, proporcionando alta confiabilidad
-con una API amigable para los programadores.
+RIOT-OS se basa en una arquitectura de microkernel que permite multi-hilo utilizando una API estándar. Repleto de características heredadas de FireKernel, RIOT-OS también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para el stack de red TCP/IP. Este enfoque modular hace que RIOT-OS sea robusto contra fallos de  componentes individuales, proporcionando alta confiabilidad y una API amigable para los programadores.
 
-RIOT permite a los programadores crear tantos hilos como necesitan. La única restricción es la cantidad de memoria  disponible para cada hilo. 
+RIOT-OS permite a los programadores crear tantos hilos como sean necesarios. La única restricción es la cantidad de memoria  disponible para cada hilo. 
 
-Gracias a la API de mensajes del Kernel y usando estos hilos, es posible Implementar sistemas distribuidos de una manera simple.
+Gracias a la API de mensajes del Kernel y usando estos hilos, es posible implementar sistemas distribuidos de una manera simple.
 
-Para cumplir con los requisitos en tiempo real, RIOT hace cumplir períodos constantes para las tareas del núcleo (por ejemplo, ejecución del planificador, inter comunication  process, operaciones de temporizador).
+Para cumplir con los requisitos en tiempo real, RIOT-OS hace cumple períodos constantes para las tareas del núcleo (por ejemplo: ejecución del planificador, inter comunication  process, operaciones de temporizador, etc).
 
+Cada RTOS-OS es muy bueno en un dominio particular, pero teniendo en cuenta nuestras necesidades, nosotros hemos elegido RIOT-OS. 
 
-Como hemos visto, cada RTOS es muy bueno en un dominio particular, pero teniendo en cuenta nuestros requisitos, nosotros hemos elegido RIOT. 
+En términos de hardware MCU y capacidades de memoria, RIOT-OS compite principalmente con Linux. En comparación RIOT puede reducirse a órdenes con menos requerimientos de memoria y está construido con soporte incorporado para 
+eficiencia energética y capacidades en tiempo real. 
 
-En el extremo superior en términos de hardware MCU y capacidades de memoria, RIOT compite principalmente con Linux. En comparación con Linux, RIOT puede reducirse a órdenes con menos requerimientos de memoria y esta construido con soporte incorporado para 
-Eficiencia energética y capacidades en tiempo real. 
+Por otro lado, RIOT-OS también compite
+con Contiki-ng, TinyOS y FreeRTOS. En comparación con Contiki-ng y TinyOS, RIOT-OS ofrece capacidades en tiempo real y subprocesos múltiples. A diferencia de FreeRTOS, RIOT-OS proporciona eficiencia energética nativa y un sistema operativo con todas las funciones, incluyendo una red interoperable de código abierto, actualizada y gratuita.
 
-En el extremo bajo en términos de hardware MCU / capacidades de memoria, RIOT compite
-principalmente con Contiki, TinyOS y FreeRTOS.
-En comparación con Contiki y TinyOS, RIOT ofrece capacidades en tiempo real y subprocesos múltiples. 
-
-En contraste con FreeRTOS, RIOT proporciona eficiencia energética nativa y un sistema operativo con todas las funciones incluyendo red interoperable de código abierto, actualizada y gratuita.
-
-RIOT también ofrece API estandar POSIX y la capacidad de codificar en lenguajes de programación estandar como (C y C ++) usando herramientas de depuración estandar, lo que reduce la curva de aprendizaje de los desarrolladores
+RIOT también ofrece API estándar POSIX y la capacidad de codificar en lenguajes de programación estándar como (C y C ++) usando herramientas de depuración estándar, lo que reduce la curva de aprendizaje de los desarrolladores
 y el proceso del ciclo de vida del desarrollo de software.
 
 
@@ -117,7 +112,7 @@ y el proceso del ciclo de vida del desarrollo de software.
     <td>&#10008</td>
  </tr>
  <tr align="center">
-    <td>Contiki</td>
+    <td>Contiki-ng</td>
     <td>< 2KB</td>
     <td>< 30KB</td>
     <td> &#10061 </td>
@@ -128,7 +123,7 @@ y el proceso del ciclo de vida del desarrollo de software.
     <td>&#10061</td>
  </tr>
  <tr align="center">
-    <td>RIOT OS</td>
+    <td>RIOT-OS</td>
     <td>~ 1.5KB</td>
     <td>~ 5KB</td>
     <td> &#10004 </td>
