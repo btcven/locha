@@ -41,19 +41,22 @@ En el caso de Locha:
 
 - La facilidad de uso debe ser un factor crucial para todo desarrollador
 
-## 7.3 Contiki y Tiny OS
+## 7.3 Contiki-ng y TinyOS
 
-- Contiki y Tiny OS nos son sistemas operativos en tiempo real, pero podemos ver su presencia en el mercado es dominante, principalmente en redes de sensores inhalambricos; Por lo tanto se aplican como referencia, la misma razon podemos aplicar a Linux.
+- Contiki-ng y TinyOS no son sistemas operativos en tiempo real, pero son la referencia en redes de sensores inalámbricos.
 
-- El sistema operativo Contiki tiene una arquitectura en capas mientras que Tiny OS esta contruido sobre un nucleo monolitico, igual que en Linux, Contiki es impulsado por eventos y es muy similar a Tiny OS, el cual usa una estrategia ```FIFO```, por otro lado Linux usa un planificador, que garantiza un horario de ejecucion para las tareas.
+- El sistema operativo Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta contruido sobre un nucleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_.
+Por otro lado Linux usa un planificador, que garantiza un horario de ejecucion para las tareas.
 
-- El modelo de programacion de Contiki y Tiny OS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
+- El modelo de programacion de Contiki-ng y TinyOS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
 
 - Ofrecen soporte parcial para el multi-thread.
-- Contiki usa un lenguaje similar a C, peor no puede usar ciertas palabras clave.
+
+- Contiki-ng usa un lenguaje similar a C, pero no puede usar ciertas palabras clave.
+
 - TinyOS esta escrito en un lenguaje llamado NesC, el cual es similar pero no compatible con C.
   
-Cabe destacar que unos de los parametros mas importantes a la hora de seleccionar un Sistema Operativo para redes de sensores, es la cantidad de documentacion, ejemplos y actividad en el repositorio, hablando acerca de constantes actualizaciones.
+Cabe destacar que unos de los parámetros mas importantes a la hora de seleccionar el _OS_, es la cantidad de documentacion, ejemplos y actividad en el repositorio de constantes actualizaciones.
 
 ## 7.4 RIOT OS
 
