@@ -556,48 +556,48 @@ Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. C
 
 Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
 
-## 8.14 Procesado de la información de los mensajes de ruta
+## 8.13 Procesamiento de la información de los mensajes de ruta.
 
-En todos los mensajes de ruta [10] hay información sobre una ruta, los RREQ contienen la ruta hacia OrigPrefix, y los RREP hacia TargPrefix.Esta información se almacena en Local Route Set. 
+En todos los mensajes de ruta [10] hay información sobre una ruta, los _RREQ_ contienen la ruta hacia _OrigPrefix_, y los _RREP_ hacia _TargPrefix_. Esta información se almacena en Local Route Set. 
 
-Como paso previo al proceso de evaluación, se convierten las estructuras de los mensajes RREQ y RREP a una estructura tipo AdvRte,común para ambos, esto facilita el proceso de desarrollo reduciendo el número de funciones a implementar.
+Como paso previo al proceso de evaluación, se convierten las estructuras de los mensajes _RREQ_ y _RREP_ a una estructura tipo _AdvRte_, común para ambos. Esto facilita el proceso de desarrollo reduciendo el número de funciones a implementar.
 
 
-### 8.14.1 Evaluación de la información de ruta
+### 8.13.1 Evaluación de la información de ruta.
 
-Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set, para ello se compara el coste y el número de secuencia del AdvRte con la entrada correspondiente en la tabla Local Route Set.
+Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set. Para ello se compara el coste y el número de secuencia del _AdvRte_ con la entrada correspondiente en la tabla Local Route Set.
 
-### 8.14.2 Actualización de la información de las rutas
+### 8.13.2 Actualización de la información de las rutas.
 
-Después de determinar [10] que el AdvRte se utilizará para actualizar Local Route Set, este proceso se encarga de añadir una nueva entrada en la Local Route Set o actualizar una existente.
+Después de determinar [10] que el _AdvRte_ se utilizará para actualizar la tabla Local Route Set. Este proceso se encarga de añadir una nueva entrada o actualizar una existente.
 
-### 8.14.3 Eliminación de los mensajes redundantes usando la Multicast Route Message Set
+### 8.13.3 Eliminación de los mensajes redundantes usando la Multicast Route Message Set.
 
-Cuando los mensajes de ruta inundan una MANET, un nodo podría recibir varias veces el mismo mensaje de ruta, si no se evita, parte de estos mensajes serán reenviados generando trafico innecesario.
+Cuando los mensajes de ruta inundan una _MANET_, un nodo podría recibir varias veces el mismo mensaje de ruta. Si no se evita, parte de estos mensajes serán reenviados generando tráfico innecesario.
 
-Para solucionar este problema cada router AODVv2, almacena información de los mensajes de ruta que recibe en la tabla Multicast Route Message Set.
+Para solucionar este problema cada router _AODVv2_ almacena información de los mensajes de ruta que recibe en la tabla Multicast Route Message Set.
 
-Cada vez que se recibe un mensaje RREQ o RREP,se consulta en la tabla Multicast Route Message Set, si la información que contiene el mensaje entrante es redundante o no.
+Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
 
 A partir de esto se toma la decisión si el mensaje es reenviado o no.
 
-### 8.14.4 Creación de mensajes RREQ
-- Un mensaje RREQ se genera cuando un Client Router registrado en la tabla *Local Route Set* de un router AODVv2 quiere enviar un paquete IP y no existe una ruta hacia al destino en su tabla RIB. Tras configurar los parámetros descritos [aqui](#7121-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), se procede a su envío. La dirección IP de destino del paquete que contiene el mensaje RREQ será la dirección *multicast* LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) para IPV6 específicada por el [RFC 5498](https://tools.ietf.org/html/rfc5498).
+### 8.13.4 Creación de mensajes RREQ
+- Un mensaje _RREQ_ se genera cuando un Client Router registrado en la tabla *Local Route Set* de un router _AODVv2_ quiere enviar un paquete IP y no existe una ruta hacia al destino en su tabla _RIB_. Tras configurar los parámetros descritos [aqui](#7121-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), se procede a su envío. La dirección IP de destino del paquete que contiene el mensaje _RREQ_ será la dirección *multicast* LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) para IPV6 específicada por el [RFC 5498](https://tools.ietf.org/html/rfc5498).
 
-- Antes de crear un RREQ, el enrutador DEBE verificar si recientemente se envió un RREQ para el destino solicitado. Si es así, y aún no se ha alcanzado el tiempo de espera para una respuesta, el enrutador DEBE continuar esperando una respuesta sin generar un nuevo RREQ. 
+- Antes de crear un _RREQ_, el enrutador debe verificar si recientemente se envió un _RREQ_ para el destino solicitado. Si es así, y aún no se ha alcanzado el tiempo de espera para una respuesta, el enrutador debe continuar esperando una respuesta sin generar un nuevo _RREQ_. 
 
-- Si se ha alcanzado el tiempo de espera, se PUEDE generar un nuevo RREQ. Si se configura el almacenamiento en búfer, el paquete IP entrante DEBE almacenarse en búfer hasta que se complete el descubrimiento de ruta.
+- Si se ha alcanzado el tiempo de espera, se puede generar un nuevo _RREQ_. Si se configura el almacenamiento en búfer, el paquete IP entrante debe almacenarse en búfer hasta que se complete el descubrimiento de ruta.
 
-- Si se ha alcanzado el límite permitido de mensajes de control AODVv2, NO DEBE generar ningún otro mensaje. 
+- Si se ha alcanzado el límite permitido de mensajes de control _AODVv2_, no debe generar ningún otro mensaje. 
 
 - Si se acerca al límite, el mensaje debe enviarse si las prioridades en la Sección [7.5](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1) lo permiten.
 
-- Este mensaje AODVv2 se usa para crear un mensaje [RFC5444] correspondiente (consulte la Sección [8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), que se entrega al multiplexor RFC5444 para su posterior procesamiento.
+- Este mensaje _AODVv2_ se usa para crear el mensaje [RFC5444] correspondiente (consulte la Sección [8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), que se entrega al multiplexor RFC5444 para su posterior procesamiento.
 
-- Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusion en **LL-MANET-Routers**
+- Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusion en _LL-MANET-Routers_
 
 
-Para generar un mensaje Route Request (RREQ) el router AODV debe seguir estos pasos:
+Para generar un mensaje _RREQ_ el router _AODV_ debe seguir estos pasos:
 
 1. Set **msg_hop_limit** = MAX_HOPCOUNT
 2. Set **msg_hop_count** = 0, if including it
@@ -612,33 +612,33 @@ Para generar un mensaje Route Request (RREQ) el router AODV debe seguir estos pa
 6. Para TargSeqNum:
  - Si existe una ruta no válida que coincida con TargAddr utilizando la coincidencia de prefijo más larga y tenga un número de secuencia válido, establecer
  - TargSeqNum = numero de secuencia de la ruta almacenda.
- - Si no existen rutas invalidas que coincidancon la direccion de destino, o la ruta no tiene un numero de secuencia, se omite el TargetSeqNum. 
+ - Si no existen rutas inválidas que coincidan con la dirección de destino, o la ruta no tiene un número de secuencia, se omite el TargetSeqNum. 
 7. Incluya el elemento de datos MetricType y establezca el tipo acorde o comparable con metricType.
 8. Establecer OrigMetric = Route[OrigAddr]. Metric, es decir **RouterClient.Cost**.
 9. Incluir el elemento de datos **ValidityTime** si anuncia que la ruta a OrigAddr a través de este enrutador se ofrece por un tiempo limitado, y configure ValidityTime en consecuencia.
 
-### 8.14.5 Recepción de mensajes RREQ
-Este proceso se encarga de realizar las operaciones a efectuar cuando un router AODVv2 recibe un mensaje RREQ. Entre ellas: 
-- Chequea el contenido de los campos para comprobar que son válidos.
+### 8.13.5 Recepción de mensajes RREQ
+Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREQ_. Entre ellas: 
+- Comprueba que los contenidos de los campos son válidos.
 - Actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. 
-- Por último si la solicitud de descubrimiento de ruta va dirigida a él, envía un mensaje RREP. Si no es así reenvía el mensaje RREQ.
+- Por último si la solicitud de descubrimiento de ruta va dirigida a él, envía un mensaje _RREP_. Si no es así reenvía el mensaje _RREQ_.
 
-### 8.14.6 Reenvío de mensajes RREQ
-Un mensaje RREP se genera cuando un nodo recibe un RREQ y el campo AdressList.TargPrefix del mensaje coincide con una entrada de la tabla Router Client Set del router. Cuando esto sucede genera un mensaje RREP configurando los campos descritos [aqui](#7122-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) lo envía en dirección al RREQ_Gen.
+### 8.13.6 Reenvío de mensajes RREQ
+Un mensaje _RREP_ se genera cuando un nodo recibe un _RREQ_ y el campo _AdressList_. El _TargPrefix_ del mensaje coincide con una entrada de la tabla Router Client Set del router. Cuando esto sucede genera un mensaje _RREP_ configurando los campos descritos [aqui](#7122-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) y lo envía en dirección al _RREQ_Gen_.
 
-### 8.14.7 Recepción de mensajes RREP
-Este proceso se encarga de realizar las operaciones a efectuar cuando un router AODVv2 recibe un mensaje RREP. Entre ellas chequea el contenido de los campos para comprobar que son válidos, actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set.Sí el destino final del mensaje es el propio router, y el mensaje contiene una ruta valida se da por finalizado el proceso de descubrimiento de ruta, añadiendo la entrada correspondiente a la tabla de enrutamiento.
+### 8.13.7 Recepción de mensajes RREP
+Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREP_. Entre ellas comprueba que los contenidos de los campos son válidos, actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. Si el destino final del mensaje es el propio router, y el mensaje contiene una ruta válida se da por finalizado el proceso de descubrimiento de ruta, añadiendo la entrada correspondiente a la tabla de enrutamiento.
 
 
-### 8.14.8 Reenvío de mensajes RREP 
-Este proceso tiene como finalidad el reenvío de los mensajes RREP, para ello comprobará si no se ha superado el número de saltos máximo, si es así reenvía el mensaje.
+### 8.13.8 Reenvío de mensajes RREP 
+Este proceso tiene como finalidad el reenvío de los mensajes _RREP_. Para ello comprobará si no se ha superado el número de saltos máximo. Si es así reenvía el mensaje.
 
-### 8.14.9 Generación de mensajes RREP_Ack Request
-Un mensaje RREP_Ack será generado si un mensaje RREP se envía por un enlace del cual se desconoce si es bidireccional.El RREP_Ack Request se enviará a LocalRoute [OrigPrefix].NextHop a través de LocalRoute [OrigPrefix].NextHop Interface. La entrada para Local Route [OrigPrefix].NextHopen la tabla Neighbor Set se actualizará siguiendo el proceso definido [aqui](#7132-Neighbor-Set-Update)
+### 8.13.9 Generación de mensajes RREP_Ack Request
+Un mensaje _RREP_Ack_ será generado si un mensaje _RREP_ se envía por un enlace del cual se desconoce si es bidireccional.El _RREP_Ack Request_ se enviará a LocalRoute [OrigPrefix].NextHop a través de LocalRoute [OrigPrefix].NextHop Interface. La entrada para Local Route [OrigPrefix].NextHopen la tabla Neighbor Set se actualizará siguiendo el proceso definido [aqui](#7132-Neighbor-Set-Update)
 
-### 8.14.10 Recepción de mensajes RREP_Ack
-Cuando un router AODVv2 recibe un RREP_Ack, comprobará si el mensaje contiene un AckReq y si el mensaje era esperado o no.Sí el mensaje contiene
-un AckReq iniciara el proceso para enviar un RREP_Ack Response, si no es así y el mensaje era esperado actualizará la tabla Neighbor Set para establecer el enlace con el emisor del RREP_Ack como bidireccional.
+### 8.13.10 Recepción de mensajes RREP_Ack
+Cuando un router _AODVv2_ recibe un _RREP_Ack_, comprobará si el mensaje contiene un _AckReq_ y si el mensaje era esperado o no. Si el mensaje contiene
+un _AckReq_ iniciará el proceso para enviar un _RREP_Ack Response_. Si no es así y el mensaje era esperado actualizará la tabla Neighbour Set para establecer el enlace con el emisor del _RREP_Ack_ como bidireccional.
 
-### 8.14.11 Generación de RREP_Ack Response
-Un router AODvv2 generará un RREP_Ack Response cuando reciba un RREP_Ack que contenga un AckReq.
+### 8.13.11 Generación de RREP_Ack Response
+Un router _AODvv2_ generará un _RREP_Ack Response_ cuando reciba un _RREP_Ack_ que contenga un _AckReq_.
