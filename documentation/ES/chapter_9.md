@@ -1,39 +1,36 @@
-<br>
-<h1 align="center">Capitulo 9</h1>
-<br>
 
-# 9. Formato de paquetes para redes MANET
+# 9. Formato de paquetes para redes MANET.
 
-AODVv2 especifica en su draft que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (MANET) Packet/Message Format[RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
+_AODVv2_ especifica que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (_MANET_) Packet/Message Format [RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
 
-El RFC5444 dota de una mayor eficiencia a las trasmisiones de los mensajes de control, estructura de tal manera el contenido que reduce el número de bytes a transmitir.
+El _RFC5444_ dota de una mayor eficiencia a las trasmisiones de los mensajes de control, estructura el contenido  reduciendo el número de bytes a transmitir.
 
-El formato RFC5444 define los siguientes elementos:
+El formato _RFC5444_ define los siguientes elementos:
 - Paquete: Es la entidad de mayor nivel. Un paquete contiene una cabecera y cero o más mensajes.
-- Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje estáformado por una cabecera, un bloque TLV y un bloque de direcciones.
+- Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje está formado por una cabecera, un bloque TLV (type-length-value) y un bloque de direcciones.
 - Bloque de direcciones: Está formado por una o más direcciones, y un bloque de atributos.
-- Bloque TLV: Está formado por uno o másTLV.
-- TLV: Es una estructuraque tiene la forma “type-length-value”. Donde 
- - Type: Es el identificador del tipo de dato que viene a continuación.
- - Length: Este campo indica cuantos bytes ocupa el campo value.
- - Value: Es el valor concreto del objeto al que se refiere.
+- Bloque TLV: Está formado por uno o más TLV.
+- TLV: Es una estructura donde: 
+  - Type: Es el identificador del tipo de dato que viene a continuación.
+  - Length: Este campo indica cuantos bytes ocupa el campo value.
+  - Value: Es el valor concreto del objeto al que se refiere.
 
 En la siguiente imagen se representa la estructura de un paquete RFC544 y sus dependencias.
 
  <img src="imple_pic/rfc5444-pkt.png" alt="drawing" height="600" width="1000" align="center"/>
 
-Cada tipo de mensaje de control se tiene que adaptar al formato del paquete RFC5444.
+Cada tipo de mensaje de control se tiene que adaptar al formato del paquete _RFC5444_.
 
-AODVv2 no requiere acceso al encabezado del paquete [RFC5444].
+_AODVv2_ no requiere acceso al encabezado del paquete [RFC5444].
 
 En el encabezado del paquete AODVv2 usa:
 - **msg-type**. 
 - **msg-hop-limit**.
 - **msg-addr-length**.
 
-**msg-addr-length** indica el tamano de la direccion en el mensaje, el cual su valor corresponde a ```addr_length en octetos -1```, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
+**msg-addr-length** indica el tamano de la direccion en el mensaje, cuyo valor corresponde a ```addr_length en octetos -1```, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
 
- Para esto primero vamos a revisar cuales son los campos de cabecera del paquete RFC5444 que AODVv2 utiliza.
+ Para esto primero vamos a revisar cuales son los campos de cabecera del paquete _RFC5444_ que utiliza _AODVv2_.
 
 
 
