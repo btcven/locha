@@ -528,6 +528,13 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 </p>
 <br>
 
+
+### 8.11.4 Contenido del Mensaje RERR
+**To Do**
+<br>
+<br>
+
+
 ## 8.13 Procesos involucrados en el protocolo AODvv2
 
 A continuación se dará un descripción corta de cada uno los procesos involucrados en el protocolo. Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
