@@ -256,18 +256,16 @@ Los paquetes de datos se quedan almacenados en este nodo esperando recibir un _R
 
 ## 8.5 Tabla de rutas
 
-En la seccion 8.3 se vio como un nodo inunda la red para encontrar a un destino, luego de que el mensaje de control RREQ llega al destino este debe responder con un mensaje de RREP, el cual es de tipo unicast , es decir un mensaje que va dirigido a un nodo especifico identificado con su direccion IP 
+Tenemos también un ejemplo para ilustrar  la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos
 
-A continuacion se expone un ejemplo para ilustrar como deberia verse la tabla de rutas en cada nodo despues de un requerimiento de ruta a todos los nodos
-
-La siguiente figura muestra una topologia de nodos basica y la tabla de rutas que es usada para encontrar a otros nodos.
+La siguiente figura muestra una topología de nodos básica y la tabla de rutas que es usada para encontrar a otros nodos.
 
 <p>
 <img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
 </p>
 
 
-<h3>Tabla de Rutas para nodo A</h3>
+<h3>Tabla de rutas para nodo A</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
@@ -307,7 +305,7 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
 
 
 
-<h3>Tabla de Rutas para nodo B</h3>
+<h3>Tabla de rutas para nodo B</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
@@ -346,7 +344,7 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
 </div>
 
 
-<h3>Tabla de Rutas para nodo E</h3>
+<h3>Tabla de rutas para nodo E</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
@@ -385,7 +383,7 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
 </div>
 
 
-<h3>Tabla de Rutas para nodo H</h3>
+<h3>Tabla de rutas para nodo H</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
@@ -424,7 +422,7 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
 </div>
 
 
-<h3>Tabla de Rutas para nodo J</h3>
+<h3>Tabla de rutas para nodo J</h3>
 
 <div>
 <table id="tblOne" style="width:100%; float:left">
@@ -461,7 +459,7 @@ La siguiente figura muestra una topologia de nodos basica y la tabla de rutas qu
 
 </table>
 </div>
-Hasta ahora se ha presentado una descripción general del funcionamiento del protocolo AODVv2. En los sucesivos apartados de este capítulo se entrará en profundidad en los procesos, estructura de datos y mensajes implementados y testados en escenarios reales. Estos procesos se enmarcan en el procedimiento de descubrimiento de la ruta. Dicha operación engloba varios procesos y hace uso de estructuras de datos para almacenar entre otras la información de las rutas.
+Hasta ahora se ha presentado una descripción general del protocolo AODVv2. En los sucesivos apartados se detallan  los procesos, estructuras de datos y mensajes implementados y testados en escenarios reales.
 
 ## 8.7 Router Client Set
 El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router AODV, esto con el fin de limitar los mensajes de ruta que recrea el nodo (RREQ, RREP) a tan solo los clientes registrados en dicha tabla.
