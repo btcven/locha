@@ -27,3 +27,5 @@ Febrero 2011.
 [12] https://datatracker.ietf.org/doc/draft-ietf-manet-aodvv2/12/?include_text=1
 
 [13] Y. Behnaz, G. Fatemeh, "An Efficient Loop-free Version of ADOVv2", Septiembre 2017.
+
+[14] C. Enz, A. El-Hoiydi, J.D. Decotignie,V. Peiris, "WiseNET: an ultralow-power wireless sensor network solution" inComputer, vol.37, nº 8, pp. 62-70, Aug. 2004
