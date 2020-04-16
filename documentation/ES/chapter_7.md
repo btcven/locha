@@ -6,7 +6,7 @@
 
 En esta seccion ilustramos algunos aspectos importantes a la hora de seleccionar el sistema operativo para trabajar con este tipo de tecnologias, debido a que los requisitos de software para redes de sensores puede diferir bastante, Aunque podrian compartir un Kernel en comun y algunos servicios de bajo nivel.
 
-Un dispositivo de red para funcionar en una red de sensores debe tener ciertas caracteristicas, entre las cuales se incluyen:
+Un dispositivo de red para funcionar en una red de sensores debe tener ciertas caracteristicas, [4,5,6]  entre las cuales se incluyen:
 - Bajo costo.
 - Bajo consumo
 - Que pueda funcionar completamente con bateria.
