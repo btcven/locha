@@ -35,9 +35,9 @@ En el encabezado del paquete AODVv2 usa:
 
 
 
-## 9.1 Paquetes
+## 9.1 Paquetes.
 
-### 9.1.1 pkt-header
+### 9.1.1 pkt-header.
 
 Lo definimos como sigue:
 
@@ -54,13 +54,13 @@ Lo definimos como sigue:
 
 
 
-## 9.2 Mensajes
-Los paquetes pueden, además del encabezado del paquete, contener uno o más mensajes Los mensajes contienen:
+## 9.2 Mensajes.
+Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. Los mensajes contienen:
 
 - Un mensaje header
-- Un bloque de mensaje TLV que contiene cero mas TLVs, asociados con le mensaje completo.
-- Cero o mas bloques de direcciones , cada bloque conteniendo uno o mas objetos de direcciones.
-- Un bloque TLV de bloque de dirección, que contiene cero o más TLV.
+- Un bloque de mensaje _TLV_ que contiene cero o más _TLVs_, asociados con el mensaje completo.
+- Cero o más bloques de direcciones, cada bloque conteniendo uno o más objetos de direcciones.
+- Un bloque _TLV_ de bloque de dirección, que contiene cero o más _TLVs_.
 
 ```
  <message> = <msg-header>
@@ -77,15 +77,15 @@ Los paquetes pueden, además del encabezado del paquete, contener uno o más men
  <msg-seq-num>?
 ```
 
-### 9.2.1 msg-header
+### 9.2.1 msg-header.
 
 **msg-type**: Es un campo que aloja un entero sin signo de 8 bits, especificando el tipo de mensaje.
 
 **msg-flags**: Es un campo de 4 bits que especifica la interpretación del resto del encabezado del mensaje:
-- **bit 0**(mhasorig): Si esta establecido en uno('1') entonces significa que el **msg-orig-addr** sera incluido en el **msg-header**, en caso contrario no.
-- **bit 1**(mhashoplimit): Si esta estabecido en uno('1'), significa que **msg-hop-limit** sera incluido en el **msg-header**, en caso contrario no.
-- **bit 2**(mhashopcount): Si esta establecido en uno('1'), significa qu eel **msg-hop-count** sera incluido en el **msg-header**, en caso contrario no.
-- **bit 3**(mhaseqnum): Si esta establecido en uno('1'), entonces significa que el **msg-seq-num** sera incluido en el **msg-header**, en caso contrario no.
+- **bit 0** (_mhasorig_): Si está establecido en uno ('1') significa que **msg-orig-addr** será incluido en **msg-header**. En caso contrario, no.
+- **bit 1** (_mhashoplimit_): Si está establecido en uno ('1'), significa que **msg-hop-limit** será incluido en **msg-header**. En caso contrario, no.
+- **bit 2** (_mhashopcount_): Si está establecido en uno ('1'), significa que  **msg-hop-count** será incluido en **msg-header**. En caso contrario, no.
+- **bit 3** (_mhaseqnum_): Si está establecido en uno ('1'), entonces significa que **msg-seq-num** será incluido en **msg-header**. En caso contrario, no.
 
 ### 9.2.2 msg-header-length
 
@@ -112,6 +112,6 @@ AODVv2 utilza los siguientes campos del mensaje Header RFC5444
 
 
 ## 9.3 oonf_api
-Para el encapsulado del paquete AODVv2 dentro del contenedor de paquete RFC5444, para cumplir el objetivo, en este proyecto se hace uso de la api llamada [oon_api](https://github.com/benpicco/oonf_api), la cual facilita la lectura y escritura de dicho paquete dentro del contenedor.
+Para el encapsulado del paquete _AODVv2_ dentro del contenedor de paquete RFC5444, para cumplir el objetivo, en este proyecto se hace uso de la api llamada [oon_api](https://github.com/benpicco/oonf_api), la cual facilita la lectura y escritura de dicho paquete dentro del contenedor.
 
 
