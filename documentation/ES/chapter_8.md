@@ -535,22 +535,26 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 <br>
 
 
-## 8.13 Procesos involucrados en el protocolo AODvv2
+## 8.12 Procesos del protocolo AODVv2
 
-A continuación se dará un descripción corta de cada uno los procesos involucrados en el protocolo. Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
-### 8.13.1 Next Hop Monitoring
+Vamos a ver una descripción de cada proceso del protocolo. 
 
-Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a través de enlaces unidireccionales, para ello los routers AODV2 deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
+### 8.12.1 Next Hop Monitoring
 
-- Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control Route Reply Acknowledgement (RREP_Ack). Al enviar un RREP_Ack, se espera un RREP_Ack como respuesta, si este llega en un tiempo menor a RREP_Ack_SENT_TIMEOUT demuestra que el enlace esbidireccional, en caso contrario el enlace se considera unidireccional.
-- Para un router downstream,el hecho de recibir un mensaje RREP que contiene en el campo TargAddr la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que, un mensaje RREP requiere que un mensaje RREQ previamente haya recorrido el enlace en dirección contraria.
+Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a través de enlaces unidireccionales. Para ello los routers _AODV2_ deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
 
-### 8.13.2 Neighbor Set Update
+- Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control _RREP_Ack_. Al enviarlo, se espera otro _RREP_Ack_ como respuesta. Si este mensaje llega en un tiempo menor a _RREP_Ack_SENT_TIMEOUT_ demuestra que el enlace es bidireccional, en caso contrario el enlace se considera unidireccional.
+- Para un router _downstream_, el hecho de recibir un mensaje _RREP_ que contiene en el campo _TargAddr_ la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que un mensaje _RREP_ requiere que un mensaje _RREQ_ previamente haya recorrido el enlace en dirección contraria.
 
-- Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set, esto permite registrar los vecinos del router AODVv2 y establecer la relación que mantiene con cada una de ellos. 
+### 8.12.2 Neighbour Set Update
 
-- Cuando un router recibe un mensaje RREP y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la NeighborSet cambia a Confirmed. 
-- Cuando un router recibe un mensaje RREP_Ack y este es debido al envío de un RREP_Ack con AckReq. El enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
+Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set. Esto permite registrar los vecinos del router _AODVv2_ y establecer la relación que mantiene con cada una de ellos. 
+
+- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la NeighborSet cambia a Confirmed. 
+- Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
+
+
+Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
 
 ## 8.14 Procesado de la información de los mensajes de ruta
 
