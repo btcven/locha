@@ -478,9 +478,9 @@ Para determinar si un mensaje de ruta está obsoleto, se debe comparar el númer
 Todos los routers _AODVv2_ deben mantener un conjunto de rutas locales, con información sobre las rutas aprendidas a partir de los mensajes de control. 
 Cuando una ruta se considere válida se deberá añadir la entrada correspondiente en la tabla de rutas, y cuando una ruta pasa de válida a inválida se debe borrar la entrada correspondiente en la tabla de rutas.
 
-## 8.11 Multicast Route Message Set
+## 8.10 Multicast Route Message Set
 
-Los mensajes RREQ(Route Request) por defecto son multicast y estos pueden ser reenviados varias veces. El multicast route message set tiene como finalidad proporcionar información relativa a los mensajes RREQ y RREP que han sido recibidos previamente, y de esta manera poder compararlos con los mensajes de ruta recibidos y determinar si la información que contienen es antigua. Esto permite al router controlar el envío de tráfico redundante.
+Los mensajes _RREQ_, por defecto, son multicast y pueden ser reenviados varias veces. El _multicast route message set_ tiene como finalidad proporcionar información relativa a los mensajes _RREQ_ y _RREP_ recibidos previamente, y así poder compararlos con los mensajes de ruta recibidos y determinar si la información que contienen es antigua. Esto permite al router controlar el envío de tráfico redundante.
 
 ## 8.12 Mensajes
 
