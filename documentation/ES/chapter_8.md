@@ -473,9 +473,10 @@ Cada router _AODVv2_ debe mantener su propio Sequence Number, incluido en todos 
 Es necesario garantizar que el número de secuencia crece de uno en uno por cada mensaje _RREQ_ o _RREP_ creado. Si el valor llega a 65535, se debe resetear este valor a 1, el valor 0 está reservado para indicar que el número de secuencia del nodo es desconocido.
 Para determinar si un mensaje de ruta está obsoleto, se debe comparar el número de secuencia adjunto en el mensaje con la información existente sobre esa ruta.
 
-## 8.10 Local Route Set
+## 8.9 Local Route Set
 
-Todos los routers AODVv2 deben mantener un conjunto de rutas locales, esta contiene información sobre las rutas aprendidas a partir de los mensajes de control. Cuando una ruta se considere válida se deberá añadir la entrada correspondiente en la tabla de rutas, y cuando una ruta pasa de válida a inválida se debe borrar la entrada correspondiente en la tabla de rutas.
+Todos los routers _AODVv2_ deben mantener un conjunto de rutas locales, con información sobre las rutas aprendidas a partir de los mensajes de control. 
+Cuando una ruta se considere válida se deberá añadir la entrada correspondiente en la tabla de rutas, y cuando una ruta pasa de válida a inválida se debe borrar la entrada correspondiente en la tabla de rutas.
 
 ## 8.11 Multicast Route Message Set
 
