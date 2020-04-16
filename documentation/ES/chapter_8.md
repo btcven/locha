@@ -482,49 +482,49 @@ Cuando una ruta se considere válida se deberá añadir la entrada correspondien
 
 Los mensajes _RREQ_, por defecto, son multicast y pueden ser reenviados varias veces. El _multicast route message set_ tiene como finalidad proporcionar información relativa a los mensajes _RREQ_ y _RREP_ recibidos previamente, y así poder compararlos con los mensajes de ruta recibidos y determinar si la información que contienen es antigua. Esto permite al router controlar el envío de tráfico redundante.
 
-## 8.12 Mensajes
+## 8.11 Mensajes
 
-En este apartado se definen los mensajes de control que el protocolo utiliza para comunicar entre nodos información relativa a las rutas. AODVv2 define 4 tipos de mensajes de control:
+Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar entre los nodos la información relativa a las rutas. _AODVv2_ define 4 tipos de mensajes de control:
 
-- Route Request (RREQ).
-- Route Reply (RREP).
-- Route Reply Acknowledgement (RREP_Ack).
-- Route Error(RERR). 
+- Route Request (_RREQ_).
+- Route Reply (_RREP_).
+- Route Reply Acknowledgement (_RREP_Ack_).
+- Route Error (_RERR_). 
 
-### 8.12.1 Contenido del mensaje de requerimiento de ruta RREQ
+### 8.11.1 Contenido del mensaje de requerimiento de ruta RREQ
 
 <p> 
  <img src="imple_pic/RREQMSG.png" alt="drawing" height="300" width="300" align="left"/>
 
-- **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje RREQ. El RREQ_Gen establece el número máximo de saltos que atravesará el mensaje RREQ.
-- **AddressList**: Contiene OrigPrefix y TargPrefix.
-- **PrefixLengthList** (Opcional): Contiene OrigPrefixLen, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección OrigAddr.
-- **OrigSeqNum** :Número de secuencia de OrigPrefix, se incrementa como se indica [aqui](#79-Sequence-Number).
-- **MetricType**: Tipo de métrica asociada con OrigMetric.
-- **OrigMetric**: El valor de la métrica asociada a la ruta a OrigPrefix
+- **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREQ_. El _RREQ_Gen_ establece el número máximo de saltos que atravesará el mensaje _RREQ_.
+- **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
+- **PrefixLengthList** (Opcional): Contiene _OrigPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _OrigAddr_.
+- **OrigSeqNum** :Número de secuencia de _OrigPrefix_, que se incrementa como se indica [aqui](#79-Sequence-Number).
+- **MetricType**: Tipo de métrica asociada con _OrigMetric_.
+- **OrigMetric**: El valor de la métrica asociada a la ruta a _OrigPrefix_.
 </p>
 
 <br></br>
 
-### 8.12.2 Contenido del mensaje de respuesta de ruta RREP
+### 8.11.2 Contenido del mensaje de respuesta de ruta RREP
 
 <p> 
  <img src="imple_pic/RREPMSG.png" alt="drawing" height="300" width="300" align="left"/>
 
-- **msg_hop_limit**: msg_hop_limit: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje RREP.El RREP_Gen establece el número máximo de saltos que atravesaráel mensaje RREP.
-- **AddressList**: Contiene OrigPrefix y TargPrefix.
-- **PrefixLengthList** (Opcional): Contiene TargPrefixLen, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección TargAddr.
-- **TargetSeqNum** :El número de secuencia asociado a TargPrefix.
-- **MetricType**: El tipo de métrica asociada aTargMetric.
-- **TargetMetric**: El valor de la métrica asociada con la ruta a TargPrefix.
+- **msg_hop_limit**: msg_hop_limit: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREP_.El _RREP_Gen_ establece el número máximo de saltos que atravesaráel mensaje _RREP_.
+- **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
+- **PrefixLengthList** (Opcional): Contiene _TargPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _TargAddr_.
+- **TargetSeqNum** :El número de secuencia asociado a _TargPrefix_.
+- **MetricType**: El tipo de métrica asociada a _TargMetric_.
+- **TargetMetric**: El valor de la métrica asociada con la ruta a _TargPrefix_.
 </p>
 <br></br>
 
-### 8.12.3 Contenido del Mensaje RREP_Ack
+### 8.11.3 Contenido del Mensaje RREP_Ack
 <p> 
  <img src="imple_pic/ACKMSG.png" alt="drawing" height="80" width="300" align="left"/>
 
-- **AckReq** (Opcional): Si se incluye, informa al receptor debe enviar un RREP_Ack response para confirmar la bidireccionalidad del enlace
+- **AckReq** (Opcional): Si se incluye, informa al receptor que debe enviar un mensaje_RREP_Ack_ para confirmar la bidireccionalidad del enlace
 </p>
 <br>
 
