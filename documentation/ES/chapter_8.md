@@ -1,16 +1,16 @@
 
-# 8. AODVv2
+# 8. AODVv2.
 
-[7,9] AODV es un protocolo de enrutamiento para redes móviles ad-hoc (MANETs) e inalámbricas. AODV es la evolución de su anterior protocolo llamado _DYMO_ (2003), que luego adopta el nombre de _AODVv2_ (2013).
+[7,9] _AODV_ es un protocolo de enrutamiento para redes móviles ad-hoc (_MANETs_) e inalámbricas. _AODV_ es la evolución de su anterior protocolo llamado _DYMO_ (2003), que luego adopta el nombre de _AODVv2_ (2013).
 
-El _AODV_ es ideal para las redes Ad-Hoc. Intercambia mensajes cuando necesita establecer una comunicación; es decir, envía mensajes a los vecinos para calcular cada ruta. _AODV_ evita la problemática que tiene _DYMO_, pero por el contrario incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
+El _AODV_ es ideal para las redes ad-Hoc. Intercambia mensajes cuando necesita establecer una comunicación; es decir, envía mensajes a los vecinos para calcular cada ruta. _AODV_ evita la problemática que tiene _DYMO_, pero por el contrario incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
 
 
 En la siguiente figura [11] podemos observar las diferentes versiones de _AODVv2_ y _DYMO_.
 
 ![draft version](imple_pic/aodv-versions.png "draft version")
 
-En Locha Mesh, nos centramos en la evolución de _AODV_ llamado _AODVv2_, pero simplemente hablaremos de _AODV_ para referirnos a la versión más actual del protocolo de enrutamiento.
+En **Locha Mesh**, nos centramos en la evolución de _AODV_ llamado _AODVv2_, pero simplemente hablaremos de _AODV_ para referirnos a la versión más actual del protocolo de enrutamiento.
 
 _AODV_ es uno de los cuatro protocolos estandarizados por el grupo de trabajo _IETF MANET_. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero se pretende establecer una ruta entre un nodo de origen y un destino (descubrimiento de ruta), y luego mantener una ruta entre los dos nodos durante los cambios de topología (mantenimiento de la ruta).
 
@@ -20,7 +20,7 @@ Mantiene como máximo dos rutas para cada destino: mientras una es inválida y l
 
 Para evitar bucles en esta versión, una ruta entrante actualiza la ruta existente con el mismo estado. La tabla de enrutamiento siempre mantiene mejores rutas para cada estado.
 
-## 8.1 Características
+## 8.1 Características.
 
 <h2>Las características del protocolo son:</h2>
 
@@ -47,21 +47,21 @@ También aparece un campo con el número de secuencia del nodo destino que sirve
 
 Otro parámetro que se almacena en las tablas es el tiempo de vida. Este sirve para evitar que viajen paquetes perdidos por la red y utilizar enlaces de los que no se conoce su estado desde hace mucho tiempo. 
 
-Cuando a un destino le llegan dos paquetes desde la misma fuente por caminos distintos, el campo _hop count_ muestra el número de saltos que han tenido que hacer para cada una de las rutas. De esta forma se sabe cual de ellas es la ruta más corta y que tiene que seleccionarse para hacer el envío de información. 
+Cuando a un destino le llegan dos paquetes desde la misma fuente por caminos distintos, el campo _hop count_ muestra el número de saltos que han tenido que hacer para cada una de las rutas. De esta forma se sabe cuál de ellas es la ruta más corta y por tanto tiene que seleccionarse para hacer el envío de información. 
 
 Cada vez que se quiere comunicar una fuente con un destino se inicia un proceso de descubrimiento de ruta, que finaliza cuando recibe un paquete con la ruta calculada.
 
-Existe otro concepto conocido como mantenimiento de ruta, que sirve para actuar en caso de que se rompa un enlace a lo largo de una ruta. Esto se consigue dando tiempo de vida (TTL) a las rutas descubiertas antes de considerarlas como inválidas.
+Existe otro concepto conocido como "mantenimiento de ruta", que sirve para actuar en caso de que se rompa un enlace a lo largo de una ruta. Esto se consigue dando tiempo de vida (TTL) a las rutas descubiertas antes de considerarlas como inválidas.
 
 
-## 8.2 Descubrimiento de rutas 
+## 8.2 Descubrimiento de rutas. 
 [7] Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de rutas a ver si existe una hacia este destino, previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de rutas es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un nuevo camino válido. 
 
 El proceso comienza con el envío de un paquete _RREQ_ (Route Request) en modo _broadcast_. Este paquete llega a los nodos vecinos que se encuentran a un salto de distancia y éstos a su vez lo reenvían a sus vecinos y así sucesivamente hasta llegar al destino. 
 
 Cualquier nodo que durante el proceso de búsqueda conozca la ruta hacia el destino, puede contestar con un paquete de _RREP_ (Route Reply) al nodo origen indicando la ruta que necesita. Mientras se va realizando el proceso de búsqueda, todos los nodos van actualizando las tablas de enrutamiento.
 
-En el formato del paquete RREQ del protocolo _AODV_, nos encontramos los siguientes campos: 
+En el formato del paquete _RREQ_ del protocolo _AODV_, nos encontramos los siguientes campos: 
 
 <ol>
  <li>Dirección IP origen.</li>
@@ -86,7 +86,7 @@ El primer paso será buscar en su tabla de rutas y ver si tiene una ruta almacen
 <img src="imple_pic/aodv-family.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-Comparando este proceso con la vida cotidiana sería como salir a la calle a buscar a tu hijo pero no lo ves. Lo primero que haces es gritar y esperar respuesta. Este grito representa un mensaje _multicast_ que puede ser escuchado por tus vecinos. Si ellos saben dónde está tu hijo, pueden informarte con un nuevo mensaje (_RREP_), entregando una ruta hacia donde se encuentra tu hijo. Pero si no saben dónde está, podrían iniciar un nuevo grito a sus vecinos más cercanos (mensaje multicast), para ver si pueden ayudar en la búsqueda y así sucesivamente hasta encontrar el destino, en este caso tu hijo.
+Comparando este proceso con la vida cotidiana sería como salir a la calle a buscar a tu hijo pero no lo ves. Lo primero que haces es gritar y esperar respuesta. Este grito representa un mensaje _multicast_ que puede ser escuchado por tus vecinos. Si ellos saben dónde está tu hijo, pueden informarte con un nuevo mensaje (_RREP_), entregando una ruta hacia donde se encuentra tu hijo. Pero si no saben dónde está, podrían iniciar un nuevo grito a sus vecinos más cercanos (_multicast_), para ver si pueden ayudar en la búsqueda y así sucesivamente hasta encontrar el destino, en este caso tu hijo.
 
 <br>
 
@@ -94,7 +94,7 @@ Comparando este proceso con la vida cotidiana sería como salir a la calle a bus
 
 Mostraremos [7] gráficamente cómo se inunda la red con mensajes de requerimiento de ruta, con el fin de encontrar un nodo destino del cual no se conoce más que la dirección IP que tiene asignada.
 
-El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto. Las siguientes imágenes representan la secuencia lógica hasta llegar al nodo destino.
+El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto. Las siguientes imágenes representan la secuencia lógica hasta llegar al nodo de  destino.
 
 <br>
 <br>
@@ -238,7 +238,7 @@ Estas rutas aprendidas por medio de los mensajes _RREQ_, aún no se pueden confi
 ## 8.4 Mantenimiento de rutas. 
 El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla siguen siendo válidas. Para realizar esta tarea se utiliza los Route Error Message (_RERR_). Estos mensajes de control los genera  _AODVv2_ cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan el envío de un mensaje _RERR_:
 
-- Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento, el nodo enviara un RERR a la fuente para informar que no existe una ruta hacia el destino.
+- Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento, el nodo enviara un _RERR_ a la fuente para informar que no existe una ruta hacia el destino.
 - Cuando no se puede reenviar un mensaje _RREP_ porque la ruta hacia el generador del _RREQ_ no es válida. En este caso el nodo debe enviar en _RERR_ hacia el generador del mensaje _RREP_ para informar que la ruta hacia el origen del mensaje _RREQ_ no es válida.
 - Cuando un nodo detecta que uno de los enlaces de un nodo vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas que han pasado a ser invalidas.
 
@@ -254,7 +254,7 @@ _AODV_ presenta una serie de opciones de optimización, como la posibilidad de r
 
 Los paquetes de datos se quedan almacenados en este nodo esperando recibir un _RREP_ con una nueva ruta disponible hacia el destino. Si este nuevo procedimiento no tiene éxito y el _RREP_ no llega, entonces sí que será necesario informar a la fuente acerca de la rotura del enlace enviándole un paquete _RERR_.
 
-## 8.5 Tabla de rutas
+## 8.5 Tabla de rutas.
 
 Tenemos también un ejemplo para ilustrar  la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos
 
@@ -461,28 +461,28 @@ La siguiente figura muestra una topología de nodos básica y la tabla de rutas 
 </div>
 Hasta ahora se ha presentado una descripción general del protocolo AODVv2. En los sucesivos apartados se detallan  los procesos, estructuras de datos y mensajes implementados y testados en escenarios reales.
 
-## 8.6 Router Client Set
-El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router _AODV_, con el fin de limitar los mensajes de ruta que recrea el nodo (_RREQ_, _RREP_) a solo los clientes registrados en dicha tabla.
+## 8.6 Router Client Set.
+El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router _AODV_, con el fin de limitar los mensajes de ruta que recrea el nodo (_RREQ_, _RREP_) solo a los clientes registrados en dicha tabla.
 
-## 8.7 Neighbour Set
-La tabla Neighbor Set contiene información relativa a los routers vecinos. Se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace: una ruta solo se considerará válida cuando se confirme que el enlace es bidireccional.
+## 8.7 Neighbour Set.
+La tabla Neighbour Set contiene información relativa a los routers vecinos. Se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace: una ruta solo se considerará válida cuando se confirme que el enlace es bidireccional.
 
-## 8.8 Sequence Number
+## 8.8 Sequence Number.
 Los números de secuencia permiten a los enrutadores _AODVv2_ determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse. 
 Cada router _AODVv2_ debe mantener su propio Sequence Number, incluido en todos los mensajes _RREQ_ y _RREP_ creados por él.
 Es necesario garantizar que el número de secuencia crece de uno en uno por cada mensaje _RREQ_ o _RREP_ creado. Si el valor llega a 65535, se debe resetear este valor a 1, el valor 0 está reservado para indicar que el número de secuencia del nodo es desconocido.
 Para determinar si un mensaje de ruta está obsoleto, se debe comparar el número de secuencia adjunto en el mensaje con la información existente sobre esa ruta.
 
-## 8.9 Local Route Set
+## 8.9 Local Route Set.
 
 Todos los routers _AODVv2_ deben mantener un conjunto de rutas locales, con información sobre las rutas aprendidas a partir de los mensajes de control. 
 Cuando una ruta se considere válida se deberá añadir la entrada correspondiente en la tabla de rutas, y cuando una ruta pasa de válida a inválida se debe borrar la entrada correspondiente en la tabla de rutas.
 
-## 8.10 Multicast Route Message Set
+## 8.10 Multicast Route Message Set.
 
 Los mensajes _RREQ_, por defecto, son multicast y pueden ser reenviados varias veces. El _multicast route message set_ tiene como finalidad proporcionar información relativa a los mensajes _RREQ_ y _RREP_ recibidos previamente, y así poder compararlos con los mensajes de ruta recibidos y determinar si la información que contienen es antigua. Esto permite al router controlar el envío de tráfico redundante.
 
-## 8.11 Mensajes
+## 8.11 Mensajes.
 
 Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar entre los nodos la información relativa a las rutas. _AODVv2_ define 4 tipos de mensajes de control:
 
@@ -491,7 +491,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 - Route Reply Acknowledgement (_RREP_Ack_).
 - Route Error (_RERR_). 
 
-### 8.11.1 Contenido del mensaje de requerimiento de ruta RREQ
+### 8.11.1 Contenido del mensaje de requerimiento de ruta RREQ.
 
 <p> 
  <img src="imple_pic/RREQMSG.png" alt="drawing" height="300" width="300" align="left"/>
@@ -506,7 +506,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 
 <br></br>
 
-### 8.11.2 Contenido del mensaje de respuesta de ruta RREP
+### 8.11.2 Contenido del mensaje de respuesta de ruta RREP.
 
 <p> 
  <img src="imple_pic/RREPMSG.png" alt="drawing" height="300" width="300" align="left"/>
@@ -520,7 +520,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 </p>
 <br></br>
 
-### 8.11.3 Contenido del Mensaje RREP_Ack
+### 8.11.3 Contenido del Mensaje RREP_Ack.
 <p> 
  <img src="imple_pic/ACKMSG.png" alt="drawing" height="80" width="300" align="left"/>
 
@@ -529,7 +529,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 <br>
 
 
-### 8.11.4 Contenido del Mensaje RERR
+### 8.11.4 Contenido del Mensaje RERR.
 **To Do**
 <br>
 <br>
@@ -539,19 +539,19 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 
 Vamos a ver una descripción de cada proceso del protocolo. 
 
-### 8.12.1 Next Hop Monitoring
+### 8.12.1 Next Hop Monitoring.
 
 Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a través de enlaces unidireccionales. Para ello los routers _AODV2_ deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el local route set.
 
 - Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control _RREP_Ack_. Al enviarlo, se espera otro _RREP_Ack_ como respuesta. Si este mensaje llega en un tiempo menor a _RREP_Ack_SENT_TIMEOUT_ demuestra que el enlace es bidireccional, en caso contrario el enlace se considera unidireccional.
 - Para un router _downstream_, el hecho de recibir un mensaje _RREP_ que contiene en el campo _TargAddr_ la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que un mensaje _RREP_ requiere que un mensaje _RREQ_ previamente haya recorrido el enlace en dirección contraria.
 
-### 8.12.2 Neighbour Set Update
+### 8.12.2 Neighbour Set Update.
 
-Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set. Esto permite registrar los vecinos del router _AODVv2_ y establecer la relación que mantiene con cada una de ellos. 
+Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbour Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set. Esto permite registrar los vecinos del router _AODVv2_ y establecer la relación que mantiene con cada una de ellos. 
 
-- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la NeighborSet cambia a Confirmed. 
-- Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
+- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la Neighbour Set cambia a Confirmed. 
+- Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbour Set.
 
 
 Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
@@ -565,7 +565,7 @@ Como paso previo al proceso de evaluación, se convierten las estructuras de los
 
 ### 8.13.1 Evaluación de la información de ruta.
 
-Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el AdvRte se utilizará para actualizar la tabla Local Route Set. Para ello se compara el coste y el número de secuencia del _AdvRte_ con la entrada correspondiente en la tabla Local Route Set.
+Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el _AdvRte_ se utilizará para actualizar la tabla Local Route Set. Para ello se compara el coste y el número de secuencia del _AdvRte_ con la entrada correspondiente en la tabla Local Route Set.
 
 ### 8.13.2 Actualización de la información de las rutas.
 
@@ -581,7 +581,7 @@ Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multic
 
 A partir de esto se toma la decisión si el mensaje es reenviado o no.
 
-### 8.13.4 Creación de mensajes RREQ
+### 8.13.4 Creación de mensajes RREQ.
 - Un mensaje _RREQ_ se genera cuando un Client Router registrado en la tabla *Local Route Set* de un router _AODVv2_ quiere enviar un paquete IP y no existe una ruta hacia al destino en su tabla _RIB_. Tras configurar los parámetros descritos [aqui](#7121-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), se procede a su envío. La dirección IP de destino del paquete que contiene el mensaje _RREQ_ será la dirección *multicast* LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) para IPV6 específicada por el [RFC 5498](https://tools.ietf.org/html/rfc5498).
 
 - Antes de crear un _RREQ_, el enrutador debe verificar si recientemente se envió un _RREQ_ para el destino solicitado. Si es así, y aún no se ha alcanzado el tiempo de espera para una respuesta, el enrutador debe continuar esperando una respuesta sin generar un nuevo _RREQ_. 
@@ -597,7 +597,7 @@ A partir de esto se toma la decisión si el mensaje es reenviado o no.
 - Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusion en _LL-MANET-Routers_
 
 
-Para generar un mensaje _RREQ_ el router _AODV_ debe seguir estos pasos:
+Para generar un mensaje _RREQ_ el router _AODVv2_ debe seguir estos pasos:
 
 1. Set **msg_hop_limit** = MAX_HOPCOUNT
 2. Set **msg_hop_count** = 0, if including it
@@ -610,35 +610,35 @@ Para generar un mensaje _RREQ_ el router _AODV_ debe seguir estos pasos:
  - Incrementar la secuencia de numero del router como se especific en la seccion [4.4](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1).
  - Set OrigSeqNum = SeqNum. 
 6. Para TargSeqNum:
- - Si existe una ruta no válida que coincida con TargAddr utilizando la coincidencia de prefijo más larga y tenga un número de secuencia válido, establecer
- - TargSeqNum = numero de secuencia de la ruta almacenda.
+ - Si existe una ruta no válida que coincida con TargAddr utilizando la coincidencia de prefijo más larga y tenga un número de secuencia válido, establecer TargSeqNum.
+ - TargSeqNum = número de secuencia de la ruta almacenda.
  - Si no existen rutas inválidas que coincidan con la dirección de destino, o la ruta no tiene un número de secuencia, se omite el TargetSeqNum. 
 7. Incluya el elemento de datos MetricType y establezca el tipo acorde o comparable con metricType.
-8. Establecer OrigMetric = Route[OrigAddr]. Metric, es decir **RouterClient.Cost**.
-9. Incluir el elemento de datos **ValidityTime** si anuncia que la ruta a OrigAddr a través de este enrutador se ofrece por un tiempo limitado, y configure ValidityTime en consecuencia.
+8. Establecer OrigMetric = Route[OrigAddr]. Metric, es decir RouterClient.Cost.
+9. Incluir el elemento de datos ValidityTime si anuncia que la ruta a OrigAddr a través de este enrutador se ofrece por un tiempo limitado, y configure ValidityTime en consecuencia.
 
-### 8.13.5 Recepción de mensajes RREQ
+### 8.13.5 Recepción de mensajes RREQ.
 Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREQ_. Entre ellas: 
 - Comprueba que los contenidos de los campos son válidos.
-- Actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. 
+- Actualiza las tablas Neighbour Set, Local Route Set y Multicast Route Message Set. 
 - Por último si la solicitud de descubrimiento de ruta va dirigida a él, envía un mensaje _RREP_. Si no es así reenvía el mensaje _RREQ_.
 
-### 8.13.6 Reenvío de mensajes RREQ
+### 8.13.6 Reenvío de mensajes RREQ.
 Un mensaje _RREP_ se genera cuando un nodo recibe un _RREQ_ y el campo _AdressList_. El _TargPrefix_ del mensaje coincide con una entrada de la tabla Router Client Set del router. Cuando esto sucede genera un mensaje _RREP_ configurando los campos descritos [aqui](#7122-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) y lo envía en dirección al _RREQ_Gen_.
 
-### 8.13.7 Recepción de mensajes RREP
-Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREP_. Entre ellas comprueba que los contenidos de los campos son válidos, actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. Si el destino final del mensaje es el propio router, y el mensaje contiene una ruta válida se da por finalizado el proceso de descubrimiento de ruta, añadiendo la entrada correspondiente a la tabla de enrutamiento.
+### 8.13.7 Recepción de mensajes RREP.
+Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREP_. Entre ellas comprueba que los contenidos de los campos son válidos, actualiza las tablas Neighbour Set, Local Route Set y Multicast Route Message Set. Si el destino final del mensaje es el propio router, y el mensaje contiene una ruta válida se da por finalizado el proceso de descubrimiento de ruta, añadiendo la entrada correspondiente a la tabla de enrutamiento.
 
 
-### 8.13.8 Reenvío de mensajes RREP 
+### 8.13.8 Reenvío de mensajes RREP. 
 Este proceso tiene como finalidad el reenvío de los mensajes _RREP_. Para ello comprobará si no se ha superado el número de saltos máximo. Si es así reenvía el mensaje.
 
-### 8.13.9 Generación de mensajes RREP_Ack Request
-Un mensaje _RREP_Ack_ será generado si un mensaje _RREP_ se envía por un enlace del cual se desconoce si es bidireccional.El _RREP_Ack Request_ se enviará a LocalRoute [OrigPrefix].NextHop a través de LocalRoute [OrigPrefix].NextHop Interface. La entrada para Local Route [OrigPrefix].NextHopen la tabla Neighbor Set se actualizará siguiendo el proceso definido [aqui](#7132-Neighbor-Set-Update)
+### 8.13.9 Generación de mensajes RREP_Ack Request.
+Un mensaje _RREP_Ack_ será generado si un mensaje _RREP_ se envía por un enlace del cual se desconoce si es bidireccional.El _RREP_Ack Request_ se enviará a LocalRoute [OrigPrefix].NextHop a través de LocalRoute [OrigPrefix].NextHop Interface. La entrada para Local Route [OrigPrefix].NextHopen la tabla Neighbour Set se actualizará siguiendo el proceso definido [aqui](#7132-Neighbor-Set-Update)
 
-### 8.13.10 Recepción de mensajes RREP_Ack
+### 8.13.10 Recepción de mensajes RREP_Ack.
 Cuando un router _AODVv2_ recibe un _RREP_Ack_, comprobará si el mensaje contiene un _AckReq_ y si el mensaje era esperado o no. Si el mensaje contiene
 un _AckReq_ iniciará el proceso para enviar un _RREP_Ack Response_. Si no es así y el mensaje era esperado actualizará la tabla Neighbour Set para establecer el enlace con el emisor del _RREP_Ack_ como bidireccional.
 
-### 8.13.11 Generación de RREP_Ack Response
+### 8.13.11 Generación de RREP_Ack Response.
 Un router _AODvv2_ generará un _RREP_Ack Response_ cuando reciba un _RREP_Ack_ que contenga un _AckReq_.
