@@ -39,18 +39,18 @@ En el encabezado del paquete AODVv2 usa:
 
 ### 9.1.1 pkt-header
 
-Esta definido como sigue:
+Lo definimos como sigue:
 
-**version**: Es un campo conteniendo un entero sin signo e 4 bits y especifica la version en la cual el paquete y el contenido del mensaje ha sido construido.
+**version**: Es un campo que contiene un entero sin signo de 4 bits y especifica la versión en la cual el paquete y el contenido del mensaje ha sido construido.
 
 **pkt-flag**: Es un campo de 4 bits que especifica la interpretación del resto del encabezado del paquete:
-- **bit 0**(phaseseqnum) si esta seteado a uno('1'), entonces significa que el **pkt-seq--num** esta incluido en el **pkt-header**, en caso contrario no lo esta.
-- **bit 1**(phastlv): Si esta seteado en uno('1'), significa que el **tlv-block** esta incluido en el **pkt-header**, en caso contrario no lo esta.
-- **bit 2-3**: Estan reservados y deberian ser limpiados en cada transmision y deben ser ignorados en cada recepcion.
+- **bit 0** (_phaseseqnum_) si está indicado uno('1'), entonces significa que el **pkt-seq--num** está incluido en el **pkt-header**. En caso contrario, no lo está.
+- **bit 1**(_phastlv_): Si está indicado uno('1'), significa que el **tlv-block** está incluido en el **pkt-header**. En caso contrario, no lo está.
+- **bit 2-3**: Están reservados y deberían ser limpiados en cada transmisión y deben ser ignorados en cada recepción.
  
-**pkt-seq-num**: Es omitido si el ```phaseseqnum``` flag esta establecido en cero('0'), en caso contrario es un entero sin signo de 16 bits, especificando el numero de secuencia de un paquete.
+**pkt-seq-num**: Es omitido si el _phaseseqnum flag_ está establecido a cero('0'). En caso contrario, es un entero sin signo de 16 bits, especificando el número de secuencia de un paquete.
 
-**tlv*block**: Es omitido si el ```phastlv``` flag esta seteado en cero('0'), en caso contrario, se define en el [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
+**tlv*block**: Es omitido si el _phastlv  flag_ esta establecido a cero('0'). En caso contrario, se define en [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
 
 
 
