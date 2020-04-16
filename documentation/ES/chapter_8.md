@@ -464,8 +464,8 @@ Hasta ahora se ha presentado una descripción general del protocolo AODVv2. En l
 ## 8.6 Router Client Set
 El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router _AODV_, con el fin de limitar los mensajes de ruta que recrea el nodo (_RREQ_, _RREP_) a solo los clientes registrados en dicha tabla.
 
-## 8.8 Neighbor Set
-La tabla Neighbor Set contiene información relativa a los routers vecinos. Esta se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace, una ruta solo se considerará valida cuando se confirme que el enlace es bidireccional.
+## 8.7 Neighbour Set
+La tabla Neighbor Set contiene información relativa a los routers vecinos. Se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace: una ruta solo se considerará válida cuando se confirme que el enlace es bidireccional.
 
 ## 8.9 Sequence Number
 Los números de secuencia permiten a los enrutadores AODVv2 determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse.Cada router AODVv2 debe mantener su propio Sequence Number, este se incluye en todos los mensajes RREQ y RREP creados por él.
