@@ -20,7 +20,7 @@ Un nodo mantiene una tabla de rutas clasificada por nodos.
  - Invalid:
  Se asume que **s** y **h** son números no negativos. Se usa notación estándar para nombrar estos componentes. Por ejemplo: ``` n.route[O].e.h```, hace referencia al _hopcount_ de una entrada de ruta de un nodo **O** en el nodo **n**.
 
-## 10.2 Mensajes
+## 10.2 Mensajes.
 
 El protocolo tiene tres tipos de mensajes :
 - RREQ (Route Request):
@@ -28,11 +28,11 @@ El protocolo tiene tres tipos de mensajes :
 - RERR (Route Error):
 
 Cada mensaje tiene los siguientes componentes
-- **h**: Hopcount.
-- **tlv** = (sO, sT): Numero de secuencia para el origen, y destino, posiblemente indefinido este ultimo.
-- **(O, T)**: El par Origen y destino.
+- **h**: hopcount.
+- **tlv** = (sO, sT): número de secuencia para el origen, y destino, este último posiblemente indefinido.
+- **(O, T)**: el par de origen y destino.
 
-Por ejemplo podriamos escribir un mensaje como sigue:
+Por ejemplo podríamos escribir un mensaje como sigue:
 
 ```
 RREQ(h,(sO,sT),(O,T)).
