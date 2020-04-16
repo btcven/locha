@@ -461,8 +461,8 @@ La siguiente figura muestra una topología de nodos básica y la tabla de rutas 
 </div>
 Hasta ahora se ha presentado una descripción general del protocolo AODVv2. En los sucesivos apartados se detallan  los procesos, estructuras de datos y mensajes implementados y testados en escenarios reales.
 
-## 8.7 Router Client Set
-El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router AODV, esto con el fin de limitar los mensajes de ruta que recrea el nodo (RREQ, RREP) a tan solo los clientes registrados en dicha tabla.
+## 8.6 Router Client Set
+El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router _AODV_, con el fin de limitar los mensajes de ruta que recrea el nodo (_RREQ_, _RREP_) a solo los clientes registrados en dicha tabla.
 
 ## 8.8 Neighbor Set
 La tabla Neighbor Set contiene información relativa a los routers vecinos. Esta se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace, una ruta solo se considerará valida cuando se confirme que el enlace es bidireccional.
