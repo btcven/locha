@@ -467,10 +467,11 @@ El Router Client Set es es una tabla conceptual en la cual almacenamos los clien
 ## 8.7 Neighbour Set
 La tabla Neighbor Set contiene información relativa a los routers vecinos. Se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace: una ruta solo se considerará válida cuando se confirme que el enlace es bidireccional.
 
-## 8.9 Sequence Number
-Los números de secuencia permiten a los enrutadores AODVv2 determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse.Cada router AODVv2 debe mantener su propio Sequence Number, este se incluye en todos los mensajes RREQ y RREP creados por él.
-Se debe Garantizar que el numero de secuencia crece de uno en uno cada que se crea un Route Request o un route Reply es creado, si el valor se desborda llegando a 65535, se debe resetear este valor a 1, el valor 0 esta reservado para indicar que el numero de secuencoa del nodo no se conoce.
-Para determinar si un mensaje de ruta es obsoleto, se debe comparar el numero de secuencia adjunto en el mensaje con informacion existente sobre la misma ruta.
+## 8.8 Sequence Number
+Los números de secuencia permiten a los enrutadores _AODVv2_ determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse. 
+Cada router _AODVv2_ debe mantener su propio Sequence Number, incluido en todos los mensajes _RREQ_ y _RREP_ creados por él.
+Es necesario garantizar que el número de secuencia crece de uno en uno por cada mensaje _RREQ_ o _RREP_ creado. Si el valor llega a 65535, se debe resetear este valor a 1, el valor 0 está reservado para indicar que el número de secuencia del nodo es desconocido.
+Para determinar si un mensaje de ruta está obsoleto, se debe comparar el número de secuencia adjunto en el mensaje con la información existente sobre esa ruta.
 
 ## 8.10 Local Route Set
 
