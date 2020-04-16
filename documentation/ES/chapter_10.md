@@ -1,25 +1,24 @@
-<br>
-<h1 align="center">Capitulo 10</h1>
-<br>
 
-# 10. Modelado de AODVv2
+# 10. Modelado de AODVv2.
 
 Describiremos el modelo del protocolo desde el punto de vista de un nodo llamado **H**.
 
-## 10.1  Estructuras de datos
-- Un nodo mantiene una tabla de rutas indexada por nodos, la ruta a un nodo puede estar indefinida, lo que denotamos con ⊥.
-- Si se define, una ruta a un nodo es un par: (n, e).
- - donde **n** es el siguiente salto al nodo. 
- - **e** su entrada de ruta. 
-- Una entrada es de la forma **(s,h,x)**
- - **s**: Numero de secuencia.
- - **h**: es el hopcount (o mas generalmente el costo de ruta).
- - **x**: Estado de la ruta.
+## 10.1  Estructuras de datos.
+Un nodo mantiene una tabla de rutas clasificada por nodos. 
+
+- La ruta a un nodo puede estar indefinida, lo que denotamos con ⊥.
+- Si se define, una ruta a un nodo es un par: (n, e) donde
+  - **n** es el siguiente salto al nodo. 
+  - **e** es su entrada de ruta. 
+- Una entrada es de la forma **(s,h,x)** donde
+  - **s**: es el número de secuencia.
+  - **h**: es el _hopcount_ (o coste de ruta).
+  - **x**: es el estado de la ruta.
  - Unconfirmed: 
  - Idle:
  - Active:
  - Invalid:
- Se asume que **s** y **h** son numeros no negativos. Se usa notacion estandar para refereirnos a estos componentes, por ejemplo: ``` n.route[O].e.h```, hace referencia al hopcount de una entrada de ruta de un nodo **O** en el nodo **n** 
+ Se asume que **s** y **h** son números no negativos. Se usa notación estándar para nombrar estos componentes. Por ejemplo: ``` n.route[O].e.h```, hace referencia al _hopcount_ de una entrada de ruta de un nodo **O** en el nodo **n**.
 
 ## 10.2 Mensajes
 
