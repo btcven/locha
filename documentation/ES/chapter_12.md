@@ -1,10 +1,8 @@
-<br>
-<h1 align="center">Capitulo 12</h1>
-<br>
 
-# 12. Tabla de operaciones para los mensajes de ruta multicast
+# 12. Tabla de operaciones para los mensajes de ruta multicast.
 
-## 12.1 fetch_rte_msg_table_entry
+## 12.1 Búsqueda de entradas en la tabla de rutas.
+
 
 ```cpp
 /* Find an entry in the RteMsg table matching the given 
@@ -24,7 +22,7 @@ fetch_rte_msg_table_entry (rteMsg)
 }
 ```
 
-## 12.2 update_rte_msg_table
+## 12.2 Actualización de  la tabla de rutas.
 ```cpp
 /* Update the multicast route message suppression table based on the 
  received RteMsg, return true if it was created or the SeqNum was 
