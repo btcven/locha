@@ -178,7 +178,10 @@ fetch_route_table_entry (destination, metricType)
 
 
 
-## 11.6 loop_free
+## 11.6 Valoración del número de saltos de una ruta.
+
+Esta función señala si una ruta es mejor que otra en función de la cantidad de saltos entre nodos que se deben dar para alcanzar el destino.
+Si el número de saltos de la ruta que se quiere instalar en el nodo tiene menos que la ruta que ya está instalada en su tabla  de rutas, la función es "verdadero".
 
 ```cpp
 loop_free(advRte, rte)
