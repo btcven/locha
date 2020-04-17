@@ -3,7 +3,6 @@
 
 ## 12.1 Búsqueda de entradas en la tabla de rutas.
 
-
 ```cpp
 /* Find an entry in the RteMsg table matching the given 
  message's msg-type, OrigAddr, TargAddr, MetricType */
@@ -23,6 +22,8 @@ fetch_rte_msg_table_entry (rteMsg)
 ```
 
 ## 12.2 Actualización de  la tabla de rutas.
+
+
 ```cpp
 /* Update the multicast route message suppression table based on the 
  received RteMsg, return true if it was created or the SeqNum was 
@@ -30,9 +31,14 @@ fetch_rte_msg_table_entry (rteMsg)
 
 update_rte_msg_table(rteMsg)
 {
+````
+
+```cpp
  /* search for a comparable entry */
  entry = Fetch_Rte_Msg_Table_Entry(rteMsg);
+ ````
 
+```cpp
  /* if there is none, create one */
  if (entry does not exist)
  {
@@ -47,7 +53,9 @@ update_rte_msg_table(rteMsg)
  entry.Timestamp = CurrentTime;
  return TRUE;
  }
+```
 
+```cpp
  /* if current entry is stale */
  if (
  (rteMsg.msg-type == RREQ AND entry.OrigSeqNum < rteMsg.OrigSeqNum)
@@ -59,7 +67,10 @@ update_rte_msg_table(rteMsg)
  entry.Timestamp = CurrentTime;
  return TRUE;
  }
+```
 
+
+```cpp
  /* if received rteMsg is stale */
  if ( 
  (rteMsg.msg-type == RREQ AND entry.OrigSeqNum > rteMsg.OrigSeqNum)
@@ -69,7 +80,9 @@ update_rte_msg_table(rteMsg)
  entry.Timestamp = CurrentTime;
  return FALSE;
  }
+```
 
+```cpp
  /* if same SeqNum but rteMsg has lower metric */
  if (entry.Metric > rteMsg.Metric)
  entry.Metric = rteMsg.Metric;
