@@ -19,20 +19,20 @@ Primero vamos a definir los siguientes términos utilizados en los algoritmos.
 - **localRoute**: es una ruta local existente dentro de la tabla de rutas, que coincide con **address**,**prefix_length**,**metric_type** y **seqNoRtr** del advRte.
 
 
-## 11.2 Process_Routing_Info
+## 11.2 Información del proceso de enrutamiento.
 
-Cada mensaje de ruta recibido contiene una ruta y en consecuencia se evalúa para comprobar cualquier mejora. Tenga en cuenta que un mensjae **RREQ** contiene una ruta a su origen, mientras un mensaje de respuesta **RREP** contiene una ruta a su destino.
+Un mensaje _RREQ_ contiene una ruta a su origen, mientras un mensaje de respuesta _RREP_ contiene una ruta a su destino.
 
-Por lo tanto, como las rutas estan identificadas por sus destinos, en e primer caso el destino de la ruta es el creador del mensaje y en este ultimo, es el destino del mensaje.
+Por lo tanto, como las rutas están identificadas por sus destinos, en el primer caso (_RREQ_) el destino de la ruta es el creador del mensaje y en el segundo caso (_RREP_), es el destino del mensaje.
 
-Tenga en cuenta que decimos que un enrutador es mejor que otros si tiene un numero de secuencia mayor que otros o un numero de secuencia igual, mientras que su costo por ejemplo, conteo de saltos, es menor que otros.
+En **Locha Mesh** decimos que un enrutador es mejor que otros si tiene un número de secuencia mayor o igual que otros mientras que su coste o su número de saltos es menor.
 
 La tabla de rutas se debe actualizar ante algunas de las siguientes condiciones:
 
-- **No existe una ruta en la tabla de rutas**: la ruta debe ser adicionada a la tabla de rutas
-- **Todas las rutas existentes en la tabla de rutas estan en estado no confirmado**, es decir, sus proximos saltos no estan confirmados: la rura es agregada a la tabla de rutas 
-- **La ruta entrante es mejor que la ruta valida existente**: si el proximo salto de la ruta es confirmado, se actualiza la ruta valida existente con la ruta entrante. En otro caso se agrega la ruta a la tabla de rutas, ya que se podria confirmar en el futuro, y en consecuencia reemplazar la ruta existente.
-- Si la ruta entrante es mejor que la ruta existente "invalida", esta ruta invalida puede ser reemplazada con la ruta entrante.
+- No existe una ruta en la tabla de rutas: la ruta debe ser añadida a la tabla de rutas
+- Todas las rutas existentes en la tabla de rutas están en estado _no confirmado_: la ruta es añadida a la tabla de rutas.
+- La ruta entrante es mejor que la ruta válida existente: si el próximo salto de la ruta es confirmado, se actualiza la ruta existente con la ruta entrante. En otro caso, se agrega la ruta a la tabla, ya que se podría confirmar en el futuro y reemplazar la ruta existente.
+- Si la ruta entrante es mejor que la ruta existente "inválida", esta ruta inválida puede ser reemplazada con la entrante.
 
 ```cpp
 /* Compare incoming route information to stored route, and if better, 
@@ -66,7 +66,11 @@ process_routing_info (advRte)
 
 <img src="imple_pic/process_routing_info.png" alt="drawing" height="650" width="800" align="center"/>
 
-## 11.3 Create_Route_Table_Entry
+<br>
+<br>
+<br>
+
+## 11.3 Create_Route_Table_Entry.
 
 ```cpp
 /* Create a route table entry from address and prefix length */
