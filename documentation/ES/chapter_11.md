@@ -70,7 +70,7 @@ process_routing_info (advRte)
 <br>
 <br>
 
-## 11.3 Create_Route_Table_Entry.
+## 11.3 Creación de entradas en la tabla de rutas.
 
 ```cpp
 /* Create a route table entry from address and prefix length */
@@ -115,7 +115,7 @@ create_route_table_entry(advRte)
 
 <img src="imple_pic/Route_table_entry.png" alt="drawing" height="670" width="710" align="center"/>
 
-## 11.4 update_route_table_entry
+## 11.4 Actualización de entradas en la tabla de rutas.
 
 ```cpp
 /* Update a route table entry using AdvRte in received RteMsg */
@@ -143,7 +143,7 @@ update_route_table_entry (rte, advRte);
 
 
 
-## 11.5 fetch_route_table_entry
+## 11.5 Búsqueda de una entrada en la tabla de rutas.
 ```cpp
 /* Lookup a route table entry matching an advertised route */
 
