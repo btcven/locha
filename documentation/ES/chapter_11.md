@@ -191,9 +191,9 @@ loop_free(advRte, rte)
 ```
 
 
-## 11.7 check_route_state
+## 11.7 Verificación del estado de la ruta.
 
-Actualice el estado de la entrada de ruta en función de los tiempos de espera. Si la ruta se puede usar para reenviar un paquete.
+El estado de la entrada de ruta se actualiza en función de los tiempos de espera, si la ruta se puede usar para reenviar un paquete.
 
 ```cpp
 check_route_state(route)
