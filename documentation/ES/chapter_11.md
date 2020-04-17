@@ -1,14 +1,9 @@
 
-<br>
-<h1 align="center">Capitulo 11</h1>
-<br>
+# 11. Operaciones generales del protocolo AODVv2.
+Explicaremos cómo las operaciones del protocolo _AODVv2_ sirven, por ejemplo, para comparar mensajes entrantes y actualizar tabla de rutas locales, entre  otras funciones.
 
-# 11. Operaciones generales del protocolo AODVv2
-A continuacion se muestran las operaciones involucradas en el protocolo AODVv2, dichas operaciones envuelven comparar mensajes entrantes, actualizar tabla de rutas locales entre otras.
-
-
-## 11.1 Operaciones de ruteo
-Existen diferente funciones involucradas en el proceso de busqueda de rutas delas cuales hablaremos de cada algoritmo en detalle. Las funciones que implementaremos seran las siguientes:
+## 11.1 Operaciones de ruta.
+Existen diferentes funciones en el proceso de búsqueda de rutas. Las funciones que implementaremos serán las siguientes:
 
 - check_route_state.
 - process_routing_info.
@@ -17,11 +12,11 @@ Existen diferente funciones involucradas en el proceso de busqueda de rutas dela
 - ceeate_route_table_entry.
 - loop_free.
 
-Primero que todo definimos los siguientes terminos utilizados en los algoritmos.
+Primero vamos a definir los siguientes términos utilizados en los algoritmos.
 
-- **rteMsg**: Denota mensaje de ruta recibido, puede ser un **RREQ** o un **RREP**.
-- **advRte**: Denota la ruta definida dentro del mensaje de ruta (RREQ o RREP). 
-- **localRoute**: Denota una ruta local existente dentro de la tabla de rutas, la cual coincide con **address**,**prefix_length**,**metric_type** y **seqNoRtr** del advRte.
+- **rteMsg**: es mensaje de ruta recibido. Este mensaje puede ser _RREQ_ o _RREP_.
+- **advRte**: es la ruta definida dentro del mensaje de ruta (_RREQ_ o _RREP_). 
+- **localRoute**: es una ruta local existente dentro de la tabla de rutas, que coincide con **address**,**prefix_length**,**metric_type** y **seqNoRtr** del advRte.
 
 
 ## 11.2 Process_Routing_Info
