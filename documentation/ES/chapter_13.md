@@ -1,19 +1,15 @@
 
-<br>
-<h1 align="center">Capitulo 13</h1>
-<br>
+# 13. Generación y procesamiento de mensajes.
 
-# 13. Generación y procesamiento de mensajes
-
-El procesamiento de mensajes toma el siguiente esquema general:
+El procesamiento de mensajes tiene este esquema general:
 - Recibir mensajes entrantes de ruta.
-- Actualizar tablas de rutas según corresponda
+- Actualizar tablas de rutas según corresponda.
 - Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
 
-Despues de procesar un mensaje, la informacion se almacena en la tabla de rutas. Por este motivo, es igualmente apropiado establecer valores de campos de mensajes salientes, utilizando la informacion de la tabla de rutas o los campos del mensaje entrante.
+Después de procesar un mensaje, la información se almacena en la tabla de rutas. Por este motivo es apropiado establecer valores en los campos de mensajes salientes, utilizando la información de la tabla de rutas o los campos del mensaje entrante.
 
 
-## 13.1 build_rfc_5444_message_header
+## 13.1 build_rfc_5444_message_header.
 
 ```cpp
 /* This pseudocode shows possible RFC 5444 actions, and would not 
@@ -39,7 +35,7 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size,
 }
 ```
 
-## 13.2 receive_RREQ
+## 13.2 receive_RREQ.
 
 ```cpp
 /* Process a RREQ received on link L */
@@ -100,7 +96,7 @@ receive_RREQ (inRREQ, L)
 <img src="imple_pic/Receive_RREQ.png" alt="drawing" height="600" width="800" align="center"/>
 
 
-## 13.3 generate_rreq
+## 13.3 generate_rreq.
 
 ```cpp
 /* Generate a route request message to find a route from OrigAddr
@@ -160,7 +156,7 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
 ```
 
-## 13.4 regenerate_RREQ
+## 13.4 regenerate_RREQ.
 
 ```cpp
 /* Called from receive_RREQ() 
@@ -223,8 +219,8 @@ regenerate_RREQ (inRREQ, rte)
 }
 ```
 
-## 13.5 generate_rrep
-```c++
+## 13.5 generate_rrep.
+```cpp
 generate_rrep(inRREQ, rte)
 {
  /* Increment sequence number in nonvolatile storage */
@@ -278,9 +274,9 @@ generate_rrep(inRREQ, rte)
 }
 ```
 
-## 13.6 receive_rrep
+## 13.6 receive_rrep.
 
-```c++
+```cpp
 /* Process a RREP received on link L */
 
 Receive_RREP (inRREP, L)
@@ -339,9 +335,9 @@ Receive_RREP (inRREP, L)
 }
 ```
 
-## 13.7 regenerate_rrep
+## 13.7 regenerate_rrep.
 
-```c++
+```cpp
 Regenerate_RREP(inRREP, rte)
 {
  if (rte does not exist)
