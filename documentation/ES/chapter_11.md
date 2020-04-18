@@ -9,7 +9,7 @@ Existen diferentes funciones en el proceso de búsqueda de rutas. Las funciones 
 - process_routing_info.
 - fetch_route_table_entry.
 - update_route_table_entry.
-- ceeate_route_table_entry.
+- create_route_table_entry.
 - loop_free.
 
 Primero vamos a definir los siguientes términos utilizados en los algoritmos.
