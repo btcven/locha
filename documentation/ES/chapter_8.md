@@ -82,16 +82,18 @@ Uno de los campos es el identificador que se va modificando cada vez que se gene
 En esta figura podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**.
 El primer paso será buscar en su tabla de rutas y ver si tiene una ruta almacenada al destino. De no ser así debe iniciar un proceso de descubrimiento de ruta, donde envía un mensaje _multicast_ a todos sus vecinos al alcance de la señal de radiofrecuencia.
 
-<br>
-<br>
-<br>
-<br>
+<br />&nbsp;<br />
+<br />&nbsp;<br />
+<br />&nbsp;<br />
+<br />&nbsp;<br />
+
 <img src="imple_pic/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
 </p>
 
 Comparando este proceso con la vida cotidiana sería como salir a la calle a buscar a tu hijo pero no lo ves. Lo primero que haces es gritar y esperar respuesta. Este grito representa un mensaje _multicast_ que puede ser escuchado por tus vecinos. Si ellos saben dónde está tu hijo, pueden informarte con un nuevo mensaje (_RREP_), entregando una ruta hacia donde se encuentra tu hijo. Pero si no saben dónde está, podrían iniciar un nuevo grito a sus vecinos más cercanos (_multicast_), para ver si pueden ayudar en la búsqueda y así sucesivamente hasta encontrar el destino, en este caso tu hijo.
 
-<br>
+<br />&nbsp;<br />
+
 
 ## 8.3 Proceso de requerimiento de ruta en una red ad hoc.
 
