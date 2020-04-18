@@ -13,12 +13,12 @@ Un nodo mantiene una tabla de rutas clasificada por nodos.
 - Una entrada es de la forma **(s,h,x)** donde
   - **s**: es el número de secuencia.
   - **h**: es el _hopcount_ (o coste de ruta).
-  - **x**: es el estado de la ruta.
- - Unconfirmed: 
- - Idle:
- - Active:
- - Invalid:
- Se asume que **s** y **h** son números no negativos. Se usa notación estándar para nombrar estos componentes. Por ejemplo: ``` n.route[O].e.h```, hace referencia al _hopcount_ de una entrada de ruta de un nodo **O** en el nodo **n**.
+  - **x**: es el estado de la ruta, que puede ser:
+    - Unconfirmed 
+    - Idle
+    - Active
+    - Invalid
+
 
 ## 10.2 Mensajes.
 
