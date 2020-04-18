@@ -23,9 +23,9 @@ Un nodo mantiene una tabla de rutas clasificada por nodos.
 ## 10.2 Mensajes.
 
 El protocolo tiene tres tipos de mensajes :
-- RREQ (Route Request):
-- RREP (Route Reply):
-- RERR (Route Error):
+- RREQ (Route Request)
+- RREP (Route Reply)
+- RERR (Route Error)
 
 Cada mensaje tiene los siguientes componentes
 - **h**: hopcount.
