@@ -573,7 +573,7 @@ Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. C
 - Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
 
 
-Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones mas actualizadas del protocolo [10].
+Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones más actualizadas del protocolo [10].
 
 ## 8.13 Procesamiento de la información de los mensajes de ruta.
 
