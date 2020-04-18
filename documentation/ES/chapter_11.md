@@ -1,43 +1,38 @@
 
-<br>
-<h1 align="center">Capitulo 11</h1>
-<br>
+# 11. Operaciones generales del protocolo AODVv2.
+Explicaremos cómo las operaciones del protocolo _AODVv2_ sirven, por ejemplo, para comparar mensajes entrantes y actualizar tabla de rutas locales, entre  otras funciones.
 
-# 11. Operaciones generales del protocolo AODVv2
-A continuacion se muestran las operaciones involucradas en el protocolo AODVv2, dichas operaciones envuelven comparar mensajes entrantes, actualizar tabla de rutas locales entre otras.
-
-
-## 11.1 Operaciones de ruteo
-Existen diferente funciones involucradas en el proceso de busqueda de rutas delas cuales hablaremos de cada algoritmo en detalle. Las funciones que implementaremos seran las siguientes:
+## 11.1 Operaciones de ruta.
+Existen diferentes funciones en el proceso de búsqueda de rutas. Las funciones que implementaremos serán las siguientes:
 
 - check_route_state.
 - process_routing_info.
 - fetch_route_table_entry.
 - update_route_table_entry.
-- ceeate_route_table_entry.
+- create_route_table_entry.
 - loop_free.
 
-Primero que todo definimos los siguientes terminos utilizados en los algoritmos.
+Primero vamos a definir los siguientes términos utilizados en los algoritmos.
 
-- **rteMsg**: Denota mensaje de ruta recibido, puede ser un **RREQ** o un **RREP**.
-- **advRte**: Denota la ruta definida dentro del mensaje de ruta (RREQ o RREP). 
-- **localRoute**: Denota una ruta local existente dentro de la tabla de rutas, la cual coincide con **address**,**prefix_length**,**metric_type** y **seqNoRtr** del advRte.
+- **rteMsg**: es mensaje de ruta recibido. Este mensaje puede ser _RREQ_ o _RREP_.
+- **advRte**: es la ruta definida dentro del mensaje de ruta (_RREQ_ o _RREP_). 
+- **localRoute**: es una ruta local existente dentro de la tabla de rutas, que coincide con **address**,**prefix_length**,**metric_type** y **seqNoRtr** del advRte.
 
 
-## 11.2 Process_Routing_Info
+## 11.2 Información del proceso de enrutamiento.
 
-Cada mensaje de ruta recibido contiene una ruta y en consecuencia se evalúa para comprobar cualquier mejora. Tenga en cuenta que un mensjae **RREQ** contiene una ruta a su origen, mientras un mensaje de respuesta **RREP** contiene una ruta a su destino.
+Un mensaje _RREQ_ contiene una ruta a su origen, mientras un mensaje de respuesta _RREP_ contiene una ruta a su destino.
 
-Por lo tanto, como las rutas estan identificadas por sus destinos, en e primer caso el destino de la ruta es el creador del mensaje y en este ultimo, es el destino del mensaje.
+Por lo tanto, como las rutas están identificadas por sus destinos, en el primer caso (_RREQ_) el destino de la ruta es el creador del mensaje y en el segundo caso (_RREP_), es el destino del mensaje.
 
-Tenga en cuenta que decimos que un enrutador es mejor que otros si tiene un numero de secuencia mayor que otros o un numero de secuencia igual, mientras que su costo por ejemplo, conteo de saltos, es menor que otros.
+En **Locha Mesh** decimos que un enrutador es mejor que otros si tiene un número de secuencia mayor o igual que otros mientras que su coste o su número de saltos es menor.
 
 La tabla de rutas se debe actualizar ante algunas de las siguientes condiciones:
 
-- **No existe una ruta en la tabla de rutas**: la ruta debe ser adicionada a la tabla de rutas
-- **Todas las rutas existentes en la tabla de rutas estan en estado no confirmado**, es decir, sus proximos saltos no estan confirmados: la rura es agregada a la tabla de rutas 
-- **La ruta entrante es mejor que la ruta valida existente**: si el proximo salto de la ruta es confirmado, se actualiza la ruta valida existente con la ruta entrante. En otro caso se agrega la ruta a la tabla de rutas, ya que se podria confirmar en el futuro, y en consecuencia reemplazar la ruta existente.
-- Si la ruta entrante es mejor que la ruta existente "invalida", esta ruta invalida puede ser reemplazada con la ruta entrante.
+- No existe una ruta en la tabla de rutas: la ruta debe ser añadida a la tabla de rutas
+- Todas las rutas existentes en la tabla de rutas están en estado _no confirmado_: la ruta es añadida a la tabla de rutas.
+- La ruta entrante es mejor que la ruta válida existente: si el próximo salto de la ruta es confirmado, se actualiza la ruta existente con la ruta entrante. En otro caso, se agrega la ruta a la tabla, ya que se podría confirmar en el futuro y reemplazar la ruta existente.
+- Si la ruta entrante es mejor que la ruta existente "inválida", esta ruta inválida puede ser reemplazada con la entrante.
 
 ```cpp
 /* Compare incoming route information to stored route, and if better, 
@@ -71,7 +66,11 @@ process_routing_info (advRte)
 
 <img src="imple_pic/process_routing_info.png" alt="drawing" height="650" width="800" align="center"/>
 
-## 11.3 Create_Route_Table_Entry
+<br>
+<br>
+<br>
+
+## 11.3 Creación de entradas en la tabla de rutas.
 
 ```cpp
 /* Create a route table entry from address and prefix length */
@@ -116,7 +115,7 @@ create_route_table_entry(advRte)
 
 <img src="imple_pic/Route_table_entry.png" alt="drawing" height="670" width="710" align="center"/>
 
-## 11.4 update_route_table_entry
+## 11.4 Actualización de entradas en la tabla de rutas.
 
 ```cpp
 /* Update a route table entry using AdvRte in received RteMsg */
@@ -144,7 +143,7 @@ update_route_table_entry (rte, advRte);
 
 
 
-## 11.5 fetch_route_table_entry
+## 11.5 Búsqueda de una entrada en la tabla de rutas.
 ```cpp
 /* Lookup a route table entry matching an advertised route */
 
@@ -179,7 +178,10 @@ fetch_route_table_entry (destination, metricType)
 
 
 
-## 11.6 loop_free
+## 11.6 Valoración del número de saltos de una ruta.
+
+Esta función señala si una ruta es mejor que otra en función de la cantidad de saltos entre nodos que se deben dar para alcanzar el destino.
+Si el número de saltos de la ruta que se quiere instalar en el nodo tiene menos que la ruta que ya está instalada en su tabla  de rutas, la función es "verdadero".
 
 ```cpp
 loop_free(advRte, rte)
@@ -192,9 +194,9 @@ loop_free(advRte, rte)
 ```
 
 
-## 11.7 check_route_state
+## 11.7 Verificación del estado de la ruta.
 
-Actualice el estado de la entrada de ruta en función de los tiempos de espera. Si la ruta se puede usar para reenviar un paquete.
+El estado de la entrada de ruta se actualiza en función de los tiempos de espera, si la ruta se puede usar para reenviar un paquete.
 
 ```cpp
 check_route_state(route)
