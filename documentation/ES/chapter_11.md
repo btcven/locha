@@ -1,6 +1,6 @@
 
 # 11. Operaciones de inicializacion del protocolo AODVv2.
-En esta sección explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo AODV-V2 sobre el Hardware embebido  basado en el cc1312 y el sistema operativo RIOT OS, el cual conforman la plataforma sobre la cual se desplegara el ```Turpial```.  
+Explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo _AODVv2_ sobre el hardware embebido  basado en el cc1312 y el sistema operativo RIOT-OS, que conforman la plataforma del ```Turpial```.  
 
 ## 11.1 Proceso de inicializacion 
 
