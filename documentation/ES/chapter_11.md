@@ -39,7 +39,7 @@ Conociendo el papel que desempeña el numero de secuencia en el protocolo _AODV_
 - Incrementar el contador en uno (inc), como detalla el protocolo,por cada _RREQ_ o _RREP_ que genere este nodo.
 
 
-### 11.2.1 Rutina para el manejo del numero de secuencia
+### 11.2.1 Rutina para manejar el número de secuencia.
 
 ```cpp
 #include "net/aodvv2/seqnum.h"
@@ -68,7 +68,8 @@ aodvv2_seqnum_t aodvv2_seqnum_get(void)
 
 ```
 
-La libreria es muy sencilla, pero eficiente ya que subsana problemas de carrera de datos que se generan cuando diferentes threads o hilos de ejecución en la aplicación tratan de leer y escribir al mismo tiempo el objeto que representa la secuencia de numero. Si un hilo escribe en un objeto atómico mientras otro hilo lee del mismo objeto, el comportamiento es bien definido.
+La librería es muy sencilla, pero eficiente ya que soluciona posibles problemas de datos que se generan cuando diferentes threads o hilos de ejecución en la aplicación tratan de leer y escribir al mismo tiempo el objeto que representa la secuencia de número. 
+
 
 ## 11.3 aodvv2_routing_table_init
 
