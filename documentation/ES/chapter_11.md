@@ -2,19 +2,19 @@
 # 11. Operaciones de inicializacion del protocolo AODVv2.
 Explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo _AODVv2_ sobre el hardware embebido  basado en el cc1312 y el sistema operativo RIOT-OS, que conforman la plataforma del ```Turpial```.  
 
-## 11.1 Proceso de inicializacion 
+## 11.1 Proceso de inicialización.
 
 <p>
 <img src="imple_pic/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
 </p>
 
-En el proceso de inicializacion del protocolo AODV sobre un nodo de red, se requiere seguir una serie de pasos, para lograr configurar los recursos software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
+El proceso de inicializacion del protocolo _AODV_ sobre un nodo de red requiere seguir una serie de pasos para configurar el software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
 
-En la imagen podemos apreciar cada una de las funciones que se deben ejecutar antes de poder conectarnos a la red Locha Mesh, cada proceso esta enumerado y trataremos de explicar en detalle.
+En la imagen podemos ver cada una de las funciones que se deben ejecutar antes de poder conectarnos a la red **Locha Mesh**.
 
-Los procesos ejecutados en la etapa de inicializacion son responsables por configurar lo referente a las tablas manejadas dentro del protocolo, como también inicializar la interfaz de red,obtener la dirección IP necesaria para operar en la red, entre otros recursos que se detallan a continuación.
+Los procesos ejecutados en la etapa de inicializacion configuran las tablas manejadas dentro del protocolo, inicializan la interfaz de red y obtienen la dirección IP necesaria para operar en la red, entre otros recursos.
 
-Cabe aclarar que todos los algoritmos presentados aquí en este documento hacen parte del desarrollo del equipo de Locha, y están desarrollados bajo el sistema operativo RIOT OS como se describe en el capitulo 7 de este documento.
+Todos los algoritmos presentados aquí están desarrollados bajo el sistema operativo RIOT-OS, por parte del equipo de **Locha**.
 
 
 <br />&nbsp;<br />
