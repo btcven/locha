@@ -76,8 +76,8 @@ La librería es muy sencilla, pero eficiente ya que soluciona posibles problemas
 Todos los routers _AODV_ deben mantener un conjunto de rutas locales con información procedente de los mensajes de ruta (_RREQ_ y _RREP_).
 Para manejar la tabla de ruta del ```Turpial``` es necesario mantener una lista con dicha información y para ello, la función _aodvv2_routing_table_init_ se encarga de crear lo necesario para almacenar la información con las rutas que pueden ser alcanzadas a través de la mencionada tabla de rutas.
 
-### 11.3.1 Esquema de una entrada en la tabla de rutas
-La estructura del paquete que se debe guardar en la tabla de rutas corresponde al siguiente esquema definido en el archivo ```routingtable.h```:
+### 11.3.1 Esquema de una entrada en la tabla de rutas.
+La estructura del paquete que se debe guardar en la tabla de rutas corresponde al esquema definido en el archivo _routingtable.h_:
 
 ```cpp
 /**
@@ -99,7 +99,8 @@ typedef struct {
                                 aodvv2_routing_states) */
 } aodvv2_local_route_t;
 ```
-La directiva ```CONFIG_AODVV2_MAX_ROUTING_ENTRIES``` representa la cantidad de rutas que se pueden mantener en el nodo, esta limitación nace desde los recursos disponibles en el hardware.
+La directiva _CONFIG_AODVV2_MAX_ROUTING_ENTRIES_ representa la cantidad de rutas que se pueden mantener en el nodo. Los recursos disponibles en el hardware tienen esta limitación.
+
 
 ### 11.3.2 Rutina para la inicializacion de la tabla de rutas locales
 La rutina encargada de iniciar la tabla de rutas se encuentra definida en el archivo ```aodvv2_routingtable_init``` y el código es el siguiente:
