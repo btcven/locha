@@ -71,11 +71,10 @@ aodvv2_seqnum_t aodvv2_seqnum_get(void)
 La librería es muy sencilla, pero eficiente ya que soluciona posibles problemas de datos que se generan cuando diferentes threads o hilos de ejecución en la aplicación tratan de leer y escribir al mismo tiempo el objeto que representa la secuencia de número. 
 
 
-## 11.3 aodvv2_routing_table_init
+## 11.3 aodvv2_routing_table_init.
 
-Todos los routers AODV deben mantener un conjunto de rutas locales, conteniendo información obtenida de los mensajes de ruta (RREQ y RREP).
-
-Para el manejo de la tabla de ruta del ```Turpial``` se hace necesario mantener una lista con dicha información y para ello, la función ```aodvv2_routing_table_init``` se encarga de crear el array necesario para almacenar la información relacionada con las rutas que pueden ser alcanzadas a través de la mencionada tabla o array de rutas.
+Todos los routers _AODV_ deben mantener un conjunto de rutas locales con información procedente de los mensajes de ruta (_RREQ_ y _RREP_).
+Para manejar la tabla de ruta del ```Turpial``` es necesario mantener una lista con dicha información y para ello, la función _aodvv2_routing_table_init_ se encarga de crear lo necesario para almacenar la información con las rutas que pueden ser alcanzadas a través de la mencionada tabla de rutas.
 
 ### 11.3.1 Esquema de una entrada en la tabla de rutas
 La estructura del paquete que se debe guardar en la tabla de rutas corresponde al siguiente esquema definido en el archivo ```routingtable.h```:
