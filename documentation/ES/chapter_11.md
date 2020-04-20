@@ -22,19 +22,22 @@ Todos los algoritmos presentados aquí están desarrollados bajo el sistema oper
 <br />&nbsp;<br />
 
 
-## 11.2 aodvv2_seqnum_init
+## 11.2 aodvv2_seqnum_init.
 
-Como se a descrito en el capitulo 8.9, el numero de secuencia permite conocer si los mensajes de ruta son obsoletos o no, y asi mantener información de rutas frescas en todo momento.
+Como se ha descrito en el capítulo 8.9, el número de secuencia permite conocer si los mensajes de ruta son obsoletos o no, y así mantener información de rutas frescas en todo momento.
 
-La función ```aodvv2_seqnum_init``` hace parte de un set de funciones localizadas dentro de un archivo llamado ```aodvv2_seqnum.c```, y el cual expone las siguientes funciones:
-- ```aodvv2_seqnum_init(void)```.
-- ```aodvv2_seqnum_inc(void)```.
-- ```aodvv2_seqnum_get()```.
+La función _aodvv2_seqnum_init_ es parte de unas funciones localizadas dentro de un archivo llamado _aodvv2_seqnum.c_, con las siguientes funciones:
 
-A simple vista y sin ningún tipo de explicación y conociendo el papel que desempeña el numero de secuencia en el protocolo AODV, se puede ver que las funciones no hacen mas de lo que dice su nombre:
-- Iniciar a ```1``` (init) un contador como se detalla en la descripción del protocolo.
+- aodvv2_seqnum_init(void).
+- aodvv2_seqnum_inc(void).
+- aodvv2_seqnum_get().
+
+Conociendo el papel que desempeña el numero de secuencia en el protocolo _AODV_, vemos que las funciones no hacen mas de lo que dice su nombre:
+
+- Iniciar en **1** (init) un contador, como se detalla en la descripción del protocolo.
 - Leer el contador y obtener su valor (get).
-- Incrementar el contador en uno (inc), como detalla el protocolo este contador o numero de secuencia sera incrementado en uno su valor, por cada RREQ o RREP que este nodo genere.
+- Incrementar el contador en uno (inc), como detalla el protocolo,por cada _RREQ_ o _RREP_ que genere este nodo.
+
 
 ### 11.2.1 Rutina para el manejo del numero de secuencia
 
