@@ -1,6 +1,6 @@
 
 # 11. Operaciones de inicializacion del protocolo AODVv2.
-En esta sección explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo AODV-V2 sobre el Hardware embebido  basado en el cc1312 y el sistema operativo RIOT OS, el cual conforman la plataforma sobre la cual se desplegara el TURPIAL.  
+En esta sección explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo AODV-V2 sobre el Hardware embebido  basado en el cc1312 y el sistema operativo RIOT OS, el cual conforman la plataforma sobre la cual se desplegara el ```Turpial```.  
 
 ## 11.1 Proceso de inicializacion 
 
@@ -10,11 +10,11 @@ En esta sección explicaremos los procesos involucrados en la inicializacion y p
 
 En el proceso de inicializacion del protocolo AODV sobre un nodo de red, se requiere seguir una serie de pasos, para lograr configurar los recursos software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
 
-En la imagen podemos apreciar cada una de las funciones que se deben ejecutar antes de poder conectarnos a la red LOCHA, cada proceso esta enumerado y trataremos de explicar en detalle.
+En la imagen podemos apreciar cada una de las funciones que se deben ejecutar antes de poder conectarnos a la red Locha Mesh, cada proceso esta enumerado y trataremos de explicar en detalle.
 
 Los procesos ejecutados en la etapa de inicializacion son responsables por configurar lo referente a las tablas manejadas dentro del protocolo, como también inicializar la interfaz de red,obtener la dirección IP necesaria para operar en la red, entre otros recursos que se detallan a continuación.
 
-Cabe aclarar que todos los algoritmos presentados aquí en este documento hacen parte del desarrollo del equipo de LOCHA, y están desarrollados bajo el sistema operativo RIOT OS como se describe en el capitulo 7 de este documento.
+Cabe aclarar que todos los algoritmos presentados aquí en este documento hacen parte del desarrollo del equipo de Locha, y están desarrollados bajo el sistema operativo RIOT OS como se describe en el capitulo 7 de este documento.
 
 
 <br />&nbsp;<br />
@@ -293,7 +293,7 @@ El código para extraer la dirección IPV6 global del dispositivo es posible ten
 Podria darse el caso en el que el nodo tiene mas de una interface de red, es por esto que se hace necesario la busqueda de la dirección global en cualquiera de las interfaces disponibles en el hardware.
 
 ### 11.8.1  _find_netif_global_addr.
-Para ek envió de paquetes entre nodos, se hace necesario configurar direcciones IP globales , ya que si esto no se hace, el stack de red no sera capaz de rutear los paquetes de manera correcta, ya que todos las boards del turpial cuentan con dos tipos de direcciones IPV6, una es global y la otra es local.
+Para ek envió de paquetes entre nodos, se hace necesario configurar direcciones IP globales , ya que si esto no se hace, el stack de red no sera capaz de rutear los paquetes de manera correcta, ya que todos las boards del ```Turpial``` cuentan con dos tipos de direcciones IPV6, una es global y la otra es local.
 
 ```cpp
 static int _find_netif_global_addr(ipv6_addr_t *addr)
