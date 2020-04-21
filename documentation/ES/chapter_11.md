@@ -22,7 +22,7 @@ Todos los algoritmos presentados aquí están desarrollados bajo el sistema oper
 <br />&nbsp;<br />
 
 
-## 11.2 aodvv2_seqnum_init.
+## 11.2 aodvv2_seqnum_init
 
 Como se ha descrito en el capítulo 8.9, el número de secuencia permite conocer si los mensajes de ruta son obsoletos o no, y así mantener información de rutas frescas en todo momento.
 
@@ -71,7 +71,7 @@ aodvv2_seqnum_t aodvv2_seqnum_get(void)
 La librería es muy sencilla, pero eficiente ya que soluciona posibles problemas de datos que se generan cuando diferentes threads o hilos de ejecución en la aplicación tratan de leer y escribir al mismo tiempo el objeto que representa la secuencia de número. 
 
 
-## 11.3 aodvv2_routing_table_init.
+## 11.3 aodvv2_routing_table_init
 
 Todos los routers _AODV_ deben mantener un conjunto de rutas locales con información procedente de los mensajes de ruta (_RREQ_ y _RREP_).
 Para manejar la tabla de ruta del ```Turpial``` es necesario mantener una lista con dicha información y para ello, la función _aodvv2_routing_table_init_ se encarga de crear lo necesario para almacenar la información con las rutas que pueden ser alcanzadas a través de la mencionada tabla de rutas.
@@ -136,8 +136,8 @@ Para mas información acerca de las tablas de rutas diríjase a la seccion 4.5 d
 
 ## 11.4 aodv_rreqtable_init
 
-esta funcion igual que la funcion anterior inicializa una tabla, pero esta vez con la intencion de almacenar información de mensajes multicast entrantes, para evitar retransmitir mensajes redundantes.
-La manera de trabajar con esta tabla es llevar un registro de cada mensaje ```RREQ``` entrante, esto hace posible que cuando nuevos mensajes entrantes de tipo ```RREQ```, buscando el mismo destino desde un mismo origen, se puedan eliminar sin la necesidad de retransmitirlos
+Esta función inicializa una tabla con la intencion de almacenar información de mensajes _multicast_ entrantes para evitar retransmitir mensajes redundantes.
+Esta tabla lleva un registro de cada mensaje _RREQ_ entrante, por lo que nuevos mensajes entrantes _RREQ_, buscando el mismo destino desde un mismo origen, son eliminados sin la necesidad de retransmitirlos.
 
 ### 11.4.1 Esquema de una entrada en la tabla de mensaje de rutas RREQ
 La siguiente estructura representa el formato del mensaje que se almacenara en la tabla de mensaje de rutas (RREQ)
