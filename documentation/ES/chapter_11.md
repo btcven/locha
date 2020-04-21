@@ -378,16 +378,15 @@ aodvv2_client_entry_t *aodvv2_client_add(const ipv6_addr_t *addr,
 
 
 ## 11.10 Registro en el stack de red.
-Para poder escuchar mensajes entrantes provenientes de nodos externos, debemos registrarnos a uno tipo especifico de mensajes, en este caso son los mensajes UDP, _RIOT_OS_ ofrece la posibilidad de tener un hilo o thread desde el cual se podran escuchar mensajes entrantres mediante el protocolo UDP con tan solo realizar una suscripción a dicho tipo de mensajes. Este mecanismo es conocido como IPC (Inter Communication process), el cual se puede configurar para que se ejecute de forma sincronía o asíncrona.
+Para poder escuchar mensajes entrantes provenientes de nodos externos, debemos registrarnos a un tipo especifico de mensajes, en este caso los mensajes _UDP_. _RIOT-OS_ ofrece la posibilidad de tener un hilo o thread desde el cual se podrán escuchar mensajes entrantres mediante el protocolo _UDP_ con tan solo realizar una suscripción a dicho tipo de mensajes. Este mecanismo es conocido como _IPC_ (Inter Communication process), y se puede configurar para que se ejecute de forma sincrónica o asíncrona.
 
-La diferencia entre el tipo de configuración seleccionado para escuchar los mensajes radica en que cuando tenemos recepción de mensajes de forma asíncrona, habilitamos una cola de mensajes la cual almacena los mensajes hasta que sean leidos, respetando claro esta el tamaño de la cola de mensajes.
+La diferencia entre el tipo de configuración seleccionado para escuchar los mensajes radica en que cuando tenemos recepción de mensajes de forma asíncrona, habilitamos una cola de mensajes la cual almacena los mensajes hasta que sean leídos, respetando el tamaño de la cola de mensajes.
 
 
-En esta fracción de código presente en la inicializacion del protocolo AODV, estamos suscribiendo el nodo para que pueda escuchar todos los mensajes UDP provenientes de nodos externos, sin la necesidad de configurar el server UDP por nuestra propia cuenta y haciendo uso de la implementación que trae _RIOT_OS_ para el manejo de este tipo de suscripciones a mensajes externos.
+En esta fracción de código presente en la inicializacion del protocolo _AODV_, estamos suscribiendo el nodo para que pueda escuchar todos los mensajes _UDP_ procedentes de nodos externos, sin la necesidad de configurar _UDP_ por nuestra cuenta haciendo uso de la implementación que trae _RIOT-OS_ para el manejo de este tipo de suscripciones a mensajes externos.
 
-En la funcion ```gnrc_netreg_entry_init_pid(&netreg, UDP_MANET_PORT, _pid);```  _pid hace referencia al ID del thread que se designa para el manejo de este tipo de mensajes, como en la creación de cualquier Thread necesitamos algunos parametros estándar de los threads en C++.
-Para la creación del thread que se encarga de esperar los mensajes , se procede a la implementación de la siguiente manera.
-El cual crea un espacio de ejecución en paralelo con otros procesos dentro de _RIOT_, a lo cual se le conoce como multi-task.
+En la funcion _gnrc_netreg_entry_init_pid(&netreg, UDP_MANET_PORT, _pid)_,  _pid_ hace referencia al ID del thread que se designa para el manejo de este tipo de mensajes. Como en la creación de cualquier thread necesitamos algunos parámetros estándar de los threads en C++.
+Para la creación del thread que se encarga de esperar los mensajes, procedemos a la implementación creando un espacio de ejecución en paralelo con otros procesos dentro de _RIOT-OS_, conocido como multi-task.
 
 ### 11.10.1 Rutina para la suscripción de mensajes de red.
 
