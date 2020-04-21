@@ -331,10 +331,10 @@ Esta función es utilizada para añadir clientes a la tabla correspondiente. Se 
 
 ### 11.9.1 Rutina para agregar clientes a la tabla.
 
-Esta funcion recibe como para metro la IP del cliente ademas del tamaño de prefijo de red, y el costo del link.
-El tipo de dirección que se le pasa a la funcion es del tipo ```ipv6_addr_t```, la cual almacena un dato de 128 bits. Se hace la aclaración debido a que _RIOT_OS_ ofrece otros tipos de direcciones equivalentes pero no compatibles del todo, como lo es la ```netaddr```, la cual ofrece un poco mas de información acerca del propietario de la IP.
+Esta función recibe como parámetros la IP del cliente el tamaño de prefijo de red y el costo del link.
+El tipo de dirección que se pasa a la función es del tipo _ipv6_addr_t_. Ésta almacena un dato de 128 bits. Se hace la aclaración debido a que _RIOT-OS_ ofrece otros tipos de direcciones equivalentes pero no compatibles del todo, como puede ser _netaddr_, que ofrece un poco más de información acerca del propietario de la IP.
 
-El siguiente algoritmo es demasiado simple, pero cabe destacar la tarea principal, la cual consiste en tomar la dirección IP del argumento para asi buscar dentro de la tabla de clientes para conocer si se debe actualizar la información de existir una similar, o si se debe crear una entrada nueva.
+El siguiente algoritmo es simple, pero destaca la tarea principal, que consiste en tomar la dirección IP del argumento para así buscar dentro de la tabla de clientes y saber si se debe actualizar la información al existir una similar, o si se debe crear una entrada nueva cuando no sea así.
 
 ```cpp
 aodvv2_client_entry_t *aodvv2_client_add(const ipv6_addr_t *addr,
