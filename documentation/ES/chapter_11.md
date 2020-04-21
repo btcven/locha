@@ -217,15 +217,15 @@ static buffered_pkt_t _buffered_pkts[CONFIG_AODVV2_MAX_BUFFERED_PACKETS];
 
 ```
 
-## 11.6 Iniciar la tabla de clientes
+## 11.6 Iniciar la tabla de clientes.
 
-La tabla de clientes es una tabla conceptual, la cual almacena los clientes del router, y el nodo solo recreara mensajes de ```RREQ``` y ```RREP``` en nombre de sus clientes registrados en dicha tabla.
+La tabla de clientes es una tabla conceptual que almacena los clientes del router, y el nodo solo recreará mensajes de _RREQ_ y _RREP_ de los clientes registrados en dicha tabla.
 
-### 11.6.1 Rutina para inicializar la tabla de rutas
+### 11.6.1 Rutina para inicializar la tabla de rutas.
 
-La tabla de rutas se representa al igual que todas las tablas por un array con un tamaño fijo definido y limitado por los recursos del hardware donde se ejecuta la aplicación.
+La tabla de rutas se representa, como las demás tablas por un array con un tamaño fijo definido y limitado por los recursos del hardware donde se ejecuta la aplicación.
 
-Como se dijo antes el mutex permite acceder al recurso (tabla de clientes) sin ser interrumpido por otros procesos tratando de leer o escribir la tabla.
+El _mutex_ permite acceder al recurso (tabla de clientes) sin ser interrumpido por otros procesos tratando de leer o escribir la tabla.
 
 ```cpp
 static aodvv2_client_entry_t _client_set[CONFIG_AODVV2_CLIENT_SET_ENTRIES];
