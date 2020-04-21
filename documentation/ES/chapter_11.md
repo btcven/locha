@@ -472,7 +472,7 @@ int main(void)
 
 ### 11.10.3 Implementación del proceso o thread IPC.
 
-Ya hemos visto en el ejemplo anterior como crear un proceso o thread, como suscribirnos a mensajes entre procesos, y como suscribirnos a un tipo de mensaje en particular, ahora veremos como implementar la funcion que se encarga de escuchar los mensajes entrantes ademas de procesarlos. Es dentro de este proceso donde se procesan todos los mensajes entrantes y se revisa que tipo de mensaje ha llegado y cual debe ser el procedimiento aplicado, dependiendo del tipo y la información contenida en el.
+Ahora veremos cómo implementar la función que se encarga de escuchar los mensajes entrantes además de procesarlos y se revisa qué tipo de mensaje ha llegado y cuál debe ser el procedimiento aplicado, dependiendo del tipo y la información contenida en él.
 
 ```cpp
 static void *_event_loop(void *arg)
@@ -536,11 +536,10 @@ static void *_event_loop(void *arg)
 
 ```
 
-A simple vista la funcion anterior puede parecer algo complicada de leer, pero no es asi, vamos a repasar la estructura principal dentro de la funcion.
 
-La estructura principal de la funcion la conforman un ciclo ```while``` infinito típico de las funciones asignadas a ejecutarsen en un thread o proceso independiente, y un ```switch``` el cual hace un filtro entre los diferentes mensajes entrantes, para tomar las decisiones en base al tipo de mensaje.
+La estructura principal de la funcion la forman un ciclo _while_ infinito típico de las funciones asignadas a ejecutarse en un thread o proceso independiente, y un _switch_, el cual filtra entre los diferentes mensajes entrantes, para tomar decisiones dependiendo del tipo de mensaje.
 
-De ahora en adelante haremos referencia a esta funcion  para referirnos a la recepción de mensajes UDP, debido a que es aquí donde realmente se inicia el proceso interno con los mensajes entrantes.
+De ahora en adelante haremos referencia a esta función para referirnos a la recepción de mensajes _UDP_, debido a que es aquí donde realmente se inicia el proceso interno con los mensajes entrantes.
 
 ```cpp
 static void *_event_loop(void *arg)
@@ -567,9 +566,8 @@ static void *_event_loop(void *arg)
 }
 ``` 
 
-Hasta este punto hemos terminado de configurar casi por completo los recursos necesarios para operar en la red LOCHA, solo hace falta configurar los objetos encargados de codificar y decodificar los mensajes AODV,los cuales deben viajar a traves de la red encapsulados en un formato conocido como RFC5444, el cual describimos en el siguiente apartado.
+En este punto hemos terminado de configurar casi por completo los recursos necesarios para operar en la red **Locha Mesh**. Solo hace falta configurar los objetos encargados de codificar y decodificar los mensajes _AODV_. Éstos deben viajar a través de la red encapsulados en un formato conocido como _RFC5444_, que describimos a continuación.
 
-Cabe aclarar que el contenido de la sentencia ```switch``` es objeto de estudio en secciones posteriores, cuando sea necesario.
 
 ## 11.11 Configuración inicial RFC5444. 
 La RFC5444 define un protocolo de encapsulasion y serializacion de mensajes para operar en una red movil ad-hoc, la cual provee la serializacion y deserializacion de mensajes, ofrece la posibilidad de leer varios parametros relacionados con el paquete sin la necesidad de deserializar el paquete completamente.
