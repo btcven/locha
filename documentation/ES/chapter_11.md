@@ -241,14 +241,14 @@ void aodvv2_client_init(void)
 }
 ```
 
-## 11.7 Iniciar la Interface de red
-Para hacer posible la conexión del ```Turpial``` a la red, se hace necesario configurar la interface de red; En la definición de la funcion que inicia el protocolo AODV se ha habilitado un argumento en la funcion , el cual permite recibir como parametro la interface de red a utilizar, esto con el fin de habilitar la posibilidad de registrar indistintamente cualquier interface disponible en el dispositivo.
+## 11.7 Iniciar la interface de red.
+Para hacer posible la conexión del ```Turpial``` a la red, es configurar la interface de red. En la función que inicia el protocolo _AODV_ se ha habilitado un argumento que permite recibir como parámetro la interface de red a utilizar, con el fin de habilitar la posibilidad de registrar indistintamente cualquier interface disponible en el dispositivo.
 
-COn esto se dice que no es responsabilidad de la implementación del protocolo la de configurar la interface de red que se va a utilizar para la conexión con la red inalambrica. Pero su configuración dentro de la plataforma de _RIOT_OS_, se resume a las siguientes lineas de código.
+Por tanto no es responsabilidad de la implementación del protocolo configurar la interface de red que se va a utilizar para la conexión con la red inalámbrica, pero su configuración dentro de la plataforma de _RIOT-OS_, se resume en las siguientes líneas de código.
 
 Para mas información visite [https://riot-os.org/api/structnetif__t.html](https://riot-os.org/api/structnetif__t.html)
 
-El siguiente código itera sobre las interfaces de red disponibles, y si encuentra una disponible y compatible con IEEE802.15.4, retorna un puntero con la dirección de esa interface.
+El código itera sobre las interfaces de red disponibles, y si encuentra una disponible y compatible con _IEEE802.15.4_, retorna un puntero con la dirección de esa interface.
 ```cpp
 static gnrc_netif_t *_find_ieee802154_netif(void)
 {
