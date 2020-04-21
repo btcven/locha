@@ -922,13 +922,14 @@ Hemos creado un objeto _aodvv2_writer_target_ que debe ser inicializado y regist
 
 ## 11.13  Resumen 
 
-De lo ilustrado hasta ahora en este capitulo se puede decir que la intension es tener configurados e inicializados los recursos software y hardware necesarios para la operacion del dispositivo en la red.
+Algo que tmabién necesitamos agregar en la inicializacion es la posibilidad de registrarnos a la capa de red _IPV6_ y asignar una _callback_ que será ejecutada cada vez que se quiera enviar un paquete a otro nodo y no se conozca una ruta al destino.
+Esta característica es algo que ofrece _RIOT-OS_ y nos permite conocer en qué momento iniciar el proceso de búsqueda de rutas sin la necesidad de buscar en tablas internas manejadas por nuestro código.
 
-Algo mas que necesitamos agregar en la inicializacion es la posibilidad de registrarnos a la capa de red IPV6 y asignar una callback que sera ejecutada en cada instante que se quiera enviar un paquete a otro nodo y no se conozca una ruta al destino, esta característica es algo que ofrece ```RIOT OS``` y nos permite conocer en que momento iniciar el proceso de busqueda de rutas sin la necesidad de buscar en tablas internas manejadas por nuestro código.
+La instrucción para conocer cúando iniciar el protocolo reactivo es:
 
-la instruccion a registrar para conocer cuando iniciar el protocolo reactivo es la siguiente:
 ```cpp
  _netif->ipv6.route_info_cb = _route_info;
 ```
-```_route_info``` representa la callback que se quiere registrar y que se ejecuta en el mensionado caso.
+
+__route_info_ representa la _callback_ que se quiere registrar y que se ejecuta en ese caso.
 
