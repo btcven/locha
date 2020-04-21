@@ -708,17 +708,21 @@ Por esto se logran registrar dos _callback_ que se ejecutan por cada mensaje tip
 - __cb_rrep_blocktlv_messagetlvs_okay_: esta función se ejecuta en el momento que el mensaje llega al nodo.
 - __cb_rrep_end_callback_: esta función al final del proceso de lectura realizado en la primer _callback_, habilita la posibilidad de procesar nuestras propias _callbacks_.
 
-#### 11.11.3.2 rfc5444_reader_add_message_consumer 2.
+#### 11.11.3.2 rfc5444_reader_add_message_consumer
 
-Este llamado a la funcion es con la intension de registrar la callback encargada de leer los bloques de dirección y registrar los tipos de dirección que se desean capturar.
+El prpósito de esta función es registrar la _callback_ encargada de leer los bloques de dirección y registrar los tipos de dirección que se desean capturar.
+
 ```cpp
 rfc5444_reader_add_message_consumer(reader, &_rrep_address_consumer,
                                         _address_consumer_entries,
                                         ARRAY_SIZE(_address_consumer_entries));
 ```
-Los parametros pasados a esta funcion difieren un poco de la configuración anterior, debido a que tiene dos parametros extra.
-- **reader**: El objeto es igual al definido en el apartado anterior.
-- **_rrep_address_consumer**: Esta estructura es diferente a la anterior debido a que esta esta pensada para leer bloques de dirección disponibles y la estructura anterior esta pensada para leer los mensajes:
+
+Los parámetros pasados a esta función difieren un poco de la configuración anterior debido a que tiene dos parametros extra:
+
+- _reader_: igual al definido en el apartado anterior.
+- __rrep_address_consumer_: esta estructura es diferente ya que está pensada para leer bloques de dirección disponibles y la anterior esta pensada para leer los mensajes:
+
     ```cpp
         /*
         * Address consumer. Will be called once for every address in a message of
@@ -731,18 +735,21 @@ Los parametros pasados a esta funcion difieren un poco de la configuración ante
             .block_callback = _cb_rrep_blocktlv_addresstlvs_okay,
         };
     ```
-    - **msg_id**: Identifica el tipo de mensaje.
-    - **addrblock_consumer**: Especifica que es un consumidor de los bloques de dirección.
-    - **block_callback**: Permite registrar una callback propia para el proceso.
-- **_address_consumer_entries**: Esta estructura define los tipos de entradas para los bloques de dirección para los que el ```reader``` se va a registrar.
-- **ARRAY_SIZE(_address_consumer_entries)**: Define el tamaño del array que contiene el tipo de direcciones.
 
-Hasta este punto hemos configurado los consumidores de mensajes ```RREP``` y los consumidores de direcciones en el tipo de mensajes RREP, anteriormente hicimos énfasis en que se repite 4 veces el llamado a la funcion ```rfc5444_reader_add_message_consumer``` dentro de la funcion ```aodvv2_rfc5444_reader_register```.
-Los dos primeros llamados registran el consumidor de de mensajes ```RREP``` y el consumidor de bloques de dirección para mensajes ```RREP```, los dos últimos llamados a esta funcion sirven para configurar los mismos consumidores pero para el tipo de mensajes ```RREQ```, teniendo sus propias funciones de callback para procesar la información.
+    - _msg_id_: identifica el tipo de mensaje.
+    - _addrblock_consumer_: especifica que es un consumidor de los bloques de dirección.
+    - _block_callback_: permite registrar una _callback_ propia para el proceso.
+- __address_consumer_entries_: esta estructura define los tipos de entradas para los bloques de dirección para los que el _reader_ se va a registrar.
+- _ARRAY_SIZE(_address_consumer_entries)_: define el tamaño del array que contiene el tipo de direcciones.
 
-Las estructuras de datos correspondientes a los mensajes ```RREQ``` son como sigue:
+Ya hemos configurado los consumidores de mensajes y de direcciones de _RREP_.
+Anteriormente hicimos énfasis en que se repite 4 veces la funcion _rfc5444_reader_add_message_consumer_ dentro de la funcion _aodvv2_rfc5444_reader_register_.
 
-La única diferencia ocn el primer llamado son las callback que se registran y el tipo de mensaje para el cual se registra la callback, que en este caso es el ```RREQ```.
+Las dos primeras veces registran el consumidor de de mensajes y el consumidor de bloques de dirección para mensajes _RREP_. Las dos últimas sirven para configurar los mismos consumidores pero para el tipo de mensajes _RREQ_, teniendo sus propias funciones de _callback_ para procesar la información.
+
+Las estructuras de datos correspondientes a los mensajes _RREQ_ son como sigue:
+
+La única diferencia de las estructuras de datos son las _callback_ que se registran y el tipo de mensaje, que en este caso es el _RREQ_.
 
 ```cpp
 /*
@@ -757,7 +764,8 @@ static struct rfc5444_reader_tlvblock_consumer _rreq_consumer =
 };
 ```
 
-Esta funcion también difiere del segundo llamado expuesto anteriormente en que el bloque de direcciones que se desea leer debe corresponder al tipo de mensaje RREQ.
+Esta función también se diferencia en que el bloque de direcciones que se desea leer debe corresponder al tipo de mensaje _RREQ_.
+
 ```cpp
 /*
  * Address consumer. Will be called once for every address in a message of
@@ -771,7 +779,8 @@ static struct rfc5444_reader_tlvblock_consumer _rreq_address_consumer =
 };
 ```
 
-Ya hemos configurado completamente los consumidores de mensajes RREQ y RREP para los bloques de direcciones y de paquetes, no expondremos ni explicaremos aun el contenido de cada callback, debido a que este proceso cobra sentido cuando los mensajes son recibidos dentro de la estructura del AODV, lo que quiere decir que esto solo sucederá ```por la naturaleza de protocolo reactivo``` cuando un usuario desea enviar un paquete para el cual no se conoce una ruta o cuando se recibe un paquete que se debe retransmitir.
+Ya hemos configurado los consumidores de mensajes _RREQ_ y _RREP_ para los bloques de direcciones y de paquetes.
+El contenido de cada _callback_ cobra sentido cuando los mensajes son recibidos dentro de la estructura del _AODV_, lo que quiere decir que esto solo sucederá ```por la naturaleza de protocolo reactivo``` cuando un usuario desea enviar un paquete para el cual no se conoce una ruta o cuando se recibe un paquete que se debe retransmitir.
 
 ## 11.12 RFC5444 Writer.
 En esta seccion hablaremos del ```writer``` objeto encargado de serializar los paquetes _AODV_ antes de ser enviados a nodos remotos.
