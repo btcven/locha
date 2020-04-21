@@ -640,10 +640,11 @@ rfc5444_reader_init(struct rfc5444_reader *context) {
 La función anterior se encarga de inicializar el _Reader_ con valores por defecto, asignando espacios de memoria, el código anterior parte de la _oonf_api_ y el único requisito es pasar como parámetro una referencia al objeto _Reader_ creado con anterioridad.
 
 ### 11.11.3 aodvv2_rfc5444_reader_register
-Esta funcion tiene como proposito registrar el objeto Reader como deserializador de datos, para ello dentro de la funcion de registro se deben asignar las funciones de callback necesarias para que sean disparadas a traves de eventos internos de la api, por cada bloque de lectura procesado.El objetivo principal de la funcion es la de registrar los consumidores de paquetes y de bloques de direcciones.
-Esta funcion se encuentra en un archivo llamado ```rfc_reader.c``` y hace parte de los archivos desarrollados por el equipo de btcVen/LOCHA.
+Esta función tiene como propósito registrar el objeto _Reader_ como deserializador de datos. Para ello se deben asignar las funciones de _callback_ necesarias para que sean disparadas a través de eventos internos de la API por cada bloque de lectura procesado.
+El objetivo principal de la función es la de registrar los consumidores de paquetes y de bloques de direcciones.
+Esta función se encuentra en un archivo llamado _rfc_reader.c_, de los desarrollados por el equipo de **btcven/LOCHA**.
 
-La RFC5444 define un tipo de mensaje llamada ```message type-length-value```, los cuales permiten crear una lista de entradas personalizadas de los mensajes ```tlv``` requeridos en el desarrollo de la aplicación, y asi poder registrar consumidores con callback disponibles para el procesamiento del paquete una vez llegue al nodo.
+_RFC5444_ define un tipo de mensaje llamado _message type-length-value_, que permiten crear una lista de entradas personalizadas de los mensajes _tlv_ requeridos en el desarrollo de la aplicación, y así poder registrar consumidores con _callback_ disponibles para el procesamiento del paquete una vez llegue al nodo.
 
 ```cpp
 void aodvv2_rfc5444_reader_register(struct rfc5444_reader *reader,
@@ -670,13 +671,12 @@ void aodvv2_rfc5444_reader_register(struct rfc5444_reader *reader,
                                         ARRAY_SIZE(_address_consumer_entries));
 }
 ```
-Vamos a ver paso a paso cada una de las instrucciones en la funcion anterior creada para registrar el ```reader``` y asignar las callback correspondientes.
+Vamos a ver. paso a paso, cada una de las instrucciones en la función creada para registrar el _reader_ y asignar las _callback_ correspondientes.
 
-Lo primero que se puede notar es que se hace un llamado a la misma funcion 4 veces, pero con diferentes parametros.
+Lo primero es que se hace una llamada a la misma función 4 veces, pero con diferentes parámetros.
 
-La intension dentro de esta funcion de registro es configurar los consumidores de direcciones y de mensajes para cada tipo de paquete (```RREQ```, ```RREP```, ```RERR```).
+La intencion es configurar los consumidores de direcciones y de mensajes para cada tipo de paquete (_RREQ_, _RREP_, _RERR_).
 
-Vamos a ver en detalle el proposito de cada uno de estos llamados, y cual es el objetivo final.
 
 #### 11.11.3.1 rfc5444_reader_add_message_consumer 1.
 En este primer llamado se pretende registrar una callback, mas bien dos calbback para el procesado del paquete RFC5444 del tipo RREP.
