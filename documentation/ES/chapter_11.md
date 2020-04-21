@@ -390,9 +390,9 @@ Para la creación del thread que se encarga de esperar los mensajes, procedemos 
 
 ### 11.10.1 Rutina para la suscripción de mensajes de red.
 
-La palabra ```_event_loop``` en la siguiente porción de código hace referencia a la funcion que ejecuta el código necesario para estar a la espera de los mensajes entrantes a los cuales se ha suscrito.
+El término __event_loop_ en la siguiente parte de código hace referencia a la funcion que ejecuta el código necesario para estar a la espera de los mensajes entrantes a los cuales se ha suscrito.
 
-Se debe almacenar el _PID_ del thread que se ha creado para ser usado como un parametro de entrada en la api de _RIOT_, para decirle cual es el thread o proceso que se debe ejecutar para esperar por los mensajes UDP entrantes.  
+Debemos almacenar el _PID_ del thread creado para usarlo como un parámetro de entrada en la api de _RIOT_, y decirle cuál es el thread o proceso que debe ejecutarse para esperar por los mensajes _UDP_ entrantes.  
 
 ```cpp
 _pid = thread_create(_stack, sizeof(_stack), CONFIG_AODVV2_RFC5444_PRIO,
@@ -400,7 +400,7 @@ _pid = thread_create(_stack, sizeof(_stack), CONFIG_AODVV2_RFC5444_PRIO,
                          "aodvv2");
 ```
 
-Despues de crear el proceso encargado de ejecutar una tarea durante todo el tiempo de vida de la aplicación, debemos relacionar este proceso con una tarea en particular, en este caso es la de escuchar los mensajes UDP entrantes, los cuales se pueden configurar usando la siguiente funcion de _RIOT_. 
+Después de crear el proceso encargado de ejecutar una tarea durante todo el tiempo de vida (TTL) de la aplicación, debemos relacionar este proceso con una tarea en particular. En este caso la tarea es  escuchar los mensajes _UDP_ entrantes, los cuales pueden configurarse usando la siguiente funcion de _RIOT-OS_. 
 
 ```cpp
 /* Register netreg */
@@ -409,7 +409,7 @@ Despues de crear el proceso encargado de ejecutar una tarea durante todo el tiem
 ```
 
 
-La variable ```netreg``` representa la configuración para el tipo de mensaje al cual nos queremos suscribir, teniendo el siguiente formato.
+La variable _netreg_ representa la configuración para el tipo de mensaje al cual nos queremos suscribir, teniendo el siguiente formato:
 
 ```cpp
 /**
@@ -420,9 +420,9 @@ static gnrc_netreg_entry_t netreg = GNRC_NETREG_ENTRY_INIT_PID(GNRC_NETREG_DEMUX
 
 ```
 
-La manera de escuchar mensajes UDP puede cambiar considerable entre sistemas operativos, pero en esencia se deben obtener los mismos resultados (capacidad de escuchar mensajes entrantes).
+La manera de escuchar mensajes _UDP_ puede cambiar considerablemente entre sistemas operativos, pero en esencia se deben obtener los mismos resultados: la capacidad de escuchar mensajes entrantes.
 
-Información detallada acerca de como crear una suscripción a cualquier tipo de mensajes de red se pueden encontrar en [https://riot-os.org/api/group__core__msg.html](https://riot-os.org/api/group__core__msg.html).
+Pueden encontrar información detallada acerca de como crear una suscripción a cualquier tipo de mensajes de red en [https://riot-os.org/api/group__core__msg.html](https://riot-os.org/api/group__core__msg.html).
 
 ### 11.10.2 Ejemplo suscripción IPC.
 
