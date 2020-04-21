@@ -74,7 +74,7 @@ La librería es muy sencilla, pero eficiente ya que soluciona posibles problemas
 ## 11.3 aodvv2_routing_table_init
 
 Todos los routers _AODV_ deben mantener un conjunto de rutas locales con información procedente de los mensajes de ruta (_RREQ_ y _RREP_).
-Para manejar la tabla de ruta del ```Turpial``` es necesario mantener una lista con dicha información y para ello, la función _aodvv2_routing_table_init_ se encarga de crear lo necesario para almacenar la información con las rutas que pueden ser alcanzadas a través de la mencionada tabla de rutas.
+Para manejar la tabla de ruta del ```Turpial``` es necesario mantener una lista con dicha información y para ello, la función _aodvv2_routing_table_init_ se encarga de crear el array necesario para almacenar la información con las rutas que pueden ser alcanzadas a través de la mencionada tabla de rutas.
 
 ### 11.3.1 Esquema de una entrada en la tabla de rutas.
 La estructura del paquete que se debe guardar en la tabla de rutas corresponde al esquema definido en el archivo _routingtable.h_:
@@ -198,7 +198,7 @@ void aodvv2_buffer_init(void)
     memset(_buffered_pkts, 0, sizeof(_buffered_pkts));
 }
 ```
-### 11.5.2 Estructura del mensaje en Buffer.
+### 11.5.2 Estructura del mensaje en buffer.
 
 El mensaje almacenado en el buffer debe tener la siguiente estructura:
 
