@@ -191,7 +191,7 @@ Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero
 
 ### 11.5.1 Rutina para la inicializacion del buffer de paquetes.
 
-El siguiente código representa la funcion que se encarga de inicializar el buffer donde se almacenaran un paquete de mensaje si no se conoce una ruta hacia el destino.La rutina se encuentra implementada dentro del archivo ``` aodvv2_buffer.c```, la cual ademas de inicializacion también ofrece rutinas para la manipulacion de la información.
+El siguiente código representa la función que se encarga de inicializar el buffer donde se almacenará un paquete de mensaje si no se conoce una ruta hacia el destino. La rutina se encuentra dentro del archivo _aodvv2_buffer.c_, que también ofrece rutinas para la manipulacion de la información.
 ```cpp
 void aodvv2_buffer_init(void)
 {
