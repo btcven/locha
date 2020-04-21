@@ -282,9 +282,9 @@ static gnrc_netif_t *_find_ieee802154_netif(void)
 
 
 ## 11.8 Dirección IP global
-Luego de tener la interface de red configurada, el siguiente paso es configurar u obtener una dirección IPV6 global y de carácter único sobre toda la red, es decir la intension es evitar direcciones IP duplicadas en toda la red.
+Cuando tengamos interface de red configurada, el siguiente paso es configurar una dirección _IPV6_ global y de carácter único sobre toda la red, con la intencion de evitar direcciones IP duplicadas en toda la red.
 
-El código para extraer la dirección IPV6 global del dispositivo es posible teniendo la referencia hacia la interface de red.
+El código para extraer la dirección _IPV6_ global del dispositivo es posible teniendo la referencia de la interface de red.
 
 ```cpp
 /* Save our IPv6 address */
@@ -294,7 +294,7 @@ El código para extraer la dirección IPV6 global del dispositivo es posible ten
         return -1;
     }
 ```
-Podria darse el caso en el que el nodo tiene mas de una interface de red, es por esto que se hace necesario la busqueda de la dirección global en cualquiera de las interfaces disponibles en el hardware.
+Podría darse el caso de que el nodo tenga más de una interface de red. Por esto es necesaria la búsqueda de la dirección global en cualquiera de las interfaces disponibles en el hardware.
 
 ### 11.8.1  _find_netif_global_addr.
 Para ek envió de paquetes entre nodos, se hace necesario configurar direcciones IP globales , ya que si esto no se hace, el stack de red no sera capaz de rutear los paquetes de manera correcta, ya que todos las boards del ```Turpial``` cuentan con dos tipos de direcciones IPV6, una es global y la otra es local.
