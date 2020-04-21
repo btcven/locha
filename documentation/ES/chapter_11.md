@@ -296,8 +296,8 @@ El código para extraer la dirección _IPV6_ global del dispositivo es posible t
 ```
 Podría darse el caso de que el nodo tenga más de una interface de red. Por esto es necesaria la búsqueda de la dirección global en cualquiera de las interfaces disponibles en el hardware.
 
-### 11.8.1  _find_netif_global_addr.
-Para ek envió de paquetes entre nodos, se hace necesario configurar direcciones IP globales , ya que si esto no se hace, el stack de red no sera capaz de rutear los paquetes de manera correcta, ya que todos las boards del ```Turpial``` cuentan con dos tipos de direcciones IPV6, una es global y la otra es local.
+### 11.8.1  _find_netif_global_addr
+Para el envío de paquetes entre nodos, es necesario configurar direcciones IP globales. Si no, el stack de red no será capaz de rutear los paquetes de manera correcta debido a que todas las boards del ```Turpial``` cuentan con dos tipos de direcciones IPV6: una global y otra local.
 
 ```cpp
 static int _find_netif_global_addr(ipv6_addr_t *addr)
