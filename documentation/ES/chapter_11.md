@@ -185,9 +185,9 @@ void aodvv2_rreqtable_init(void)
 
 ## 11.5 aodvv2_buffer_init
 
-Esta funcion nos brinda la posibilidad de almacenar un paquete dentro de un buffer para el cual no existe una ruta.
+Esta función nos da la posibilidad de almacenar un paquete dentro de un buffer para el cual no existe una ruta.
 
-Cuando un cliente desea enviar un paquete con un mensaje en terminos de aplicación; el stack de red primero revisa en su tabla de rutas (NIB), y si no encuentra una ruta para dicho destino, se debe iniciar un proceso de buffering, para alamacenar el paquete dentro del nodo hasta que la ruta solicitada sea encontrada.
+Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero revisa en su tabla de rutas (NIB). Si no encuentra una ruta para ese destino, debe iniciar un proceso de buffering para alamacenar el paquete dentro del nodo hasta que encuentre la ruta solicitada.
 
 ### 11.5.1 Rutina para la inicializacion del buffer de paquetes.
 
