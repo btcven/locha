@@ -325,9 +325,9 @@ static int _find_netif_global_addr(ipv6_addr_t *addr)
 }
 ```
 
-## 11.9 aodvv2_client_add.
+## 11.9 aodvv2_client_add
 
-Dicha funcion es utilizada para ingresar clientes a la tabla de correspondiente, y es llamada por primera vez dentro de la rutina de inicializacion del protocolo, debido a que el mismo dispositivo debe agregarse a si mismo como cliente en dicha tabla.]
+Esta función es utilizada para añadir clientes a la tabla correspondiente. Se usa por primera vez dentro de la rutina de inicialización del protocolo, ya que el mismo dispositivo debe agregarse a sí mismo como cliente en esta tabla.
 
 ### 11.9.1 Rutina para agregar clientes a la tabla.
 
