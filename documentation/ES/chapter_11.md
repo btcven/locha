@@ -679,14 +679,17 @@ La intencion es configurar los consumidores de direcciones y de mensajes para ca
 
 
 #### 11.11.3.1 rfc5444_reader_add_message_consumer 1.
-En este primer llamado se pretende registrar una callback, mas bien dos calbback para el procesado del paquete RFC5444 del tipo RREP.
+En esta primera llamada se pretende registrar una _callback_ para el procesado del paquete _RFC5444_ del tipo _RREP_.
+
 ```cpp
 rfc5444_reader_add_message_consumer(reader, &_rrep_consumer,
                                         NULL, 0);
 ```
-La configuración que aquí se presenta como parametros de la funcion son:
-- **reader**: Objeto configurado dentro de la funcion de inicializacion de _AODV_ el cual sera el encargado de deserializar los paquetes entrantes.
-- **_rrep_consumer**: hace referencia a una estructura de datos definida dentro de la ```oonf_api``` y la cual define los siguientes atributos:
+
+Los parametros de la función son:
+- _reader_: objeto configurado dentro de la función de inicializacion de _AODV_ encargado de deserializar los paquetes entrantes.
+- __rrep_consumer_: estructura de datos definida dentro de la _oonf_api_ y que define los siguientes atributos:
+
     ```cpp
             /*
         * Message consumer, will be called once for every message of
@@ -699,10 +702,11 @@ La configuración que aquí se presenta como parametros de la funcion son:
             .end_callback = _cb_rrep_end_callback,
         };
     ```
-Con lo cual se logra registrar dos callback que se ejecutan por cada mensaje tipo ```RREP``` entrante.
 
-- **_cb_rrep_blocktlv_messagetlvs_okay**: Esta funcion se ejecuta en el momento que el mensaje llega al nodo.
-- **_cb_rrep_end_callback**: Esta funcion es llamada al final del proceso de lectura realizado en la primer callback, con lo que se habilita la posibilidad de procesar nuestras propias callbacks
+Por esto se logran registrar dos _callback_ que se ejecutan por cada mensaje tipo _RREP_ entrante.
+
+- __cb_rrep_blocktlv_messagetlvs_okay_: esta función se ejecuta en el momento que el mensaje llega al nodo.
+- __cb_rrep_end_callback_: esta función al final del proceso de lectura realizado en la primer _callback_, habilita la posibilidad de procesar nuestras propias _callbacks_.
 
 #### 11.11.3.2 rfc5444_reader_add_message_consumer 2.
 
