@@ -783,12 +783,12 @@ Ya hemos configurado los consumidores de mensajes _RREQ_ y _RREP_ para los bloqu
 El contenido de cada _callback_ cobra sentido cuando los mensajes son recibidos dentro de la estructura del _AODV_, lo que quiere decir que esto solo sucederá ```por la naturaleza de protocolo reactivo``` cuando un usuario desea enviar un paquete para el cual no se conoce una ruta o cuando se recibe un paquete que se debe retransmitir.
 
 ## 11.12 RFC5444 Writer.
-En esta seccion hablaremos del ```writer``` objeto encargado de serializar los paquetes _AODV_ antes de ser enviados a nodos remotos.
-
-La ```oonf_api``` define los archivos necesarios para crear y manipular paquetes RFC5444.Para inicializar el serializador de paquetes conocido como ```writer```, necesitamos configurar algunas variable globales dentro del archivo ```aodvv2_init```, las cuales son:
-- ```buffers```: Para almacenar los paquetes y los mensajes TLV a procesar.
-- ```rfc5444_writer```:  Objeto para la creación de los paquetes RFC5444 y el cual representa el estado del mismo
-- ```_writer_context```: Este objeto es algo especial debido a que se comporta como un ```wraper``` o envoltura que nos permite tener una estructura de datos personalizada para cubrir las necesidades del ```Turpial``` pero ademas haciendo dicha estructura compatible con la ```oonf_api```.
+_writer_ es el objeto encargado de serializar los paquetes _AODV_ antes de ser enviados a nodos remotos.
+La _oonf_api_ define los archivos necesarios para crear y manipular paquetes _RFC5444_. 
+Para inicializar el serializador de paquetes conocido como _writer_, necesitamos configurar algunas variable globales dentro del archivo _aodvv2_init_:
+- _buffers_: para almacenar los paquetes y los mensajes TLV a procesar.
+- _rfc5444_writer_:  para la creación de los paquetes _RFC5444_ que representa el estado del mismo.
+- __writer_context_: este objeto se comporta como un _wraper_ o envoltura que nos permite tener una estructura de datos personalizada para cubrir las necesidades del ```Turpial``` pero ademas haciendo dicha estructura compatible con la _oonf_api_.
 
 ```cpp
 /**
@@ -802,10 +802,10 @@ static uint8_t _writer_pkt_buffer[CONFIG_AODVV2_RFC5444_PACKET_SIZE];
 static mutex_t _writer_lock;
 ```
 
-- El objeto ```writer``` representa en si los estados internos del ```RFC5444 writer```
-- El objeto ```writer_context``` es un objeto del tipo ```aodvv2_writer_target_t``` que representa una estructura que sirve para definir un paquete RFC5444 para un destino IP especifico y con un tipo de mensaje especifico i.e. ```rfc5444_msg_type```.
+- El objeto _writer_ representa los estados internos del _RFC5444 writer_.
+- _writer_context_ es un objeto del tipo _aodvv2_writer_target_t_ que representa una estructura que sirve para definir un paquete _RFC5444_ para un destino IP específico y con un tipo de mensaje específico como _rfc5444_msg_type_.
 
-El objeto ```aodvv2_writer_target_t``` ofrece la posibilidad de crear un paquete RFC5444 para una IP especifica y de un tipo de mensaje especifico, ademas que contiene el paquete ```AODV``` que realmente queremos serialiar para que se transmita a nodos externos. La estructura del objeto es como sigue.
+El objeto _aodvv2_writer_target_t_ ofrece la posibilidad de crear un paquete _RFC5444_ para una IP específica y de un tipo de mensaje específico, y que contiene el paquete _AODV_ que queremos serialiar para que se transmita a nodos externos. La estructura es:
 
 ```cpp
 typedef struct {
@@ -817,14 +817,14 @@ typedef struct {
     int type; /**< Type of the AODVv2 Message (i.e. rfc5444_msg_type) */
 } aodvv2_writer_target_t;
 ```
-Como se puede apreciar la estructura de datos anterior contiene:
+La estructura de datos anterior contiene:
 - La interface para crear los paquetes _RFC5444_.
 - El destino del paquete. 
-- El paquete ```AODV``` con su payload.
+- El paquete _AODV_ con su payload.
 - El tipo de mensaje que se desea enviar.
 
 
-La estructura del paquete ```AODV```, es como se explica en el capitulo 8.11 de este documento, puede representar un mensaje ```RREP``` o un mensaje ```RREQ``` y es como se muestra a continuacion:
+La estructura del paquete _AODV_, puede representar un mensaje _RREP_ o un mensaje _RREQ_ y es: 
 
 ```cpp
 /**
@@ -845,9 +845,8 @@ typedef struct {
 
 ```
 
-La interface para generar los paquetes ```RFC5444``` tiene el siguiente formato y sus comentarios son auto explicativos.
+La interface para generar los paquetes _RFC5444_ tiene el siguiente formato:
 
-Este tipo de estructura nos entrega algunas callback para el control del proceso en la creación de los mensajes.
 
 ```cpp
 struct rfc5444_writer_target {
@@ -881,9 +880,11 @@ struct rfc5444_writer_target {
 
 ```
 
-Al tener claro el comportamiento y la jerarquía de estas estructuras, continuamos con la configuración del ```writer```.
+Este tipo de estructura nos entrega algunas _callback_ para el control del proceso en la creación de los mensajes.
 
-En la definición de las variables globales para la configuración del ```writer```, se definieron algunos ```buffers```, los cuales son asignados al objeto ```writer``` y su uso es como sigue: 
+Al tener claro el comportamiento y la jerarquía de estas estructuras, continuamos con la configuración del _writer_.
+
+En las variables globales para la configuración del _writer_, se definieron algunos _buffers, que son asignados al _writer_ y su uso es: 
 
 ```cpp
 /*Assign the requiered buffers to process store the packet its going to be created 
@@ -900,11 +901,12 @@ _writer_context.target.packet_size = sizeof(_writer_pkt_buffer);
 /* Set function to send binary packet content */
 _writer_context.target.sendPacket = _send_packet;
 ```
-En el code anterior podemos notar a simplevista que se están asignando recursos al writer,dichos recursos son los buffers recién, que permitiran al objeto writer procesar la información y crear el paquete ```RFC5444```.
+En el code anterior podemos ver que se están asignando recursos al _writer_, los _buffers_ que permitirán al _writer_ procesar la información y crear el paquete _RFC5444_.
 
-Cabe destacar algo importante en la ultima linea del código anterior, y es la asignación de una funcion de callback, al contenedor o wraper del que se hablo antes, para poder enviar el paquete luego de su creación, dicha funcion debe ser responsabilidad del programador implementarla.
+En la última línea del código anterior, vemos la asignación de una funciçon de _callback_ al contenedor o _wraper_ para poder enviar el paquete.
+Esta función debe ser responsabilidad del programador implementarla.
 
-En resumen hemos creado un objeto ```writer```, al cual le hemos configurado los buffers requeridos para el procesado de la información, Hemos creado un objeto ```aodvv2_writer_target```, pero aun esperan por ser inicializados y registrados y esto se consigue con las siguientes instrucciones:
+Hemos creado un objeto _aodvv2_writer_target_ que debe ser inicializado y registrado y esto se consigue con:
 
 ```cpp
     /* Initialize writer */
