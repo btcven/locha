@@ -580,7 +580,7 @@ A continuación describimos de forma detallada la manera que se realiza la confi
 
 ### 11.11.1 RFC544 Reader.
 
-Para la configuración del objeto ```Reader```, se hace uso de la api ```oonf_api```, ademas que cabde destacar que para este tipo de configuración necesitamos un ```mutex``` para controlar el acceso al recurso por diferentes procesos del sistema. Con lo cual tendriamos algo como lo siguiente:
+Para la configuración del objeto _Reader_, debemos usar la api _oonf_api_. Además necesitamos un _mutex_ para controlar el acceso al recurso por diferentes procesos del sistema. Tendríamos algo como lo siguiente:
 
 ```cpp
 /**
@@ -589,9 +589,9 @@ Para la configuración del objeto ```Reader```, se hace uso de la api ```oonf_ap
 static struct rfc5444_reader _reader;
 static mutex_t _reader_lock;
 ```
-Como se nombro hace poco, este tipo de dato proviene de la libreria ```oonf_api```, especificamente los archivos relacionados con la serializacion y deserializacion de la norma RFC5444, identificados fácilmente debido a que se nombran igual que la norma iniciando por ```rfc*****.c```.
+Este tipo de dato proviene de la librería _oonf_api_, específicamente los archivos relacionados con la serialización y deserialización de la norma _RFC5444_, identificados fácilmente por _rfc*****.c_.
 
-Teniendo la variable global estática ```_reader```, procedemos a su configuración inicial, haciendo antes uso del ```_mutex_``` antes creado para el control de acceso al recurso.
+Teniendo la variable global estática __reader_, procedemos a su configuración inicial, haciendo  uso del _mutex_ creado antes para el control de acceso al recurso.
 
 ```cpp
 /* Initialize RFC5444 reader */
@@ -603,13 +603,13 @@ Teniendo la variable global estática ```_reader```, procedemos a su configuraci
     mutex_unlock(&_reader_lock);
 ```
 
-El código anterior se ejecuta dentro de la funciono ```aodvv2_init```, como todas las funciones anteriores, y es tan sencillo como:
-- Bloquear el recurso ```Reader```.
-- iniciar el reader con alguna configuración especial.
-- Registrar el Reader.
-- Desbloquear el recurso ```Reader```
+El código anterior se ejecuta dentro de la función _aodvv2_init_, como las anteriores, y es tan sencillo como:
+- Bloquear el recurso _Reader_.
+- Iniciar el _Reader_ con alguna configuración especial.
+- Registrar el _Reader_.
+- Desbloquear el recurso _Reader_.
 
-A continuacion explicamos las funciones que inician y registran el recurso.
+A continuación explicamos las funciones que inician y registran el recurso.
 
 ### 11.11.2 rfc5444_reader_init.
 
