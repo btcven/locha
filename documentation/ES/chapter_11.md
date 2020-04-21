@@ -102,8 +102,8 @@ typedef struct {
 La directiva _CONFIG_AODVV2_MAX_ROUTING_ENTRIES_ representa la cantidad de rutas que se pueden mantener en el nodo. Los recursos disponibles en el hardware tienen esta limitación.
 
 
-### 11.3.2 Rutina para la inicializacion de la tabla de rutas locales
-La rutina encargada de iniciar la tabla de rutas se encuentra definida en el archivo ```aodvv2_routingtable_init``` y el código es el siguiente:
+### 11.3.2 Rutina para la inicializacion de la tabla de rutas locales.
+La rutina encargada de iniciar la tabla de rutas se encuentra definida en el archivo _aodvv2_routingtable_init_ y el código es el siguiente:
 
 ```cpp
 static aodvv2_local_route_t routing_table[CONFIG_AODVV2_MAX_ROUTING_ENTRIES];
@@ -130,7 +130,7 @@ void aodvv2_routingtable_init(void)
 }
 ```
 
-Como se aprecia en el código anterior iniciar la tabla de rutas equivale a  poner a cero todas las entradas de la tabla de rutas y crear algunas variables de tiempo que sirven para medir si la información  obtenida del mensaje de rutas es obsoleta o por el contrario nos brinda información util para el correcto funcionamiento del router _AODV_.
+Iniciar la tabla de rutas equivale a  poner a cero todas las entradas de la tabla de rutas y crear algunas variables de tiempo que sirven para medir si la información  obtenida del mensaje de rutas es obsoleta o, por el contrario, nos brinda información útil para el correcto funcionamiento del router _AODV_.
 
 Para mas información acerca de las tablas de rutas diríjase a la seccion 4.5 del documento draft-perkins-manet-aodvv2.
 
