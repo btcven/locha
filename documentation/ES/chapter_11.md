@@ -139,8 +139,8 @@ Para mas información acerca de las tablas de rutas diríjase a la seccion 4.5 d
 Esta función inicializa una tabla con la intencion de almacenar información de mensajes _multicast_ entrantes para evitar retransmitir mensajes redundantes.
 Esta tabla lleva un registro de cada mensaje _RREQ_ entrante, por lo que nuevos mensajes entrantes _RREQ_, buscando el mismo destino desde un mismo origen, son eliminados sin la necesidad de retransmitirlos.
 
-### 11.4.1 Esquema de una entrada en la tabla de mensaje de rutas RREQ
-La siguiente estructura representa el formato del mensaje que se almacenara en la tabla de mensaje de rutas (RREQ)
+### 11.4.1 Esquema de una entrada en la tabla de mensaje de rutas RREQ.
+Este es el formato del mensaje que se almacenará en la tabla de mensaje de rutas (_RREQ_)
 ```cpp
 typedef struct {
     struct netaddr origNode; /**< Node which originated the RREQ*/
