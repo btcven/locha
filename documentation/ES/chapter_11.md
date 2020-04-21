@@ -426,11 +426,11 @@ Pueden encontrar información detallada acerca de como crear una suscripción a 
 
 ### 11.10.2 Ejemplo suscripción IPC.
 
-_RIOT_OS_ ofrece una manera sencilla para la suscripción a este tipo de mensajes, veamos un ejemplo extraido de la web de RIOT.
+_RIOT-OS_ ofrece una manera sencilla para la suscripción a este tipo de mensajes.
 
-SI vemos el siguiente ejemplo, no es nada diferente a lo aquí propuesto para el registro de mensajes de red.
+Si vemos el siguiente ejemplo, no es nada diferente a lo aquí propuesto para el registro de mensajes de red.
 
-En este ejemplo el main de la aplicación esta tratando de enviar mensajes al proceso que se ha creado antes.
+En este ejemplo el main de la aplicación está tratando de enviar mensajes al proceso que se ha creado antes.
 
 ```cpp
 #include <inttypes.h>
