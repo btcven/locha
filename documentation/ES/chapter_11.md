@@ -910,7 +910,7 @@ De lo ilustrado hasta ahora en este capitulo se puede decir que la intension es 
 
 Algo mas que necesitamos agregar en la inicializacion es la posibilidad de registrarnos a la capa de red IPV6 y asignar una callback que sera ejecutada en cada instante que se quiera enviar un paquete a otro nodo y no se conozca una ruta al destino, esta característica es algo que ofrece ```RIOT OS``` y nos permite conocer en que momento iniciar el proceso de busqueda de rutas sin la necesidad de buscar en tablas internas manejadas por nuestro código.
 
-la funcion a registrar para conocer cuando iniciar el protocolo reactivo es la siguiente:
+la instruccion a registrar para conocer cuando iniciar el protocolo reactivo es la siguiente:
 ```cpp
  _netif->ipv6.route_info_cb = _route_info;
 ```
