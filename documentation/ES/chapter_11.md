@@ -613,7 +613,7 @@ A continuación explicamos las funciones que inician y registran el recurso.
 
 ### 11.11.2 rfc5444_reader_init.
 
-Esta funcion se puede encontrar dentro del file llamado ```rfc5444_reader.c``` y su implementación es la siguiente:
+Esta función se puede encontrar dentro del fichero llamado _rfc5444_reader.c_ y su implementación es: 
 
 ```cpp
 /**
@@ -637,7 +637,7 @@ rfc5444_reader_init(struct rfc5444_reader *context) {
 }
 ```
 
-La funcion anterior se encarga de inicializar el Reader con valores por defecto, asignando espacios de memoria, el código anterior hace parte de la ```oonf_api``` y el único requisito para ser llamado es pasar como parametro una referencia al objeto ```reader``` creado con anterioridad.
+La función anterior se encarga de inicializar el _Reader_ con valores por defecto, asignando espacios de memoria, el código anterior parte de la _oonf_api_ y el único requisito es pasar como parámetro una referencia al objeto _Reader_ creado con anterioridad.
 
 ### 11.11.3 aodvv2_rfc5444_reader_register
 Esta funcion tiene como proposito registrar el objeto Reader como deserializador de datos, para ello dentro de la funcion de registro se deben asignar las funciones de callback necesarias para que sean disparadas a traves de eventos internos de la api, por cada bloque de lectura procesado.El objetivo principal de la funcion es la de registrar los consumidores de paquetes y de bloques de direcciones.
