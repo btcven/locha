@@ -570,13 +570,13 @@ En este punto hemos terminado de configurar casi por completo los recursos neces
 
 
 ## 11.11 Configuración inicial RFC5444. 
-La RFC5444 define un protocolo de encapsulasion y serializacion de mensajes para operar en una red movil ad-hoc, la cual provee la serializacion y deserializacion de mensajes, ofrece la posibilidad de leer varios parametros relacionados con el paquete sin la necesidad de deserializar el paquete completamente.
+_RFC5444_ define un protocolo de encapsulación y serialización de mensajes para operar en una red móvil ad-hoc, que provee la serialización y deserialización de mensajes y ofrece la posibilidad de leer varios parámetros relacionados con el paquete sin la necesidad de deserializar el paquete completamente.
 
-El RFC5444 fue creado inicialmente para trabajar conjuntamente con el protocolo RPL, el cual se ha extendido a diferentes protocolos de routing, esto debido a que se adapta a las necesidades de este tipo de redes y es que fue pensado para dispositivos con bajo calculo computacional y bajo consumo de energía, lo cual lo hace idoneo para esta aplicación.
+_RFC5444_ fue creado para trabajar conjuntamente con el protocolo _RPL_, el cual se ha extendido a diferentes protocolos de routing, dado que se adapta a las necesidades de este tipo de redes. Fue pensado para dispositivos con bajo cálculo computacional y bajo consumo de energía, lo cual lo hace idóneo para esta aplicación.
 
-Para el uso del formato se hace uso de la API llamada ```oonf_api```, la cual provee las funciones necesarias para la serializacion y deserializacion del mensaje.
+Se hace uso de la API llamada _oonf_api_, que provee las funciones necesarias para la serialización y deserialización del mensaje.
 
-A continuacion describimos de forma detallada la manera que se realiza la configuración inicial del ```reader``` y del ```writer```, para la serializacion y deserializacion de paquetes.
+A continuación describimos de forma detallada la manera que se realiza la configuración inicial del _reader_ y del _writer_, para la serializacion y deserializacion de paquetes.
 
 ### 11.11.1 RFC544 Reader.
 
