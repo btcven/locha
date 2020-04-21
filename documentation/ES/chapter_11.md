@@ -153,13 +153,13 @@ typedef struct {
 
 ```
 
-### 11.4.2 Rutina para la inicializacion de la tabla de mensajes Multicast entrantes
+### 11.4.2 Rutina para la inicializacion de la tabla de mensajes Multicast entrantes.
 
-La siguiente funcion se encuentra definida en el archivo ```aodvv2_rreqtable.c```, el cual ademas de la funcion de inicializacion expone funciones para el manejo de dicha tabla.
+Esta función se encuentra en el archivo _aodvv2_rreqtable.c_, que además expone funciones para el manejo de dicha tabla.
 
-El código muestra como se algunas variables de tiempo son iniciadas ademas de que se le asigna un valor de cero a dicha tabla en el momento que se inicia el protocolo _AODV_.
+El código muestra cómo se inician algunas variables de tiempo y le asigna un valor de cero a dicha tabla cuando se inicia el protocolo _AODV_.
 
-La variable tipo _mutex_ sirve para bloquear el acceso a la tabla por otros procesos dentro de la aplicación.
+La variable _mutex_ sirve para bloquear el acceso a la tabla por otros procesos dentro de la aplicación.
 ```cpp
 static mutex_t rreqt_mutex;
 
