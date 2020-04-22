@@ -35,7 +35,7 @@ En el encabezado del paquete AODVv2 usa:
 
 
 
-## 9.1 Paquetes.
+## 9.1 Información del paquete.
 
 ### 9.1.1 pkt-header.
 
