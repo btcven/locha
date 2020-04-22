@@ -342,9 +342,11 @@ static void *_event_loop(void *arg)
 }
 ```
 
-### 12.4.3  _send_rreq
 
-Esta funcion es la que se ha asignado como funcion de callback, que es ejecutada en cada momento que se crea un paquete ```RFC5444```, la asignación de la callback se hizo dentro de la funcion de inicializacion del AODV, y fue expuesta en el capitulo 11.12
+### 12.4.3  _send_rreq
+Esta función es la que se ha asignado como función  _callback_, que es ejecutada cada vez que se crea un paquete _RFC5444_.
+La asignación de la _callback_ se hizo dentro de la función de inicializacion del AODV, y fue detllada en el capítulo 11.12.
+
 ```cpp
 static void _send_rreq(aodvv2_packet_data_t *packet_data,
                        ipv6_addr_t *next_hop)
@@ -371,11 +373,11 @@ static void _send_rreq(aodvv2_packet_data_t *packet_data,
 }
 
 ```
-En el capitulo anterior seccion 11.12 se mostraron como se ven las estructuras de un ```writer``` y un ```writer_context```, los cuales sirven para registrar un target para enviar mensajes a traves del writer..
 
-Con esta instruccion ``` rfc5444_writer_create_message_alltarget(&_writer, RFC5444_MSGTYPE_RREQ)``` se genera el paquete multicast y en el momento que se ejecuta la linea que llama a la funcion ```rfc5444_writer_flush(&_writer, &_writer_context.target, false);```, acto seguido se llama a la funcion de callback que hemos dispuesto para ser ejecutada despues de generar un paquete ```RFC5444```, la cual es llamada ```_send_packet``` y nos devuelve el paquete con formato ```RFC5444```, ademas de su tamaño.
+Con la instruccion _ rfc5444_writer_create_message_alltarget(&_writer, RFC5444_MSGTYPE_RREQ)_ se genera el paquete _multicast_ y en el momento que se ejecuta la línea que llama a la función _rfc5444_writer_flush(&_writer, &_writer_context.target, false)_, a continuación se llama a la función de _callback_ que hemos dispuesto para ser ejecutada después de generar un paquete _RFC5444_, que llamamos  __send_packet_ y nos devuelve el paquete con formato _RFC5444, y además su tamaño.
 
-recordemos el registro de dicha funcion. La ultima linea de código hace la asignación de la funcion de callback para enviar el paquete.
+La ultima línea de código hace la asignación de la función de _callback_ para enviar el paquete.
+
 ```cpp
 /*Assign the requiered buffers to process store the packet its going to be created 
 Asignamos los buffers para el paquete y para el bloque de direcciones al objeto reader.*/
@@ -392,7 +394,7 @@ _writer_context.target.packet_size = sizeof(_writer_pkt_buffer);
 _writer_context.target.sendPacket = _send_packet;
 ```
 
-Ahora veamos el código de la funcion de callback que enviá el paquete (_send_packet).
+Ahora veremos el código de la funcion de _callback_ que envía el paquete (__send_packet_).
 
 ```cpp
 static void _send_packet(struct rfc5444_writer *writer,
@@ -447,9 +449,12 @@ static void _send_packet(struct rfc5444_writer *writer,
 
 ```
 
-El funcionamiento de la funcion no es nada complicado de entender si se conocen las estructuras de los paquetes UDP e IPV6.
+Laa función no es nada complicada de entender si se conocen las estructuras de los paquetes _UDP_ e _IPV6_.
 
-- Esta linea de código utiliza una macro para obtener una referencia a la estructura que contiene  el objeto target que es del tipo ```rfc5444_writer_target```, que ya se ha discutido antes y esta contenido dentro de la estructura de tipo ```aodvv2_writer_target_t```, con la macro se puede obtener fácilmente una referencia a la estructura contenedora simplemente pasando como argumento el puntero a ese campo contenido en la estructura. pongamos un ejemplo.
+- Esta línea de código utiliza una macro para obtener una referencia a la estructura que contiene  el objeto _target_ del tipo _rfc5444_writer_target_, y está contenido dentro de la estructura  _aodvv2_writer_target_t_.
+Con la macro se puede obtener fácilmente una referencia a la estructura contenedora simplemente pasando como argumento el puntero a ese campo contenido en la estructura. 
+Por ejemplo:
+
   ```cpp
   aodvv2_writer_target_t *ctx = container_of(iface, aodvv2_writer_target_t,
                                                target);
@@ -463,9 +468,12 @@ El funcionamiento de la funcion no es nada complicado de entender si se conocen 
     
     &my_struct == container_of(&my_struct.n, struct my_struct_t, n).
     ```
-Las siguientes lineas de código tienen como objetivo crear los header necesarios para enviar el paquete al stack de red, las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente información mas extendida en otros capitulos  acerca del manejo de las capas de red en ```RIOT_OS``` y como crear los header necesarios.
 
-- Primero que todo se debe generar el payload que se desea enviar, en este caso es el paquete ```RFC5444``` que a su vez contiene el paquete ```AODV```.
+Las siguientes líneas de código tienen como objetivo crear los _header_ necesarios para enviar el paquete al stack de red.
+Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente información más extendida sobre el manejo de las capas de red en _RIOT-OS_ y cómo crear los _header_ necesarios.
+
+- Primero se debe generar el _payload_ que se desea enviar, en este caso el paquete _RFC5444_, que a su vez contiene el paquete _AODV_.
+
     ```cpp
     /* Generate our pktsnip with our RFC5444 message */
     payload = gnrc_pktbuf_add(NULL, buffer, length, GNRC_NETTYPE_UNDEF);
@@ -474,7 +482,9 @@ Las siguientes lineas de código tienen como objetivo crear los header necesario
         return;
     }
     ```
-- construir el paquete UDP
+
+- construir el paquete _UDP_
+
   ```cpp
   /* Build UDP packet */
     uint16_t port = UDP_MANET_PORT;
@@ -485,7 +495,9 @@ Las siguientes lineas de código tienen como objetivo crear los header necesario
         return;
     }
   ```
-- Construir el header IPV6
+
+- Construir el _header IPV6_
+
   ```cpp
   /* Build IPv6 header */
     ip = gnrc_ipv6_hdr_build(udp, NULL, &ctx->target_addr);
@@ -495,21 +507,25 @@ Las siguientes lineas de código tienen como objetivo crear los header necesario
         return;
     }
    ```
-- Construir el header para la ```netif```
+
+- Construir el _header_ para la _netif_
+
   ```cpp
   /* Build netif header */
     gnrc_pktsnip_t *netif_hdr = gnrc_netif_hdr_build(NULL, 0, NULL, 0);
     gnrc_netif_hdr_set_netif(netif_hdr->data, _netif);
     LL_PREPEND(ip, netif_hdr);
     ```
-- Enviar el paquete a la capa de UDP dentro del stack de RIOT, para que lo emita.
+
+- Enviar el paquete a la capa de _UDP_ dentro del stack de _RIOT-OS_ para que lo emita.
+
   ```cpp
   /* Send packet */
     int res = gnrc_netapi_dispatch_send(GNRC_NETTYPE_UDP,
                                         GNRC_NETREG_DEMUX_CTX_ALL, ip);
     ```
 
-Asta aquí hemos finalizado con el envió de mensajes RREQ, y sera objeto del siguiente capitulo explicar los detalle en el proceso del RREP.
+Hasta aquí hemos finalizado con el envío de mensajes _RREQ_, y en próximos capítulos explicaremos los detalle del proceso de los mensaje _RREP_.
 
 
 
