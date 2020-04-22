@@ -7,9 +7,10 @@ Ahora nos centraremos en el proceso para generar los mensajes de búsqueda de ru
 Es el punto de inicio del proceso para comprobar si existe o no una ruta hacia el destino que se quiere encontrar.
 Veremos la búsqueda de rutas y cuáles son las acciones a tomar en caso de que no exista una ruta hacia ese destino.
 
-## 12.2 Estructura de un mensaje RREQ
+## 12.2 Estructura de un mensaje RREQ.
 
-La estructura que define un mensaje RREQ al igual que al RREP es la siguiente:
+La estructura que define un mensaje _RREQ_, al igual que al _RREP_, es:
+
 ```cpp
 /**
  * @brief   All data contained in a RREQ or RREP.
@@ -27,7 +28,8 @@ typedef struct {
                             successfully parsed. */
 } aodvv2_packet_data_t;
 ```
-Si revisamos la seccion ```8.11.1```, vemos que la estructura es igual a la descrita en el documento que especifica el protocolo, asi que no entraremos en detalle acerca de la composicion del contenido, Resumiendo se puede decir que es el objeto que debemos interpolar para luego envolverlo dentro del paquete ```RFC5444``` y asi enviarlo a otro nodo de la red.
+
+En definitiva, es el objeto que debemos interpolar para luego envolverlo dentro del paquete _RFC5444_ y así enviarlo a otro nodo de la red.
 
 ## 12.3 Busqueda reactiva
 La busqueda reactiva se inicia como se dijo antes cuando  no se tiene una ruta hacia un destino el stack de red entrega el control a una callback previamente registrada para que se inicie algún proceso de busqueda de ruta, en este caso el proceso es `AODV`.
