@@ -78,11 +78,11 @@ Thanks to the Kernel message API and using these threads, it is possible to impl
 
 To accomplish real-time requirements, _RIOT-OS_ enforces constant periods for core tasks (for example: scheduler execution, inter communication process (IPC), timer operations, etc.).
 
-Each _RTOS_ is very good in a particular domain, but considering our needs, we have chosen RIOT-OS.
+Each _RTOS_ is very good in a particular domain, but considering our needs, we have chosen _RIOT-OS_.
 
-In terms of MCU hardware and memory capabilities, RIOT-OS primarily competes with Linux. In comparison RIOT can be reduced to orders with less memory requirements and is built with built-in support for energy efficiency and real-time capabilities.
+In terms of MCU hardware and memory capabilities, _RIOT-OS_ primarily competes with Linux. In comparison RIOT can be reduced to orders with less memory requirements and it is built with built-in support for energy efficiency and real-time capabilities.
 
-On the other hand, RIOT-OS also competes with Contiki-ng, TinyOS and FreeRTOS. Compared to Contiki-ng and TinyOS, _RIOT-OS_ offers real-time and multiple sub-processes. Unlike FreeRTOS, _RIOT-OS_ provides native energy efficiency and a full-featured OS, including a free, updated, open source interoperable network.
+On the other hand, _RIOT-OS_ also competes with Contiki-ng, TinyOS and FreeRTOS. Compared to Contiki-ng and TinyOS, _RIOT-OS_ offers real-time and multiple sub-processes. Unlike FreeRTOS, _RIOT-OS_ provides native energy efficiency and a full-featured OS, including a free, updated, open source interoperable network.
 
 _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard programming languages like (C and C ++) using standard debugging tools, reducing the developer learning curve and the process of cycle of life of the  software development.
 
