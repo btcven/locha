@@ -157,7 +157,7 @@ Después de buscar si el cliente esta registrado en la tabla de clientes, proced
 Si ese intento por almacenar el paquete tuvo éxito, procedemos a ejecutar la función que se encarga de iniciar el protocolo _AODV_ y buscar una ruta para el destino solicitado.
 
 ## 12.4 aodvv2_find_route
-Esta funcion tiene como tarea iniciar el protocolo de routing, veamos su contenido y hagamos una revision detallada de las lineas contenidas en ella.
+Esta función tiene como objetivo iniciar el protocolo de routing.
 
 ```cpp
 int aodvv2_find_route(const ipv6_addr_t *orig_addr,
@@ -189,9 +189,10 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
 }
 ```
 
-- La funcion recibe como parametros la IP del origen y del destino.
-- ```aodvv2_packet_data_t pkt```: Creamos un objeto del tipo del paquete AODV, el cual queremos enviar y en el capitulo 8.13.4 podemos ver la composicion o contenido del mensaje, que debe ser similar al implementado en el código.
-- Interpolamos el objeto que representa el paquete AODV con la información necesaria:
+- La función recibe como paraámetros la IP del origen y del destino.
+- _aodvv2_packet_data_t pkt_: crea un objeto del tipo del paquete _AODV_ que queremos enviar y que debe ser similar al implementado en el código.
+- Interpolamos el objeto que representa el paquete _AODV_ con la información necesaria:
+
     ```cpp
     aodvv2_packet_data_t pkt;
      /* Set metric information */
@@ -209,7 +210,10 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
     pkt.targ_node.metric = 0;
     pkt.targ_node.seqnum = 0;
     ```
-- Agregar el mensaje dde requerimiento de ruta a la tabla de mensajes RREQ para evitar reenviar mensajes redundantes ```aodvv2_rreqtable_add(&pkt);```, las tablas aquí en esta implementación son arrays, me refiero a las tablas para rutas, para mensajes de rutas, para clientes, todas se procesan de la misma manera, a continuacion se ilustra el código necesario para agregar un mensaje de ruta, pero no siempre haremos referencia al código para agregar , eliminar, o buscar en una tabla, ya que son algoritmos triviales que no merecen un espacio en este documento.
+
+- Añadimos el mensaje de requerimiento de ruta a la tabla de mensajes _RREQ_ para evitar reenviar mensajes redundantes (_aodvv2_rreqtable_add(&pkt)_). Las tablas en esta implementación son _arrays_ para mensajes de rutas y para clientes. Todas se procesan de la misma manera y a continuación ilustramos el código necesario para añadir un mensaje de ruta: 
+
+
   ```cpp
      void aodvv2_rreqtable_add(aodvv2_packet_data_t *packet_data)
     {
@@ -232,20 +236,26 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
         }
     }
   ```
-  El código busca en el array si el mensaje se ha enviado antes simplemente lo desecha de lo contrario lo almacena para conocer en el futuro cualquier mensaje redundante.
-- Despues de tener nuestro paquete ```AODV```, configurado y almacenado, procedemos a enviarlo al ciclo al thread principal dentro del archivo ```aodv2.c```, el cual ademas de recibir mensajes UDP del exterior, también puede recibir mensajes bien clasificados de la misma aplicaion por medio de algo conocido como IPC de lo que se hablo en el capitulo anterior. 
+
+  El código busca en el _array_ y si el mensaje se ha enviado antes simplemente lo desecha; de lo contrario lo almacena para conocer en el futuro cualquier mensaje redundante.
+
+- Después de tener configurado y almacenado el paquete _AODV_, procedemos a enviarlo al _thread_ principal dentro del archivo _aodv2.c_, que además de recibir mensajes UDP del exterior también puede recibir mensajes clasificados de la misma aplicacion por medio de algo conocido como _IPC_.
+
 - Enviamos el paquete al thread principal de la aplicación: 
+
     ```cpp
     aodvv2_send_rreq(&pkt, &ipv6_addr_all_manet_routers_link_local);
     ```
-    Pasamos como argumentos el paquete ```AODV``` ademas de la dirección IP a la que queremos enviar el mensaje, que para este caso es la dirección de multicast especificado en el ```RFC5498``` seccion 6 y la cual tiene este valor asignado:
+    Pasamos como argumentos el paquete _AODV_ y la dirección IP a la que queremos enviar el mensaje, que en este caso es la dirección de _multicast_ especificado en el _RFC5498_ (sección 6) y que tiene este valor asignado:
+
     ```cpp
     #define IPV6_ADDR_ALL_MANET_ROUTERS_LINK_LOCAL {{ 0xff, 0x02, 0x00, 0x00, \
                                                   0x00, 0x00, 0x00, 0x00, \
                                                   0x00, 0x00, 0x00, 0x00, \
                                                   0x00, 0x00, 0x00, 0x6d }}
     ```
-A continuacion describimos el proceso para tomar el paquete ```AODV``` que hemos creado y como le hacemos llegar ese paquete al Thread principal de la aplicacion.
+
+A continuación describimos el proceso para tomar el paquete _AODV_ que hemos creado y cómo le hacemos llegar ese paquete al _thread_ principal de la aplicación.
 
 ### 12.4.1 aodvv2_send_rreq
 
