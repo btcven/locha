@@ -312,9 +312,9 @@ El código se puede resumir en las siguientes partes:
 
 
 ### 12.4.2 
-En la seccion 11.10.3 se explico el funcionamiento de este ```loop``` y cual era su proposito, aquí se ilustra la parte de l código relacionado con la recepción del mensaje que se envió en el apartado anterior para ser recibido en esta funcion.
+Vamos a ilustrar la parte del código relacionado con la recepción del mensaje que se envió en el apartado anterior para ser recibido en esta función.
 
-Lo realmente importante ilustrar y explicar aquí es la funcion privadas que tiene por nombre ```_send_rreq```, la cual es la encargada de procesar el paquete , procesar se refiere a la serializacion del paquete ```AODV``` y al formato RFC5444 que se le da, luego de esto se dispara una callback que permite hacer uso del socket UDP para enviar el mensaje multicast para la solicitud de ruta.
+Lo realmente importante es la función privada que tiene por nombre __send_rreq_, que es la encargada de procesar el paquete; es decir, la serialización del paquete _AODV_ y el formato _RFC5444_ que se le da. Después de esto se dispara una _callback_ que permite hacer uso del _socket UDP_ para enviar el mensaje _multicast_ para la solicitud de ruta.
 
 ```cpp
 static void *_event_loop(void *arg)
