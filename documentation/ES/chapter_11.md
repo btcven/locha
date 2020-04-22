@@ -242,7 +242,7 @@ void aodvv2_client_init(void)
 ```
 
 ## 11.7 Iniciar la interface de red.
-Para hacer posible la conexión del ```Turpial``` a la red, es configurar la interface de red. En la función que inicia el protocolo _AODV_ se ha habilitado un argumento que permite recibir como parámetro la interface de red a utilizar, con el fin de habilitar la posibilidad de registrar indistintamente cualquier interface disponible en el dispositivo.
+Para hacer posible la conexión del ```Turpial``` a la red, se configurar la interface de red. En la función que inicia el protocolo _AODV_ se ha habilitado un argumento que permite recibir como parámetro la interface de red a utilizar, con el fin de habilitar la posibilidad de registrar indistintamente cualquier interface disponible en el dispositivo.
 
 Por tanto no es responsabilidad de la implementación del protocolo configurar la interface de red que se va a utilizar para la conexión con la red inalámbrica, pero su configuración dentro de la plataforma de _RIOT-OS_, se resume en las siguientes líneas de código.
 
