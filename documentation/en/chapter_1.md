@@ -1,6 +1,6 @@
 ## 1. Motivation
 
-Even though telecom tecnology has taken a big leap in terms of development, it becomes evident it's own susceptibility. We're not talking about tecnology by itself but about people, those are the ones vulnerable to the side effects of communication isolation resulting from centralization, and regulation of communication standards worldwide.
+Even though telecom technology has taken a big leap in development terms, it becomes evident it's own susceptibility. We're not just talking about technology by itself, also we are talking about those people that are vulnerable to the side effects of communication isolation resulting from centralization, and regulation of global communication standards.
 
 Since the invention of wireless networks in 1970s, it's growth and demand in the last decade has been exponential. Specifically, there are two paths in this subject that attend to the underlying architecture of the network: wireless networking infrastructure mode and ad-hoc mode networks.
 
@@ -78,4 +78,3 @@ We strongly recommend to establish and follow a logical sequence for the develop
   - Functionality test of the hardware.
 - Mobile App, which will be the GUI.
 - Driver for the integration of the hardware with the OS.
-
