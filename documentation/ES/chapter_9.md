@@ -112,6 +112,6 @@ AODVv2 utilza los siguientes campos del mensaje Header RFC5444
 
 
 ## 9.3 oonf_api.
-Para el encapsulado del paquete _AODVv2_ dentro del contenedor de paquete _RFC5444_, se hace uso de la api llamada [oon_api](https://github.com/benpicco/oonf_api), la cual facilita la lectura y escritura de dicho paquete dentro del contenedor.
+Para el encapsulado del paquete _AODVv2_ dentro del contenedor de paquete _RFC5444_, se hace uso de la API llamada [oon_api](https://github.com/benpicco/oonf_api), la cual facilita la lectura y escritura de dicho paquete dentro del contenedor.
 
 
