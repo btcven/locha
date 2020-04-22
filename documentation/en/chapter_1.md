@@ -40,7 +40,7 @@ Locha Mesh main objective is the implementation of the routing protocol AODVv2 t
 3. Implementation of the AODVv2 protocol in an embedded system, for this case [RIOT-OS](https://www.riot-os.org/).
 4. Verify the performance of the AODVv2 protocol and contrast it with what was previously planned. 
 5. Development of the driver needed for the integration with the OS and the hardware. 
-6. Calculate and set constant values for the network operation.
+6. Compute set of constant values for the network operation.
 
 Our secondary objectives are:
 
