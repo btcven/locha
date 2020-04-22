@@ -374,7 +374,7 @@ static void _send_rreq(aodvv2_packet_data_t *packet_data,
 
 ```
 
-Con la instruccion _ rfc5444_writer_create_message_alltarget(&_writer, RFC5444_MSGTYPE_RREQ)_ se genera el paquete _multicast_ y en el momento que se ejecuta la línea que llama a la función _rfc5444_writer_flush(&_writer, &_writer_context.target, false)_, a continuación se llama a la función de _callback_ que hemos dispuesto para ser ejecutada después de generar un paquete _RFC5444_, que llamamos  __send_packet_ y nos devuelve el paquete con formato _RFC5444, y además su tamaño.
+Con la instruccion _ rfc5444_writer_create_message_alltarget(&_writer, RFC5444_MSGTYPE_RREQ)_ se genera el paquete _multicast_ y en el momento que se ejecuta la línea que llama a la función _rfc5444_writer_flush(&_writer, &_writer_context.target, false)_, a continuación se llama a la función de _callback_ que hemos dispuesto para ser ejecutada después de generar un paquete _RFC5444_, que llamamos  __send_packet_ y nos devuelve el paquete con formato _RFC5444_, y además su tamaño.
 
 La ultima línea de código hace la asignación de la función de _callback_ para enviar el paquete.
 
