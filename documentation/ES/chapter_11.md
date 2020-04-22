@@ -282,7 +282,7 @@ static gnrc_netif_t *_find_ieee802154_netif(void)
 
 
 ## 11.8 Dirección IP global
-Cuando tengamos interface de red configurada, el siguiente paso es configurar una dirección _IPV6_ global y de carácter único sobre toda la red, con la intencion de evitar direcciones IP duplicadas en toda la red.
+Cuando tengamos la interface de red configurada, el siguiente paso es configurar una dirección _IPV6_ global y de carácter único sobre toda la red, con la intención de evitar direcciones IP duplicadas. 
 
 El código para extraer la dirección _IPV6_ global del dispositivo es posible teniendo la referencia de la interface de red.
 
