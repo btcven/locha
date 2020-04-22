@@ -189,7 +189,7 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
 }
 ```
 
-- La función recibe como paraámetros la IP del origen y del destino.
+- La función recibe como parámetros la IP del origen y del destino.
 - _aodvv2_packet_data_t pkt_: crea un objeto del tipo del paquete _AODV_ que queremos enviar y que debe ser similar al implementado en el código.
 - Interpolamos el objeto que representa el paquete _AODV_ con la información necesaria:
 
