@@ -52,7 +52,7 @@ In the case of **Locha Mesh**:
 
 - They offer partial support for multi-thread.
 
-- Contiki-ng uses a language similar to C, but can´t use certain keywords.
+- Contiki-ng uses a language similar to C, but it can´t use certain keywords.
 
 - TinyOS is written in a language called NesC, which is similar but not compatible with C.
 
