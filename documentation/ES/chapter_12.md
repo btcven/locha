@@ -31,16 +31,17 @@ typedef struct {
 
 En definitiva, es el objeto que debemos interpolar para luego envolverlo dentro del paquete _RFC5444_ y así enviarlo a otro nodo de la red.
 
-## 12.3 Busqueda reactiva
-La busqueda reactiva se inicia como se dijo antes cuando  no se tiene una ruta hacia un destino el stack de red entrega el control a una callback previamente registrada para que se inicie algún proceso de busqueda de ruta, en este caso el proceso es `AODV`.
+## 12.3 Búsqueda reactiva.
+La búsqueda reactiva se inicia cuando no se tiene una ruta hacia un destino. El stack de red entrega el control a una _callback_ previamente registrada para que inicie algún proceso de búsqueda de ruta, en este caso el proceso es _AODV_.
 
-Del siguiente código de registro de callback, ```_route_info``` es la callback que queremos se ejecute cuando no exista una ruta hacia un destino.
+En el siguiente código de registro de _callback_,   __route_info es la _callback_ que queremos ejecutar  cuando no exista una ruta hacia un destino:
+
 ```cpp
 //registro de callback
 _netif->ipv6.route_info_cb = _route_info,
 ```
 
-Veamos el código relacionado con ```_route_info```:
+El código relacionado con __route_info_ es:
 
 ```cpp
 static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
@@ -86,13 +87,16 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
     }
 }
 ```
-La callback que se ejecuta luego de no encontrar una ruta, entrega información importante, como lo  es: 
+
+La callback que se ejecuta al no encontrar una ruta, entrega información importante como:
+
 - Tipo de mensaje. 
-- La dirección IP del destinatario.
-- Variable generica tipo void la cual en este caso representa el paquete IPV6 que se desea transmitir, incluyendo headers y payload.
+- Dirección IP del destinatario.
+- Variable genérica tipo _void_ que en este caso representa el paquete _IPV6_ que se desea transmitir, incluyendo _headers_ y _payload_.
 
 
-La sentencia ```switch``` sirve de filtro para seleccionar el código a ejecutar dependiendo del tipo de mensaje que llega, en este capitulo nos centraremos en los mensajes de solicitud de ruta, especificamente en la siguiente porción de código, se ha retirado los otros posibles casos del ```switch```, para no complicar el asunto.
+La función _switch_ sirve de filtro para seleccionar el código a ejecutar dependiendo del tipo de mensaje que llega-
+Nos centraremos en los mensajes de solicitud de ruta. Específicamente en la siguiente parte de código, hemos eliminado los otros posibles casos del _switch_:
 
 ```cpp
 
@@ -124,15 +128,22 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
 }
 
 ```
-Revisando el código anterior observamos que recibimos un parametro llamado ```ctx```, el cual es de tipo void, con lo que significa que se debe hacer un ```casting``` al parametro para recibir la estructura correcta con los headers de IPV6.
 
-Los headers IPV6 contienen información acerca de la fuente y destino del paquete con lo que se puede iniciar una busqueda en la tabla interna de clientes del router para conocer si se debe transmitir o retransmitir el mensaje de solicitud de busqueda, la diferencia entre transmitir y retransmitir radica en que la retransmisión indica que el nodo que intenta buscar una ruta o el originador del requerimiento de ruta es un nodo diferente al que esta procesando el mensaje, si el caso es de transmisión lo que quiere decir que el mensaje de requerimiento de ruta recién se inicia en el nodo que esta procesando el mensaje.
+Observamos que recibimos un parámetro llamado _ctx_, de tipo _void_, que significa que debemos hacer un _casting_ al parámetro para recibir la estructura correcta con los _headers IPV6_.
 
-Como se dijo antes en el capitulo 8, cada nodo es cliente de su propia tabla de clientes del router, asi que si se desea transmitir un mensaje para el cual no existe ruta, se dispara una callback que ye hemos nombrado antes y se deben ejecutar las siguientes acciones para poder iniciar el proceso de busqueda:
-- ```cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;```: Recuperar el paquete IPV6 y almacenarlo en una variable de su tipo.
-- ```ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);```: recuperar los headers de IPV6.
-- ``` if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {```: Buscar si el requerimiento de ruta proviene de un cliente registrado, en este caso el mismo nodo, ya que se agrego al inicializar la tabla de clientes dentro de la funcion ```aodvv2_init```, argumentando que cada nodo en cliente de su propia tabla.Para este caso esa lista de clientes del nodo solo contendra al propio nodo como cliente de esa tabla.
-- 
+Éstos contienen información acerca del origen y el destino del paquete, con lo que se puede iniciar una búsqueda en la tabla interna de clientes del router para conocer si se debe transmitir o retransmitir el mensaje de solicitud de búsqueda.
+La diferencia entre transmitir y retransmitir es que la retransmisión indica que el nodo que intenta buscar una ruta (o el originador del requerimiento de ruta) es un nodo diferente al que esta procesando el mensaje. Si el caso es de transmisión, quiere decir que el mensaje de requerimiento de ruta se inicia en el nodo que esta procesando el mensaje.
+
+Cada nodo es cliente de su propia tabla de clientes del router. Si queremos transmitir un mensaje para el cual no existe ruta, se dispara una _callback_ y se deben ejecutar las siguientes acciones para poder iniciar el proceso de búsqueda:
+
+- _cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;_: recuperar el paquete _IPV6_ y almacenarlo en una variable de su tipo.
+
+- _ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);_: recuperar los headers de _IPV6_.
+
+- _if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {_: buscar si el requerimiento de ruta proviene de un cliente registrado (en este caso el mismo nodo) que ya se agregó al inicializar la tabla de clientes dentro de la funcion _aodvv2_init_, argumentando que cada nodo es cliente de su propia tabla.
+Para este caso, esa lista de clientes del nodo solo contendrá al propio nodo como cliente de esa tabla.
+
+
 ```cpp
   
     if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {
@@ -142,7 +153,8 @@ Como se dijo antes en el capitulo 8, cada nodo es cliente de su propia tabla de 
         }
 ```
 
-Luego de buscar si el cliente esta registrado en la tabla de clientes, como dijimos para este caso siempre sera el mismo nodo, procedemos a almacenar el paquete con el mensaje del cliente en un buffer, para poder recuperarlo cuando la ruta sea encontrada, luego si ese intento por almacenar el paquete fue exitoso, procedemos a ejecutar la funcion que se encarga de iniciar el protocolo ```AODV``` y buscar una ruta para el destino solicitado.
+Después de buscar si el cliente esta registrado en la tabla de clientes, procedemos a almacenar el paquete con el mensaje del cliente en un buffer para poder recuperarlo cuando la ruta sea encontrada.
+Si ese intento por almacenar el paquete tuvo éxito, procedemos a ejecutar la función que se encarga de iniciar el protocolo _AODV_ y buscar una ruta para el destino solicitado.
 
 ## 12.4 aodvv2_find_route
 Esta funcion tiene como tarea iniciar el protocolo de routing, veamos su contenido y hagamos una revision detallada de las lineas contenidas en ella.
