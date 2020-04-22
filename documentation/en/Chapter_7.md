@@ -46,7 +46,7 @@ In the case of **Locha Mesh**:
 
 - Contiki-ng and TinyOS are not real-time operating systems, but they are the benchmark in wireless sensor networks.
 
-- The Contiki-ng OS has a layered architecture while TinyOS is built on a monolithic core. Like Linux, Contiki-ng is event driven and is similar to TinyOS. They both use a _FIFO_ strategy. On the other hand, Linux uses a scheduler, which guarantees a execution scheduled time for tasks.
+- The Contiki-ng OS has a layered architecture while TinyOS is built on a monolithic core. Like Linux, Contiki-ng is event driven and it is similar to TinyOS. They both use a _FIFO_ strategy. On the other hand, Linux uses a scheduler, which guarantees a execution scheduled time for tasks.
 
 - The Contiki-ng and TinyOS programming model is defined by events such that all tasks are executed in the same context.
 
