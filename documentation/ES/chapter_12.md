@@ -1,13 +1,11 @@
 # 12. Generación de mensajes RREQ.
 Ahora nos centraremos en el proceso para generar los mensajes de búsqueda de ruta y el proceso que dispara el evento necesario.
 
+
 ## 12.1 Búsqueda de rutas.
 
-Este es el punto de inicio en el proceso que desencadena una serie de tareas para corroborar si existe o no una ruta hacia el destino que se quiere encontrar.
-
-Veamos como se inicia ese proceso de busqueda de rutas y cuales son las acciones a tomar en caso de que no exista una ruta hacia ese destino.
-
-Se hablo en el capitulo anterior en la seccion 11.13 acerca de registrar una callback en la capa de red, exactamente en ```IPV6```, para conocer cuando no existe una ruta a un destino, debido a que IPV6 hace uso de la tabla ```NIB``` (neighbor information base), la cual es la base de información para conocer si existe o no una ruta, dicha tabla es maneja por el stack de red y es dicho stack el que devuelve el control hacia una callback en el momento de no encontrar una ruta, con lo que desde ese punto podemos iniciar el proceso de cracion y emisión de mensajes ```RREQ``` para conocer la ruta solicitada.
+Es el punto de inicio del proceso para comprobar si existe o no una ruta hacia el destino que se quiere encontrar.
+Veremos la búsqueda de rutas y cuáles son las acciones a tomar en caso de que no exista una ruta hacia ese destino.
 
 ## 12.2 Estructura de un mensaje RREQ
 
