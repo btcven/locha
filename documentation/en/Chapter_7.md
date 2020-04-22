@@ -26,7 +26,7 @@ Different to a monolithic OS that brings together a complete set of software, a 
 
 Connectivity is essential for sensor and IoT networks.
 
-Talking about  sensor networks wireless, devices are expected to connect with each other to communicate with public and private networks.
+Talking about wireless sensor networks, devices are expected to connect with each other to communicate with public and private networks.
 
 In the case of **Locha Mesh**:
 
