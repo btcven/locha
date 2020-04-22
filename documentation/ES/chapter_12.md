@@ -1,7 +1,7 @@
-# 12 Procesamiento de mensajes RREQ.
-En el capitulo anterior se detallo la implementación del código necesario para inicializar los recursos software y hardware necesarios para conectarnos a la red ```Locha Mesh```, en este capitulo nos centramos en detallar y explicar el proceso que se lleva a cabo para generar los mensajes de busqueda de ruta y cual es el proceso que dispara el evento necesario.
+# 12. Generación de mensajes RREQ.
+Ahora nos centraremos en el proceso para generar los mensajes de búsqueda de ruta y el proceso que dispara el evento necesario.
 
-## 12.1 Busqueda de rutas
+## 12.1 Búsqueda de rutas.
 
 Este es el punto de inicio en el proceso que desencadena una serie de tareas para corroborar si existe o no una ruta hacia el destino que se quiere encontrar.
 
