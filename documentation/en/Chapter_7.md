@@ -64,7 +64,7 @@ It should be noted that one of the most important parameters when selecting the 
 
 _RIOT-OS_ (real-time operating system for IoT) fills the gap between traditional and wireless sensor network operating systems. Furthermore, this operating system is designed to:
 
-- Look after of the energy efficiency of the device.
+- Take care of device energy efficiency..
 
 - Take up as little memory space as possible.
 
