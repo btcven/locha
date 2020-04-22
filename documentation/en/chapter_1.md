@@ -44,7 +44,7 @@ Locha Mesh main objective is the implementation of the routing protocol AODVv2 t
 
 Our secondary objectives are:
 
-- Theoretical researh for ad-hoc wireless networks and routing protocols.
+- Theoretical research for ad-hoc wireless networks and routing protocols.
 - Familiarization with simulation tools.
 - Determine parameters for data generation.
 - Implementation and execution of a testbed.
