@@ -259,7 +259,7 @@ A continuación describimos el proceso para tomar el paquete _AODV_ que hemos cr
 
 ### 12.4.1 aodvv2_send_rreq
 
-En esta seccion describimos la funcion que recibe el paquete ```AODV``` y cual es el procedimiento para enviarlo al thread principal el cual fue creado para recibir mensajes UDP entrantes, pero también puede ser reutilizado para enviar recibir mensajes entre las distintas partes de la aplicación.
+Ahora describiremos la función que recibe el paquete _AODV_ y cuál es el procedimiento para enviarlo al _thread_ principal, que fue creado para recibir mensajes _UDP_ entrantes pero también puede ser reutilizado para enviar y recibir mensajes entre las distintas partes de la aplicación.
 
 ```cpp
 int aodvv2_send_rreq(aodvv2_packet_data_t *pkt,
@@ -290,9 +290,12 @@ int aodvv2_send_rreq(aodvv2_packet_data_t *pkt,
     return 0;
 }
 ```
-El código anterior se puede resumir fácilmente en las siguientes partes:
-- Creación de un objeto tipo ```aodvv2_msg_t```para recibir el paquete y agregar alguna información extra com lo es la dirección del proximo salto que en este caso es una dirección multicast y debido a que se necesita encontrar una ruta.
-- Crear un objeto tipo ```msg_t``` el cual es el formato adecuado que espera el IPC para ser transmitido al thread principal de la aplicación.
+
+El código se puede resumir en las siguientes partes:
+
+- Creación de un objeto tipo _aodvv2_msg_t_ para recibir el paquete y añadir información extra como la dirección del próximo salto, que en este caso es una dirección _multicast_ debido a que se necesita encontrar una ruta.
+- Crear un objeto tipo _msg_t_, que es el formato adecuado que espera el _IPC_ para ser transmitido al _thread_ principal de la aplicación.
+
     ```cpp
     msg_t ipc_msg;
     ipc_msg.content.ptr = msg;
@@ -303,10 +306,10 @@ El código anterior se puede resumir fácilmente en las siguientes partes:
         return -1;
     }
     ```
-    Luego de asignar el paquete ```AODV``` al objeto ```msg_t```, lo enviamos al IPC , para que se reciba en el ```loop``` de la aplicación.
-    Se puede observar que al tipo de mensaje se le ha asignado el tipo ```AODVV2_MSG_TYPE_SEND_RREQ```, de esa misma manera debemos recuperarlo en el ```loop``` donde se desea procesar, dig procesar, porque hasta este punto solo tenemos un paquete ```AODV```, pero aun falta crear el formato ```RFC5444``` que debera contener el paquete.
 
-Veamos el siguiente paso en este flujo para conocer donde se recibe el mensaje que se acaba de enviar.
+    Después de asignar el paquete _AODV_ al objeto _msg_t_, lo enviamos al _IPC_ para que se reciba en el _loop_ de la aplicación.
+    Se le ha asignado el tipo _AODVV2_MSG_TYPE_SEND_RREQ_. De esa misma manera debemos recuperarlo en el _loop_ donde se desea procesar, porque hasta este punto solo tenemos un paquete _AODV_, pero aún falta crear el formato _RFC5444_ que deberá contener el paquete.
+
 
 ### 12.4.2 
 En la seccion 11.10.3 se explico el funcionamiento de este ```loop``` y cual era su proposito, aquí se ilustra la parte de l código relacionado con la recepción del mensaje que se envió en el apartado anterior para ser recibido en esta funcion.
