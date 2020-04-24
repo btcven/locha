@@ -45,7 +45,7 @@ On industrial enviroments in which a WSN can be deployed, the functionality of t
 
 Consequently, in the presence of a major signal frequency the lower its bandwidth will be, as a result the RF wave has more losses going thru the walls.
 
-Taking all these considerations into account, sub-GHz frecuencies offer an alternative to the congested 2.4 GHz band, to which devices like Wi-Fi routers inside offices or homes, computers and mobile phones with active Bluetooth, microwaves, all cause interference in the air.
+Taking all these considerations in mind, sub-GHz frequencies offer an alternative to the congested 2.4 GHz band, to which devices like Wi-Fi routers inside offices or homes, computers and mobile phones with active Bluetooth, microwaves, all cause interference in the air.
 
 Even though the 2.4 GHz band is currently the top pick due to its costs and global usage, the sub-GHz offer a major reach, less power consumption and broad efficiency in the data transmission with some geographic restrictions and a slightly higher technology cost. Nonetheless, the final cost for each application may vary, although 2.4 GHz radio modules are less expensive, in a real deployement it will be needed more nodes to cover the same area than by using 915 MHz radio modules, whose individual cost per node is superior but by having a bigger reach, the number of nodes needed decreases.
 
