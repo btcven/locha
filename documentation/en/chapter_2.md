@@ -40,7 +40,7 @@ There are two reasons to justify this phenomenon: the power transmission of RF a
 
 In Europe, the devices of 2.4 GHz have a regulated RF power to maximum of 100 mW, meanwhile the power of the 915 MHz is 500 mW, which means the latter theoretically can reach a reliable transmission range of five times the range a device of 2.4 GHz could reach.  
 
-On industrial enviroments in which a WSN can be deployed, the functionality of the communication its influenced for the ability of the radio signal to penetrate, reflect and bend towards obstacles.
+On industrial environments in which a WSN can be deployed, the functionality of the communication its influenced for the ability of the radio signal to penetrate, reflect and bend towards obstacles.
 
 Consequently, in the presence of a major signal frequency the lower its bandwidth will be, as a result the RF wave has more losses going thru the walls.
 
