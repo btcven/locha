@@ -1,6 +1,6 @@
 # 2. What is Locha Mesh?
 
-Locha Mesh is an open source project of networks and wireless resilient communications in order to build a free data transmission, with a incorruptible focus in the security and the privacy of the information flowing in the network. A network created and managed by its users. Locha Mesh is a distribuited network that doesn't belong to anyone in particular but to us all. Locha Mesh offers free and permissionless access to the network. Anyone can join it at any time, and use it to find its recipient inside the mesh, finding different paths to send and receive data packets foreseeing failures in the conection.
+Locha Mesh is an open source project of networks and wireless resilient communications in order to build a free data network, with a incorruptible focus in the security and the privacy of the information flowing in the network. A network created and managed by its users. Locha Mesh is a distributed network that doesn't belong to anyone in particular but to us all. Locha Mesh offers free and permissionless access to the network. Anyone can join to it at any time, and use it to find its recipient inside the mesh, finding different paths to send and receive data packets foreseeing failures in the connection.
 
 ## 2.1 Why a Mesh?
 
