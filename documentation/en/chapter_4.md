@@ -8,7 +8,7 @@ The WBS of Locha Mesh is based on the following:
 - Hardware.
 
 **Design**: Tasks needed for the design of the application:
-- Protocol capable of delivering positive results.
+- Protocol that is expected to be capable of delivering positive results.
 - Radio module selection.
 - Quality, efficiency, and low consumption design for the hardware and software.
 
