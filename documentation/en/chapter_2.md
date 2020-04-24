@@ -37,7 +37,7 @@ Each of those RF bands have a distinctive characteristic which gives some advant
 
 The frecuency and the bandwidth for the transmission are directly related to the quality of the wireless communication. At major frecuencies, there's more spectrum so the channels have more bandwidth. For instance, there are a 1000 times more spectrum space between 1 and 2 GHz than in 1 and 2 MHz. Hence, the 2.4 GHz band has more capacity to transmit a major data rate than the lower frecuency bands. Nonetheless, this capacity has a drawback, it decreases the distance of the transmission, which penalize the network functionality at high frecuencies in wide areas.
 
-There are two reasons to justify this phenomenon: the power transmission of RF and the losses over propagation. As the radio wave travels over the air, its intensity decreases to the point its not possible to extract the data modulated of the signal. The radio signal transmitted with more power will travel further before they weaken too much. Besides, the signal of the wave of a major frecuency decreases very quickly.
+There are two reasons to justify this phenomenon: the power transmission of RF and the losses over propagation. As the radio wave travels over the air, its intensity decreases to the point its not possible to extract the data modulated of the signal. The radio signal transmitted with more power will travel further before they weaken too much. Besides, the signal of the wave of a major frequency decreases very quickly.
 
 In Europe, the devices of 2.4 GHz have a regulated RF power to maximum of 100 mW, meanwhile the power of the 915 MHz is 500 mW, which means the latter theorically can reach a reliable transmission range of five times the range a device of 2.4 GHz could reach.  
 
