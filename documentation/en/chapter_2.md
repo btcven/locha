@@ -39,7 +39,7 @@ The frecuency and the bandwidth for the transmission are directly related to the
 
 There are two reasons to justify this phenomenon: the power transmission of RF and the losses over propagation. As the radio wave travels over the air, its intensity decreases to the point its not possible to extract the data modulated of the signal. The radio signal transmitted with more power will travel further before they weaken too much. Besides, the signal of the wave of a major frequency decreases very quickly.
 
-In Europe, the devices of 2.4 GHz have a regulated RF power to maximum of 100 mW, meanwhile the power of the 915 MHz is 500 mW, which means the latter theorically can reach a reliable transmission range of five times the range a device of 2.4 GHz could reach.  
+In Europe, the devices of 2.4 GHz have a regulated RF power to maximum of 100 mW, meanwhile the power of the 915 MHz is 500 mW, which means the latter theoretically can reach a reliable transmission range of five times the range a device of 2.4 GHz could reach.  
 
 On industrial enviroments in which a WSN can be deployed, the functionality of the communication its influenced for the ability of the radio signal to penetrate, reflect and bend towards obstacles.
 
