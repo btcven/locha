@@ -10,7 +10,7 @@ The concepts of a wireless network or ad-hoc has been studied for a long time, c
 
 Today, its use is very popular and has promoted an emergent field which offers a vast amount of applications that needs to be interconnected at all times wirelessly, interacting efficiently with eachother without having to give up the security in the communication.
 
-These networks can proportionate a safe and reliable communication system, where no person, or business can censor, veto or access any information unless it is the receipient of it. Another interesting application if the disaster hit countries, poor infrastructure, or those suffering the effects of war, pollitical repression, and its also replicable for those who value their personal information.
+These networks can proportionate a safe and reliable communication system, where no person, or business can censor, veto or access any information unless it is the recipient of it. Another interesting application if the disaster hit countries, poor infrastructure, or those suffering the effects of war, political repression, and its also replicable for those persons who value their personal information.
 
 ## 2.2 Why use 915 MHz as base frecuency?
 
