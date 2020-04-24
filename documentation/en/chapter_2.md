@@ -4,7 +4,7 @@ Locha Mesh is an open source project of networks and wireless resilient communic
 
 ## 2.1 Why a Mesh?
 
-This type of network suits the need to connect nodes that are constantly moving around, due this the topology is a dynamic one, diminishing the points of failure and the dependency on fixed infrastructure, to preclude the censorship or the manipulation of the mesh.
+This type of network suits the need to connect nodes that are constantly moving around, due to this the topology is a dynamic one, reducing the points of failure and dependency on fixed infrastructure, to preclude the censorship or the manipulation of the mesh.
 
 The concepts of a wireless network or ad-hoc has been studied for a long time, creating diverse protocols that with more or less success deal with their biggest enemy, the _single-hop_ or is there life beyond my neighbors?
 
