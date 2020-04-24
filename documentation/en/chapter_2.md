@@ -20,7 +20,6 @@ Most commercial products operate in these free bands, also known as ISM (Industr
 
 The radio spectrum is divided in bands, at the same time each band subdivides into fixed width channels. The ISM bands subdivides into two larger groups: 2.4 GHz and sub-GHz frequencies, including the 315, 433, 784, 868 and 915 MHz bands. The choice between a group or another will depend on the characteristics of the application, like the range, battery consumption, data rate, size of the antenna, cost, etc.
 
-Hoy, las comunicaciones de las WSNs se basan en gran medida tanto en el estándar 802.15.4 como en el protocolo ZigBee. Este último añade funcionalidades a la red no disponibles con el mencionado estándar, y opera en las bandas ISM de 2.4 GHz y 868/915 MHz, ya que fue creado con la finalidad de proporcionar un protocolo para dispositivos de redes inalámbricas, con bajo consumo de energía y que resultara competitivo en precio.
 
 Currently, communication of the WNSs are based on the standard 802.15.4 like the ZigBee protocol. That protocol adds features to the network that are not available in such standard, and it operates in the ISM band of 2.4 GHz and 868/915 MHz. ZigBee was created to proportionate a protocol for wireless networks with low energy consumption and competitive price.
 
