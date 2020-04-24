@@ -18,7 +18,7 @@ Radio frecuency (RF) communication is a basic feature of a Wireless Sensor Netwo
 
 Most commercial products operate in these free bands, also known as ISM (Industrial, Scientific and Medical) to avoid the cost of the licenses. Because of this, a big number of wireless technologies like ZigBee, Bluetooth, Wi-Fi, and wireless telephony among others, use these frequencies.
 
-Radio spectrum is divided in bands, at the same time each band subdivides into fixed width channels. The ISM bands subdivides into two larger groups: 2.4 GHz and sub-GHz frecuencies, including the 315, 433, 784, 868 and 915 MHz bands. The choice between a group or another will depend on the characteristics of the application, like the range, battery consumption, data rate, size of the antenna, cost, etc.
+The radio spectrum is divided in bands, at the same time each band subdivides into fixed width channels. The ISM bands subdivides into two larger groups: 2.4 GHz and sub-GHz frequencies, including the 315, 433, 784, 868 and 915 MHz bands. The choice between a group or another will depend on the characteristics of the application, like the range, battery consumption, data rate, size of the antenna, cost, etc.
 
 Hoy, las comunicaciones de las WSNs se basan en gran medida tanto en el estándar 802.15.4 como en el protocolo ZigBee. Este último añade funcionalidades a la red no disponibles con el mencionado estándar, y opera en las bandas ISM de 2.4 GHz y 868/915 MHz, ya que fue creado con la finalidad de proporcionar un protocolo para dispositivos de redes inalámbricas, con bajo consumo de energía y que resultara competitivo en precio.
 
