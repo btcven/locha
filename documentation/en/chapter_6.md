@@ -75,7 +75,7 @@ Benefits of the ESP32 family:
 - Low-cost.
 - Extensive documentation available.
 - Examples on the Arduino platform that can be easily carried into the espressif environment. 
-- Energy- efficient.
+- Energy efficient.
 - Incorporate BLE, which enables a wide range of possibilities. 
 
 Locha Mesh specifically works with ESP32 WROVER, consist of:
