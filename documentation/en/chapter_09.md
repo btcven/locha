@@ -19,7 +19,7 @@ The following image represents the structure of an _RFC544_ package and its depe
 
  <img src="imple_pic/rfc5444-pkt.png" alt="drawing" height="600" width="1000" align="center"/>
 
-Each type of control message has to be adapted to the format of the _RFC5444_ package.
+Each type of control message has to be adapted to the format of the _RFC5444_ packet.
 
 _AODVv2_ doesn´t require access to the package header [RFC5444].
 
