@@ -1,5 +1,5 @@
 
 project_id: locha-mesh 
 files:
-  - source: /documentation/en/**
+  - source: /documentation/en/*.md
     translation: /documentation/%two_letters_code%/%original_file_name%
