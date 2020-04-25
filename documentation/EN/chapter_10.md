@@ -68,7 +68,7 @@ true ==>
 
 ***rreq-recv (RREQ(m),K)**: This action processes a Route Request message.
 ```
-m = (h,(sO, sT),(O, T)) de un vecino K. 
+m = (h,(sO, sT),(O, T)) from neighbor K. 
 ```
 It is protected by the condition that a route at node **m** is better than a route to origin at node **H**.
 
