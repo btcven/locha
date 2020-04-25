@@ -37,7 +37,7 @@ This is why we will first review which are the header fields of the _RFC5444_ pa
 ## 9.1 Packet info.
 This section of the message allows to quickly know information such as:
 
-- Package version.
+- Packet version.
 - Sequence number.
 - _Flags_ that allow knowing if the TLVs are in the package without deserializing it.
 
