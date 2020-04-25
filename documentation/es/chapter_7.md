@@ -1,4 +1,3 @@
-
 # 7. Selección del sistema operativo
 
 Los criterios para elegir sistema operativo (OS) en este caso son similares a los de una red de sensores.
@@ -86,18 +85,17 @@ y el proceso del ciclo de vida del desarrollo de software.
 
 ## 7.5 Tabla comparativa de los sistemas operativos.
 
-<div>
 <table id="tblOne" style="width:100%;" >
  <tr align="center">
     <th>OS</th>
     <th>min RAM</th>
     <th>min ROM</th>
-    <th>C support</th>
-    <th>C++ support</th>
-    <th>Multi-threading</th>
+    <th>Soporte C</th>
+    <th>Soporte C++</th>
+    <th>Multi-hilo</th>
     <th>MCU w/o MMU</th>
-    <th>Modularity</th>
-    <th>Real-time</th>
+    <th>Modularidad</th>
+    <th>Tiempo real</th>
  </tr>
   <tr align="center">
     <td>TinyOS</td>
@@ -144,6 +142,3 @@ y el proceso del ciclo de vida del desarrollo de software.
     <td>&#10061</td>
  </tr>
 </table>
-</div>
-
-<br>
