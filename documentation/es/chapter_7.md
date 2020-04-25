@@ -1,91 +1,97 @@
-# 7. Selección del sistema operativo
+# 7. Selección del sistema operativo.
 
-Los criterios para elegir sistema operativo (OS) en este caso son similares a los de una red de sensores.
+The criteria for choosing an operating system (OS) in this case are similar to those criteria of a sensor network.
 
-Nuestro dispositivo de red debe tener ciertas características especiales, [4,5,6]  entre las cuales se incluyen:
+Nuestro dispositivo de red debe tener ciertas características especiales, [4,5,6] incluyendo:
 - Bajo coste.
-- Bajo consumo.
-- Que pueda funcionar con batería.
+- Bajo consumo de energía.
+- Puede funcionar con batería. Para alcanzar el objetivo, debería utilizarse un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmisión y ahorrar energía.
 
-Para cumplir el objetivo se debe emplear un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmisión y ahorrar energía.
+<br>
 
+## 7.1 Modularidad.
 
-## 7.1 Modularidad
+El dispositivo **Locha Mesh** requerirá un sistema operativo modular que separa el núcleo del middleware, protocolos y aplicaciones que facilitan el desarrollo y el mantenimiento.
 
-El dispositivo de Locha Mesh requerirá un OS modular que separe el kernel del middleware, protocolos y aplicaciones que permita mayor facilidad de desarrollo y mantenimiento.
+Usar un _RTOS_ modular simplifica nuestro trabajo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades.
 
-Usar un _RTOS_ modular simplifica nuestro trabajo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades. 
+Confiar en un núcleo común permite a toda la familia de dispositivos compartir una base de código común.
 
-Confiar en un núcleo común permite que toda familia de dispositivos puedan compartir una base de código común.
+Different to a monolithic OS that brings together a complete set of software, a modular _RTOS_ allows us to customize the integrated software for our device, requires less RAM and less FLASH memory, as well as reducing costs.
 
-A diferencia de un OS monolítico que agrupa un conjunto completo de software, un _RTOS_ modular nos permite personalizar el software integrado para nuestro dispositivo, requiere menos RAM y menos memoria FLASH, además de reducir costes.
+<br>
 
+## 7.2 Conectividad.
 
-## 7.2 Conectividad
+La conectividad es esencial para las redes de sensores y IoT.
 
-La conectividad es esencial para las redes de sensores e IoT.
+Talking about wireless sensor networks, devices are expected to connect with each other to communicate with public and private networks.
 
-Hablando de redes de sensores inalámbricos, se espera que los dispositivos se conecten entre sí para comunicarse con redes públicas y privadas. 
+En el caso de **Locha Mesh**:
 
-En el caso de Locha:
+- Nuestro _RTOS_ elegido debe soportar comunicaciones estándar y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
 
-- Nuestro _RTOS_ elegido debe soportar comunicaciones estándares y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
+- Un RTOS nos permitirá adoptar la pila de red que necesitamos, ahorrando memoria en el dispositivo y reduciendo nuestros costes. It can also help us use existing devices and add new functions without major changes to the software.
 
-- Un _RTOS_ nos permitirá adoptar el stack de red que necesitamos, ahorrando memoria en el dispositivo y reduciendo nuestros costes. Además puede ayudarnos a usar  dispositivos existentes y añadir nuevas funciones sin grandes cambios en el software.
+- The OS for this network must take into account all hardware limitations keeping high availability.
 
-- El OS para esta red debe tener en cuenta todos las limitaciones del hardware, manteniendo una alta disponibilidad.
+- It is desirable to find standard interfaces such as POSIX, to facilitate the portability of applications.
 
-- Es deseable encontrar interfaces estándar como es POSIX, para facilitar la portabilidad de aplicaciones.
+- Ease of use must be a crucial factor for all developers.
 
-- La facilidad de uso debe ser un factor crucial para todo desarrollador
+<br>
 
-## 7.3 Contiki-ng y TinyOS
+## 7.3 Contiki-ng y TinyOS.
 
-- Contiki-ng y TinyOS no son sistemas operativos en tiempo real, pero son la referencia en redes de sensores inalámbricos.
+- Contiki-ng and TinyOS are not real-time operating systems, but they are the benchmark in wireless sensor networks.
 
-- El OS Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta construido sobre un nucleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_.
-Por otro lado Linux usa un planificador, que garantiza un horario de ejecución para las tareas.
+- The Contiki-ng OS has a layered architecture while TinyOS is built on a monolithic core. Like Linux, Contiki-ng is event driven and it is similar to TinyOS. They both use a _FIFO_ strategy. On the other hand, Linux uses a scheduler, which guarantees a execution scheduled time for tasks.
 
-- El modelo de programación de Contiki-ng y TinyOS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
+- The Contiki-ng and TinyOS programming model is defined by events such that all tasks are executed in the same context.
 
-- Ofrecen soporte parcial para el multi-thread.
+- They offer partial support for multi-thread.
 
-- Contiki-ng usa un lenguaje similar a C, pero no puede usar ciertas palabras clave.
+- Contiki-ng uses a language similar to C, but it can´t use certain keywords.
 
-- TinyOS está escrito en un lenguaje llamado NesC, el cual es similar pero no compatible con C.
-  
-Cabe destacar que unos de los parámetros mas importantes a la hora de seleccionar el OS, es la cantidad de documentación, ejemplos y actividad en el repositorio de constantes actualizaciones.
+- TinyOS is written in a language called NesC, which is similar but not compatible with C.
 
-## 7.4 RIOT-OS
-
-RIOT-OS (OS en tiempo real para IoT) llena el vacío entre sistemas operativos de redes de sensores inalámbricos y tradicionales. Además, este sistema operativo está diseñado para: 
-- Cuidar la eficiencia energética del dispositivo. 
-- Para ocupar el menor espacio de memoria posible.
-- Tener una API única, independiente del hardware.
-
-RIOT-OS se basa en una arquitectura de microkernel que permite multi-hilo utilizando una API estándar. Repleto de características heredadas de FireKernel, RIOT-OS también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para el stack de red TCP/IP. Este enfoque modular hace que RIOT-OS sea robusto contra fallos de  componentes individuales, proporcionando alta confiabilidad y una API amigable para los programadores.
-
-RIOT-OS permite a los programadores crear tantos hilos como sean necesarios. La única restricción es la cantidad de memoria  disponible para cada hilo. 
-
-Gracias a la API de mensajes del Kernel y usando estos hilos, es posible implementar sistemas distribuidos de una manera simple.
-
-Para cumplir con los requisitos en tiempo real, RIOT-OS hace cumple períodos constantes para las tareas del núcleo (por ejemplo: ejecución del planificador, _inter comunication  process_ (IPC), operaciones de temporizador, etc).
-
-Cada RTOS-OS es muy bueno en un dominio particular, pero teniendo en cuenta nuestras necesidades, nosotros hemos elegido RIOT-OS. 
-
-En términos de hardware MCU y capacidades de memoria, RIOT-OS compite principalmente con Linux. En comparación RIOT puede reducirse a órdenes con menos requerimientos de memoria y está construido con soporte incorporado para 
-eficiencia energética y capacidades en tiempo real. 
-
-Por otro lado, RIOT-OS también compite
-con Contiki-ng, TinyOS y FreeRTOS. En comparación con Contiki-ng y TinyOS, RIOT-OS ofrece capacidades en tiempo real y subprocesos múltiples. A diferencia de FreeRTOS, RIOT-OS proporciona eficiencia energética nativa y un OS con todas las funciones, incluyendo una red interoperable de código abierto, actualizada y gratuita.
-
-RIOT también ofrece API estándar POSIX y la capacidad de codificar en lenguajes de programación estándar como (C y C ++) usando herramientas de depuración estándar, lo que reduce la curva de aprendizaje de los desarrolladores
-y el proceso del ciclo de vida del desarrollo de software.
+It should be noted that one of the most important parameters when selecting the OS is the amount of documentation, examples and activity in the repository of constant updates.
 
 
-## 7.5 Tabla comparativa de los sistemas operativos.
 
-<table id="tblOne" style="width:100%;" >
+## 7.4 RIOT-OS.
+
+_RIOT-OS_ (real-time operating system for IoT) fills the gap between traditional and wireless sensor network operating systems. Furthermore, this operating system is designed to:
+
+- Take care of device energy efficiency..
+
+- Take up as little memory space as possible.
+
+- Tiene una API única independiente de hardware.
+
+_RIOT-OS_ is based on a microkernel architecture that allows multi-thread using a standard API. Empaquetado con características heredadas de FireKernel, RIOT-OS también proporciona soporte para C ++, que permite el uso de poderosas bibliotecas, incluyendo soporte para la pila TCP/IP. This modular approach makes RIOT-OS robust against individual component failures, providing high reliability and a developer-friendly API.
+
+_RIOT-OS_ permite a los programadores crear tantos hilos como sea necesario. La única restricción es la cantidad de memoria disponible para cada hilo.
+
+Thanks to the Kernel message API and using these threads, it is possible to implement distributed systems in a simple way.
+
+To accomplish real-time requirements, _RIOT-OS_ enforces constant periods for core tasks (for example: scheduler execution, inter communication process (IPC), timer operations, etc.).
+
+Each _RTOS_ is very good in a particular domain, but considering our needs, we have chosen _RIOT-OS_.
+
+In terms of MCU hardware and memory capabilities, _RIOT-OS_ primarily competes with Linux. In comparison RIOT can be reduced to orders with less memory requirements and it is built with built-in support for energy efficiency and real-time capabilities.
+
+Por otro lado, _RIOT-OS_ también compite con Contiki-ng, TinyOS y FreeRTOS. En comparación con Contiki-ng y TinyOS, _RIOT-OS_ ofrece procesamiento en tiempo real y múltiples sub-procesos. A diferencia de FreeRTOS, _RIOT-OS_ proporciona eficiencia energética nativa y un sistema operativo completamente actualizado, incluyendo una red interoperable de código abierto.
+
+_RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard programming languages like (C and C ++) using standard debugging tools, reducing the developer learning curve and the process of cycle of life of the  software development.
+
+<br>
+
+
+## 7.5 Tabla comparativa de sistemas operativos.
+
+<div>
+<table id="tblOne" style="width:100%;">
  <tr align="center">
     <th>OS</th>
     <th>min RAM</th>
@@ -142,3 +148,6 @@ y el proceso del ciclo de vida del desarrollo de software.
     <td>&#10061</td>
  </tr>
 </table>
+</div>
+
+<br>
