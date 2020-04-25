@@ -67,11 +67,11 @@ _RIOT-OS_ (real-time operating system for IoT) fills the gap between traditional
 
 - Take up as little memory space as possible.
 
-- Have a unique, hardware independent API.
+- Tiene una API única independiente de hardware.
 
-_RIOT-OS_ is based on a microkernel architecture that allows multi-thread using a standard API. Packed with features inherited from FireKernel, RIOT-OS also provides support for C ++, which enables the use of powerful libraries, including support for the TCP/IP stack. This modular approach makes RIOT-OS robust against individual component failures, providing high reliability and a developer-friendly API.
+_RIOT-OS_ is based on a microkernel architecture that allows multi-thread using a standard API. Empaquetado con características heredadas de FireKernel, RIOT-OS también proporciona soporte para C ++, que permite el uso de poderosas bibliotecas, incluyendo soporte para la pila TCP/IP. This modular approach makes RIOT-OS robust against individual component failures, providing high reliability and a developer-friendly API.
 
-_RIOT-OS_ allows programmers to create as many threads as necessary. The only restriction is the amount of memory available for each thread.
+_RIOT-OS_ permite a los programadores crear tantos hilos como sea necesario. La única restricción es la cantidad de memoria disponible para cada hilo.
 
 Thanks to the Kernel message API and using these threads, it is possible to implement distributed systems in a simple way.
 
@@ -88,7 +88,7 @@ _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard pr
 <br>
 
 
-## 7.5 Comparative table of operating systems.
+## 7.5 Tabla comparativa de sistemas operativos.
 
 <div>
 <table id="tblOne" style="width:100%;">
