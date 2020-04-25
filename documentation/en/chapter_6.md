@@ -72,7 +72,7 @@ When selecting the device that will perform this task, it must have I2C support,
 For the selection of the microcontroller, we have focused on the  _Espressif_ controllers, as this is a brand that offers a variety of devices with incredible features such as Bluetooth and Wi-Fi at very low cost, which another brand could hardly offer in addition to the extensive documentation that exist for this device. 
 
 Benefits of the ESP32 family:
-- Economical.
+- Low-cost.
 - Extensive documentation available.
 - Examples on the Arduino platform that can be easily carried into the espressif environment. 
 - Energy- efficient.
