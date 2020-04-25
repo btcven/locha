@@ -30,7 +30,7 @@ The _AODVv2_ packet header use:
 
 **msg-addr-length** indicates the size of the address in the message, whose value corresponds to _addr_length in octets -1_; for example, for _IPV4_ it would be 3 and for _IPV6_ it would be equal to 15.
 
-This is why we will first review which are the header fields of the _RFC5444_ package that _AODVv2_ uses.
+This is why we will first review which are the header fields of the _RFC5444_ packet that _AODVv2_ uses.
 
 
 
