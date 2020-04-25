@@ -1,7 +1,7 @@
 
 # 9. Packet format for MANET networks.
 
-_AODVv2_ specifies that control messages have to be mapped to a container called MANET (Generalized Mobile Ad-Hoc Network Packet/Message Format) [RFC5444]. This package format provides a single encapsulation for multiple Ad-Hoc routing protocols.
+_AODVv2_ specifies that control messages have to be mapped to a container called MANET (Generalized Mobile Ad-Hoc Network Packet/Message Format) [RFC5444]. This packet format provides a single encapsulation for multiple Ad-Hoc routing protocols.
 
 RFC5444 makes the transmission of control messages more efficient, structuring the content by reducing the number of bytes to transmit.
 
