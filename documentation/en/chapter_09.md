@@ -90,7 +90,7 @@ Packets can contain the packet header, and one or more messages. The messages co
 
 **msg-flags**: It is a 4-bit field that specifies the interpretation of the rest of the message header:
 
- - **bit 0**(mhasorig): If set to one ('1') it means that ** msg-orig-addr ** will be included in ** msg-header **. Otherwise, no.
+ - **bit 0**(mhasorig): If set to one ('1') it means that **msg-orig-addr** will be included in **msg-header**. Otherwise, no.
  - **bit 1**(mhashoplimit): If set to one ('1'), it means that **msg-hop-limit** will be included in **msg-header**. Otherwise, no.
  - **bit 2**(mhashopcount): If set to one ('1'), it means that **msg-hop-count** will be included in **msg-header**. Otherwise, no.
  - **bit 3**(mhaseqnum): If it is set to one ('1'), then it means that **msg-seq-num** will be included in **msg-header**. Otherwise, no.
