@@ -6,7 +6,7 @@ Our network device must have certain special features, [4,5,6] including:
 - Low cost.
 - Low energy consumption.
 - It can run on battery.
-To achieve the objective, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
+To achieve the goal, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
 
 <br>
 
