@@ -185,7 +185,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <img src="imple_pic/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
-- Node **D** does not recreate the package due to it is the recipient of the route request message..
+- Node **D** does not recreate the package due to it is the recipient of the route request message.
 
 - In the process, each intermediate node should know how to return to the node that recreated the _RREQ_ message. 
 
