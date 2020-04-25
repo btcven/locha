@@ -45,7 +45,7 @@ This section of the message allows to quickly know information such as:
 
 We define it as follows:
 
-**version**: It is a field that contains a 4-bit unsigned integer and specifies the version in which the package and the message content have been built.
+**version**: It is a field that contains a 4-bit unsigned integer and specifies the version in which the packet and the message content have been built.
 
 **pkt-flag**: It is a 4-bit field that specifies the interpretation of the rest of the package header:
 
