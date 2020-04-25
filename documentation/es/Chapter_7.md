@@ -1,10 +1,10 @@
-# 7. Selection of the Operating System.
+# 7. Selección del sistema operativo.
 
 The criteria for choosing an operating system (OS) in this case are similar to those criteria of a sensor network.
 
 Our network device must have certain special features, [4,5,6] including:
 - Low cost.
-- Low energy consumption.
+- Bajo consumo de energía.
 - It can run on battery. To achieve the objective, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
 
 <br>
