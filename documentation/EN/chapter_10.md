@@ -32,7 +32,7 @@ Each message contains the following:
 - **tlv** = (sO, sT): sequence number for the source, and destination, and the last one possibly undefined.
 - **(O, T)**: the origin and destination pair.
 
-For example we could write a message as follows::
+For example we could write a message as follows:
 
 ```
 RREQ(h,(sO,sT),(O,T)).
