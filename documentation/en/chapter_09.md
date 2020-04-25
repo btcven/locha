@@ -62,7 +62,7 @@ We define it as follows:
 
 
 ## 9.2 Messages.
-Packages can contain the package header, and one or more messages. The messages contain:
+Packets can contain the packet header, and one or more messages. The messages contain:
 
  - A message header.
  - A TLV message block that contains zero or more TLVs, associated with the complete message.
