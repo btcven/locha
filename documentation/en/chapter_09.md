@@ -47,7 +47,7 @@ We define it as follows:
 
 **version**: It is a field that contains a 4-bit unsigned integer and specifies the version in which the packet and the message content have been built.
 
-**pkt-flag**: It is a 4-bit field that specifies the interpretation of the rest of the package header:
+**pkt-flag**: It is a 4-bit field that specifies the interpretation of the rest of the packet header:
 
  - **bit 0** (phaseseqnum) if one ('1') is indicated, then it means that the **pkt-seq-num** is included in the **pkt-header**. Otherwise, it is not.
 
