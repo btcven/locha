@@ -55,7 +55,7 @@ We define it as follows:
 
  - **bit 2-3**: They are reserved and should be cleaned in each transmission and must be ignored in each reception.
  
-**pkt-seq-num**: It is ignored if the _phaseseqnum-flag_ is set to zero ('0'). Otherwise, it is a 16-bit unsigned integer, specifying the sequence number of a package.
+**pkt-seq-num**: It is ignored if the _phaseseqnum-flag_ is set to zero ('0'). Otherwise, it is a 16-bit unsigned integer, specifying the sequence number of a packet.
 
 **tlv*block**: It is ignored if the _phastlv-flag_ is set to zero ('0'). Otherwise, it is defined in [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
 
