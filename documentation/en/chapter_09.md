@@ -110,7 +110,7 @@ _AODVv2_ uses the following fields from the _RFC5444_ Header message
 
 <img src="imple_pic/tlv-addr-block.png" alt="drawing" height="100" width="460" align="center"/>
 
-<h3> El TLV para OrigPrefix estará formado por:</h3>
+<h3> TLV for _OrigPrefix_ will be formed by:</h3>
 
 <img src="imple_pic/tlvOrigPrefix.png" alt="drawing" height="120" width="460" align="center"/>
 
