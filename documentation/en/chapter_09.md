@@ -34,7 +34,7 @@ This is why we will first review which are the header fields of the _RFC5444_ pa
 
 
 
-## 9.1 Package info.
+## 9.1 Packet info.
 This section of the message allows to quickly know information such as:
 
 - Package version.
