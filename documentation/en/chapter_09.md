@@ -96,7 +96,7 @@ Packets can contain the packet header, and one or more messages. The messages co
  - **bit 3**(mhaseqnum): If it is set to one ('1'), then it means that **msg-seq-num** will be included in **msg-header**. Otherwise, no.
 
 ### 9.2.2 msg-header-length
-**IN DEVELOPMENT PROCESS**
+**ONGOING PROCESS**
 
 It is a field that contains an 8-bit unsigned integer
 
