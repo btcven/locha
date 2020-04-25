@@ -2,10 +2,10 @@
 
 The criteria for choosing an operating system (OS) in this case are similar to those criteria of a sensor network.
 
-Our network device must have certain special features, [4,5,6] including:
+Nuestro dispositivo de red debe tener ciertas características especiales, [4,5,6] incluyendo:
 - Bajo coste.
 - Bajo consumo de energía.
-- Puede funcionar con batería. To achieve the objective, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
+- Puede funcionar con batería. Para alcanzar el objetivo, debería utilizarse un protocolo de red eficiente como 6LowPAN para reducir el tiempo de transmisión y ahorrar energía.
 
 <br>
 
@@ -81,7 +81,7 @@ Each _RTOS_ is very good in a particular domain, but considering our needs, we h
 
 In terms of MCU hardware and memory capabilities, _RIOT-OS_ primarily competes with Linux. In comparison RIOT can be reduced to orders with less memory requirements and it is built with built-in support for energy efficiency and real-time capabilities.
 
-On the other hand, _RIOT-OS_ also competes with Contiki-ng, TinyOS and FreeRTOS. Compared to Contiki-ng and TinyOS, _RIOT-OS_ offers real-time and multiple sub-processes. Unlike FreeRTOS, _RIOT-OS_ provides native energy efficiency and a full-featured OS, including a free, updated, open source interoperable network.
+Por otro lado, _RIOT-OS_ también compite con Contiki-ng, TinyOS y FreeRTOS. En comparación con Contiki-ng y TinyOS, _RIOT-OS_ ofrece procesamiento en tiempo real y múltiples sub-procesos. A diferencia de FreeRTOS, _RIOT-OS_ proporciona eficiencia energética nativa y un sistema operativo completamente actualizado, incluyendo una red interoperable de código abierto.
 
 _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard programming languages like (C and C ++) using standard debugging tools, reducing the developer learning curve and the process of cycle of life of the  software development.
 
@@ -96,12 +96,12 @@ _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard pr
     <th>OS</th>
     <th>min RAM</th>
     <th>min ROM</th>
-    <th>C support</th>
-    <th>C++ support</th>
-    <th>Multi-threading</th>
+    <th>Soporte C</th>
+    <th>Soporte C++</th>
+    <th>Multi-hilo</th>
     <th>MCU w/o MMU</th>
-    <th>Modularity</th>
-    <th>Real-time</th>
+    <th>Modularidad</th>
+    <th>Tiempo real</th>
  </tr>
   <tr align="center">
     <td>TinyOS</td>
