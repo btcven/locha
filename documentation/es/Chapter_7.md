@@ -9,9 +9,9 @@ Our network device must have certain special features, [4,5,6] including:
 
 <br>
 
-## 7.1 Modularity.
+## 7.1 Modularidad.
 
-The **Locha Mesh** device will require a modular OS that separates the kernel from the middleware, protocols and applications that allows ease of development and maintenance.
+El dispositivo **Locha Mesh** requerirá un sistema operativo modular que separa el núcleo del middleware, protocolos y aplicaciones que facilitan el desarrollo y el mantenimiento.
 
 Using a modular _RTOS_ simplifies our work, especially if we are developing a family of devices with different capabilities.
 
