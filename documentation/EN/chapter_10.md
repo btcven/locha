@@ -27,7 +27,7 @@ The protocol has three types of messages:
 - RREP (Route Reply)
 - RERR (Route Error)
 
-Cada mensaje tiene los siguientes componentes:
+Each message contains the following:
 - **h**: hopcount.
 - **tlv** = (sO, sT): sequence number for the source, and destination, and the last one possibly undefined.
 - **(O, T)**: the origin and destination pair.
