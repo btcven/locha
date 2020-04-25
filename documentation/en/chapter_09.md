@@ -6,7 +6,7 @@ _AODVv2_ specifies that control messages have to be mapped to a container called
 RFC5444 makes the transmission of control messages more efficient, structuring the content by reducing the number of bytes to transmit.
 
 The RFC5444 format defines the following elements:
-- Package: It is the highest level entity. A package contains a header and zero or more messages.
+- Packet: It is the highest level entity. A packet contains a header and zero or more messages.
 - Message: It is the entity that transports the protocol information. A message consists of a header, a TLV (type-length-value) block, and an addresses block.
 - Addresses block: consists of one or more addresses, and an attribute block.
 - TLV Block: It consists in one or more TLVs.
