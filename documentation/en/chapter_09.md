@@ -23,7 +23,7 @@ Each type of control message has to be adapted to the format of the _RFC5444_ pa
 
 _AODVv2_ doesn´t require access to the packet header [RFC5444].
 
-The _AODVv2_ package header use:
+The _AODVv2_ packet header use:
 - **msg-type**. 
 - **msg-hop-limit**.
 - **msg-addr-length**.
