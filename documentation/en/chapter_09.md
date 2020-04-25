@@ -39,7 +39,7 @@ This section of the message allows to quickly know information such as:
 
 - Packet version.
 - Sequence number.
-- _Flags_ that allow knowing if the TLVs are in the package without deserializing it.
+- _Flags_ that allow knowing if the TLVs are in the packet without deserializing it.
 
 ### 9.1.1 pkt-header
 
