@@ -120,5 +120,5 @@ _AODVv2_ uses the following fields from the _RFC5444_ Header message
 
 
 ## 9.3 oonf_api
-For the encapsulation of the _AODVv2_ package within the _RFC5444_ package container, the API called [oon_api](https://github.com/benpicco/oonf_api), is used, which facilitates the reading and writing of said package within the container.
+For the encapsulation of the _AODVv2_ packet within the _RFC5444_ packet container, the API called [oon_api](https://github.com/benpicco/oonf_api), is used, which facilitates the reading and writing of said packet within the container.
 
