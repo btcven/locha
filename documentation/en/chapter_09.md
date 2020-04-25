@@ -21,7 +21,7 @@ The following image represents the structure of an _RFC544_ package and its depe
 
 Each type of control message has to be adapted to the format of the _RFC5444_ packet.
 
-_AODVv2_ doesn´t require access to the package header [RFC5444].
+_AODVv2_ doesn´t require access to the packet header [RFC5444].
 
 The _AODVv2_ package header use:
 - **msg-type**. 
