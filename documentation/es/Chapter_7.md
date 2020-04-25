@@ -3,9 +3,9 @@
 The criteria for choosing an operating system (OS) in this case are similar to those criteria of a sensor network.
 
 Our network device must have certain special features, [4,5,6] including:
-- Low cost.
+- Bajo coste.
 - Bajo consumo de energía.
-- It can run on battery. To achieve the objective, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
+- Puede funcionar con batería. To achieve the objective, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
 
 <br>
 
@@ -13,25 +13,25 @@ Our network device must have certain special features, [4,5,6] including:
 
 El dispositivo **Locha Mesh** requerirá un sistema operativo modular que separa el núcleo del middleware, protocolos y aplicaciones que facilitan el desarrollo y el mantenimiento.
 
-Using a modular _RTOS_ simplifies our work, especially if we are developing a family of devices with different capabilities.
+Usar un _RTOS_ modular simplifica nuestro trabajo, especialmente si estamos desarrollando una familia de dispositivos con diferentes capacidades.
 
-Relying on a common core allows all the family of devices to share a common code base.
+Confiar en un núcleo común permite a toda la familia de dispositivos compartir una base de código común.
 
 Different to a monolithic OS that brings together a complete set of software, a modular _RTOS_ allows us to customize the integrated software for our device, requires less RAM and less FLASH memory, as well as reducing costs.
 
 <br>
 
-## 7.2 Connectivity.
+## 7.2 Conectividad.
 
-Connectivity is essential for sensor and IoT networks.
+La conectividad es esencial para las redes de sensores y IoT.
 
 Talking about wireless sensor networks, devices are expected to connect with each other to communicate with public and private networks.
 
-In the case of **Locha Mesh**:
+En el caso de **Locha Mesh**:
 
-- Our chosen _RTOS_ must stand standard communications and protocols like IEEE 802.15.4, 6LoWPAN and IPV6.
+- Nuestro _RTOS_ elegido debe soportar comunicaciones estándar y protocolos como IEEE 802.15.4, 6LoWPAN e IPV6.
 
-- An RTOS will allow us to adopt the network stack we need, saving memory on the device and reducing our costs. It can also help us use existing devices and add new functions without major changes to the software.
+- Un RTOS nos permitirá adoptar la pila de red que necesitamos, ahorrando memoria en el dispositivo y reduciendo nuestros costes. It can also help us use existing devices and add new functions without major changes to the software.
 
 - The OS for this network must take into account all hardware limitations keeping high availability.
 
