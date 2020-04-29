@@ -195,7 +195,7 @@ This function gives us the possibility of storing a packet inside a buffer  whic
 
 When a client wants to send a packet with a message the network stack first checks its routes table (NIB). If it can't find a route for that destination, you must start a _buffering process_ to store the packet inside the node until it finds the requested route.
 
-### 11.5.1 Routine for packet buffer initialization.
+### 11.5.1 Packet buffer initialization routine.
 
 The following code represents the function that is responsible for initializing the buffer where a message packet will be stored if a route to the destination is not known. The routine is inside the ```aodvv2_buffer.c``` file, which also offers routines for manipulating information.
 
