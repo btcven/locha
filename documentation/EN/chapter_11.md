@@ -218,7 +218,7 @@ typedef struct {
 ```
 
 
-### 11.5.3 Definition of the buffer to store messages.
+### 11.5.3 Storage buffer definition for messages.
 To configure messages that we want to sent but for which there is no route, an array is created with a fixed size and limited by hardware resources.
 
 ```
