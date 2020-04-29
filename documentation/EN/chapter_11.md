@@ -546,7 +546,7 @@ static void *_event_loop(void *arg)
 
 ```
 
-The main structure of the function is formed by an infinite _while_ cycle, typical of the functions assigned to run in a separate thread or process, and a _switch_ that filters between the different incoming messages, to make decisions depending on the type of message.
+The main structure of the function is formed by an infinite _while_ cycle, typical of the functions assigned to run in a separate thread or process, and a _switch_ that filters between different incoming messages, to make decisions depending on the type of message.
 
 From now on we will refer to this function for references to receiving _UDP_ messages, due to  this is where the internal process with incoming messages really starts.
 
