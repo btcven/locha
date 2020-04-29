@@ -162,7 +162,7 @@ typedef struct {
 
 This function is found in the file ```aodvv2_rreqtable.c```, which also exposes functions for the handling of said table.
 
-The code shows how some time variables are started and the zero value assignment to that table when the _AODV_ protocol starts.
+The code shows how some timed variables are started and the zero value assignment to that table when the _AODV_ protocol starts.
 
 The _mutex_ variable is used to block access to the table by other processes inside the application.
 
