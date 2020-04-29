@@ -134,14 +134,14 @@ void aodvv2_routingtable_init(void)
 ```
 
 
-Starting the route table is equivalent to set to zero all the entries in the routes table and creating some time variables to measure if the information obtained from the routes message is obsolete or, on the contrary, provides us a useful information for the correct operation of the _AODV_ router.
+Starting the route table is equivalent to set to zero all the entries in the routes table and creating some timed variables to measure if the information obtained from the routes message is obsolete or, on the other hand, provides us a useful information for the correct operation of the _AODV_ router.
 
 For more information about routes table, check to section 4.5 of the ```draft-perkins-manet-aodvv2- document```.
 
 
 ## 11.4 aodv_rreqtable_init
 
-This function initializes a table with the intention of storing information from incoming _multicast_ messages to avoid retransmitting redundant messages. This table keeps a record of each incoming _RREQ_ message, so new incoming _RREQ_ messages, searching for the same destination from the same origin, are deleted without the need to retransmit them.
+This function initializes a table with the intention of storing information from incoming _multicast_ messages to avoid transmitting redundant messages. This table keeps a record of each incoming _RREQ_ message, so new incoming _RREQ_ messages, searching for the same destination from the same origin, are deleted without the need to retransmit them.
 
 ### 11.4.1 Scheme of an entry in the RREQ routing message table.
 This is the format of the message to be stored in the routes message table (_RREQ_):
