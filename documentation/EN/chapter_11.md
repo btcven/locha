@@ -580,7 +580,7 @@ At this point we have almost completely configured the resources necessary to op
 
 ## 11.11 RFC5444 Initial Configuration.
  
-_RFC5444_ defines a message encapsulation and serialization protocol to operate in an ad-hoc mobile network, which provides the serialization and deserialization of messages and offers the possibility to read various parameters related to the packet without the need to deserialize  completely the packet.
+_RFC5444_ defines a message encapsulation and serialization protocol to operate in an ad-hoc mobile network, which provides the serialization and deserialization of messages and offers the possibility to read various parameters related to the packet without the need completely packet deserialization.
 
 _RFC5444_ was created to work with the _RPL_ protocol, which has been extended to different routing protocols, due to it adapts to the needs of this type of networks. It was designed for devices with low computational calculation and low energy consumption, which makes it ideal for this application.
 
