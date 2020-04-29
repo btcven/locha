@@ -228,7 +228,7 @@ static buffered_pkt_t _buffered_pkts[CONFIG_AODVV2_MAX_BUFFERED_PACKETS];
 
 ## 11.6 Initiate the clients table.
 
-The clients table is a conceptual table that stores the clients of the router, and the node only recreates the _RREQ_ and _RREP_ messages from the clients registered in that table.
+The clients table is a conceptual table that stores the clients of the router, and the node only recreates the _RREQ_ and _RREP_ messages from the clients registered in its table.
 
 ### 11.6.1 Routine to initialize the routes table.
 
