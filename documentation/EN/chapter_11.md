@@ -399,7 +399,7 @@ In the function ```_gnrc_netreg_entry_init_pid```(& netreg, UDP_MANET_PORT, pid)
 
 ### 11.10.1 Routine for subscribing to network messages.
 
-The term ```_event_loop``` in the next part of the code refers to the function that executes the code necessary to wait for incoming messages to which you have subscribed.
+The term ```_event_loop``` in the next part of the code refers to the function that executes the necessary code to wait for incoming messages for which you have subscribed.
 
 We must store the _PID_ of the thread created to use it as an input parameter in the _RIOT-OS_ API, and tell it what thread or process must be executed to wait for incoming _UDP_ messages. 
 
