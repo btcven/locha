@@ -9,7 +9,7 @@ This section presents the parameters that were used to choose all the control an
 
 To choose the radio module that contains the microcontroller (MCU), the RF and modulation needed to transmit on the 915 MHz frequency, some parameters were established:
 - Support of IEEE 802.15.4 standard. 
-- At least 2 USART.07 ports. 
+- At least 2 UART ports. 
 - Low-cost.
 - Easy to use. 
 - Support for the Sub-GHz band to 915 MHz. 
