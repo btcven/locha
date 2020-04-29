@@ -339,7 +339,7 @@ static int _find_netif_global_addr(ipv6_addr_t *addr)
 
 ## 11.9 aodvv2_client_add.
 
-This function is used to add clients to the corresponding table. It is used for the first time inside the protocol initialization routine, due to the same device must be added as a client in this table.
+This function is used to add clients to the corresponding table. It is used for the first time inside the protocol initialization routine, due to the same device must be added as a client in its table.
 
 ### 11.9.1 Routine to add clients to the table.
 
