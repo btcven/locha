@@ -345,7 +345,7 @@ This function is used to add clients to the corresponding table. It is used for 
 
 This function receives as parameters the client's IP, the network prefix size and the cost of the link. The type of address passed to the function is ```ipv6_addr_t``` type. It stores 128-bit data. This clarification is made because _RIOT-OS_ offers other types of equivalent but not completely compatible addresses, such as ```netaddr```, which offers a little more information about the owner of the IP.
 
-The following algorithm is simple, but it highlights the main task, which is to take the IP address of the argument in order to search in the clients table and know if it should update the information when there is a similar one, or must be created a new entry when not so.
+The following algorithm is simple, but it highlights the main task, which is to take the IP address of the argument in order to search in the clients table and know if it should update the information when there is a similar one, otherwise a new entry must be created.
 
 ```cpp
 aodvv2_client_entry_t *aodvv2_client_add(const ipv6_addr_t *addr,
