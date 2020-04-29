@@ -482,7 +482,7 @@ int main(void)
 
 ### 11.10.3 Implementation of the process or IPC thread.
 
-Now we will see how to implement the function that is responsible for listening the incoming messages, process them and review what kind of message has arrived and what should be the applied procedure, depending on the type and the information contained in it.
+Now we will see how to implement the function that is responsible for listening the incoming messages, process them and review what kind of message has arrived and what should be the applied procedure, based on the type and the information contained in it.
 
 ```cpp
 static void *_event_loop(void *arg)
