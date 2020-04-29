@@ -77,9 +77,8 @@ The library is very simple, but efficiently it solves possible data problems tha
 
 ## 11.3 aodvv2_routing_table_init
 
-Todos los routers AODV deben mantener un conjunto de rutas locales, conteniendo información obtenida de los mensajes de ruta (RREQ y RREP).
-
-All _AODV_ routers must maintain a set of local routes with information obtained from the route messages (_RREQ_ and _RREP_). To handle the ***Turpial*** routes table it is necessary to keep a list with such information and for this, the _aodvv2_routing_table_init_ function is in charge of creating the necessary set to store the information with the routes that can be reached through the mentioned routes table.
+All _AODV_ routers must maintain a set of local routes with information obtained from the route messages (_RREQ_ and _RREP_). 
+To handle the ***Turpial*** routes table it is necessary to keep a list with such information and for this, the _aodvv2_routing_table_init_ function is in charge of creating the necessary set to store the information with the routes that can be reached through the mentioned routes table.
 
 ### 11.3.1 Scheme of an entry in the routes table.
 The structure of the package must be saved in the route table corresponding to the scheme defined in the _routingtable.h_ file_:
