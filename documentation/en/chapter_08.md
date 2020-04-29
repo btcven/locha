@@ -6,7 +6,7 @@ _AODV_ is ideal for ad-Hoc networks. Exchange messages when you need to establis
 
 In the following image [11] we can see the different versions of _AODVv2_ and _DYMO_.
 
-![draft version](imple_pic/aodv-versions.png "draft version")
+![draft version](pics/aodv-versions.png "draft version")
 
 At **Locha Mesh**, we focus on the evolution of _AODV_ called _AODVv2_, but we will simply talk about _AODV_ to refer to the most current version of the routing protocol.
 
@@ -73,7 +73,7 @@ One of the fields is the identifier that is modified every time an _RREQ_ shipme
 
 
 <p>
-<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 
@@ -85,7 +85,7 @@ In this figure we can see how node A wants to search for a route to node I. The 
 <br />&nbsp;<br />
 <br />&nbsp;<br />
 
-<img src="imple_pic/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
+<img src="pics/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
 </p>
 
 
@@ -106,7 +106,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 1. </h2>
 
 <p>
-<img src="imple_pic/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - Node **S** wants to send a packet with information to node **D**.. 
@@ -123,7 +123,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 2. </h2>
 
 <p>
-<img src="imple_pic/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 
@@ -138,7 +138,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 3. </h2>
 
 <p>
-<img src="imple_pic/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - Node **H** receives the _RREQ_ message from two different neighbors, which could lead to a collision.
@@ -152,7 +152,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 4. </h2>
 
 <p>
-<img src="imple_pic/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - Node **C** receives the _RREQ_ message from **G** and **H**, but does not recreate it, because node **C** has recreated this message before.
@@ -166,7 +166,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 5. </h2>
 
 <p>
-<img src="imple_pic/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - In this case nodes **J** and **K** retransmit the packet to **D**, due to these nodes do not know each other and their transmissions could collide.
@@ -182,7 +182,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 6. </h2>
 
 <p>
-<img src="imple_pic/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - Node **D** does not recreate the package due to it is the recipient of the route request message.
@@ -198,7 +198,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 <h2> Step 7. </h2>
 
 <p>
-<img src="imple_pic/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="pics/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - The flooding of the _RREQ_ message across the network is now complete.
@@ -269,7 +269,7 @@ We also have an example to illustrate the route table at each node after a route
 The following figure shows a basic node topology and the route table that is used to find other nodes.
 
 <p>
-<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
+<img src="pics/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
 </p>
 
 
@@ -504,7 +504,7 @@ We are going to detail the control messages that the protocol uses to communicat
 ### 8.11.1 Contents of the RREQ route request message.
 
 <p> 
- <img src="imple_pic/RREQMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+ <img src="pics/RREQMSG.svg" alt="drawing" height="260" width="280" align="left"/>
 
 
 - **msg_hop_limit**: contains an integer that decreases by 1 each hop that goes through the _RREQ_ message. The _RREQ_Gen_ message sets the maximum number of hops that the _RREQ_ message will traverse.
@@ -520,7 +520,7 @@ We are going to detail the control messages that the protocol uses to communicat
 ### 8.11.2 Contents of the RREP route response message.
 
 <p> 
- <img src="imple_pic/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+ <img src="pics/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
 
 - **msg_hop_limit**: contains an integer that decreases its value by 1 for each hop that the _RREP_ message traverses. The _RREP_Gen_ messages sets the maximum number of hops that the _RREP_ message will traverse.
 - **AddressList**: contains _OrigPrefix_ and _TargPrefix_.
@@ -533,7 +533,7 @@ We are going to detail the control messages that the protocol uses to communicat
 
 ### 8.11.3 RREP_Ack message content.
 <p> 
- <img src="imple_pic/ACKMSG.svg" alt="drawing" height="60" width="280" align="left"/>
+ <img src="pics/ACKMSG.svg" alt="drawing" height="60" width="280" align="left"/>
 
 - **AckReq** (Optional): If included, informs the receiver that it must send an _RREP_Ack_ message to confirm the bidirectionality of the link.
 </p>
@@ -543,7 +543,7 @@ We are going to detail the control messages that the protocol uses to communicat
 ### 8.11.4 RERR message content.
 
 <p> 
- <img src="imple_pic/RERRMSG.svg" alt="drawing" height="220" width="280" align="left"/>
+ <img src="pics/RERRMSG.svg" alt="drawing" height="220" width="280" align="left"/>
 
 - **PktSource** (Optional :) represents the IP address of the packet that triggered the _RERR_.
 - **AddressList**: the addresses of the routes that are not available.

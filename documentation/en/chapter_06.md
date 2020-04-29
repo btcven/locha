@@ -5,7 +5,7 @@ This section presents the parameters that were used to choose all the control an
 
 ## 6.1 Radio frequency module 
 
-<img src="imple_pic/RF-selection.svg"  height="650" width="450" align="left"/>
+<img src="pics/RF-selection.svg"  height="650" width="450" align="left" alt="RF Selection"/>
 
 To choose the radio module that contains the microcontroller (MCU), the RF and modulation needed to transmit on the 915 MHz frequency, some parameters were established:
 - Support of IEEE 802.15.4 standard. 
@@ -27,7 +27,7 @@ The MCUs family CC135X fulfills most of the requirements, nevertheless, provides
 For the Locha Mesh's Turpial to work optimally, the device that will regulate the voltage deriving from the battery and will power the device must be carefully selected. 
 
 <br>
-<img src="imple_pic/powerSupply-selection.svg"  height="650" width="450" align="left"/>
+<img src="pics/powerSupply-selection.svg"  height="650" width="450" align="left" alt="Power Supply Selection"/>
 
 The parameters to take into account for the selection of the device that supplies the circuit are: 
 - Electric current: the circuit current must be greater or equal to 2 amps (A). 
@@ -43,7 +43,7 @@ When weighting the difference devices, it is observed that the LTC3113 provides 
 
 ## 6.3 Battery charger
 
-<img src="imple_pic/BatteryChargerSelection.svg"  height="450" width="450" align="left"/>
+<img src="pics/BatteryChargerSelection.svg"  height="450" width="450" align="left" alt="Battery Charger Selection"/>
 <br>
 
 For charging the lithium battery we have decided to use the BQ2407x family chip, which is easy to acquire and it adapts to the linear load and durability requirements of the batteries by having a robust charging system like the one presented in the Turpial design. 
@@ -58,7 +58,7 @@ For charging the lithium battery we have decided to use the BQ2407x family chip,
 <br>
 
 ## 6.4 Battery power control 
-<img src="imple_pic/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
+<img src="pics/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left" alt="Battery Management System"/>
 
 The power control is the system that is responsible for reading variables related to the battery such as available power, charging time, current supplied, etc. 
 
@@ -92,13 +92,13 @@ It is perfect for the Turpial, since it has several USART ports, which allows us
 
 ## 6.6 Block diagram of the Turpial hardware 
 
-<img src="imple_pic/Hardware-Block.svg" height="450" width="900" align="center"/>
+<img src="pics/Hardware-Block.svg" height="450" width="900" align="center" alt="Hardware Block"/>
 
 
 ## 6.7 Block diagram of the control application. 
 
 ## 6.8 Overview of the Turpial as a device. 
 
-<img src="imple_pic/turpial.svg" height="450" width="400" align="center"/>
+<img src="pics/turpial.svg" height="450" width="400" align="center" alt="Turpial"/>
 
 The figure shows the first prototype currently under development. 

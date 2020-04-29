@@ -17,7 +17,7 @@ The RFC5444 format defines the following elements:
 
 The following image represents the structure of an _RFC544_ package and its dependencies.
 
- <img src="imple_pic/rfc5444-pkt.png" alt="drawing" height="600" width="1000" align="center"/>
+ <img src="pics/rfc5444-pkt.png" alt="drawing" width="100%" align="center"/>
 
 Each type of control message has to be adapted to the format of the _RFC5444_ packet.
 
@@ -102,21 +102,21 @@ It is a field that contains an 8-bit unsigned integer
 
 _AODVv2_ uses the following fields from the _RFC5444_ Header message
 
-<img src="imple_pic/header-rfc5444.png" alt="drawing" height="100" width="400" align="center"/>
+<img src="pics/header-rfc5444.png" alt="drawing" height="120px" align="center"/>
 
 <br>
 
 <h3> The address block is made up of::</h3>
 
-<img src="imple_pic/tlv-addr-block.png" alt="drawing" height="100" width="460" align="center"/>
+<img src="pics/tlv-addr-block.png" alt="drawing" height="120px"  align="center"/>
 
 <h3> TLV for _OrigPrefix_ will be formed by:</h3>
 
-<img src="imple_pic/tlvOrigPrefix.png" alt="drawing" height="120" width="460" align="center"/>
+<img src="pics/tlvOrigPrefix.png" alt="drawing" height="120px" align="center"/>
 
 <h3>The TLV for _OrigPrefix_ will be formed of:</h3>
 
-<img src="imple_pic/tlvTargetPrefix.png" alt="drawing" height="120" width="460" align="center"/>
+<img src="pics/tlvTargetPrefix.png" alt="drawing" height="120px" align="center"/>
 
 
 ## 9.3 oonf_api

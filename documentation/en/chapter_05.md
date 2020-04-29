@@ -45,7 +45,7 @@ In all routing protocols used for wireless networks and WNS it's important to se
 ## 5.3 Locha Mesh routing protocol
 
 <br>
-<img src="imple_pic/protocolo_seleccion.svg"  height="650" width="450" align="left"/>
+<img src="pics/protocolo_seleccion.svg"  height="650" width="450" align="left"/>
 
 
 In this diagram we summarize the criteria for choosing a protocol suitable for Locha Mesh. We can enphasize the following:

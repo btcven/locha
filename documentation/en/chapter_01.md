@@ -26,7 +26,7 @@ The Figure 1.1 (a) represent three base stations communicating with their mobile
 
 
 <figure>
-  <img src="imple_pic/network-topology.png" alt="drawing" height="200" width="450" align="center"/>
+  <img src="pics/network-topology.png" alt="drawing" height="200" width="450" align="center"/>
   <figcaption>Fig.1.1</figcaption>
 </figure>
 

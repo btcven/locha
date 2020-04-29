@@ -67,9 +67,11 @@ true ==>
 ## 10.6 Model to receive a Route Request.
 
 ***rreq-recv (RREQ(m),K)**: This action processes a Route Request message.
+
 ```
 m = (h,(sO, sT),(O, T)) from neighbor K. 
 ```
+
 It is protected by the condition that a route at node **m** is better than a route to origin at node **H**.
 
 ```
@@ -92,6 +94,7 @@ endif
 
 **rrep-recv(RREP(m),K)**: This action processes an incoming message of type **Route Reply (RREP)**.
 **messagem=(h,(sO, sT),(O, T))** from a neighbor **K** that contains a better route to the destination.
+
 ```
 (m.sT,m.h,Active) >> H.route[T].e ==> // m has better route to the target
 // update the target 
@@ -99,13 +102,13 @@ routeH.route[T] = (K,(m.sT,m.h+1),Active);// propagate as appropriate
 if (H = O) then // H is the origin node: do nothing
 skip
 else // H is an intermediate node
- if (H.route[O] is defined) then // propagate RREP
- let replymsg = RREP(m.h+1, m.tlv, (O,T)) in
- unicast(replymsg, H.route[O].n)
- else // generate error RERR
- let errormsg = RERR(h=0,tlv=(_,_)) in
- unicast(errormsg,K)
- endif
+  if (H.route[O] is defined) then // propagate RREP
+  let replymsg = RREP(m.h+1, m.tlv, (O,T)) in
+  unicast(replymsg, H.route[O].n)
+  else // generate error RERR
+  let errormsg = RERR(h=0,tlv=(_,_)) in
+  unicast(errormsg,K)
+endif
 ```
 
 ## 10.8 Model to receive a Route Error.
@@ -114,11 +117,11 @@ else // H is an intermediate node
 
 ```
 true ==>
- for all nodes w:
- if (H.route[w].n = K) then
- H.route[w].e.x = Broken; // mark route as broken.
- multicast(RERR(m)) // propagate RERR to all neighbors
- endif
+  for all nodes w:
+  if (H.route[w].n = K) then
+  H.route[w].e.x = Broken; // mark route as broken.
+  multicast(RERR(m)) // propagate RERR to all neighbors
+  endif
 ```
 
 
@@ -127,9 +130,9 @@ true ==>
 
 ```
 true ==>
- for all nodes w:
- if (H.route[w].n = K) then
- H.route[w].e.x = Broken; // mark route as broken.
- multicast(RERR(m)) // propagate RERR to all neighbors
- endif
+  for all nodes w:
+  if (H.route[w].n = K) then
+  H.route[w].e.x = Broken; // mark route as broken.
+  multicast(RERR(m)) // propagate RERR to all neighbors
+  endif
 ```
