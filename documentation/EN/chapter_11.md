@@ -395,7 +395,7 @@ The difference between the type of configuration selected to listen to messages 
 
 In this fraction of code present in the initialization of the _AODV_ protocol, we are subscribing the node so that we can listen to all  _UDP_ messages from external nodes, without the need to configure _UDP_ on our own using the implementation that _RIOT-OS_ brings for handling of this type of subscriptions to external messages.
 
-In the function ```_gnrc_netreg_entry_init_pid```(& netreg, UDP_MANET_PORT, pid), pid refers to the thread ID that is designated for handling this type of message. As in the creation of any thread we need some standard parameters of the threads in C ++. To create the thread that is in charge of waiting for the messages, we proceed to the implementation by creating a parallel execution space with other processes inside _RIOT-OS_, known as _multi-task_.
+In the function ```_gnrc_netreg_entry_init_pid```(& netreg, UDP_MANET_PORT, pid), pid refers to the thread ID that is designated for handling this type of message. As in the creation of any thread we need some C++ threads standard parameters. To create the thread that is in charge of waiting for the messages, we proceed to the implementation by creating a parallel execution space with other processes inside _RIOT-OS_, known as _multi-task_.
 
 ### 11.10.1 Routine for subscribing to network messages.
 
