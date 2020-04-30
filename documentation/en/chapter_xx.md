@@ -351,14 +351,34 @@ When network stack is not able to resolve the remote address, __AODV__is trigger
 
 In this stage we are going to set up the staging environment with up 6 nodes. Initially all routing tables and buffers are empty, the originator and destination of the data packets are identified as nodes A, B, C, D, E and F.
 
+To do the test, we are going to init a RREQ from node D to get information path from node C, in this scenario, there are 2 right paths to reach the destination node but node C takes the first one to arrive, the second one is listed as a stale route information.
+
+There are some very important things to take in mind, the second alternative route is stale because it doesn't offer improvements over the first one, but this stale information gives to node the opportunitty to know about your neighbors environment to future transactions.
+
+###### Node's distribution
+In this below picture we can realized due to deploy information in its route table that the trace path to reach node C from D is through node A and B  
 <img src="../ES/imple_pic/simulation_6nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
+
+##### Nodes's routes information
+
+<img src="../ES/imple_pic/simulation_6nodesNibOut.svg" alt="drawing" height="300" width="1000" align=""/>
+
+
+
 
 
 # X.7 fourth stage environment
 This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
-<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
+Here we are going to try to send a message from node A to node D, steps to execute the test is as follow:
+- Run __UDP__ server from node D.
+- Run __UDP__ client and setting up the client information. 
 
+When the client try to send a message to destination, the reactive protocol is triggered and find_route is executed then, __AODV__ process is started to find destination's route.
+
+Here we can realized node F is able to reach four nodes when carry out a RREQ
+
+<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
 
 
 ## Experimental Results
@@ -368,5 +388,3 @@ This test offers the possibility of verifying the __route_message__ table becaus
 ## Conclusions and Outlook
 
 The aim of this ongoing work is to complement by simulation checking an algorithmic process description of WMN routing protocols AODV in particular. The used description of AODV described in draft-ietf-manet-aodvv2 was translate to C++ algorithms 
-
-
