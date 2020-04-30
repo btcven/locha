@@ -1,4 +1,4 @@
-## 1. Motivation
+## 1. Motivación
 
 Even though telecom technology has taken a big leap in terms of development, it becomes evident it's own susceptibility. We're not talking about technology by itself but about people, those are the ones vulnerable to the side effects of communication isolation resulting from centralization, and regulation of communication standards worldwide.
 
