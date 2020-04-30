@@ -8,10 +8,10 @@ A performance evaluation of AODV routing protocol is carried out by varying netw
 To do the test, Renode simulator was used due to is an open source development framework which accelerates IOT embedded systems development by letting you simulate physical hardware systems, including both the CPU, peripherals, sensors, environment and wired or wireless medium between nodes. 
 
 
-## X.2 Simulation Scenarios Overview.
+## X.2 Simulation Stages Overview.
 This is the first attempt to test AODV routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process. 
 
-Different simulation scenarios has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to show the results.
+Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to show the results.
 
 ## X.2.1 Network Size.
 The network is varied from 3 nodes to 24 nodes in order to study the scalability of the routing protocol. It is extremely important for a routing protocol to perform well for large networks as well as for small networks. By varying the size, the aim is to study the scalability of the routing protocol in terms of how well it addresses the maintenance of a large number of nodes and routes. The selected area of simulation is 1000mx1000m, which provides sufficient space for nodes to be mobile and sufficiently placed apart to observe the impact of multihop routing. The network size is varied so that the behavior of the protocol scales with the network size. More importantly, as the network size increases, the link (and route breakage) probability increases. 
@@ -118,11 +118,11 @@ start
 
 ```
 
-## X.4 First scenario and topology.
+## X.4 First stage environment.
 
-The experiment consider scenario with up 3 nodes. Initially all routing tables and buffers are empty, the originator and the destination of the data packets are identified as nodes A, B, or C. The new data packets may arrive as depicted in below figure.
+The experiment consider this stage environment  with up 3 nodes. Initially all routing tables and buffers are empty, the originator and the destination of the data packets are identified as nodes A, B, or C. The new data packets may arrive as depicted in below figure.
 
-- In the first scenario a packet from A to B is followed by a packet from A to C.
+- In the first stage a packet from A to B is followed by a packet from A to C.
 
 ```cpp
         A                         B                      C        
@@ -158,21 +158,33 @@ In the simulation we have 3 nodes with the following assigned IPs:
     <th>Nodes</th>
     <th>Global IPV6</th>
     <th>Tx Power</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
  </tr>
   <tr align="center">
     <td>Node-A</td>
     <td> 2001::200:1:0:0 </td>
     <td> 24dbm </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
  </tr>
  <tr align="center">
     <td>Node-B</td>
     <td> 2001::200:2:0:0 </td>
     <td> 24dbm</td>
+    <td>100</td>
+    <td>0</td>
+    <td>0</td>
  </tr>
  <tr align="center">
     <td>Node-C</td>
     <td> 2001::200:3:0:0 </td>
     <td> 24dbm</td>
+    <td>200</td>
+    <td>0</td>
+    <td>0</td>
  </tr>
 </table>
 </div>
@@ -239,7 +251,7 @@ In the below image we can see the output information that correspond to the both
 This was the basic test between two nodes inside radio frequency coverage.\
 Now we are going to try to reach a third node C without RF coverage  sending a route request and then sending a __UDP__ message to test the built route and demostrate the routing process between nodes with more than one hop between them.
 
-When node A send a __RREQ__, node B get this one and recreate and forward a new RREQ, node C is the target then it will need  to reply with RREP message,Node B again receive a new message but in this case the message is from node C and is the type RREP and it will need to reply by recreating RREP message to node A from node C,  notice on every hop the __hop_limit__ is decreasing its value.
+When node A send a __RREQ__, node B get this one and recreate and forward a new RREQ, node C is the target then it will need  to reply with RREP message,Node B again receive a new message but in this case the message is from node C and is of type RREP message and it will need to reply by recreating RREP message to node A from node C ,  notice on every hop the __hop_limit__ is decreasing its value.
 
 
 ##### Table 2 
@@ -299,127 +311,53 @@ The below image are showing again the updated table with availables routes to se
 <img src="../ES/imple_pic/simulation_3nodesNibOut5.svg" alt="drawing" height="110" width="250" align=""/>
 
 
-AT this point we were showing the routing protocolo behavior on a basic topology distribution, the next step, is try to change this one and analyze the result when a target receive RREQ from more than one node. 
+At this point we are showing the routing protocolo behavior on a basic topology distribution, the next step, is to try to change this one and analyze the result when a target receive RREQ from more than one node. 
 
 
+## X.5 Second stage environment
+
+In this section we are going to show the protocol behavior when the number of nodes with up 4 ones. the following figure are showing the node's position over cartesian plane and this information will need to be added to renode's script.
+
+In this point there aren't any address inside table route, we are going to find a route from node A to node D, then print the routing table available in each of thouse nodes. The below picture show the output after run __nib__ __route__. 
+
+Node B table routes is showing the available forwarding paths, The below information means node B works as a bridge between node A and D.
+
+In this stage we can realized node D doesn't stored information about Node C route; Here we can have many questions about what we could do with the new node C route, because node D can reach a stale RREQ from node C, but the route can help to avoid a new RREQ from node D to discover node C. maybe a local neighbor set could contain this stale information to be processed later.  
+
+###### Nodes's distribution 
+
+<img src="../ES/imple_pic/simulation_4nodesSecondScenario.svg" alt="drawing" height="400" width="800" align=""/>
+<br>
+
+ 
+We can try to send a message from node B or C to node A and it can be success because both intermediate nodes have stored a reverse route back to the originator of the RREQ (node A).
+The only thing we cannot forget is the route inside node C to reach node A is an unconfirmed as bidirectional path.
 
 
-## X.5 Second scenario and topology
+Now we can do a new route request from different node to test the RREQ and RREP messages and printout  the routes tables.
+Lets try with route request from node B to node C and check the route tables.
 
-In this section we are going to show the protocol behavior when the number of nodes with up 4 ones. 
+After carry out the request the following picture show the content of route tables, and that information means node A is the bridge between node B and node C.This basic stage can help us to understand how many RREQ are flooding the network and how we can improve the system in order to process more information that can work as a second alternative when broken routes.
 
-<img src="../ES/imple_pic/simulation_4nodesTopology.svg" alt="drawing" height="420" width="450" align=""/>
-
-
-
+<img src="../ES/imple_pic/simulation_4nodesNibOut6.svg" alt="drawing" height="300" width="1000" align=""/>
 
 
+# X.6 third stage environment
+henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
+
+The current firmware has implemented an __UDP__ server and client to listend and send packets to/from anywhere.\
+When network stack is not able to resolve the remote address, __AODV__is triggered and  __find_route__ command is execute automatically.  
 
 
+In this stage we are going to set up the staging environment with up 6 nodes. Initially all routing tables and buffers are empty, the originator and destination of the data packets are identified as nodes A, B, C, D, E and F.
+
+<img src="../ES/imple_pic/simulation_6nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
 
 
-- In de second scenario a packet from B to A is followed by a packet from C to A.
-- In the third scenario a packet from A to B is followed by a packet from B to C.
-- In the fourth scenario a packet from A to B is followed by a packet from C to A. 
+# X.7 fourth stage environment
+This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
-The originator of the first new packet initiates a route discovery process first, the originator of the second non-deterministically after the first.
-
-Different scenarios are implemented by using renode development framework in order to execute the firmware with the AODV protocolo in each of thouse nodes and send/get information to/from the node through the serial terminal. 
-
-```cpp
-        A                         B                      C        
------------------         -----------------      -----------------
-        |                         |                      |
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |      newpkt[A][B]       |                      |        
-        ------------------------->|                      |        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |       newpkt[A][C]      |                      |        
-        ------------------------------------------------>|        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |                      |        
------------------         -----------------      -----------------
-```
-
-```cpp
-        A                         B                      C        
------------------         -----------------      -----------------
-        |                         |                      |
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |      newpkt[B][A]       |                      |        
-        <-------------------------|                      |        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |     newpkt[C][A]     |        
-        <------------------------------------------------|        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |                      |        
------------------         -----------------      -----------------
-```
-
-```cpp
-        A                         B                      C        
------------------         -----------------      -----------------
-        |                         |                      |
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |      newpkt[A][B]       |                      |        
-        ------------------------->|                      |        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |     newpkt[A][C]     |        
-        |                         ---------------------->|        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |                      |        
------------------         -----------------      -----------------
-```
-
-
-```cpp
-        A                         B                      C        
------------------         -----------------      -----------------
-        |                         |                      |
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |      newpkt[C][A]       |                      |        
-        |------------------------>|                      |        
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |     newpkt[A][B]     |        
-        |<-----------------------------------------------|     
-        |                         |                      |        
-    +-------+                 +-------+              +-------+    
-    |       |                 |       |              |       |    
-    +-------+                 +-------+              +-------+    
-        |                         |                      |        
------------------         -----------------      -----------------
-```
-
-
+<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
 
 
 
