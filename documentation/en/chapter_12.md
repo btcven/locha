@@ -243,7 +243,8 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
     ```cpp
     aodvv2_send_rreq(&pkt, &ipv6_addr_all_manet_routers_link_local);
     ```
-    Pasamos como argumentos el paquete ```AODV``` ademas de la dirección IP a la que queremos enviar el mensaje, que para este caso es la dirección de multicast especificado en el ```RFC5498``` seccion 6 y la cual tiene este valor asignado:
+    We sent as arguments the _AODV_ packet and the IP address to which we want to send the message, which in this case is the _multicast_ address specified in _RFC5498_ (section 6) and that has this assigned value:
+
     ```cpp
     #define IPV6_ADDR_ALL_MANET_ROUTERS_LINK_LOCAL {{ 0xff, 0x02, 0x00, 0x00, \
                                                   0x00, 0x00, 0x00, 0x00, \
