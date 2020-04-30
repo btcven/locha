@@ -307,7 +307,6 @@ The code can be summarized in the following parts:
 
     After assigning the _AODV_ packet to the ```msg_t``` object, we send it to the _IPC_ so that it is received in the application loop. It has been assigned  ```AODVV2_MSG_TYPE_SEND_RREQ```. In the same way we must retrieve it in the loop where we want to process it, because up to this point we only have an _AODV_ packet, but we still need to create the _RFC5444_ format that must contain the packet.
 
-Veamos el siguiente paso en este flujo para conocer donde se recibe el mensaje que se acaba de enviar.
 
 ### 12.4.2 
 We are going to illustrate the part of the code related to the reception of the message that was sent in the previous section to be received in this function.
