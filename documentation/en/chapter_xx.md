@@ -581,7 +581,7 @@ Each nodes maintains a sequence number, which saves a time stamp, and a routing 
 
 
 
-Here we are going to try to send a message from node F to node G, this latest one is a direct neighbor to F, but we can see the flooding process was able to reach all nodes in the network, but all the new learned routes are not confirmed as a bidirectional ones yet. Table 6 are showing all nodes inside the network had stored a route to node F `2001::200:6:0:0`, this latest include node A that isn't a node F direct neighbor.
+Here we are going to try to send a message from node F to node G, this latest one is a direct neighbor to F, but we can see the flooding process was able to reach all nodes in the network, but all the new learned routes are not confirmed as a bidirectional ones yet. Table 6 are showing all nodes inside the network has stored a route to node F `2001::200:6:0:0`, this latest include node A that isn't a direct neighbor to node F .
 steps to execute the test is as follow:
 - Run __UDP__ server from node G.
 - Run __UDP__ client and setting up the client information from node F. 
@@ -737,7 +737,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>
         <ul>
             <li>2001::200:1:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:4:0:0 dev #7</li>
+            <li>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7</li>
         </ul> 
     </td>
     <td>0</td>
@@ -750,7 +750,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>
         <ul>
             <li>2001::200:2:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
+            <li>2001::200:10:0:0/128 via fe80::200:3:0:0 dev #7</li>
         </ul> 
     </td>
     <td>100</td>
@@ -763,7 +764,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
    <td>
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</li>
+             <li>2001::200:10:0:0/128 via fe80::200:4:0:0 dev #7</li>
         </ul> 
     </td>
     <td>200</td>
@@ -776,7 +778,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
    <td>
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</li>
+             <li>2001::200:10:0:0/128 via fe80::200:8:0:0 dev #7</li>
         </ul> 
     </td>
     <td>300</td>
@@ -789,7 +792,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
    <td>
         <ul>
             <li>2001::200:5:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
         </ul> 
     </td>
     <td>0</td>
@@ -802,7 +805,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
    <td>
         <ul>
             <li>2001::200:6:0:0/128 dev #7</li>
-            <li>2001::200:7:0:0/128 via fe80::200:7:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</li>
         </ul> 
     </td>
     <td>100</td>
@@ -815,7 +818,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
    <td>
         <ul>
             <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</li>
         </ul> 
     </td>
     <td>200</td>
@@ -827,8 +830,9 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-H</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:8:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:4:0:0 dev #7</li>
+             <li>2001::200:10:0:0/128 via fe80::200:c:0:0 dev #7</li>
         </ul> 
     </td>
     <td>300</td>
@@ -840,8 +844,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-I</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:9:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</li>
         </ul> 
     </td>
     <td>0</td>
@@ -853,8 +857,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-J</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:a:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</li>
         </ul> 
     </td>
     <td>100</td>
@@ -866,8 +870,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-K</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:b:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:a:0:0 dev #7</li>
         </ul> 
     </td>
     <td>200</td>
@@ -879,8 +883,9 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-L</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:c:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</li>
+             <li>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</li>
         </ul> 
     </td>
     <td>300</td>
@@ -892,8 +897,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-M</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:d:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</li>
         </ul> 
     </td>
     <td>0</td>
@@ -905,8 +910,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-N</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:e:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:d:0:0 dev #7</li>
         </ul> 
     </td>
     <td>100</td>
@@ -918,8 +923,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-O</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:f:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:e:0:0 dev #7</li>
         </ul> 
     </td>
     <td>200</td>
@@ -931,8 +936,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-P</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+            <li>2001::200:10:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:c:0:0 dev #7</li>
         </ul> 
     </td>
     <td>300</td>
