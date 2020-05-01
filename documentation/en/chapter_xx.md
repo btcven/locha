@@ -864,7 +864,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>100</td>
     <td>-200</td>
     <td>10</td>
-    <td>2001::200:10:0:0</td>
+    <td>2001::200:a:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-K</td>
@@ -877,7 +877,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>200</td>
     <td>-200</td>
     <td>0</td>
-    <td>2001::200:11:0:0</td>
+    <td>2001::200:b:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-L</td>
@@ -891,7 +891,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>300</td>
     <td>-200</td>
     <td>0</td>
-    <td>2001::200:12:0:0</td>
+    <td>2001::200:c:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-M</td>
@@ -904,7 +904,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>0</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:13:0:0</td>
+    <td>2001::200:d:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-N</td>
@@ -917,7 +917,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>100</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:14:0:0</td>
+    <td>2001::200:e:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-O</td>
@@ -930,7 +930,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>200</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:15:0:0</td>
+    <td>2001::200:f:0:0</td>
  </tr>
   <tr align="left">
     <td>Node-P</td>
@@ -943,7 +943,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>300</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:16:0:0</td>
+    <td>2001::200:10:0:0</td>
  </tr>
 </table>
 </div>
