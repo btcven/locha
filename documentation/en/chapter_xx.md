@@ -577,6 +577,10 @@ In the below picture we can realized based on information in its route table tha
 # X.7 fourth stage environment
 This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
+Each nodes maintains a sequence number, which saves a time stamp, and a routing table, which contains routes to destinations, Sequence numbers are used to determine the freshness of routes (the higher the number, the fresher the route, and the older one can be discarded). Each table entry contains the address of the next hop (next node to destination), a hop count (number of hops to destination), and a destination sequence number. Since this is an on demand distance vector schema, routers maintain information of thouse destinations only that they need to contact or relay information to. Each active route is associated with a lifetime stored in the table, after this time has passed route timeput is triggered, and the route is marked as a invalid and later on removed.
+
+
+
 Here we are going to try to send a message from node F to node G, this latest one is a direct neighbor to F, but we can see the flooding process was able to reach all nodes in the network, but all the new learned routes are not confirmed as a bidirectional ones yet. Table 6 are showing all nodes inside the network had stored a route to node F `2001::200:6:0:0`, this latest include node A that isn't a node F direct neighbor.
 steps to execute the test is as follow:
 - Run __UDP__ server from node G.
@@ -712,7 +716,233 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
 In this test the nodes's position are the same as showed in below image.
 
 Each nodo can know about other ones as the rows connection between nodes are showing
+<br>
+
 <img src="../ES/imple_pic/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
+
+
+##### Table 6
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>Nodes</th>
+    <th>Routes</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+    <th>IP</th>
+ </tr>
+  <tr align="left">
+    <td>Node-A</td>
+    <td>
+        <ul>
+            <li>2001::200:1:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:4:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2001::200:1:0:0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-B</td>
+    <td>
+        <ul>
+            <li>2001::200:2:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>100</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2001::200:2:0:0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-C</td>
+   <td>
+        <ul>
+            <li>2001::200:3:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>200</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2001::200:3:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-D</td>
+   <td>
+        <ul>
+            <li>2001::200:4:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>300</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2001::200:4:0:0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-E</td>
+   <td>
+        <ul>
+            <li>2001::200:5:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>0</td>
+    <td>-100</td>
+    <td>0</td>
+    <td>2001::200:5:0:0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-F</td>
+   <td>
+        <ul>
+            <li>2001::200:6:0:0/128 dev #7</li>
+            <li>2001::200:7:0:0/128 via fe80::200:7:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>100</td>
+    <td>-100</td>
+    <td>0</td>
+    <td>2001::200:6:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-G</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>200</td>
+    <td>-100</td>
+    <td>0</td>
+    <td>2001::200:7:0:0</td>
+ </tr>
+   <tr align="left">
+    <td>Node-H</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>300</td>
+    <td>-100</td>
+    <td>0</td>
+    <td>2001::200:8:0:0</td>
+ </tr>
+   <tr align="left">
+    <td>Node-I</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>0</td>
+    <td>-200</td>
+    <td>0</td>
+    <td>2001::200:9:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-J</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>100</td>
+    <td>-200</td>
+    <td>10</td>
+    <td>2001::200:10:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-K</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>200</td>
+    <td>-200</td>
+    <td>0</td>
+    <td>2001::200:11:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-L</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>300</td>
+    <td>-200</td>
+    <td>0</td>
+    <td>2001::200:12:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-M</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>0</td>
+    <td>-300</td>
+    <td>0</td>
+    <td>2001::200:13:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-N</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>100</td>
+    <td>-300</td>
+    <td>0</td>
+    <td>2001::200:14:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-O</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>200</td>
+    <td>-300</td>
+    <td>0</td>
+    <td>2001::200:15:0:0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-P</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td>300</td>
+    <td>-300</td>
+    <td>0</td>
+    <td>2001::200:16:0:0</td>
+ </tr>
+</table>
+</div>
+<br>
 
 
 
