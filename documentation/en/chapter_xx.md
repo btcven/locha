@@ -11,7 +11,7 @@ To do the test, Renode simulator was used due to is an open source development f
 ## X.2 Simulation Stages Overview.
 This is the first attempt to test AODV routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process. 
 
-Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to show the results.
+Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to expose the results.
 
 ## X.2.1 Network Size.
 The network is varied from 3 nodes to 24 nodes in order to study the scalability of the routing protocol. It is extremely important for a routing protocol to perform well for large networks as well as for small networks. By varying the size, the aim is to study the scalability of the routing protocol in terms of how well it addresses the maintenance of a large number of nodes and routes. The selected area of simulation is 1000mx1000m, which provides sufficient space for nodes to be mobile and sufficiently placed apart to observe the impact of multihop routing. The network size is varied so that the behavior of the protocol scales with the network size. More importantly, as the network size increases, the link (and route breakage) probability increases. 
@@ -157,31 +157,31 @@ In the simulation we have 3 nodes with the following assigned IPs:
  <tr align="center">
     <th>Nodes</th>
     <th>Global IPV6</th>
-    <th>Tx Power</th>
+    <th>Max range</th>
     <th>X</th>
     <th>Y</th>
     <th>Z</th>
  </tr>
-  <tr align="center">
+  <tr align="left">
     <td>Node-A</td>
     <td> 2001::200:1:0:0 </td>
-    <td> 24dbm </td>
+    <td> 100</td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
  </tr>
- <tr align="center">
+ <tr align="left">
     <td>Node-B</td>
     <td> 2001::200:2:0:0 </td>
-    <td> 24dbm</td>
+    <td> 100</td>
     <td>100</td>
     <td>0</td>
     <td>0</td>
  </tr>
- <tr align="center">
+ <tr align="left">
     <td>Node-C</td>
     <td> 2001::200:3:0:0 </td>
-    <td> 24dbm</td>
+    <td> 100</td>
     <td>200</td>
     <td>0</td>
     <td>0</td>
@@ -193,6 +193,7 @@ In the simulation we have 3 nodes with the following assigned IPs:
 In order to reach node B from A, we need to execute
 - __ifconfig__ to now node's IP.
 - We may check if we have got a route inside route information base table, executing __nib route__ command. the below image aims to show the executed commands and the output, in this point we don't have any route information to remote nodes.
+- In this paper the maximum coverage range is 100  units for all nodes.
 
 <img src="../ES/imple_pic/simulation_3nodesIP.svg" alt="drawing" height="380" width="380" align="left"/>
 
@@ -326,7 +327,75 @@ In this stage we can realized node D doesn't stored information about Node C rou
 
 ###### Nodes's distribution 
 
-<img src="../ES/imple_pic/simulation_4nodesSecondScenario.svg" alt="drawing" height="400" width="800" align=""/>
+<img src="../ES/imple_pic/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+<br>
+
+##### Table 3
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>Nodes</th>
+    <th>Routes</th>
+    <th>Command script</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+ </tr>
+  <tr align="left">
+    <td>Node-A</td>
+    <td>
+        <ul>
+            <li>2001::200:1:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
+        </ul> 
+    </td>
+   <td> wireless SetPosition radio 0 0 0 </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-B</td>
+    <td>
+        <ul>
+            <li>2001::200:2:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
+        </ul> 
+    </td>
+   <td> wireless SetPosition radio 70 -70 0 </td>
+    <td>70</td>
+    <td>-70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-C</td>
+   <td>
+        <ul>
+            <li>2001::200:3:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
+        </ul> 
+    </td>
+   <td> wireless SetPosition radio 70 70 0 </td>
+    <td>70</td>
+    <td>70</td>
+    <td>0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-D</td>
+   <td>
+        <ul>
+            <li>2001::200:4:0:0/128 dev #7</li>
+            <li>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</li>
+        </ul> 
+    </td>
+   <td> wireless SetPosition radio 110 0 0 </td>
+    <td>110</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+</table>
+</div>
 <br>
 
  
@@ -339,8 +408,56 @@ Lets try with route request from node B to node C and check the route tables.
 
 After carry out the request the following picture show the content of route tables, and that information means node A is the bridge between node B and node C.This basic stage can help us to understand how many RREQ are flooding the network and how we can improve the system in order to process more information that can work as a second alternative when broken routes.
 
-<img src="../ES/imple_pic/simulation_4nodesNibOut6.svg" alt="drawing" height="300" width="1000" align=""/>
+<img src="../ES/imple_pic/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 
+
+
+##### Table 4
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>Nodes</th>
+    <th>Routes</th>
+ </tr>
+  <tr align="left">
+    <td>Node-A</td>
+    <td>
+        <ul>
+            <li>2001::200:1:0:0/128 dev #7</li>
+            <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
+            <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
+        </ul> 
+    </td>
+ </tr>
+ <tr align="left">
+    <td>Node-B</td>
+    <td>
+        <ul>
+            <li>2001::200:2:0:0/128 dev #7</li>
+            <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
+        </ul> 
+    </td>
+ </tr>
+ <tr align="left">
+    <td>Node-C</td>
+   <td>
+        <ul>
+            <li>2001::200:3:0:0/128 dev #7</li>
+            <li>2001::200:2:0:0/128 via fe80::200:1:0:0 dev #7</li>
+        </ul> 
+    </td>
+ </tr>
+  <tr align="left">
+    <td>Node-D</td>
+   <td>
+        <ul>
+            <li>2001::200:4:0:0/128 dev #7</li>
+            <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
+        </ul> 
+    </td>
+ </tr>
+</table>
+</div>
 
 # X.6 third stage environment
 henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
@@ -353,32 +470,250 @@ In this stage we are going to set up the staging environment with up 6 nodes. In
 
 To do the test, we are going to init a RREQ from node D to get information path from node C, in this scenario, there are 2 right paths to reach the destination node but node C takes the first one to arrive, the second one is listed as a stale route information.
 
-There are some very important things to take in mind, the second alternative route is stale because it doesn't offer improvements over the first one, but this stale information gives to node the opportunitty to know about your neighbors environment to future transactions.
+There are some very important things to take in mind, the second alternative route is stale because it doesn't offer improvements over the first one, but this stale information gives to node the opportunitty to know about your neighbors environment to future transactions, The stale information could be useful as a second alternative when the main route is broken.
 
 ###### Node's distribution
-In this below picture we can realized due to deploy information in its route table that the trace path to reach node C from D is through node A and B  
-<img src="../ES/imple_pic/simulation_6nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
+In the below picture we can realized based on information in its route table that the traced path to reach node C from D is through node A and B.
+
+<img src="../ES/imple_pic/simulation_6nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 
 ##### Nodes's routes information
 
-<img src="../ES/imple_pic/simulation_6nodesNibOut.svg" alt="drawing" height="300" width="1000" align=""/>
-
-
-
-
+##### Table 5
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>Nodes</th>
+    <th>Routes</th>
+    <th>Command script</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+ </tr>
+  <tr align="left">
+    <td>Node-A</td>
+    <td>
+        <ul>
+            <li>2001::200:1:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
+            <li>2001::200:3:0:0/128 via fe80::200:2:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td> wireless SetPosition radio 0 0 0 </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-B</td>
+    <td>
+        <ul>
+            <li>2001::200:2:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:1:0:0 dev #7</li>
+            <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td> wireless SetPosition radio 70 70 0 </td>
+    <td>70</td>
+    <td>70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-C</td>
+   <td>
+        <ul>
+            <li>2001::200:3:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 170 70 0 </td>
+    <td>170</td>
+    <td>70</td>
+    <td>0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-D</td>
+   <td>
+        <ul>
+            <li>2001::200:4:0:0/128 dev #7</li>
+            <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 70 -70 0 </td>
+    <td>70</td>
+    <td>-70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-E</td>
+   <td>
+        <ul>
+            <li>2001::200:5:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 170 -70 0 </td>
+    <td>170</td>
+    <td>-70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-F</td>
+   <td>
+        <ul>
+            <li>2001::200:6:0:0/128 dev #7</li>
+            <li>2001::200:4:0:0/128 via fe80::200:5:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 210 0 0 </td>
+    <td>210</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+</table>
+</div>
+<br>
 
 # X.7 fourth stage environment
 This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
-Here we are going to try to send a message from node A to node D, steps to execute the test is as follow:
-- Run __UDP__ server from node D.
-- Run __UDP__ client and setting up the client information. 
+Here we are going to try to send a message from node F to node G, this latest one is a direct neighbor to F, but we can see the flooding process was able to reach all nodes in the network, but all the new learned routes are not confirmed as a bidirectional ones yet. Table 6 are showing all nodes inside the network had stored a route to node F `2001::200:6:0:0`, this latest include node A that isn't a node F direct neighbor.
+steps to execute the test is as follow:
+- Run __UDP__ server from node G.
+- Run __UDP__ client and setting up the client information from node F. 
 
-When the client try to send a message to destination, the reactive protocol is triggered and find_route is executed then, __AODV__ process is started to find destination's route.
+###### Node G
+```
+udp server start 80
+```
 
-Here we can realized node F is able to reach four nodes when carry out a RREQ
+###### Node F
+```
+udp send 2001::200:7:0:0 2001::200:6:0:0 80 test_message
+```
 
-<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="300" width="1000" align=""/>
+When the client try to send a message to destination, the reactive protocol is triggered and find_route function is executed, then __AODV__ process is started to find the route to destination.
+
+<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+
+Here we can realized node F is able to reach five nodes when carry out a RREQ, also node A has a path to node F through flooding carry out by nodes B and D .
+Each node is able to drop a redundant messages, but take in mind each redundant message need to be processed before can be dropped, that's mean energy and processor consumption. This is a good point to figure out the best approach to process the incoming messages. 
+
+##### Table 6
+<div>
+<table id="tblOne" style="width:100%;" >
+ <tr align="center">
+    <th>Nodes</th>
+    <th>Routes</th>
+    <th>Command script</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Z</th>
+ </tr>
+  <tr align="left">
+    <td>Node-A</td>
+    <td>
+        <ul>
+            <li>2001::200:1:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:4:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td> wireless SetPosition radio 0 0 0 </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-B</td>
+    <td>
+        <ul>
+            <li>2001::200:2:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+    <td> wireless SetPosition radio 70 70 0 </td>
+    <td>70</td>
+    <td>70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-C</td>
+   <td>
+        <ul>
+            <li>2001::200:3:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 170 70 0 </td>
+    <td>170</td>
+    <td>70</td>
+    <td>0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-D</td>
+   <td>
+        <ul>
+            <li>2001::200:4:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 70 -70 0 </td>
+    <td>70</td>
+    <td>-70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-E</td>
+   <td>
+        <ul>
+            <li>2001::200:5:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 170 -70 0 </td>
+    <td>170</td>
+    <td>-70</td>
+    <td>0</td>
+ </tr>
+ <tr align="left">
+    <td>Node-F</td>
+   <td>
+        <ul>
+            <li>2001::200:6:0:0/128 dev #7</li>
+            <li>2001::200:7:0:0/128 via fe80::200:7:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 120 0 0 </td>
+    <td>120</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+  <tr align="left">
+    <td>Node-G</td>
+   <td>
+        <ul>
+            <li>2001::200:7:0:0/128 dev #7</li>
+            <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
+        </ul> 
+    </td>
+      <td> wireless SetPosition radio 210 0 0 </td>
+    <td>210</td>
+    <td>0</td>
+    <td>0</td>
+ </tr>
+</table>
+</div>
+<br>
+
+
+
+
+# Fifth staging environment
+In this test the nodes's position are the same as showed in below image.
+
+Each nodo can know about other ones as the rows connection between nodes are showing
+<img src="../ES/imple_pic/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
+
 
 
 ## Experimental Results
