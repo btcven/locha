@@ -885,7 +885,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li>2001::200:c:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</li>
-             <li>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</li>
+            <li>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</li>
         </ul> 
     </td>
     <td>300</td>
