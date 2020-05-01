@@ -1,62 +1,60 @@
 
-# 10. AODVv2 modeling.
+# 10. Modelado de AODVv2.
 
-We will describe the protocol model from the point of view of a node called **H**.
+Describiremos el modelo del protocolo desde el punto de vista de un nodo llamado **H**.
 
-## 10.1  Data structures.
-A node maintains a table of routes classified by nodes.
+## 10.1  Estructuras de datos.
+Un nodo mantiene una tabla de rutas clasificada por nodos. 
 
-- The path to a node can be undefined, which we denote with ⊥.
-- If defined, a path to a node is a pair (n, e) where:
-  - **n** is the next jump to the node.
-  - **e** is its route entry.
-- An entry is of the form **(s,h,x)** where:
-  - **s**: is the sequence number.
-  - **h**: is the _hopcount_ (or route cost).
-  - **x**: is the staus of the route, that can be:
-    - Unconfirmed
+- La ruta a un nodo puede estar indefinida, lo que denotamos con ⊥.
+- Si se define, una ruta a un nodo es un par: (n, e) donde
+  - **n** es el siguiente salto al nodo. 
+  - **e** es su entrada de ruta. 
+- Una entrada es de la forma **(s,h,x)** donde
+  - **s**: es el número de secuencia.
+  - **h**: es el _hopcount_ (o coste de ruta).
+  - **x**: es el estado de la ruta, que puede ser:
+    - Unconfirmed 
     - Idle
     - Active
     - Invalid
 
 
-## 10.2 Messages.
+## 10.2 Mensajes.
 
-The protocol has three types of messages:
+El protocolo tiene tres tipos de mensajes :
 - RREQ (Route Request)
 - RREP (Route Reply)
 - RERR (Route Error)
 
-Each message contains the following:
+Cada mensaje tiene los siguientes componentes
 - **h**: hopcount.
-- **tlv** = (sO, sT): sequence number for the source, and destination, and the last one possibly undefined.
-- **(O, T)**: the origin and destination pair.
+- **tlv** = (sO, sT): número de secuencia para el origen, y destino, este último posiblemente indefinido.
+- **(O, T)**: el par de origen y destino.
 
-For example we could write a message as follows:
+Por ejemplo podríamos escribir un mensaje como sigue:
 
 ```
 RREQ(h,(sO,sT),(O,T)).
 ```
 
-## 10.3 Initial state.
+## 10.3 Estado inicial.
 
-In the initial state, a node doesn´t have defined the source and destination routes and the sequence number.
+En el estado inicial un nodo no tiene definidas las rutas a origen y destino y el número de secuencia.
 
-## 10.4 Protocol actions.
+## 10.4 Acciones del protocolo.
 
-We will list the actions taken during the normal operation of the protocol. Actions are atomic but can change at any time. In the protocol, actions such as an expiration path are based on timers, to guarantee they do not happen too often.
+ Enumeraremos las acciones tomadas durante la operación normal del protocolo. Las acciones son atómicas pero pueden ocurrir en cualquier momento. En el protocolo, las acciones como una ruta de expiración, están basadas en temporizadores, para garantizar que no sucedan con demasiada frecuencia. 
+ 
+ La notación **y>>x** expresa que la ruta en el mensaje de ruta es preferible a la entrada en la tabla de ruta **x**. En la descripción del protocolo _AODVv2_, esto es cierto si 
+ - 1. ```ys > xs```
+ - 2. si ```ys = xs```, y ```y.h + 1 < xh```, o 
+ - **x** está en estado roto y ```y.h + 1 ≤ xh```.
 
-The notation **y >> x** expresses that the route in the route message is preferable to the entry in the **x** route table. In the _AODVv2_ protocol description, this is true if:
+ 
+## 10.5 Modelo para crear un Route Request.
 
- - 1. `ys > xs`
- - 2. if `ys = xs`, and `y.h + 1 < xh`, or
- - **x** it's in a broken state and `y.h + 1 ≤ xh`.
-
-
-## 10.5 Model to create a Route Request.
-
-**rreq-gen(T)**: The following algorithm generates an _RREQ_ to node T.
-
+**rreq-gen(T)**: El siguiente algoritmo genera un _RREQ_ al nodo T.
 ```
 true ==>
  let msg = RREQ(h=0, (sO=H.seq+1, sT=H.route[T].e.s), (H,T)) in
@@ -64,16 +62,13 @@ true ==>
  multicast(msg)
 ```
 
-## 10.6 Model to receive a Route Request.
+## 10.6 Modelo para recibir un Route Request.
 
-***rreq-recv (RREQ(m),K)**: This action processes a Route Request message.
-
+***rreq-recv (RREQ(m),K)**: Esta acción procesa un mensaje Route Request .
 ```
-m = (h,(sO, sT),(O, T)) from neighbor K. 
+m = (h,(sO, sT),(O, T)) de un vecino K. 
 ```
-
-It is protected by the condition that a route at node **m** is better than a route to origin at node **H**.
-
+Está protegido por la condición de que una ruta en el nodo **m** es mejor que una ruta al origen en el nodo **H**. 
 ```
 (m.sO,m.h,Active) >> H.route[O].e ==> // m tiene una mejor ruta al origen 
 // update the origin route
@@ -90,10 +85,10 @@ else // H is an intermediate node: propagate
 endif
 ```
 
-## 10.7 Model to receive a Route Reply.
+## 10.7 Modelo para recibir un Route Reply.
 
-**rrep-recv(RREP(m),K)**: This action processes an incoming message of type **Route Reply (RREP)**. **messagem=(h,(sO, sT),(O, T))** from a neighbor **K** that contains a better route to the destination.
-
+**rrep-recv(RREP(m),K)**: Esta acción procesa un mensaje entrante de tipo **Route Reply (RREP)**.
+**messagem=(h,(sO, sT),(O, T))** de un vecino K que contiene una mejor ruta al destino.
 ```
 (m.sT,m.h,Active) >> H.route[T].e ==> // m has better route to the target
 // update the target 
@@ -101,37 +96,36 @@ routeH.route[T] = (K,(m.sT,m.h+1),Active);// propagate as appropriate
 if (H = O) then // H is the origin node: do nothing
 skip
 else // H is an intermediate node
-  if (H.route[O] is defined) then // propagate RREP
-  let replymsg = RREP(m.h+1, m.tlv, (O,T)) in
-  unicast(replymsg, H.route[O].n)
-  else // generate error RERR
-  let errormsg = RERR(h=0,tlv=(_,_)) in
-  unicast(errormsg,K)
-endif
+ if (H.route[O] is defined) then // propagate RREP
+ let replymsg = RREP(m.h+1, m.tlv, (O,T)) in
+ unicast(replymsg, H.route[O].n)
+ else // generate error RERR
+ let errormsg = RERR(h=0,tlv=(_,_)) in
+ unicast(errormsg,K)
+ endif
 ```
 
-## 10.8 Model to receive a Route Error.
+## 10.8 Modelo para recibir un Route Error.
 
-**rerr-recv(RERR (m), K)**: This action processes an error message (_RERR_) from neighbor **K**. It marks any route that goes through **K** as broken and reports the error. This is more permissive than protocol when marking routes as broken. There are other fields in the protocol in the _RERR_ message that can be used to distinguish whether the **K** error message belongs to a origin or destination route.
-
-```
-true ==>
-  for all nodes w:
-  if (H.route[w].n = K) then
-  H.route[w].e.x = Broken; // mark route as broken.
-  multicast(RERR(m)) // propagate RERR to all neighbors
-  endif
-```
-
-
-## 10.9 Model to remove link.
-**remove-link(H,K)**: it marks any route through **K** as interrupted and send _RERR_ messages as consequence.
+**rerr-recv(RERR (m), K)**: Esta acción procesa un mensaje de error (RERR) del vecino K. Marca cualquier ruta que pase por K como rota y comunica el error. Esto es más permisivo que el protocolo al marcar rutas como rotas. En el protocolo  hay otros campos en el mensaje _RERR_ que se pueden usar para distinguir si el mensaje de error de K pertenece a una ruta de origen o destino.
 
 ```
 true ==>
-  for all nodes w:
-  if (H.route[w].n = K) then
-  H.route[w].e.x = Broken; // mark route as broken.
-  multicast(RERR(m)) // propagate RERR to all neighbors
-  endif
+ for all nodes w:
+ if (H.route[w].n = K) then
+ H.route[w].e.x = Broken; // mark route as broken.
+ multicast(RERR(m)) // propagate RERR to all neighbors
+ endif
+```
+
+
+## 10.9 Modelo para remover un link.
+**remove-link(H,K)**: Marca cualquier ruta a través de K como interrumpida y envía mensajes ERR como consecuencia.
+```
+true ==>
+ for all nodes w:
+ if (H.route[w].n = K) then
+ H.route[w].e.x = Broken; // mark route as broken.
+ multicast(RERR(m)) // propagate RERR to all neighbors
+ endif
 ```

@@ -24,9 +24,8 @@ Vivimos en un mundo interconectado, las invenciones en este campo permiten reali
 La Figura 1.1 muestra la arquitectura simplificada de una red celular frente a una red ad hoc inalámbrica. 
 En la Figura 1.1 (a) se representan tres estaciones base que se comunican con sus correspondientes nodos móviles. Al contrario, en la Figura 1.1 (b) se exhibe una red ad hoc inalámbrica en la que los nodos no solo pueden ser dispositivos móviles, sino que también pueden formar parte otros elementos como punto de acceso.
 
-
 <figure>
-  <img src="imple_pic/network-topology.png" alt="drawing" height="200" width="450" align="center"/>
+  <img src="pics/network-topology.png">
   <figcaption>Fig.1.1</figcaption>
 </figure>
 
