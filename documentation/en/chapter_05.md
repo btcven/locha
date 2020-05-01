@@ -29,7 +29,7 @@ Hybrids protocols are a mix between proactive and reactive protocols. The point 
 Another examples of hybrid protocols are OSI IS-IS (Intermediate System to Intermediate System), and EIGRP (Enhanced Interior Gateway Routing Protocol) from CISCO. 
 
 
-### 5.1.4 Routing protocol selection criteria
+## 5.2 Routing protocol selection criteria
 
 The type of network to implement must be based in low consumption embedded devices which will limit the hardware, therefore:
 
@@ -42,16 +42,19 @@ The type of network to implement must be based in low consumption embedded devic
 In all routing protocols used for wireless networks and WNS it's important to set the routes. If a protocol chooses good routes, it will result in a minor latency between the source and the destiny, therefore it will perform less transmission messages consuming less energy from the device.
 
 
-## 5.2 Locha Mesh routing protocol
+## 5.3 Locha Mesh routing protocol
 
-<br>
-<img src="pics/protocolo_seleccion.svg"  height="650" width="450" align="left"/>
+
+<figure>
+    <img src="pics/protocolo_seleccion.svg">
+    <figcaption>Fig. 5.2</figcaption>
+</figure>
 
 
 In this diagram we summarize the criteria for choosing a protocol suitable for Locha Mesh. We can enphasize the following:
 
-- Free from ```loops```.
-- The computing cost must be low, since its executed inside an embedded system with limited resources.
+- Free `loops`.
+- Low computing cost, since its executed inside an embedded system with limited resources.
 - The protocol must be reactive to avoid flooding the network with messages even when the routes are not being used, and save battery while the user its not requiring routes.
 
 It is observed that the highest score in the chart belongs to the AODVv2 protocol and TORA. We have decided to work with the AODVv2, since it has available documentation updated online, although it's plausible a revision for TORA.

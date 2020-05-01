@@ -24,9 +24,8 @@ Figure 1.1 shows the simplified architecture of a cellular network versus an ad-
 The Figure 1.1 (a) represent three base stations communicating with their mobile nodes. In contrast, Figure 1.1 (b) exhibits an ad-hoc wireless network in which the nodes are not only mobile devices but also can be part of other elements like an access point.
 
 
-
 <figure>
-  <img src="pics/network-topology.png" alt="drawing" height="200" width="450" align="center"/>
+  <img src="pics/network-topology.png"/>
   <figcaption>Fig.1.1</figcaption>
 </figure>
 

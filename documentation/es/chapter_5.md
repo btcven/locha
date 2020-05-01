@@ -27,7 +27,7 @@ Los protocolos híbridos son una mezcla de los protocolos proactivos y los react
 Otros ejemplos de protocolos híbridos son IS-IS de OSI (Intermediate System to Intermediate System) y EIGRP (Enhanced Interior Gateway Routing Protocol) de CISCO. 
 
 
-### 5.1.4 Criterios para seleccionar el protocolo
+## 5.2 Criterios para seleccionar el protocolo
 
 El tipo de red a implementar debe ser una red basada en dispositivos embebidos de bajo consumo energético, lo cual limita el hardware que lo compone, por lo tanto este debe:
 - Obtener las mejores rutas de encaminamiento.
@@ -40,15 +40,18 @@ El tipo de red a implementar debe ser una red basada en dispositivos embebidos d
 En todos los protocolos de encaminamiento usados para redes inalámbricas y WNS es importante el establecimiento de ruta. Si un protocolo elige buenas rutas de encaminamiento ofrecerá menor latencia entre la fuente y el destino, por consiguiente realizará menos transmisiones de mensajes, por ende consumirá menos energía del dispositivo.
 
 
-## 5.2 Elección del protocolo para la implementación de Locha Mesh
+## 5.3 Elección del protocolo para Locha Mesh
 
-<br>
-<img src="imple_pic/protocolo_seleccion.svg"  height="650" width="450" align="left"/>
+
+<figure>
+    <img src="pics/protocolo_seleccion.svg">
+    <figcaption>Fig. 5.2</figcaption>
+</figure>
 
 
 En este diagrama resumimos los criterios importantes para la elección del protocolo que más se adapta a Locha Mesh. Podemos destacar que: 
 
-- Debe ser libre de ```loops```.
+- Debe ser libre de bucles _(loops)_.
 - El costo computacional debe ser muy bajo, dado que se ejecuta dentro de un sistema embebido con recursos limitados.
 - El protocolo debe ser reactivo, para evitar inundar la red con mensajes aún cuando las rutas no se están utilizando, y para ahorrar batería mientras no se requieren rutas por parte del usuario.
 
