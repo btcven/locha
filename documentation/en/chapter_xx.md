@@ -721,6 +721,17 @@ Each nodo can know about other ones as the rows connection between nodes are sho
 <img src="../ES/imple_pic/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
 
 
+
+| Nodes         | Routes        | X     |
+| ------------- |:-------------:| -----:|
+| Node A        | hola          | mundo |
+| Node A        | hola          | mundo |
+| Node A        | hola          | mundo |
+
+
+ 
+
+
 ##### Table 6
 <div>
 <table id="tblOne" style="width:100%;" >
@@ -736,8 +747,8 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-A</td>
     <td>
         <ul>
-            <li>2001::200:1:0:0/128 dev #7</li>
-            <li>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7</li>
+            <li><code>2001::200:1:0:0/128 dev #7</code></li>
+            <li><code>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7<code></li>
         </ul> 
     </td>
     <td>0</td>
@@ -857,7 +868,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>Node-J</td>
    <td>
         <ul>
-            <li>2001::200:a:0:0/128 dev #7</li>
+            <li><code>2001::200:a:0:0/128 dev #7</code></li>
             <li>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</li>
         </ul> 
     </td>
