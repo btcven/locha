@@ -25,7 +25,7 @@ The Figure 1.1 (a) represent three base stations communicating with their mobile
 
 
 <figure>
-  <img src="pics/network-topology.png"/>
+  <img src="../pics/network-topology.png"/>
   <figcaption>Fig.1.1</figcaption>
 </figure>
 
@@ -54,20 +54,17 @@ Our secondary goals are:
 
 AODVv2 protocol presents some challenges in order to work optimally in the application areas provided for this kind of network:
 
-<ul class="w3-ul w3-border">
- <li><h4>Dynamic topology.</h4></li>
- <li><h4>Scarce resourses (hardware).</h4></li>
- <li><h4>Heterogeneity between nodes (hardware differences).</h4></li>
-</ul>
 
-
+* #### Dynamic topology
+* #### Scarce resourses (hardware)
+* #### Heterogeneity between nodes (hardware differences)
 
 
 ## 1.3 Planning
 
 We strongly recommend to establish and follow a logical sequence for the development of this project:
 
-- Preparedness and planning: during the preparation phase we researched about ```ad-hoc``` network and the many ```routing protocols``` to complete our documentation on this subject.
+- Preparedness and planning: during the preparation phase we researched about `ad-hoc` network and the many `routing protocols` to complete our documentation on this subject.
 - The hardware design:
   - Power supply.
   - Battery circuit.
