@@ -577,7 +577,7 @@ In the below picture we can realized based on information in its route table tha
 # X.7 fourth stage environment
 This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
-Each nodes maintains a sequence number, which saves a time stamp, and a routing table, which contains routes to destinations, Sequence numbers are used to determine the freshness of routes (the higher the number, the fresher the route, and the older one can be discarded). Each table entry contains the address of the next hop (next node to destination), a hop count (number of hops to destination), and a destination sequence number. Since this is an on demand distance vector schema, routers maintain information of thouse destinations only that they need to contact or relay information to. Each active route is associated with a lifetime stored in the table, after this time has passed route timeput is triggered, and the route is marked as a invalid and later on removed.
+Each nodes maintains a sequence number, which saves a time stamp, and a routing table, which contains routes to destinations, Sequence numbers are used to determine the freshness of routes (the higher the number, the fresher the route, and the older one can be discarded). Each table entry contains the address of the next hop (next node to destination), a hop count (number of hops to destination), and a destination sequence number. Since this is an on demand distance vector schema, routers maintain information of thouse destinations only that they need to contact or relay information to. Each active route is associated with a lifetime stored in the table, after this time has passed route timeout is triggered, and the route is marked as a invalid and later on removed.
 
 
 
@@ -712,25 +712,14 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
 
 
 
-# Fifth staging environment
+# X.8 Fifth staging environment
 In this test the nodes's position are the same as showed in below image.
 
-Each nodo can know about other ones as the rows connection between nodes are showing
+Each nodo can know about other ones as the rows connection between nodes are showing.
+The main goal of the routing protocol is packet delivery, in the following image we can see there are more than one route to destination, for now we are just working with one route, but in the future new code will be created to ensure alternative paths and reliable ones
 <br>
 
 <img src="../ES/imple_pic/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
-
-
-
-| Nodes         | Routes        | X     |
-| ------------- |:-------------:| -----:|
-| Node A        | hola          | mundo |
-| Node A        | hola          | mundo |
-| Node A        | hola          | mundo |
-
-
- 
-
 
 ##### Table 6
 <div>
@@ -748,161 +737,161 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>
         <ul>
             <li><code>2001::200:1:0:0/128 dev #7</code></li>
-            <li><code>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7<code></li>
+            <li><code>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>0</td>
     <td>0</td>
     <td>0</td>
-    <td>2001::200:1:0:0</td>
+    <td><code>2001::200:1:0:0</code></td>
  </tr>
  <tr align="left">
     <td>Node-B</td>
     <td>
         <ul>
-            <li>2001::200:2:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
-            <li>2001::200:10:0:0/128 via fe80::200:3:0:0 dev #7</li>
+            <li><code>2001::200:2:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
+            <li><code>2001::200:10:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>100</td>
     <td>0</td>
     <td>0</td>
-    <td>2001::200:2:0:0</td>
+    <td><code>2001::200:2:0:0</code></td>
  </tr>
  <tr align="left">
     <td>Node-C</td>
    <td>
         <ul>
-            <li>2001::200:3:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</li>
-             <li>2001::200:10:0:0/128 via fe80::200:4:0:0 dev #7</li>
+            <li><code>2001::200:3:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
+             <li><code>2001::200:10:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>200</td>
     <td>0</td>
     <td>0</td>
-    <td>2001::200:3:0:0</td>
+    <td><code>2001::200:3:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-D</td>
    <td>
         <ul>
-            <li>2001::200:4:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</li>
-             <li>2001::200:10:0:0/128 via fe80::200:8:0:0 dev #7</li>
+            <li><code>2001::200:4:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
+             <li><code>2001::200:10:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>300</td>
     <td>0</td>
     <td>0</td>
-    <td>2001::200:4:0:0</td>
+    <td><code>2001::200:4:0:0</code></td>
  </tr>
  <tr align="left">
     <td>Node-E</td>
    <td>
         <ul>
-            <li>2001::200:5:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
+            <li><code>2001::200:5:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>0</td>
     <td>-100</td>
     <td>0</td>
-    <td>2001::200:5:0:0</td>
+    <td><code>2001::200:5:0:0</code></td>
  </tr>
  <tr align="left">
     <td>Node-F</td>
    <td>
         <ul>
-            <li>2001::200:6:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</li>
+            <li><code>2001::200:6:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>100</td>
     <td>-100</td>
     <td>0</td>
-    <td>2001::200:6:0:0</td>
+    <td><code>2001::200:6:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-G</td>
    <td>
         <ul>
-            <li>2001::200:7:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</li>
+            <li><code>2001::200:7:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>200</td>
     <td>-100</td>
     <td>0</td>
-    <td>2001::200:7:0:0</td>
+    <td><code>2001::200:7:0:0</code></td>
  </tr>
    <tr align="left">
     <td>Node-H</td>
    <td>
         <ul>
-            <li>2001::200:8:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:4:0:0 dev #7</li>
-             <li>2001::200:10:0:0/128 via fe80::200:c:0:0 dev #7</li>
+            <li><code>2001::200:8:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
+             <li><code>2001::200:10:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>300</td>
     <td>-100</td>
     <td>0</td>
-    <td>2001::200:8:0:0</td>
+    <td><code>2001::200:8:0:0</code></td>
  </tr>
    <tr align="left">
     <td>Node-I</td>
    <td>
         <ul>
-            <li>2001::200:9:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</li>
+            <li><code>2001::200:9:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>0</td>
     <td>-200</td>
     <td>0</td>
-    <td>2001::200:9:0:0</td>
+    <td><code>2001::200:9:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-J</td>
    <td>
         <ul>
             <li><code>2001::200:a:0:0/128 dev #7</code></li>
-            <li>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>100</td>
     <td>-200</td>
     <td>10</td>
-    <td>2001::200:a:0:0</td>
+    <td><code>2001::200:a:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-K</td>
    <td>
         <ul>
-            <li>2001::200:b:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:a:0:0 dev #7</li>
+            <li><code>2001::200:b:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:a:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>200</td>
     <td>-200</td>
     <td>0</td>
-    <td>2001::200:b:0:0</td>
+    <td><code>2001::200:b:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-L</td>
    <td>
         <ul>
-            <li>2001::200:c:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</li>
-            <li>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</li>
+            <li><code>2001::200:c:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
+            <li><code>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>300</td>
     <td>-200</td>
     <td>0</td>
-    <td>2001::200:c:0:0</td>
+    <td><code>2001::200:c:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-M</td>
@@ -915,46 +904,46 @@ Each nodo can know about other ones as the rows connection between nodes are sho
     <td>0</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:d:0:0</td>
+    <td><code>2001::200:d:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-N</td>
    <td>
         <ul>
-            <li>2001::200:e:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:d:0:0 dev #7</li>
+            <li><code>2001::200:e:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:d:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>100</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:e:0:0</td>
+    <td><code>2001::200:e:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-O</td>
    <td>
         <ul>
-            <li>2001::200:f:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:e:0:0 dev #7</li>
+            <li><code>2001::200:f:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:e:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>200</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:f:0:0</td>
+    <td><code>2001::200:f:0:0</code></td>
  </tr>
   <tr align="left">
     <td>Node-P</td>
    <td>
         <ul>
-            <li>2001::200:10:0:0/128 dev #7</li>
-            <li>2001::200:1:0:0/128 via fe80::200:c:0:0 dev #7</li>
+            <li><code>2001::200:10:0:0/128 dev #7</code></li>
+            <li><code>2001::200:1:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
         </ul> 
     </td>
     <td>300</td>
     <td>-300</td>
     <td>0</td>
-    <td>2001::200:10:0:0</td>
+    <td><code>2001::200:10:0:0</code></td>
  </tr>
 </table>
 </div>
@@ -964,8 +953,19 @@ Each nodo can know about other ones as the rows connection between nodes are sho
 
 ## Experimental Results
 
+We evaluated the efficiency of the AODV protocol via simulations in renode, As mentioned earlier, the overall number of control packets generated by __AODVV2__ is more higher than for standard __AODV__, due to in this latest version there aren't intermediate __RREP__ from nodes that know the path to the destination, this approach in order to avoid __loop_free__ generations and ensure reliable paths. 
+
+In general the test carried out by simulation showed us we are almost there to get the protocol working with very high efficiency talking about delivery packets , security and low energy consumption. This is the first attemp to have running __AODV__ routing protocol on embedded platform device. The test was designed specifically to know the capacity to deliver packets and all the test to get any node were success in all.  
 
 
 ## Conclusions and Outlook
 
-The aim of this ongoing work is to complement by simulation checking an algorithmic process description of WMN routing protocols AODV in particular. The used description of AODV described in draft-ietf-manet-aodvv2 was translate to C++ algorithms 
+The aim of this ongoing work is to complement by simulation checking an algorithmic process description of WMN routing protocols AODV in particular. The used description of AODV described in draft-ietf-manet-aodvv2 was translate to C++ algorithms, more new code implementations need to be done, this is the starter point of a biggest project; There are many future work to improve the behavior of __AODV__ routing protocol,for instance now we can see when any node initialize the route request process, all nodes store the path to that node , and not ack messages have been required to test if the node is a bidirectional one, the next items are the ongoing work:    
+- Neighbor set table.
+- Time to live for routes.
+- State of the neighbors.
+- Update the local route set from neighbor table.
+- Save more than one route to destination to improve the delivery of packets and reduce flooding over network.
+- Better mechanism and tools to develop the staging environment to test the protocol.
+
+Other important ongoing work is TSCH Time SLotted Channel Hopping to have more efficient communication and less packets collision , and low power consumption.
