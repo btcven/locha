@@ -57,18 +57,15 @@ Este propósito fundamental puede a su vez descomponerse en los objetivos parcia
 
 El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera óptima en las áreas de aplicación provistas para este tipo de redes, como lo son:
 
-<ul class="w3-ul w3-border">
- <li><h4>Topología dinámica.</h4></li>
- <li><h4>Restricciones de recursos (hardware).</h4></li>
- <li><h4>Heterogeneidad entre nodos (diferencias en el hardware).</h4></li>
-</ul>
 
-
+* #### Topología dinámica
+* #### Recursos limitados (hardware)
+* #### Heterogeneidad entre nodos (diferencias en el hardware)
 
 
 ## 1.3 Planificación
 Hacemos énfasis en establecer y seguir una secuencia lógica de pasos para llevar a cabo este proyecto; el desarrollo de este proyecto se puede dividir en las siguientes subtareas:
-- Preparación y planificación: Durante la fase de preparación se acudió a diferentes fuentes bibliográficas para la obtención del conocimiento necesario acerca de las redes ```ad-hoc``` y de los diferentes ```protocolos de enrutamineto``` para completar la fase de documentación necesaria.
+- Preparación y planificación: Durante la fase de preparación se acudió a diferentes fuentes bibliográficas para la obtención del conocimiento necesario acerca de las redes `ad-hoc` y de los diferentes `protocolos de enrutamineto` para completar la fase de documentación necesaria.
 - Diseño del Hardware necesario para completar este proyecto; el diseño del hardware a su vez se puede descomponer en varias subtareas como lo son:
   - Diseño de la fuente de voltaje que provee eficiencia energética y alimentación al circuito digital.
   - Diseño del circuito de carga para la batería.
