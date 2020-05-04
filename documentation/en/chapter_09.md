@@ -102,21 +102,21 @@ It is a field that contains an 8-bit unsigned integer
 
 _AODVv2_ uses the following fields from the _RFC5444_ Header message
 
-<img src="pics/header-rfc5444.png" alt="drawing" height="120px" align="center"/>
+<img src="../pics/header-rfc5444.png" alt="drawing" height="120px" align="center"/>
 
 <br>
 
 <h3> The address block is made up of::</h3>
 
-<img src="pics/tlv-addr-block.png" alt="drawing" height="120px"  align="center"/>
+<img src="../pics/tlv-addr-block.png" alt="drawing" height="120px"  align="center"/>
 
 <h3> TLV for _OrigPrefix_ will be formed by:</h3>
 
-<img src="pics/tlvOrigPrefix.png" alt="drawing" height="120px" align="center"/>
+<img src="../pics/tlvOrigPrefix.png" alt="drawing" height="120px" align="center"/>
 
 <h3>The TLV for _OrigPrefix_ will be formed of:</h3>
 
-<img src="pics/tlvTargetPrefix.png" alt="drawing" height="120px" align="center"/>
+<img src="../pics/tlvTargetPrefix.png" alt="drawing" height="120px" align="center"/>
 
 
 ## 9.3 oonf_api
