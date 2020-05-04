@@ -4,7 +4,7 @@ We will explain the processes involved in the initialization and start-up of the
 ## 11.1 Initialization process.
 
 <p>
-<img src="pics/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
+<img src="../pics/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
 </p>
 
 The initialization process of the _AODV_ protocol on a network node requires following a series of steps to configure the software and hardware necessary for the correct operation of the routing protocol.
