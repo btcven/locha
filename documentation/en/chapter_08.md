@@ -6,7 +6,7 @@ _AODV_ is ideal for ad-Hoc networks. Exchange messages when you need to establis
 
 In the following image [11] we can see the different versions of _AODVv2_ and _DYMO_.
 
-![draft version](pics/aodv-versions.png "draft version")
+![draft version](../pics/aodv-versions.png "draft version")
 
 At **Locha Mesh**, we focus on the evolution of _AODV_ called _AODVv2_, but we will simply talk about _AODV_ to refer to the most current version of the routing protocol.
 
