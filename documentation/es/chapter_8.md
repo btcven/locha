@@ -8,7 +8,7 @@ El _AODV_ es ideal para las redes ad-Hoc. Intercambia mensajes cuando necesita e
 
 En la siguiente figura [11] podemos observar las diferentes versiones de _AODVv2_ y _DYMO_.
 
-![draft version](imple_pic/aodv-versions.png "draft version")
+![draft version](../pics/aodv-versions.png "draft version")
 
 En **Locha Mesh**, nos centramos en la evolución de _AODV_ llamado _AODVv2_, pero simplemente hablaremos de _AODV_ para referirnos a la versión más actual del protocolo de enrutamiento.
 
@@ -75,7 +75,7 @@ En el formato del paquete _RREQ_ del protocolo _AODV_, nos encontramos los sigui
 Uno de los campos es el identificador que se va modificando cada vez que se genera un envío de _RREQ_. Esto sirve para que los nodos que lo vayan recibiendo (nodos intermedios) sepan si el paquete es idéntico al anterior (tiene el mismo identificador) y deben descartarlo, o por el contrario, si deben retransmitirlo (porque el identificador de paquetes es distinto). 
 
 <p>
-<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 
@@ -87,7 +87,7 @@ El primer paso será buscar en su tabla de rutas y ver si tiene una ruta almacen
 <br />&nbsp;<br />
 <br />&nbsp;<br />
 
-<img src="imple_pic/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
+<img src="../pics/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
 </p>
 
 Comparando este proceso con la vida cotidiana sería como salir a la calle a buscar a tu hijo pero no lo ves. Lo primero que haces es gritar y esperar respuesta. Este grito representa un mensaje _multicast_ que puede ser escuchado por tus vecinos. Si ellos saben dónde está tu hijo, pueden informarte con un nuevo mensaje (_RREP_), entregando una ruta hacia donde se encuentra tu hijo. Pero si no saben dónde está, podrían iniciar un nuevo grito a sus vecinos más cercanos (_multicast_), para ver si pueden ayudar en la búsqueda y así sucesivamente hasta encontrar el destino, en este caso tu hijo.
@@ -106,7 +106,7 @@ El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar 
 <h2> Paso 1. </h2>
 
 <p>
-<img src="imple_pic/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - El nodo **S** desea enviar un paquete con información hacia el nodo **D**. 
@@ -124,7 +124,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 2. </h2>
 
 <p>
-<img src="imple_pic/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 
@@ -139,7 +139,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 3. </h2>
 
 <p>
-<img src="imple_pic/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - El **nodo H** recibe el RREQ de dos vecinos distintos, lo que podría dar lugar a una colisión.
@@ -153,7 +153,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 4. </h2>
 
 <p>
-<img src="imple_pic/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - El nodo **C** recibe el mensaje _RREQ_ desde **G** y **H**, pero no lo recrea, porque el **nodo C** ya ha recreado este mensaje antes.
@@ -167,7 +167,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 5. </h2>
 
 <p>
-<img src="imple_pic/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - En este caso el nodo **J** y el **K** retransmiten el paquete hacia **D**, debido a que estos nodos no se conocen el uno del otro y sus transmisiones podrían colisionar. 
@@ -183,7 +183,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 6. </h2>
 
 <p>
-<img src="imple_pic/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - El **nodo D** no recrea el paquete debido a que es el destinatario del mensaje de solicitud de ruta.
@@ -199,7 +199,7 @@ Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ru
 <h2> Paso 7. </h2>
 
 <p>
-<img src="imple_pic/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
 </p>
 
 - Ya se ha completado la inundación del mensaje del _RREQ_ por toda la red.
@@ -268,7 +268,7 @@ Tenemos también un ejemplo para ilustrar  la tabla de rutas en cada nodo despu�
 La siguiente figura muestra una topología básica de nodos y la tabla de rutas que es usada para encontrar a otros nodos.
 
 <p>
-<img src="imple_pic/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
+<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
 </p>
 
 
@@ -501,7 +501,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 ### 8.11.1 Contenido del mensaje de requerimiento de ruta RREQ.
 
 <p> 
- <img src="imple_pic/RREQMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+ <img src="../pics/RREQMSG.svg" alt="drawing" height="260" width="280" align="left"/>
 
 
 - **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREQ_. El _RREQ_Gen_ establece el número máximo de saltos que atravesará el mensaje _RREQ_.
@@ -517,7 +517,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 ### 8.11.2 Contenido del mensaje de respuesta de ruta RREP.
 
 <p> 
- <img src="imple_pic/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+ <img src="../pics/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
 
 - **msg_hop_limit**: msg_hop_limit: Contiene un número entero que decrece en 1 su valor en cada salto que atraviesa el mensaje _RREP_.El _RREP_Gen_ establece el número máximo de saltos que atravesaráel mensaje _RREP_.
 - **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
@@ -530,7 +530,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 
 ### 8.11.3 Contenido del Mensaje RREP_Ack.
 <p> 
- <img src="imple_pic/ACKMSG.svg" alt="drawing" height="60" width="280" align="left"/>
+ <img src="../pics/ACKMSG.svg" alt="drawing" height="60" width="280" align="left"/>
 
 - **AckReq** (Opcional): Si se incluye, informa al receptor que debe enviar un mensaje _RREP_Ack_ para confirmar la bidireccionalidad del enlace
 </p>
@@ -540,7 +540,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 ### 8.11.4 Contenido del Mensaje RERR.
 
 <p> 
- <img src="imple_pic/RERRMSG.svg" alt="drawing" height="220" width="280" align="left"/>
+ <img src="../pics/RERRMSG.svg" alt="drawing" height="220" width="280" align="left"/>
 
 - **PktSource** (Opcional:) Representa la dirección IP del paquete que disparo el RERR.
 - **AddressList**: Las direcciones de las rutas que no están disponibles.

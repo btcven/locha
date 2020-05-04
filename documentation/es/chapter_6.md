@@ -4,7 +4,7 @@ En esta sección se presentan los parámetros que se usaron para la elección de
 
 ## 6.1 Módulo de radio frecuencia
 
-<img src="imple_pic/RF-selection.svg"  height="650" width="450" align="left"/>
+<img src="../pics/RF-selection.svg"  height="650" width="450" align="left"/>
 
 Para elegir el módulo de radio que contiene el microcontrolador (MCU), la RF y modulación necesaria para transmitir en la frecuencia 915 MHz, se establecieron algunos parámetros:
 - Soporte del estándar IEEE 802.15.4.
@@ -25,7 +25,7 @@ La familia de MCUs ```CC135X``` cumplen con la mayoría de requerimientos, sin e
 Para que el Turpial de Locha Mesh funcione de forma óptima, se debe seleccionar cuidadosamente el dispositivo que regulará la corriente proveniente de la batería y alimentará al dispositivo.
 
 <br>
-<img src="imple_pic/powerSupply-selection.svg"  height="650" width="450" align="left"/>
+<img src="../pics/powerSupply-selection.svg"  height="650" width="450" align="left"/>
 
 Los parámetros a tomar en cuenta para la elección del dispositvo que alimenta al circuito:
 - Corriente: La corriente del circuito debe ser mayor o igual a 2 Amperios (A).
@@ -41,7 +41,7 @@ Al realizar la ponderación de los diferentes dispositivos se observa que el ```
 
 ## 6.3 Cargador de batería
 
-<img src="imple_pic/BatteryChargerSelection.svg"  height="450" width="450" align="left"/>
+<img src="../pics/BatteryChargerSelection.svg"  height="450" width="450" align="left"/>
 <br>
 
 Para la carga de la batería de litio hemos decidido utilizar el chip de la familia ```BQ2407x```, el cual es de fácil adquisicion y se ajusta a los requerimientos de carga lineal y durabilidad en las baterías al tener un sistema de carga robusto, como el que se presenta en el diseño del Turpial.
@@ -58,7 +58,7 @@ Para la carga de la batería de litio hemos decidido utilizar el chip de la fami
 
 ## 6.4 Control de energía de la batería
 
-<img src="imple_pic/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
+<img src="../pics/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
 
 El control de energía es el sistema que se encarga de leer variables relacionadas con la batería como energía disponible, tiempo de carga, corriente suministrada, etc.
 
@@ -91,13 +91,13 @@ Resulta perfecto para el Turpial, ya que cuenta con varios puertos USART, que pe
 
 ## 6.6 Diagrama en bloques del hardware del Turpial
 
-<img src="imple_pic/Hardware-Block.svg" height="450" width="900" align="center"/>
+<img src="../pics/Hardware-Block.svg" height="450" width="900" align="center"/>
 
 ## 6.7 Diagrama en bloques de la aplicación de control
 
 ## 6.8 Visión General del Turpial como dispositivo
 
-<img src="imple_pic/turpial.svg" height="450" width="400" align="center"/>
+<img src="../pics/turpial.svg" height="450" width="400" align="center"/>
 
 La figura muestra el primer prototipo actualmente en desarrollo.
 

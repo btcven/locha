@@ -5,7 +5,7 @@ Explicaremos los procesos involucrados en la inicializacion y puesta en marcha d
 ## 11.1 Proceso de inicialización.
 
 <p>
-<img src="imple_pic/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
+<img src="../pics/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
 </p>
 
 El proceso de inicializacion del protocolo _AODV_ sobre un nodo de red requiere seguir una serie de pasos para configurar el software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
