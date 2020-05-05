@@ -61,7 +61,7 @@ A wave consist in the propationg of disturbance of some property in the space, l
 Implying an energy transport without matter transport. The disturbed space can contain matter (air, water, etc) or not.
 
 
-<img src="imple_pic/wave.svg" alt="drawing" height="300" width="400" align="block"/>
+<img src="../pics/wave.svg" alt="drawing" height="300" width="400" align="block"/>
 
 The example in the figure generating a wave with a cord, it can be appreciate the deformity of the medium in which its represented the energy transport without having to transport the matter itself.
 
