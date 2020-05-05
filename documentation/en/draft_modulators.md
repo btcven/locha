@@ -108,7 +108,7 @@ The minimun distance in which a sound wave repeats its called wavelenght. In a s
  
 ### 1.1.5 Speed (c)
 
-The distance traveled by the sound wave in a second it's called propagation speed. The unit in the IS for this is m/s.
+The distance traveled by the wave in a second it's called propagation speed. The unit in the IS for this is m/s.
 
 ```
 V = 1/T
