@@ -25,7 +25,7 @@ Mobility has a significant impact on the performance of routing protocols becaus
 
 ## X.3 Getting start with Nodes simulation tool.
 In order to do the test, we need to configure some scripts to have renode device, ready to run the firmware.
-Inside Radiofirmwareprojectthere are two different files to setting up the platform and number of nodes to run in simulation space.
+Inside Radio firmware project there are two different files to setting up the platform and number of nodes to run in simulation space.
 
 ### X.3.1 Machine description.
 To describe the platform machine we can use the below script for emulate __cc2538dk__ platform. for more information aboute renode machine description, you can visit https://renode.readthedocs.io/en/latest/basic/describing_platforms.html
