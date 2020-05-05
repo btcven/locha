@@ -94,7 +94,7 @@ f = 1/T
  
 ### 1.1.3 Time period (T)
 
-The time required to produced a full cicle its called time period of the wave (T). The IS of the Time period is the second (s). The frequency and the time period are reciprocal between them. 
+The time required to produced a full cycle its called time period of the wave (T). In __SI__ the Time period is denoted as  seconds (s). The frequency and the time period are reciprocal between them. 
 
 ```
 T = 1/f
