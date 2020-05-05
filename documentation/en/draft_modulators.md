@@ -164,7 +164,7 @@ The disturbance that originates them are isolated, or in case it repeats, the fo
 
 Information signals are rarely in an appropriate state for transmission, so that signals must be carry between the transmisor and the receiver on some medium for transmission.
 
-Modulation is the process of transforming the information from its original form to a more appropiate one for transmission. 
+Modulation is the process of transforming the information from its original form to a more appropriate one for transmission. 
 
 Demodulation is the reverse process, turning the modulated wave to its original form. Modulation its done in the transmisor, specifically in the modulator, and the demodulation in the receiver side on a circuit called demodulator or detector.
 
