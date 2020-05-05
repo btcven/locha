@@ -63,7 +63,7 @@ Implying an energy transport without matter transport. The disturbed space can c
 
 <img src="../pics/wave.svg" alt="drawing" height="300" width="400" align="block"/>
 
-The example in the figure generating a wave with a cord, it can be appreciate the deformity of the medium in which its represented the energy transport without having to transport the matter itself.
+The example in the figure transverse waves generation on a rope, it can be appreciate the deformity of the medium in which its represented the energy transport without having to transport the matter itself.
 
 ## 1. Wave characteristics
 
