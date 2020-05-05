@@ -84,7 +84,7 @@ A wave can be described in five characterictics: amplitude, frequency, time, wav
 Vertical distance between a crest and the medium point of the wave.
 ### 1.1.2 Frequency (F)
 
-The number of vibrations (full cicle) produced in a second is called wave frequency (F). The frequency unit in the International System (IS) its s^-1 or Hertz (Hz). 
+The number of vibrations (full cycle) produced in a second is called wave frequency (F). The frequency unit in the International System (SI) its s^-1 or Hertz (Hz). 
 
 ```
 f = 1/T
