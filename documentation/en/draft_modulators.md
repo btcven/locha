@@ -45,7 +45,7 @@
 
 
 
-<h1>Modulators and signals theory</h1>
+# Modulators and signals theory
 
 Within this chapter we intend to demostrate the principles and fundamental concepts that make possible the wireless interconnection of the nodes, irradiating signals and receiving it, by applying techniques described in this section.
 
@@ -367,4 +367,3 @@ This chapter shows some insight in the process involved in the reception of a si
 When demodulating FSK signals two methods can be used:
 - Synchronous detection
 - Envelope detection.
-
