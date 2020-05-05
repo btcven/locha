@@ -71,7 +71,7 @@ The example in the figure transverse waves generation on a rope, it can be appre
 <figure>
 <img src="../pics/wave-characteristics.svg" alt="drawing" height="330" width="400" align="left"/>
 
-<img src="imple_pic/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
+<img src="../pics/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
 
 </figure>
 
