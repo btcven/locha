@@ -120,7 +120,7 @@ V = 1/T
 
 #### 2.1.1 Mechanical waves
 
-These waves need an elastic material medium (solid, liquid, or gas) to propagate. the particles in the medium oscillate around a fixed point, by which neat transport of the matter thourgh the medium doesn't occur. In this type we can find the elastic waves, water surface waves or waves in a controlled explosion, sound waves and gravitational waves.
+These waves need an elastic material medium (solid, liquid, or gas) to propagate. the particles in the medium oscillate around a fixed point, by which neat transport of the matter through the medium doesn't occur. In this type we can find the elastic waves, water surface waves or waves in a controlled explosion, sound waves and gravitational waves.
 
 #### 2.1.2 Electromagnetic waves
 
