@@ -153,7 +153,7 @@ In the simulation we have 3 nodes with the following assigned IPs:
 
 ##### Table 1 
 <div>
-<table id="tblOne" style="width:100%;" >
+<table style="width:100%;" >
  <tr align="center">
     <th>Nodes</th>
     <th>Global IPV6</th>
