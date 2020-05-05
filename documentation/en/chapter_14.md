@@ -3,7 +3,7 @@
 ## 14.1 Performance Evaluation Result.
 In this paper, we aims to explain and describe the necessary process to run the simulation and get information about the network status, round trip times measure, packet loss, based on different network configurations.
 
-A performance evaluation of AODV routing protocol is carried out by varying network size, varying network traffic and varying mobility.
+A performance evaluation of AODVv2 routing protocol is carried out by varying network size, varying network traffic and varying mobility.
 
 To do the test, Renode simulator was used due to is an open source development framework which accelerates IOT embedded systems development by letting you simulate physical hardware systems, including both the CPU, peripherals, sensors, environment and wired or wireless medium between nodes. 
 
