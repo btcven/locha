@@ -44,7 +44,7 @@ En todos los protocolos de encaminamiento usados para redes inalámbricas y WNS 
 
 
 <figure>
-    <img src="pics/protocolo_seleccion.svg">
+    <img src="../pics/protocolo_seleccion.svg">
     <figcaption>Fig. 5.2</figcaption>
 </figure>
 
