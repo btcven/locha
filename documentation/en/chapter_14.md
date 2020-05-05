@@ -723,7 +723,7 @@ The main goal of the routing protocol is packet delivery, in the following image
 
 ##### Table 6
 <div>
-<table id="tblOne" style="width:100%;" >
+<table style="width:100%;" >
  <tr align="center">
     <th>Nodes</th>
     <th>Routes</th>
