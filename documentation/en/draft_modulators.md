@@ -124,7 +124,7 @@ These waves need an elastic material medium (solid, liquid, or gas) to propagate
 
 #### 2.1.2 Electromagnetic waves
 
-The electromagnetic waves propagate through the space vacuum withot a material medium. This is due by the oscilations of the electric field in relation with the magnetic field. The electromagnetics waves travel in an approximate speed of 300,000 Km/s, depending on the speed it can be grouped in frequency. This ordering is known as electromagnetic spectrum, it measures the waves frequency. The X-rays, visible light or ultraviolet rays belong in this type.
+The electromagnetic waves propagate through the space vacuum withot a material medium. This is due by the oscilations of the electric field in relation with the magnetic field. The electromagnetic waves travel in an approximate speed of 300,000 Km/s, depending on the speed it can be grouped in frequency. This ordering is known as electromagnetic spectrum, it measures the waves frequency. The X-rays, visible light or ultraviolet rays belong in this type.
   
 #### 2.1.3 Gravitational wave 
 The gravitational waves are disturbances altering the geometry of spacetime, it's commonly represented traveling through space although technically we can say that they're moving through space but that they are disturbances of the spacetime itself.
