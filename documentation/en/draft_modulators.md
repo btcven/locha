@@ -102,7 +102,7 @@ T = 1/f
 
 ### 1.1.4 Wavelenght (λ)
 
-The minimun distance in which a sound wave repeats its called wavelenght. In a sound wave, the distance between the center of two consecutive compressions or two rarefactions are also denominated as wavelenght (λ, Lambda). The IS unit is the meter (m).
+The minimum distance in which a wave repeats its called wavelength. In a wave, the distance between the center of two consecutive compressions or two rarefactions are also denominated as wavelength (λ, Lambda). The IS unit is the meter (m).
 
  
 ### 1.1.5 Speed (c)
