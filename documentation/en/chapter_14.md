@@ -19,15 +19,15 @@ The network is varied from 3 nodes to 24 nodes in order to study the scalability
 ## 14.2.2 Traffic Load.
 To study the impact of traffic load on the performance of the protocols, the input traffic load is varied using icmp6 (ping6) messages while keeping other parameters such as Network Size and Mobility constant. The traffic load strains the network and creates additional load on the wireless network and therefor it give us a good idea of the performance of the protocol under heavy load conditions.The input load is varied because as the network load increases, the collisions on the wireless medium also increase along with packet losses. Thus, it is interesting to see the behavior of the two protocols as the network load increases. 
 
-## X.2.3 Mobility.
+## 14.2.3 Mobility.
 Mobility has a significant impact on the performance of routing protocols because mobility causes changes in the topology of the network. More precisely, mobility causes route breakages and creation of new ones, which forces the routing protocol to converge again. This enables us to study how well the protocol performs in terms of dynamically evolving network conditions.
 
 
-## X.3 Getting start with Nodes simulation tool.
+## 14.3 Getting start with Nodes simulation tool.
 In order to do the test, we need to configure some scripts to have renode device, ready to run the firmware.
 Inside Radio firmware project there are two different files to setting up the platform and number of nodes to run in simulation space.
 
-### X.3.1 Machine description.
+### 14.3.1 Machine description.
 To describe the platform machine we can use the below script for emulate __cc2538dk__ platform. for more information aboute renode machine description, you can visit https://renode.readthedocs.io/en/latest/basic/describing_platforms.html
 
 ```
@@ -63,7 +63,7 @@ macro reset
 runMacro $reset
 ```
 
-### X.3.1 Board description.
+### 14.3.1 Board description.
 To describe a board and number of nodes inside simulation environment, we will need to use and edit the below script to modified different availables parameters in compiling time simulation.
 
 To create more than 3 nodes just you'll need to copy and paste this next code and edit the machine's name.
@@ -118,7 +118,7 @@ start
 
 ```
 
-## X.4 First stage environment.
+## 14.4 First stage environment.
 
 The experiment consider this stage environment  with up 3 nodes. Initially all routing tables and buffers are empty, the originator and the destination of the data packets are identified as nodes A, B, or C. The new data packets may arrive as depicted in below figure.
 
@@ -147,7 +147,7 @@ The experiment consider this stage environment  with up 3 nodes. Initially all r
 -----------------         -----------------      -----------------
 ```
 
-### X.4.1 Renode simulation
+### 14.4.1 Renode simulation
 In the simulation we have 3 nodes with the following assigned IPs: 
 
 
@@ -195,11 +195,11 @@ In order to reach node B from A, we need to execute
 - We may check if we have got a route inside route information base table, executing __nib route__ command. the below image aims to show the executed commands and the output, in this point we don't have any route information to remote nodes.
 - In this paper the maximum coverage range is 100  units for all nodes.
 
-<img src="../ES/imple_pic/simulation_3nodesIP.svg" alt="drawing" height="380" width="380" align="left"/>
+<img src="../pics/simulation_3nodesIP.svg" alt="drawing" height="380" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesIP2.svg" alt="drawing" height="380" width="380" align="left"/>
+<img src="../pics/simulation_3nodesIP2.svg" alt="drawing" height="380" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesIP3.svg" alt="drawing" height="380" width="380" align="center"/>
+<img src="../pics/simulation_3nodesIP3.svg" alt="drawing" height="380" width="380" align="center"/>
 
 <br>
 <br>
@@ -208,20 +208,20 @@ In order to reach node B from A, we need to execute
   - find_route **dest_address** **source_address**.
 The below images can show the output RFC5444 format message and the incoming RFC format packet, after that we executed ```nib route``` to check the availables routes, then the table routes was updated in each node involved in the process.
 
-<img src="../ES/imple_pic/simulation_3nodesRfcOut.svg" alt="drawing" height="380" width="380" align="left"/>
+<img src="../pics/simulation_3nodesRfcOut.svg" alt="drawing" height="380" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesRREP1.svg" alt="drawing" height="380" width="380" align="left"/>
+<img src="../pics/simulation_3nodesRREP1.svg" alt="drawing" height="380" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesNibOut.svg" alt="drawing" height="55" width="380" align="left"/>
+<img src="../pics/simulation_3nodesNibOut.svg" alt="drawing" height="55" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesNibOut2.svg" alt="drawing" height="55" width="380" align="center"/>
+<img src="../pics/simulation_3nodesNibOut2.svg" alt="drawing" height="55" width="380" align="center"/>
 
 <br>
 <br>
 In this point we are done, Node A is able to send packet to Node B through the new built path, then now each of both nodes can send packet in both directions.
 
 
-### X.4.2 Testing the new Path
+### 14.4.2 Testing the new Path
 In order to test the new built path, we can use __UDP__ server and __UDP__ client to send and receive packets from each node.
 
 - To run the UDP server from Node A:
@@ -245,9 +245,9 @@ usage: udp send <dest_addr> <src_addr> <port> <data> [<num>]
 
 In the below image we can see the output information that correspond to the both nodes sending and receiving data.
 
-<img src="../ES/imple_pic/simulation_3nodesServer.svg" alt="drawing" height="380" width="380" align="left"/>
+<img src="../pics/simulation_3nodesServer.svg" alt="drawing" height="380" width="380" align="left"/>
 
-<img src="../ES/imple_pic/simulation_3nodesClient.svg" alt="drawing" height="100" width="400" align=""/>
+<img src="../pics/simulation_3nodesClient.svg" alt="drawing" height="100" width="400" align=""/>
 
 This was the basic test between two nodes inside radio frequency coverage.\
 Now we are going to try to reach a third node C without RF coverage  sending a route request and then sending a __UDP__ message to test the built route and demostrate the routing process between nodes with more than one hop between them.
@@ -307,15 +307,15 @@ When node A send a __RREQ__, node B get this one and recreate and forward a new 
 
 The below image are showing again the updated table with availables routes to send packets.
 
-<img src="../ES/imple_pic/simulation_3nodesNibOut3.svg" alt="drawing" height="100" width="250" align=""/>
-<img src="../ES/imple_pic/simulation_3nodesNibOut4.svg" alt="drawing" height="100" width="250" align=""/>
-<img src="../ES/imple_pic/simulation_3nodesNibOut5.svg" alt="drawing" height="110" width="250" align=""/>
+<img src="../pics/simulation_3nodesNibOut3.svg" alt="drawing" height="100" width="250" align=""/>
+<img src="../pics/simulation_3nodesNibOut4.svg" alt="drawing" height="100" width="250" align=""/>
+<img src="../pics/simulation_3nodesNibOut5.svg" alt="drawing" height="110" width="250" align=""/>
 
 
 At this point we are showing the routing protocolo behavior on a basic topology distribution, the next step, is to try to change this one and analyze the result when a target receive RREQ from more than one node. 
 
 
-## X.5 Second stage environment
+## 14.5 Second stage environment
 
 In this section we are going to show the protocol behavior when the number of nodes with up 4 ones. the following figure are showing the node's position over cartesian plane and this information will need to be added to renode's script.
 
@@ -327,7 +327,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
 
 ###### Nodes's distribution 
 
-<img src="../ES/imple_pic/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+<img src="../pics/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 <br>
 
 ##### Table 3
@@ -408,7 +408,7 @@ Lets try with route request from node B to node C and check the route tables.
 
 After carry out the request the following picture show the content of route tables, and that information means node A is the bridge between node B and node C.This basic stage can help us to understand how many RREQ are flooding the network and how we can improve the system in order to process more information that can work as a second alternative when broken routes.
 
-<img src="../ES/imple_pic/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+<img src="../pics/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 
 
 
@@ -459,7 +459,7 @@ After carry out the request the following picture show the content of route tabl
 </table>
 </div>
 
-# X.6 third stage environment
+# 14.6 third stage environment
 henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
 
 The current firmware has implemented an __UDP__ server and client to listend and send packets to/from anywhere.\
@@ -475,7 +475,7 @@ There are some very important things to take in mind, the second alternative rou
 ###### Node's distribution
 In the below picture we can realized based on information in its route table that the traced path to reach node C from D is through node A and B.
 
-<img src="../ES/imple_pic/simulation_6nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+<img src="../pics/simulation_6nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 
 ##### Nodes's routes information
 
@@ -574,7 +574,7 @@ In the below picture we can realized based on information in its route table tha
 </div>
 <br>
 
-# X.7 fourth stage environment
+# 14.7 fourth stage environment
 This test offers the possibility of verifying the __route_message__ table because this diagram generates several retransmissions of obsolete route request, and could be the starter point to improve the algorithm behavior.
 
 Each nodes maintains a sequence number, which saves a time stamp, and a routing table, which contains routes to destinations, Sequence numbers are used to determine the freshness of routes (the higher the number, the fresher the route, and the older one can be discarded). Each table entry contains the address of the next hop (next node to destination), a hop count (number of hops to destination), and a destination sequence number. Since this is an on demand distance vector schema, routers maintain information of thouse destinations only that they need to contact or relay information to. Each active route is associated with a lifetime stored in the table, after this time has passed route timeout is triggered, and the route is marked as a invalid and later on removed.
@@ -598,7 +598,7 @@ udp send 2001::200:7:0:0 2001::200:6:0:0 80 test_message
 
 When the client try to send a message to destination, the reactive protocol is triggered and find_route function is executed, then __AODV__ process is started to find the route to destination.
 
-<img src="../ES/imple_pic/simulation_7nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
+<img src="../pics/simulation_7nodesTopology.svg" alt="drawing" height="400" width="800" align=""/>
 
 Here we can realized node F is able to reach five nodes when carry out a RREQ, also node A has a path to node F through flooding carry out by nodes B and D .
 Each node is able to drop a redundant messages, but take in mind each redundant message need to be processed before can be dropped, that's mean energy and processor consumption. This is a good point to figure out the best approach to process the incoming messages. 
@@ -712,14 +712,14 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
 
 
 
-# X.8 Fifth staging environment
+# 14.8 Fifth staging environment
 In this test the nodes's position are the same as showed in below image.
 
 Each nodo can know about other ones as the rows connection between nodes are showing.
 The main goal of the routing protocol is packet delivery, in the following image we can see there are more than one route to destination, for now we are just working with one route, but in the future new code will be created to ensure alternative paths and reliable ones
 <br>
 
-<img src="../ES/imple_pic/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
+<img src="../pics/simulation_16nodesTopology.svg" alt="drawing" height="400" width="600" align=""/>
 
 ##### Table 6
 <div>
