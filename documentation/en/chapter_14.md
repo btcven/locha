@@ -9,7 +9,7 @@ To do the test, Renode simulator was used due to is an open source development f
 
 
 ## 14.2 Simulation Stages Overview.
-This is the first attempt to test AODV routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process. 
+This is the first attempt to test AODVv2 routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process. 
 
 Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to expose the results.
 
