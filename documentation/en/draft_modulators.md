@@ -166,7 +166,7 @@ Information signals are rarely in an appropriate state for transmission, so that
 
 Modulation is the process of transforming the information from its original form to a more appropriate one for transmission. 
 
-Demodulation is the reverse process, turning the modulated wave to its original form. Modulation its done in the transmisor, specifically in the modulator, and the demodulation in the receiver side on a circuit called demodulator or detector.
+Demodulation is the reverse process, turning the modulated wave to its original form. Modulation its done in transmitter side, specifically in the modulator, and  demodulation is in the receiver side on a circuit called demodulator or detector.
 
 ## 2.1 Carrier wave
 
