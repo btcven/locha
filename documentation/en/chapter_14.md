@@ -947,7 +947,7 @@ The main goal of the routing protocol is packet delivery, in the following image
  </tr>
 </table>
 </div>
-<br>
+<br/>
 
 
 
