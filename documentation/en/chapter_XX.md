@@ -13,7 +13,7 @@ This is the first attempt to test AODV routing protocol C++ implementation by si
 
 Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to expose the results.
 
-## X.2.1 Network Size.
+## 14.2.1 Network Size.
 The network is varied from 3 nodes to 24 nodes in order to study the scalability of the routing protocol. It is extremely important for a routing protocol to perform well for large networks as well as for small networks. By varying the size, the aim is to study the scalability of the routing protocol in terms of how well it addresses the maintenance of a large number of nodes and routes. The selected area of simulation is 1000mx1000m, which provides sufficient space for nodes to be mobile and sufficiently placed apart to observe the impact of multihop routing. The network size is varied so that the behavior of the protocol scales with the network size. More importantly, as the network size increases, the link (and route breakage) probability increases. 
 
 ## X.2.2 Traffic Load.
