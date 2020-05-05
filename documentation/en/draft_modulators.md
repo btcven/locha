@@ -51,7 +51,7 @@ This paper aims to explain the principles and fundamental concepts that make pos
 
 # Chapter 1: Waves
 
-A wave consist in the propationg of disturbance of some property in the space, like:
+Waves are disturbances which propagate (move) through a medium, Light is a special case, it exhibits wave like properties but does not require a medium through which to Propagate. Waves occur frequently in nature. The most obvious examples are waves in water, other different mediums are:
 
 - Density.
 - Pressure.
