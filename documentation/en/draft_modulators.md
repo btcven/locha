@@ -75,7 +75,6 @@ The example in the figure generating a wave with a cord, it can be appreciate th
 
 </figure>
 
-Una onda puede ser completamente descrita por 5 características llamadas amplitud, frecuencia, longitud de onda y velocidad.
 
 A wave can be described in five characterictics: amplitude, frequency, time, wavelenght, and speed.
 
