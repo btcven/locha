@@ -46,7 +46,7 @@ In all routing protocols used for wireless networks and WNS it's important to se
 
 
 <figure>
-    <img src="pics/protocolo_seleccion.svg">
+    <img src="../pics/protocolo_seleccion.svg">
     <figcaption>Fig. 5.2</figcaption>
 </figure>
 
