@@ -47,7 +47,7 @@
 
 # Modulators and signals theory
 
-Within this chapter we intend to demostrate the principles and fundamental concepts that make possible the wireless interconnection of the nodes, irradiating signals and receiving it, by applying techniques described in this section.
+This paper aims to explain the principles and fundamental concepts that make possible the wireless interconnection between nodes, irradiating signals and receiving it, by applying techniques described in this section.
 
 # Chapter 1: Waves
 
