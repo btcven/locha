@@ -709,9 +709,6 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
 </div>
 <br>
 
-
-
-
 # 14.8 Fifth staging environment
 In this test the nodes's position are the same as showed in below image.
 
