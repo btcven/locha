@@ -195,7 +195,7 @@ In order to reach node B from A, we need to execute
 - We may check if we have got a route inside route information base table, executing __nib route__ command. the below image aims to show the executed commands and the output, in this point we don't have any route information to remote nodes.
 - In this paper the maximum coverage range is 100  units for all nodes.
 
-<img src="../pics/simulation_3nodesIP.svg" alt="drawing" height="380" width="380" align="left"/>
+![simulation_3_nodes_01](../pics/simulation_3nodesIP.svg)
 
 <img src="../pics/simulation_3nodesIP2.svg" alt="drawing" height="380" width="380" align="left"/>
 
