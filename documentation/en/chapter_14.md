@@ -199,7 +199,7 @@ In order to reach node B from A, we need to execute
 
 ![simulation_3_nodes_ 02](../pics/simulation_3nodesIP2.svg)
 
-<img src="../pics/simulation_3nodesIP3.svg" alt="drawing" height="380" width="380" align="center"/>
+![simulation_3_nodes_03](../pics/simulation_3nodesIP3.svg)
 
 <br>
 <br>
