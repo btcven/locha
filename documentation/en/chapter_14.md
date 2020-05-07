@@ -202,7 +202,6 @@ In order to reach node B from A, we need to execute
 ![simulation_3_nodes_03](../pics/simulation_3nodesIP3.svg)
 
 <br/>
-<br>
 
 - Then execute ```find_route``` command, to get a new route for destinator address. The command format parameters are:
   - find_route **dest_address** **source_address**.
