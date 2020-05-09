@@ -179,7 +179,7 @@ The use of a carrier wave helps solve many circuit, antenna, propagation and noi
 A modulated signal can be a signal of audio, video, or data. Any of these signals mixed with the carrier generate the modulated signal transmitted through the antenna. 
 
 
-<img src="imple_pic/modulator1.svg" alt="drawing" height="180" width="400" align="block"/>
+<img src="../pics/modulator1.svg" alt="drawing" height="180" width="400" align="block"/>
 
 
 ## 2.3 Why modulate a signal?
