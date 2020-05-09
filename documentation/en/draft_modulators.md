@@ -357,7 +357,7 @@ By their functionality:
 
 ### 3.2.1 Frequency response 
 
-<img src="imple_pic/filter-graph.svg" alt="drawing" height="300" width="450" align="center"/>
+<img src="../pics/filter-graph.svg" alt="drawing" height="300" width="450" align="center"/>
 
 # Chapter 4 FSK Demodulator 
 
