@@ -244,7 +244,7 @@ Here the modulated signal has a constant amplitude but the frequency varies, whi
 #### 2.5.1.3 Phase modulation.
 
 
-This is also a modulation case where the transmission signals are analog, its an exponential modulation just like frecuency modulation. In this case the parameter of the carrier signal will vary according to the modulated signal. Phase modulation (PM) is not commonly used due it requires more complex reception equipment than FM and can present ambiguity problems to determine if a signal has a phase of 0º or 180º. 
+This is also a modulation case where the transmission signals are analog, its an exponential modulation just like frequency modulation. In this case the parameter of the carrier signal will vary according to the modulated signal. Phase modulation (PM) is not commonly used due it requires more complex reception equipment than FM and can present ambiguity problems to determine if a signal has a phase of 0º or 180º. 
 
 The form of the frequency modulation signals and phase modulation are very much alike. In fact, it's impossible to distinguish one or another without prior knowledge of the modulation function. 
 
