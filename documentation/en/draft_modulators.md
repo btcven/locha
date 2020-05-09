@@ -334,7 +334,7 @@ This is a modulation characterized by how the phase of the carrier wave varies d
 
 ## 3.1 What is a frequency filter?
 
-The analysis on stable networks subdued to sinusoidal stimuli allows to study frecuent problems in the generation, transmission, distribution and use of the energy.
+The analysis on stable networks subdued to sinusoidal stimuli allows to study frequent problems in the generation, transmission, distribution and use of the energy.
 
 A frequency filter is a circuit that uses electrical and electronics components to attenuate, correct or reject a frequency range on any kind of signal. This range can be different in every occasion as filters are very flexible and there are many types of it.
 
