@@ -323,7 +323,7 @@ We can observe that:
 
 ```GFSK modulation = Gaussian filter + FSK```
 
-We said before that having these abrupt changes from 0 to 1 in the modulated signal increases the bandwidth. We conclude that the improvement that this type of filter provides in FSK modulation is the decrease of the spectrum bandwidth in the output signal.
+We said before that, having these abrupt changes from 0 to 1 in the modulated signal increases the bandwidth. We conclude that the improvement that this type of filter provides in FSK modulation is the decrease of the spectrum bandwidth in the output signal.
 
 #### 2.5.2.4 Phase Shift Keying (PSK)
 
