@@ -234,7 +234,7 @@ With this technique the output is the carrier wave altered in amplitude, proport
 
 #### 2.5.1.2 Frequency modulation
 
-<img src="imple_pic/FM_modulator.svg" alt="drawing" height="220" width="600" align="center"/>
+<img src="../pics/FM_modulator.svg" alt="drawing" height="220" width="600" align="center"/>
 <br>
 <br>
 
