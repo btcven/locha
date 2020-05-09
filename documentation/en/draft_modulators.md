@@ -327,7 +327,7 @@ We said before that, having these abrupt changes from 0 to 1 in the modulated si
 
 #### 2.5.2.4 Phase Shift Keying (PSK)
 
-This is a modulation characterized by how the phase of the carrier wave varies directly proportional to the modulated signal. The phase modulation is not commonly used due it requieres more complex reception equipment and it also presents ambiguity problems to determine if a signal has a phase of 0º or 180º.
+This is a modulation characterized by how the phase of the carrier wave varies directly proportional to the modulated signal. The phase modulation is not commonly used due it requires more complex reception equipment and it also presents ambiguity problems to determine if a signal has a phase of 0º or 180º.
 
 
 # Chapter 3 Filters
