@@ -222,7 +222,7 @@ Basic form of modulating are:
 
 #### 2.5.1.1 Amplitude Modulation
 <br>
-<img src="imple_pic/AM_modulator.svg" alt="drawing" height="200" width="400" align="left"/>
+<img src="../pics/AM_modulator.svg" alt="drawing" height="200" width="400" align="left"/>
 
 
 With this technique the output is the carrier wave altered in amplitude, propportional to the amplitude of the modutated signal, in this case the signal coming from the microphone. This signal is the responsible of altering the signal of high frequency.
