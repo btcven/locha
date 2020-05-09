@@ -172,7 +172,7 @@ Demodulation is the reverse process, turning the modulated wave to its original 
 
 A carrier wave is an electric wave that can be altered in some of its parameters for the information signal (sound, image or data) to obtain a modulated signal and be transported on a communication channel.
 
-The use of a carrier wave helps solve many circuit, antenna, propagation and noise problems. That's why a practical antenna must have an approximate size to the lenght of the electromagnetic wave to be transmitted. If soundwaves diffused directly in the form of electromagnetic signals, the antenna would have the height of more than 1 Km. By using frequencies much more higher for the carrier, the size of the antenna its reduced drastically because higher frequencies have shorter wavelenght. 
+The use of a carrier wave helps solve many circuit, antenna, propagation and noise problems. That's why a practical antenna must have an approximate size to the length of the electromagnetic wave to be transmitted. If sound waves diffused directly in the form of electromagnetic signals, the antenna would have the height of more than 1 Km. By using frequencies much more higher for the carrier, the size of the antenna its reduced drastically because higher frequencies have shorter wavelength. 
 
 ## 2.2 Modulated signal
 
