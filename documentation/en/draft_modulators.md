@@ -275,7 +275,7 @@ In digital modulation, the input to the modulator its called bit-rate, and repre
 
 For instance, in FSK bit-rate = baud-rate, so a binary 0 its represented by f1 and the binary 1 be f2.
 
-<img src="imple_pic/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center"/>
+<img src="../pics/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center"/>
 
 In this modulation form the sine carrier takes two frequency values directly determined by the binary data signal. The modulation can be done in different methods.  
 
