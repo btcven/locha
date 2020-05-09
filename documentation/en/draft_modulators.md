@@ -214,7 +214,7 @@ Basic form of modulating are:
 
 ## 2.5 Types of modulation
 
-<img src="imple_pic/modulator-types.svg" alt="drawing" height="400" width="800" align="center"/>
+<img src="../pics/modulator-types.svg" alt="drawing" height="400" width="800" align="center"/>
 
 
 ### 2.5.1 Analog Modulation: 
