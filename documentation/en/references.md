@@ -29,3 +29,9 @@ Febrero 2011.
 [13] Y. Behnaz, G. Fatemeh, "An Efficient Loop-free Version of ADOVv2", Septiembre 2017.
 
 [14] C. Enz, A. El-Hoiydi, J.D. Decotignie,V. Peiris, "WiseNET: an ultralow-power wireless sensor network solution" inComputer, vol.37, nº 8, pp. 62-70, Aug. 2004
+
+[15] Haykin S. (2001). 'Modulation process' in Haykin S. 4th ed. _Communication Systems_. pp 19-21. 
+
+[16] Haykin S. (2001). 'Virtues and limitations of amplitude modulation' in Haykin S. 4th ed. _Communication Systems_. pp 92-93. 
+
+[17] Haykin S. (2001). 'Continous wave modulation' in Haykin S. 4th ed. _Communication Systems_. 
