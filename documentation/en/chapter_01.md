@@ -75,4 +75,3 @@ We strongly recommend to establish and follow a logical sequence for the develop
 - Mobile App, which will be the GUI.
 - Driver for the integration of the hardware with the OS.
 
-[What is Locha Mesh? >>](chapter_02.md)
