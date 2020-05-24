@@ -233,7 +233,7 @@ FSK is a digital frequency modulation technique for binary data transmission. As
 In this modulation form the sine carrier takes two frequency values directly determined by the binary data signal. [17]
 
 
-##### 2.5.2.2.1 Multiplexing of 2 different frequencies</h4>
+##### 2.5.2.2.1 Multiplexing of 2 different frequencies
 
 On the next figure we have two carriers with different frequencies to represent the different symbols inside the message, in this case 0 and 1. The frequency of the oscillator 1 must be different to the oscillator 2 but keeping in mind that the difference can't be too big.
 
@@ -315,4 +315,3 @@ This chapter shows some insight in the process involved in the reception of a si
 When demodulating FSK signals two methods can be used:
 - Synchronous detection
 - Envelope detection.
-
