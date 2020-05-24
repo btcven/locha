@@ -21,22 +21,18 @@ To avoid loops in this version, an incoming route updates the existing route wit
 
 The characteristics of the protocol are:
 
-<ol>
- <li>[7] Low control signaling. </li>
- <li>Minimum processing signaling.</li>
- <li>Loop prevention.</li>
- <li>It only works with bidirectional links.</li>
-</ol> 
+1. [7] Low control signaling.
+2. Minimum processing signaling.
+3. Loop prevention.
+4. It only works with bidirectional links. 
 
 Each node has an associated routing table that it uses to link to other nodes. These routing tables contain the following fields: 
 
-<ol>
- <li>Origin IP address.</li>
- <li>Time-to-live (TTL). </li>
- <li>Destination IP address.</li>
- <li>Destination sequence number.</li>
- <li>Hop counter (hop count).</li>
-</ol>
+1. Origin IP address
+2. Time-to-live (TTL)
+3. Destination IP address
+4. Destination sequence number
+5. Hop counter (hop count)
 
 The fields of the source and destination IP addresses appear to always know the origin of the packets and their destination.
 
@@ -50,7 +46,6 @@ Every time you want to communicate a source with a destination, a route discover
 
 There is another concept known as "route maintenance", which is used to act in the event that a link breaks along a route. This is accomplished by giving to the discovered paths time-to-live (TTL) before considering them invalid.
 
-
 ## 8.2 Discovery of routes. 
 [7] When a node wants to transmit a packet to a destination, the first thing to do is search its route table and see if there is one to this destination, previously calculated. In case of finding it, it would not initiate any route discovery process, it would suppose that the one stored in its route table is correct and is updated. Otherwise, it will begin the process of discovery of  route to find a new valid path. 
 
@@ -60,40 +55,28 @@ Any node that knows the route to the destination during the search process, can 
 
 In the _RREQ_ package format of the _AODV_ protocol, we find the following fields:: 
 
-<ol>
- <li>Origin IP address.</li>
- <li>Sequence number of the origin.</li>
- <li>Destination IP address.</li>
- <li>Sequence number of the destination.</li>
- <li>RREQ identifier.</li>
- <li>Hop counter (hop count).</li>
-</ol>
+1. Origin IP address
+2. Sequence number of the origin
+3. Destination IP address
+4. Sequence number of the destination 
+5. RREQ identifier
+6. Hop counter (hop count)
 
 One of the fields is the identifier that is modified every time an _RREQ_ shipment is generated. This is so that the nodes that receive it (intermediate nodes) know if the packet is identical to the previous one (it has the same identifier) ​​and they must discard it, or on the contrary, if they must retransmit it (because the packet identifier is different). 
 
-
-<p>
-<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ-table-route.png"  width="100%" />
+</figure>
 
 
 In this figure we can see how node A wants to search for a route to node I. The first step will be to search its route table and see if it has a stored route to the destination. If not, you must start a route discovery process, where you send a _multicast_ message to all your neighbors within range of the radio signal.
 
-
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-
-<img src="../pics/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
-</p>
+<figure>
+<img src="../pics/aodv-family.png" width="80%"/>
+</figure>
 
 
 Comparing this process with daily life would be like going out into the street to look for your child but you don't see it. The first thing you do is yell and wait for a response. This scream represents a _multicast_ message that can be heard by your neighbors. If they know where your child is, they can inform you with a new message (_RREP_), providing a route to where your child is. But if they don't know where it is, they could start a new cry to their closest neighbors (multicast), to see if they can help in the search and so on until they find the destination, in this case your son.
-
-<br />&nbsp;<br />
-
-
 
 ## 8.3 Route request process in an ad-hoc network.
 
@@ -101,13 +84,11 @@ We will show [7] graphically how the network is flooded with route request messa
 
 The _AODV_ protocol, being reactive, must wait for a node to try to send a message to another remote node. The following images represent the logical sequence until reaching the destination node.
 
-<br>
+### Step 1
 
-<h2> Step 1. </h2>
-
-<p>
-<img src="../pics/RREQ1.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ1.png" width="100%"/>
+</figure>
 
 - Node **S** wants to send a packet with information to node **D**.. 
 
@@ -117,73 +98,49 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - This type of message (_multicast_) will be heard by all its neighbors inside the coverage.
 
-<br>
+### Step 2
 
-
-<h2> Step 2. </h2>
-
-<p>
-<img src="../pics/RREQ2.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
-
+<figure>
+<img src="../pics/RREQ2.png" width="100%"/>
+</figure>
 
 - Node **S** sends an _RREQ_ (route request) message to all of its neighbors: **B**, **C**, and **E**. As it can be seen, the direct neighbors of node **S** do not have the required route information so they must start retransmission of the _RREQ_, to its closest neighbors. Nodes can receive the same route request package from different nodes.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<h2> Step 3. </h2>
+### Step 3
 
-<p>
-<img src="../pics/RREQ3.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ3.png" width="100%">
+</figure>
 
 - Node **H** receives the _RREQ_ message from two different neighbors, which could lead to a collision.
 
 - _AODVv2_ handles a route message table [10] to verify that a node will never recreate a _RREQ_ message that it has already recreated before, no matter where it comes.
 
-<br>
-<br>
-<br>
-<br>
-<h2> Step 4. </h2>
+### Step 4
 
-<p>
-<img src="../pics/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ4.png" width="100%"/>
+</figure>
 
 - Node **C** receives the _RREQ_ message from **G** and **H**, but does not recreate it, because node **C** has recreated this message before.
   
 - Verification is done through the route message table, which must be interpolated every time a _RREQ_ or _RREP_ type message is received.
 
-<br>
-<br>
-<br>
-<br>
-<h2> Step 5. </h2>
+### Step 5
 
-<p>
-<img src="../pics/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ5.png" width="100%"/>
+</figure>
 
 - In this case nodes **J** and **K** retransmit the packet to **D**, due to these nodes do not know each other and their transmissions could collide.
 
 - The _RREQ_ package may not be delivered to node **D**, despite the flood of messages on the network.
 
+### Step 6
 
-<br>
-<br>
-<br>
-<br>
-
-<h2> Step 6. </h2>
-
-<p>
-<img src="../pics/RREQ6.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ6.png" width="100%"/>
+</figure>
 
 - Node **D** does not recreate the package due to it is the recipient of the route request message.
 
@@ -193,24 +150,17 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - When _RREP_ messages begin to be created, the intermediate nodes learn a reverse route to the origin node of the _RREP_ message, and in this way a two-way route could be established between the **S** and **D** nodes. 
 
-<br>
+### Step 7
 
-<h2> Step 7. </h2>
-
-<p>
-<img src="../pics/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
-</p>
+<figure>
+<img src="../pics/RREQ7.png" width="100%"/>
+</figure>
 
 - The flooding of the _RREQ_ message across the network is now complete.
 
 - Nodes that are not in the path of **S** or are  isolated from the network will not receive the package, for example **Z**.
 
 - The nodes that pass through the receiver also don´t receive the packet, for example **N**.
-
-
-<br>
-<br>
-<br>
 
 ### 8.3.1 Advantages of search of routes by network flooding.
 
@@ -239,8 +189,6 @@ When an intermediate node receives an RREQ message, the node must configure an e
 
 These routes learned through _RREQ_ messages can´t yet be confirmed as bidirectional. They are links that we know are capable of sending messages, but we must make sure that they can also receive, through the _RREQ_ack_ messages or the _RREP_ message itself, which we will talk about later.
 
-<br>
-
 ## 8.4 Routes maintenance.
 [8] Route routing table maintenance is the process by which the algorithm ensures that the active routes in the table remain valid. Route Error Messages (_RERR_) are used to perform this task. These control messages are generated by _AODVv2_ when you want to inform one or more nodes that one or more routes are no longer valid. There are three events that cause a _RERR_ message to be sent:
 
@@ -268,15 +216,14 @@ We also have an example to illustrate the route table at each node after a route
 
 The following figure shows a basic node topology and the route table that is used to find other nodes.
 
-<p>
-<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
-</p>
+<figure>
+<img src="../pics/RREQ-table-route.png" height="250" width="100%"/>
+</figure>
 
-
-<h3>Routes table for node A</h3>
+### Routes table for node A
 
 <div>
-<table id="tblOne" style="width:100%; float:left">
+<table style="width:100%; float:left">
  <tr>
     <th>Seq</th>
     <th>Dest</th>
@@ -311,12 +258,10 @@ The following figure shows a basic node topology and the route table that is use
 </table>
 </div>
 
-
-
-<h3>Routes table for node B</h3>
+### Routes table for node B
 
 <div>
-<table id="tblOne" style="width:100%; float:left">
+<table style="width:100%; float:left">
  <tr>
     <th>Seq</th>
     <th>Dest</th>
@@ -352,10 +297,10 @@ The following figure shows a basic node topology and the route table that is use
 </div>
 
 
-<h3>Routes table for node E</h3>
+### Routes table for node E
 
 <div>
-<table id="tblOne" style="width:100%; float:left">
+<table style="width:100%; float:left">
  <tr>
     <th>Seq</th>
     <th>Dest</th>
@@ -390,11 +335,10 @@ The following figure shows a basic node topology and the route table that is use
 </table>
 </div>
 
-
-<h3>Routes table for node H</h3>
+### Routes table for node H
 
 <div>
-<table id="tblOne" style="width:100%; float:left">
+<table style="width:100%; float:left">
  <tr>
     <th>Seq</th>
     <th>Dest</th>
@@ -429,11 +373,10 @@ The following figure shows a basic node topology and the route table that is use
 </table>
 </div>
 
-
-<h3>Routes table for node J</h3>
+### Routes table for node J
 
 <div>
-<table id="tblOne" style="width:100%; float:left">
+<table style="width:100%; float:left">
  <tr>
     <th>Seq</th>
     <th>Dest</th>
@@ -464,7 +407,6 @@ The following figure shows a basic node topology and the route table that is use
     <td>H</td>
     <td>1</td>
  </tr>
-
 </table>
 </div>
 
@@ -503,9 +445,9 @@ We are going to detail the control messages that the protocol uses to communicat
 
 ### 8.11.1 Contents of the RREQ route request message.
 
-<p> 
- <img src="../pics/RREQMSG.svg" alt="drawing" height="260" width="280" align="left"/>
-
+<figure> 
+ <img src="../pics/RREQMSG.svg" width="90%"/>
+</figure> 
 
 - **msg_hop_limit**: contains an integer that decreases by 1 each hop that goes through the _RREQ_ message. The _RREQ_Gen_ message sets the maximum number of hops that the _RREQ_ message will traverse.
 - **AddressList**: contains _OrigPrefix_ y+and _TargPrefix_.
@@ -513,14 +455,12 @@ We are going to detail the control messages that the protocol uses to communicat
 - **OrigSeqNum** :_OrigPrefix_ sequence number, which is incremented as indicated here [aqui](#88-Sequence-Number).
 - **MetricType**: type of metric associated with _OrigMetric_.
 - **OrigMetric**: the value of the metric associated with the path to _OrigPrefix_.
-</p>
-
-<br></br>
 
 ### 8.11.2 Contents of the RREP route response message.
 
-<p> 
- <img src="../pics/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+<figure>  
+ <img src="../pics/RREPMSG.svg" width="90%"/>
+</figure>
 
 - **msg_hop_limit**: contains an integer that decreases its value by 1 for each hop that the _RREP_ message traverses. The _RREP_Gen_ messages sets the maximum number of hops that the _RREP_ message will traverse.
 - **AddressList**: contains _OrigPrefix_ and _TargPrefix_.
@@ -528,22 +468,20 @@ We are going to detail the control messages that the protocol uses to communicat
 - **TargetSeqNum** : the sequence number associated with _TargPrefix_.
 - **MetricType**: the type of metric associated with _TargMetric_.
 - **TargetMetric**: the value of the metric associated with the path to  _TargPrefix_.
-</p>
-<br></br>
 
 ### 8.11.3 RREP_Ack message content.
-<p> 
- <img src="../pics/ACKMSG.svg" alt="drawing" height="60" width="280" align="left"/>
+
+<figure> 
+   <img src="../pics/ACKMSG.svg" width="90%"/>
+</figure> 
 
 - **AckReq** (Optional): If included, informs the receiver that it must send an _RREP_Ack_ message to confirm the bidirectionality of the link.
-</p>
-<br>
-
 
 ### 8.11.4 RERR message content.
 
-<p> 
- <img src="../pics/RERRMSG.svg" alt="drawing" height="220" width="280" align="left"/>
+<figure> 
+   <img src="../pics/RERRMSG.svg" width="90%"/>
+</figure>
 
 - **PktSource** (Optional :) represents the IP address of the packet that triggered the _RERR_.
 - **AddressList**: the addresses of the routes that are not available.
@@ -551,14 +489,8 @@ We are going to detail the control messages that the protocol uses to communicat
 - **SeqNumList**: the known number sequence of the broken link.
 - **MetricTypeList**: the type of metrics associated with routes that are no longer available.
 
-<br>
-<br>
 
 The Route Error (_RERR_) message is used to inform the nodes that doesn´t exist a route. This type of messages is part of the maintenance of routes and each node manages to update its route tables and eliminate obsolete routes or broken links, with the information of this type of messages.
-
-<br>
-<br>
-
 
 ## 8.12 AODVv2 protocol processes.
 
@@ -590,7 +522,6 @@ In all route messages [10] there is information: RREQs contain the route to Orig
 
 As a previous step to the evaluation process, the structures of the _RREQ_ and _RREP_ messages are converted to an _AdvRte_ type structure, common to both. This facilitates the development process by reducing the number of functions to implement.
 
-
 ### 8.13.1 Evaluation of route information.
 
 The purpose of this process [10] is to assess whether the route information contained in the _AdvRte_ will be used to update the Local Route Set table. To do this, the cost and the sequence number of the _AdvRte_ are compared with the corresponding entry in the Local Route Set table.
@@ -610,7 +541,7 @@ Each time an _RREQ_ or _RREP_ message is received, the Multicast Route Message S
 From this, the decision is made whether the message is forwarded or not.
 
 ### 8.13.4 Creation of RREQ messages.
-- An _RREQ_ message is generated when a Client Router registered in the Local Route Set table of an _AODVv2_ router wants to send an IP package and there is no route to the destination in its RIB table.  After configuring the described parameters  [aquí](#8111-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), it is sent. The destination IP address of the packet containing the RREQ message will be the LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) for IPV6 specified by [RFC 5498](https://tools.ietf.org/html/rfc5498).
+- An _RREQ_ message is generated when a Client Router registered in the Local Route Set table of an _AODVv2_ router wants to send an IP package and there is no route to the destination in its RIB table.  After configuring the described parameters [here](#8111-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), it is sent. The destination IP address of the packet containing the RREQ message will be the LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) for IPV6 specified by [RFC 5498](https://tools.ietf.org/html/rfc5498).
 
 - Before creating an _RREQ_ message, the router must verify if an _RREQ_ was recently sent for the requested destination. If so, and the timeout for a response has not yet been reached, the router should continue waiting for a response without generating a new _RREQ_.
 
@@ -623,7 +554,6 @@ From this, the decision is made whether the message is forwarded or not.
 - This message is used to create the corresponding message [RFC5444] (Sección[8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), which is delivered to the RFC5444 multiplexer for further processing
 
 - By default, the multiplexer has instructions for handling multicast messages on LL-MANET-Routers.
-
 
 To generate an _RREQ_ message, the _AODVv2_ router must follow these steps:
 
@@ -653,12 +583,10 @@ This process is responsible for performing operations when an AODVv2 router rece
 - Finally, if the route discovery request is addressed to it, it sends an RREP message. If not, it forwards the RREQ message.
 
 ### 8.13.6 Forwarding RREQ messages.
-An _RREP_ message is generated when a node receives an _RREQ_ and the AddressList field. The TargPrefix in the message matches an entry in the Router Client Set table of the router. When this happens, it generates an _RREP_ message configuring the fields described [aquí](#8112-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) and sends it to the _RREQ_Gen_ with the content of the _RREQ_ route request message.
-
+An _RREP_ message is generated when a node receives an _RREQ_ and the AddressList field. The TargPrefix in the message matches an entry in the Router Client Set table of the router. When this happens, it generates an _RREP_ message configuring the fields described [here](#8112-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) and sends it to the _RREQ_Gen_ with the content of the _RREQ_ route request message.
 
 ### 8.13.7 Reception of RREP messages.
 This process is responsible for performing operations when an _AODVv2_ router receives an _RREP_ message. Between them, checks that the contents of the fields are valid, update the Neighbor Set, Local Route Set and Multicast Route Message Set tables. If the final destination of the message is the router itself, and the message contains a valid route, the route discovery process is terminated, adding the corresponding entry to the routing table.
-
 
 ### 8.13.8 RREP messages forwarding.
 The purpose of this process is to forward _RREP_ messages. To do this, it will check if the maximum number of hops has not been exceeded. If so, it forward the message

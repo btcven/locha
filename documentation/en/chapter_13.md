@@ -39,10 +39,9 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size,
 
 ```cpp
 /* Process a RREQ received on link L */
-
 receive_RREQ (inRREQ, L)
 {
- if (inRREQ.NbrIP present in blacklist) 
+if (inRREQ.NbrIP present in blacklist) 
  {
  if (blacklist_expiration_time < CurrentTime)
  return; // don't process or regenerate RREQ
@@ -91,10 +90,9 @@ receive_RREQ (inRREQ, L)
  regenerate_RREQ(inRREQ, rte);
 }
 ```
-
-
-<img src="imple_pic/Receive_RREQ.png" alt="drawing" height="600" width="800" align="center"/>
-
+<figure>
+<img src="imple_../pics/Receive_RREQ.png" width="100%"/>
+</figure>
 
 ## 13.3 generate_rreq.
 
@@ -153,7 +151,6 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
  /* multicast RFC 5444 message to LL-MANET-Routers */
 }
-
 ```
 
 ## 13.4 regenerate_RREQ.
@@ -219,7 +216,8 @@ regenerate_RREQ (inRREQ, rte)
 }
 ```
 
-## 13.5 generate_rrep.
+## 13.5 generate_rrep
+
 ```cpp
 generate_rrep(inRREQ, rte)
 {
@@ -274,7 +272,7 @@ generate_rrep(inRREQ, rte)
 }
 ```
 
-## 13.6 receive_rrep.
+## 13.6 receive_rrep
 
 ```cpp
 /* Process a RREP received on link L */
@@ -335,27 +333,26 @@ Receive_RREP (inRREP, L)
 }
 ```
 
-## 13.7 regenerate_rrep.
+## 13.7 regenerate_rrep
 
 ```cpp
 Regenerate_RREP(inRREP, rte)
 {
- if (rte does not exist)
- {
- Generate_RERR(inRREP);
- return;
- }
+    if (rte does not exist) {
+        Generate_RERR(inRREP);
+        return;
+    }
 
- outRREP.HopLimit = inRREP.HopLimit - 1;
- if (outRREP.HopLimit == 0) /* don't regenerate */
- return;
+    outRREP.HopLimit = inRREP.HopLimit - 1;
+    if (outRREP.HopLimit == 0) /* don't regenerate */
+    return;
 
- if (inRREP.HopCount exists)
- {
- if (inRREP.HopCount >= MAX_HOPCOUNT)
- return; // don't regenerate the RREP
- outRREP.HopCount = inRREP.HopCount + 1;
- }
+    if (inRREP.HopCount exists) {
+        if (inRREP.HopCount >= MAX_HOPCOUNT)
+            return; // don't regenerate the RREP
+        
+        outRREP.HopCount = inRREP.HopCount + 1;
+    }
 
  /* Marshall parameters */
  /* Include the AckReq when:
@@ -402,6 +399,5 @@ Regenerate_RREP(inRREP, rte)
  
  /* unicast RFC 5444 message to rte[OrigAddr].NextHop */ 
 }
-
 
 ```

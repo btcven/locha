@@ -1,4 +1,3 @@
-
 # 9. Packet format for MANET networks.
 
 _AODVv2_ specifies that control messages have to be mapped to a container called MANET (Generalized Mobile Ad-Hoc Network Packet/Message Format) [RFC5444]. This packet format provides a single encapsulation for multiple Ad-Hoc routing protocols.
@@ -17,13 +16,16 @@ The RFC5444 format defines the following elements:
 
 The following image represents the structure of an _RFC544_ package and its dependencies.
 
- <img src="pics/rfc5444-pkt.png" alt="drawing" width="100%" align="center"/>
+<figure> 
+    <img src="../pics/rfc5444-pkt.png" width="100%" />
+</figure> 
 
 Each type of control message has to be adapted to the format of the _RFC5444_ packet.
 
 _AODVv2_ doesn´t require access to the packet header [RFC5444].
 
 The _AODVv2_ packet header use:
+
 - **msg-type**. 
 - **msg-hop-limit**.
 - **msg-addr-length**.
@@ -31,8 +33,6 @@ The _AODVv2_ packet header use:
 **msg-addr-length** indicates the size of the address in the message, whose value corresponds to _addr_length in octets -1_; for example, for _IPV4_ it would be 3 and for _IPV6_ it would be equal to 15.
 
 This is why we will first review which are the header fields of the _RFC5444_ packet that _AODVv2_ uses.
-
-
 
 ## 9.1 Packet info.
 This section of the message allows to quickly know information such as:
@@ -58,8 +58,6 @@ We define it as follows:
 **pkt-seq-num**: It is ignored if the _phaseseqnum-flag_ is set to zero ('0'). Otherwise, it is a 16-bit unsigned integer, specifying the sequence number of a packet.
 
 **tlv*block**: It is ignored if the _phastlv-flag_ is set to zero ('0'). Otherwise, it is defined in [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
-
-
 
 ## 9.2 Messages.
 Packets can contain the packet header, and one or more messages. The messages contain:
@@ -102,22 +100,27 @@ It is a field that contains an 8-bit unsigned integer
 
 _AODVv2_ uses the following fields from the _RFC5444_ Header message
 
-<img src="../pics/header-rfc5444.png" alt="drawing" height="120px" align="center"/>
+<figure>
+    <img src="../pics/header-rfc5444.png"/>
+</figure>
 
-<br>
+### The address block is made up of::
 
-<h3> The address block is made up of::</h3>
+<figure>
+    <img src="../pics/tlv-addr-block.png"/>
+</figure>
 
-<img src="../pics/tlv-addr-block.png" alt="drawing" height="120px"  align="center"/>
+### TLV for _OrigPrefix_ will be formed by
 
-<h3> TLV for _OrigPrefix_ will be formed by:</h3>
+<figure>
+    <img src="../pics/tlvOrigPrefix.png"/>
+</figure>
 
-<img src="../pics/tlvOrigPrefix.png" alt="drawing" height="120px" align="center"/>
+### The TLV for _OrigPrefix_ will be formed of
 
-<h3>The TLV for _OrigPrefix_ will be formed of:</h3>
-
-<img src="../pics/tlvTargetPrefix.png" alt="drawing" height="120px" align="center"/>
-
+<figure>
+    <img src="../pics/tlvTargetPrefix.png"/>
+</figure>
 
 ## 9.3 oonf_api
 For the encapsulation of the _AODVv2_ packet within the _RFC5444_ packet container, the API called [oon_api](https://github.com/benpicco/oonf_api), is used, which facilitates the reading and writing of said packet within the container.

@@ -8,8 +8,6 @@ Our network device must have certain special features, [4,5,6] including:
 - It can run on battery.
 To achieve the goal, an efficient network protocol such as 6LowPAN should be used to reduce transmission time and save energy.
 
-<br>
-
 ## 7.1 Modularity.
 
 The **Locha Mesh** device will require a modular OS that separates the kernel from the middleware, protocols and applications that allows ease of development and maintenance.
@@ -19,8 +17,6 @@ Using a modular _RTOS_ simplifies our work, especially if we are developing a fa
 Relying on a common core allows all the family of devices to share a common code base.
 
 Different to a monolithic OS that brings together a complete set of software, a modular _RTOS_ allows us to customize the integrated software for our device, requires less RAM and less FLASH memory, as well as reducing costs.
-
-<br>
 
 ## 7.2 Connectivity.
 
@@ -40,8 +36,6 @@ In the case of **Locha Mesh**:
 
 - Ease of use must be a crucial factor for all developers.
 
-<br>
-
 ## 7.3 Contiki-ng and TinyOS.
 
 - Contiki-ng and TinyOS are not real-time operating systems, but they are the benchmark in wireless sensor networks.
@@ -57,8 +51,6 @@ In the case of **Locha Mesh**:
 - TinyOS is written in a language called NesC, which is similar but not compatible with C.
 
 It should be noted that one of the most important parameters when selecting the OS is the amount of documentation, examples and activity in the repository of constant updates.
-
-
 
 ## 7.4 RIOT-OS.
 
@@ -85,9 +77,6 @@ In terms of MCU hardware and memory capabilities, _RIOT-OS_ primarily competes w
 On the other hand, _RIOT-OS_ also competes with Contiki-ng, TinyOS and FreeRTOS. Compared to Contiki-ng and TinyOS, _RIOT-OS_ offers real-time and multiple sub-processes. Unlike FreeRTOS, _RIOT-OS_ provides native energy efficiency and a full-featured OS, including a free, updated, open source interoperable network.
 
 _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard programming languages like (C and C ++) using standard debugging tools, reducing the developer learning curve and the process of cycle of life of the  software development.
-
-<br>
-
 
 ## 7.5 Comparative table of operating systems.
 
@@ -151,5 +140,3 @@ _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard pr
  </tr>
 </table>
 </div>
-
-<br>

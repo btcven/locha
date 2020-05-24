@@ -35,11 +35,11 @@ Reactive search begins when you don't have a route towards a destination. The ne
 In the following _callback_ registration code, ```_route_info``` is the _callback_ that we want to execute when there is no route to a destination:
 
 ```cpp
-//registro de callback
+// callback register
 _netif->ipv6.route_info_cb = _route_info,
 ```
 
-The code related to ```_route_info``` is:
+The code related to `_route_info` is:
 
 ```cpp
 static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
@@ -83,18 +83,20 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
             DEBUG("aodvv2: unknown route info!\n");
             break;
     }
-}
+};
+
 ```
+
 The _callback_ that runs on not finding a route, gives important information like:
 
  - Type of message.
  - Recipient's IP address.
- - Generic ```void``` type variable that in this case represents the _IPV6_ packet that wants to be transmitted, including _headers_ and _payload_.
+ - Generic `void` type variable that in this case represents the _IPV6_ packet that wants to be transmitted, including _headers_ and _payload_.
 
-The ```switch``` function serves as a filter to select the code to be executed depending on the type of arriving message.
+The `switch` function serves as a filter to select the code to be executed depending on the type of arriving message.
 We will focus on the routes request messages.
 
-Specifically in the following part of the code, we have removed the other possible cases of the ```switch```:
+Specifically in the following part of the code, we have removed the other possible cases of the `switch`:
 
 ```cpp
 
@@ -123,11 +125,11 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
             }
             break;
         }
-}
+};
 
 ```
 
-We observe that we receive a parameter called ```ctx```, of type _void_, which means that we must make a ```casting``` to the parameter to receive the correct structure with the _IPV6  headers_.
+We observe that we receive a parameter called `ctx`, of type _void_, which means that we must make a `casting` to the parameter to receive the correct structure with the _IPV6  headers_.
 
 These contains information about the origin and destination of the packet, so you can start a search on the router's client table to know if the search request message should be transmitted or retransmitted. 
 The difference between transmitting and retransmitting is retransmission indicates that the node trying to find a route (or the creator of the route request) is a different node than the one that is processing the message. 
@@ -136,17 +138,17 @@ If it is transmission, it means that the route request message starts at the nod
 Each node is client of its own router client table.
 If we want to transmit a message which there is no route for, a _callback_ is triggered and we should  execute the next actions in order to start the search process:
 
-- ```cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;```: retrieving the _IPV6_ packet and storing it in a variable of its type.
-- ```ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);```: retrieve _IPV6 headers_.
-- ``` if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {```: search if the selected route requirement of a registered client (in this case the same node) that has already been added when initializing the clients table in the ```aodvv2_init```  function, arguing that each node is a client of its own table. In this case, that clients list of the node will only contain the node itself as client of that table.
+- `cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;`: retrieving the _IPV6_ packet and storing it in a variable of its type.
+- `ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);`: retrieve _IPV6 headers_.
+- `if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {`: search if the selected route requirement of a registered client (in this case the same node) that has already been added when initializing the clients table in the `aodvv2_init`  function, arguing that each node is a client of its own table. In this case, that clients list of the node will only contain the node itself as client of that table.
 
 ```cpp
-  
-    if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {
-        if (aodvv2_buffer_pkt_add(ctx_addr, pkt) == 0) {
-            DEBUG("aodvv2: finding route\n");
-            aodvv2_find_route(&ipv6_hdr->src, ctx_addr);
-        }
+if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {
+    if (aodvv2_buffer_pkt_add(ctx_addr, pkt) == 0) {
+        DEBUG("aodvv2: finding route\n");
+        aodvv2_find_route(&ipv6_hdr->src, ctx_addr);
+    }
+}
 ```
 
 After searching if the client is registered in the clients table, we proceed to register the packet with the client's message in a buffer so we can retrieve it when the route is found. If that attempt to register the packet was successful, we proceed to execute the function that is responsible of starting the _AODV_ protocol and searching for a route to the requested destination.
@@ -186,57 +188,57 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
 
 - The function receives the IP of the origin and destination as parameters.
 
-- ```aodvv2_packet_data_t pkt```: create an  _AODV_ packet object that we want to send and that must be similar to the  implemented one in the code.
+- `aodvv2_packet_data_t pkt`: create an  _AODV_ packet object that we want to send and that must be similar to the  implemented one in the code.
 
 - We interpolate the object that represents the _AODV_ packet with the necessary information:
 
+```cpp
+aodvv2_packet_data_t pkt;
+    /* Set metric information */
+pkt.hoplimit = aodvv2_metric_max(METRIC_HOP_COUNT);
+pkt.metric_type = CONFIG_AODVV2_DEFAULT_METRIC;
 
-    ```cpp
-    aodvv2_packet_data_t pkt;
-     /* Set metric information */
-    pkt.hoplimit = aodvv2_metric_max(METRIC_HOP_COUNT);
-    pkt.metric_type = CONFIG_AODVV2_DEFAULT_METRIC;
+/* Set OrigNode information */
+ipv6_addr_to_netaddr(orig_addr, &pkt.orig_node.addr);
+pkt.orig_node.metric = 0;
+pkt.orig_node.seqnum = aodvv2_seqnum_get();
+aodvv2_seqnum_inc();
 
-    /* Set OrigNode information */
-    ipv6_addr_to_netaddr(orig_addr, &pkt.orig_node.addr);
-    pkt.orig_node.metric = 0;
-    pkt.orig_node.seqnum = aodvv2_seqnum_get();
-    aodvv2_seqnum_inc();
+/* Set TargNode information */
+ipv6_addr_to_netaddr(target_addr, &pkt.targ_node.addr);
+pkt.targ_node.metric = 0;
+pkt.targ_node.seqnum = 0;
+```
 
-    /* Set TargNode information */
-    ipv6_addr_to_netaddr(target_addr, &pkt.targ_node.addr);
-    pkt.targ_node.metric = 0;
-    pkt.targ_node.seqnum = 0;
-    ```
+- We added the route request message to the _RREQ_ message table to avoid forwarding redundant messages `(aodvv2_rreqtable_add (& pkt))`. The tables in this implementation are _arrays_ for route messages and for clients. They are all processed in the same way and below we illustrate the code needed to add a route message:
 
-- We added the route request message to the _RREQ_ message table to avoid forwarding redundant messages ```(aodvv2_rreqtable_add (& pkt))```. The tables in this implementation are _arrays_ for route messages and for clients. They are all processed in the same way and below we illustrate the code needed to add a route message:
+```cpp
+void aodvv2_rreqtable_add(aodvv2_packet_data_t *packet_data)
+{
+    if (_get_comparable_rreq(packet_data)) {
+        return;
+    }
 
-  ```cpp
-     void aodvv2_rreqtable_add(aodvv2_packet_data_t *packet_data)
-    {
-        if (_get_comparable_rreq(packet_data)) {
+    /* find empty rreq and fill it with packet_data */
+
+    for (unsigned i = 0; i < ARRAY_SIZE(rreq_table); i++) {
+        if (!rreq_table[i].timestamp.seconds &&
+            !rreq_table[i].timestamp.microseconds) {
+            rreq_table[i].origNode = packet_data->orig_node.addr;
+            rreq_table[i].targNode = packet_data->targ_node.addr;
+            rreq_table[i].metricType = packet_data->metric_type;
+            rreq_table[i].metric = packet_data->orig_node.metric;
+            rreq_table[i].seqnum = packet_data->orig_node.seqnum;
+            rreq_table[i].timestamp = packet_data->timestamp;
             return;
         }
-        /*find empty rreq and fill it with packet_data */
-
-        for (unsigned i = 0; i < ARRAY_SIZE(rreq_table); i++) {
-            if (!rreq_table[i].timestamp.seconds &&
-                !rreq_table[i].timestamp.microseconds) {
-                rreq_table[i].origNode = packet_data->orig_node.addr;
-                rreq_table[i].targNode = packet_data->targ_node.addr;
-                rreq_table[i].metricType = packet_data->metric_type;
-                rreq_table[i].metric = packet_data->orig_node.metric;
-                rreq_table[i].seqnum = packet_data->orig_node.seqnum;
-                rreq_table[i].timestamp = packet_data->timestamp;
-                return;
-            }
-        }
     }
-  ```
+};
+```
 
-  The code searches the _array_: if the message has been sent before, it simply discards it; otherwise it stores it to know any redundant messages in the future.
+The code searches the _array_: if the message has been sent before, it simply discards it; otherwise it stores it to know any redundant messages in the future.
 
-- After having configured and stored the _AODV_ packet, we proceed to send it to the main thread within the ```aodv2.c``` file, which in addition to receiving _UDP_ messages from outside can also receive classified messages from the same application through something known as _IPC_.
+- After having configured and stored the _AODV_ packet, we proceed to send it to the main thread within the `aodv2.c` file, which in addition to receiving _UDP_ messages from outside can also receive classified messages from the same application through something known as _IPC_.
 
 - We send the packet to the main thread of the application:
 

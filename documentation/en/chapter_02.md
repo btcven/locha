@@ -12,7 +12,7 @@ Today, its use is very popular and has promoted an emergent field which offers a
 
 These networks can proportionate a safe and reliable communication system, where no person, or business can censor, veto or access any information unless it is the recipient of it. Another interesting application if the disaster hit countries, poor infrastructure, or those suffering the effects of war, political repression, and its also replicable for those persons who value their personal information.
 
-## 2.2 Why use 915 MHz as base frecuency?
+## 2.2 Why use 433/868/915 MHz as base frecuency?
 
 Radio frecuency (RF) communication is a basic feature of a Wireless Sensor Network (WSN), its clearly an advantage in front of, for example, infra red transmission too. The use of wireless devices is worldwide regulated , most countries have a space in their radio spectrum for unlicensed use, meaning, it doesn't need a special permit for each application.
 
@@ -30,7 +30,7 @@ The standard EEEI 802.15.4 divides the available frecuency spectrum in 27 channe
 - Channels k=1...10, for frecuencies of 906+2*(k+1) MHz, used for United States, Australia and some other countries too.
 - Channels k=11...26, for frecuencies of 2405+5*(k-11) MHz worldwide used.
 
-### 2.2.1 2.4 GHz vs 868/915 MHz
+### 2.2.1 2.4 GHz vs 433/868/915 MHz
 
 Each of those RF bands have a distinctive characteristic which gives some advantage over the others, according to the needs of the final application. As previously mentioned, the 2.4 GHz is widely used, because it allows a major data rate and its worldwide free of charge. However, for applications with low data rate, and where the reach its the major priority, sub-GHz bands seems to be a better candidate for it.
 

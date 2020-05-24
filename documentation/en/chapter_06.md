@@ -27,7 +27,7 @@ The MCUs family CC135X fulfills most of the requirements, nevertheless, provides
 For the Locha Mesh's Turpial to work optimally, the device that will regulate the voltage deriving from the battery and will power the device must be carefully selected. 
 
 <br>
-<img src="../pics/powerSupply-selection.svg"  height="650" width="450" align="left" alt="Power Supply Selection"/>
+<img src="../pics/powerSupply-selection.svg"  height="650" alt="Power Supply Selection"/>
 
 The parameters to take into account for the selection of the device that supplies the circuit are: 
 - Electric current: the circuit current must be greater or equal to 2 amps (A). 
@@ -37,35 +37,20 @@ The parameters to take into account for the selection of the device that supplie
 
 When weighting the difference devices, it is observed that the LTC3113 provides a good performance, it is full bridge and delivers currents above 2.5 A, but it's high-priced. We have decided to use the TPS63802 since it provides the benefits required to meet the goals of our project, it has wide market availability and has an affordable price.  
 
-<br>
-<br>
-<br>
 
 ## 6.3 Battery charger
 
-<img src="../pics/BatteryChargerSelection.svg"  height="450" width="450" align="left" alt="Battery Charger Selection"/>
+<img src="../pics/BatteryChargerSelection.svg"  height="650" alt="Battery Charger Selection"/>
 <br>
 
 For charging the lithium battery we have decided to use the BQ2407x family chip, which is easy to acquire and it adapts to the linear load and durability requirements of the batteries by having a robust charging system like the one presented in the Turpial design. 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ## 6.4 Battery power control 
-<img src="../pics/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left" alt="Battery Management System"/>
+<img src="../pics/BatteryManagementSystem-selection.svg"  height="650" alt="Battery Management System"/>
 
 The power control is the system that is responsible for reading variables related to the battery such as available power, charging time, current supplied, etc. 
 
 When selecting the device that will perform this task, it must have I2C support, in the chart you can see two different devices from two different manufacturers, which have similar presentations but differ greatly in cost per unit, so The BQ27441-G1 will be used as a device for collecting battery related data to be sent to the main control unit. 
-
-<br>
-<br>
 
 ## 6.5 MCU (Interface)
 
@@ -92,13 +77,13 @@ It is perfect for the Turpial, since it has several USART ports, which allows us
 
 ## 6.6 Block diagram of the Turpial hardware 
 
-<img src="../pics/Hardware-Block.svg" height="450" width="900" align="center" alt="Hardware Block"/>
+<img src="../pics/Hardware-Block.svg"  width="100%" alt="Hardware Block"/>
 
 
 ## 6.7 Block diagram of the control application. 
 
 ## 6.8 Overview of the Turpial as a device. 
 
-<img src="../pics/turpial.svg" height="450" width="400" align="center" alt="Turpial"/>
+<img src="../pics/turpial.svg" height="450"  alt="Turpial"/>
 
 The figure shows the first prototype currently under development. 

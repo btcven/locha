@@ -3,9 +3,9 @@ We will explain the processes involved in the initialization and start-up of the
 
 ## 11.1 Initialization process.
 
-<p>
-<img src="../pics/aodvv2_init.svg" alt="drawing" height="500" width="300" align="left"/>
-</p>
+<figure>
+<img src="../pics/aodvv2_init.svg" width="100%"/>
+</figure>
 
 The initialization process of the _AODV_ protocol on a network node requires following a series of steps to configure the software and hardware necessary for the correct operation of the routing protocol.
 
@@ -14,15 +14,6 @@ In the image we can see every function that must be executed before we can conne
 The processes executed in the initialization stage configure the tables managed within the protocol, initialize the network interface and obtain the necessary IP address to operate on the network, among other resources.
 
 All algorithms included here are developed under the _RIOT-OS_ operating system by the **Locha** team.
-
-
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-<br />&nbsp;<br />
-
-
 
 ## 11.2 aodvv2_seqnum_init
 
@@ -41,8 +32,6 @@ Knowing the role that the sequence number plays in the _AODV_ protocol, we see t
  - Read the counter and get its value. (get)
 
  - Increase the counter by one (inc), as detailed in the protocol, for every _RREQ_ or _RREP_ that this node generates.
-
-
 
 ### 11.2.1 Routine to handle the sequence number.
 
@@ -69,7 +58,6 @@ aodvv2_seqnum_t aodvv2_seqnum_get(void)
 {
     return atomic_load(&seqnum);
 }
-
 ```
 
 The library is very simple, but efficiently it solves possible data problems that can be detected when different execution threads in the application try to read and write the object that represents the sequence  number.
@@ -102,10 +90,11 @@ typedef struct {
                                 aodvv2_routing_states) */
 } aodvv2_local_route_t;
 ```
-The ```CONFIG_AODVV2_MAX_ROUTING_ENTRIES``` directive represents the number of routes that can be maintained on the node. The resources available in the hardware have this limitation.
+
+The `CONFIG_AODVV2_MAX_ROUTING_ENTRIES` directive represents the number of routes that can be maintained on the node. The resources available in the hardware have this limitation.
 
 ### 11.3.2 Routine for the initialization of the local routes table.
-The routine in charge of starting the route table is defined in the file ```aodvv2_routingtable_init``` and the code is as follows::
+The routine in charge of starting the route table is defined in the file `aodvv2_routingtable_init` and the code is as follows::
 
 ```cpp
 static aodvv2_local_route_t routing_table[CONFIG_AODVV2_MAX_ROUTING_ENTRIES];
@@ -132,11 +121,9 @@ void aodvv2_routingtable_init(void)
 }
 ```
 
-
 Starting the route table is equivalent to set to zero all the entries in the routes table and creating some timed variables to measure if the information obtained from the routes message is obsolete or, on the other hand, provides us a useful information for the correct operation of the _AODV_ router.
 
-For more information about routes table, check to section 4.5 of the ```draft-perkins-manet-aodvv2- document```.
-
+For more information about routes table, check to section 4.5 of the `draft-perkins-manet-aodvv2- document`.
 
 ## 11.4 aodv_rreqtable_init
 
@@ -154,12 +141,11 @@ typedef struct {
     aodvv2_seqnum_t seqnum; /**< Sequence number of the RREQ */
     timex_t timestamp; /**< Last time this entry was updated */
 } aodvv2_rreq_entry_t;
-
 ```
 
 ### 11.4.2 Routine for initializing the table of incoming Multicast messages.
 
-This function is found in the file ```aodvv2_rreqtable.c```, which also exposes functions for the handling of said table.
+This function is found in the file `aodvv2_rreqtable.c`, which also exposes functions for the handling of said table.
 
 The code shows how some timed variables are started and the zero value assignment to that table when the _AODV_ protocol starts.
 
@@ -196,7 +182,7 @@ When a client wants to send a packet with a message the network stack first chec
 
 ### 11.5.1 Packet buffer initialization routine.
 
-The following code represents the function that is responsible for initializing the buffer where a message packet will be stored if a route to the destination is not known. The routine is inside the ```aodvv2_buffer.c``` file, which also offers routines for manipulating information.
+The following code represents the function that is responsible for initializing the buffer where a message packet will be stored if a route to the destination is not known. The routine is inside the `aodvv2_buffer.c` file, which also offers routines for manipulating information.
 
 ```cpp
 void aodvv2_buffer_init(void)
@@ -215,7 +201,6 @@ typedef struct {
     ipv6_addr_t dst;
 } buffered_pkt_t;
 ```
-
 
 ### 11.5.3 Storage buffer definition for messages.
 To configure messages that we want to sent but for which there is no route, an array is created with a fixed size and limited by hardware resources.
@@ -290,7 +275,6 @@ static gnrc_netif_t *_find_ieee802154_netif(void)
 }
 ```
 
-
 ## 11.8 Global IP address.
 When we have the network interface configured, the next step is to configure a global and unique _IPV6_ address over all the network, with the intention of avoiding duplicate IP addresses.
 
@@ -298,11 +282,11 @@ The code to extract the global _IPV6_ address of the device is possible having t
 
 ```cpp
 /* Save our IPv6 address */
-    ipv6_addr_t netif_addr;
-    if (_find_netif_global_addr(&netif_addr) < 0) {
-        DEBUG("aodvv2: no global address found\n");
-        return -1;
-    }
+ipv6_addr_t netif_addr;
+if (_find_netif_global_addr(&netif_addr) < 0) {
+    DEBUG("aodvv2: no global address found\n");
+    return -1;
+}
 ```
 
 It could be the case that the node has more than one network interface. That is  why it is necessary to search for the global address in any of the interfaces available in the hardware.
@@ -342,7 +326,7 @@ This function is used to add clients to the corresponding table. It is used for 
 
 ### 11.9.1 Routine to add clients to the table.
 
-This function receives as parameters the client's IP, the network prefix size and the cost of the link. The type of address passed to the function is ```ipv6_addr_t``` type. It stores 128-bit data. This clarification is made because _RIOT-OS_ offers other types of equivalent but not completely compatible addresses, such as ```netaddr```, which offers a little more information about the owner of the IP.
+This function receives as parameters the client's IP, the network prefix size and the cost of the link. The type of address passed to the function is `ipv6_addr_t` type. It stores 128-bit data. This clarification is made because _RIOT-OS_ offers other types of equivalent but not completely compatible addresses, such as `netaddr`, which offers a little more information about the owner of the IP.
 
 The following algorithm is simple, but it highlights the main task, which is to take the IP address of the argument in order to search in the clients table and know if it should update the information when there is a similar one, otherwise a new entry must be created.
 
@@ -386,7 +370,6 @@ aodvv2_client_entry_t *aodvv2_client_add(const ipv6_addr_t *addr,
 }
 ```
 
-
 ## 11.10 Registration in the network stack.
 In order to listen to incoming messages from external nodes, we must register to a specific type of messages, in this case _UDP_ messages. _RIOT-OS_ offers the possibility of having a thread from which you can listen to incoming messages using the _UDP_ protocol just by subscribing to such messages. This mechanism is known as _IPC_ (Inter Communication process), and can be configured to run synchronously or asynchronously.
 
@@ -394,19 +377,22 @@ The difference between the type of configuration selected to listen to messages 
 
 In this fraction of code present in the initialization of the _AODV_ protocol, we are subscribing the node so that we can listen to all  _UDP_ messages from external nodes, without the need to configure _UDP_ on our own using the implementation that _RIOT-OS_ brings for handling of this type of subscriptions to external messages.
 
-In the function ```_gnrc_netreg_entry_init_pid```(& netreg, UDP_MANET_PORT, pid), pid refers to the thread ID that is designated for handling this type of message. As in the creation of any thread we need some C++ threads standard parameters. To create the thread that is in charge of waiting for the messages, we proceed to the implementation by creating a parallel execution space with other processes inside _RIOT-OS_, known as _multi-task_.
+In the function `_gnrc_netreg_entry_init_pid` (& netreg, UDP_MANET_PORT, pid), pid refers to the thread ID that is designated for handling this type of message. As in the creation of any thread we need some C++ threads standard parameters. To create the thread that is in charge of waiting for the messages, we proceed to the implementation by creating a parallel execution space with other processes inside _RIOT-OS_, known as _multi-task_.
 
 ### 11.10.1 Routine for subscribing to network messages.
 
-The term ```_event_loop``` in the next part of the code refers to the function that executes the necessary code to wait for incoming messages for which you have subscribed.
+The term `_event_loop` in the next part of the code refers to the function that executes the necessary code to wait for incoming messages for which you have subscribed.
 
 We must store the _PID_ of the thread created to use it as an input parameter in the _RIOT-OS_ API, and tell it what thread or process must be executed to wait for incoming _UDP_ messages. 
 
 ```cpp
-
-_pid = thread_create(_stack, sizeof(_stack), CONFIG_AODVV2_RFC5444_PRIO,
-                         THREAD_CREATE_STACKTEST, _event_loop, NULL,
-                         "aodvv2");
+_pid = thread_create(
+    _stack, sizeof(_stack), 
+    CONFIG_AODVV2_RFC5444_PRIO,
+    THREAD_CREATE_STACKTEST,
+    _event_loop,
+    NULL,
+     "aodvv2");
 ```
 
 After creating the process in charge of executing a task during the whole life time (TTL) of the application, we must relate this process to a particular task. In this case, the task is to listen to the incoming _UDP_ messages, which can be configured using the following _RIOT-OS_ function: 
@@ -417,8 +403,7 @@ After creating the process in charge of executing a task during the whole life t
     gnrc_netreg_register(GNRC_NETTYPE_UDP, &netreg);
 ```
 
-
-The variable ```netreg``` represents the configuration for the type of message we want to subscribe to, with the following format:
+The variable `netreg` represents the configuration for the type of message we want to subscribe to, with the following format:
 
 ```cpp
 /**
@@ -426,7 +411,6 @@ The variable ```netreg``` represents the configuration for the type of message w
  */
 static gnrc_netreg_entry_t netreg = GNRC_NETREG_ENTRY_INIT_PID(GNRC_NETREG_DEMUX_CTX_ALL,
                                                                KERNEL_PID_UNDEF);
-
 ```
 
 The way of listening to _UDP_ messages can change considerably between operating systems, but in essence the same results should be obtained: the ability to listen to incoming messages.
@@ -576,21 +560,19 @@ static void *_event_loop(void *arg)
 
 At this point we have almost completely configured the resources necessary to operate on the **Locha Mesh** network. It´s only needed to configure the objects in charge of encoding and decoding the _AODV_ messages. These must travel through the network encapsulated in a format known as _RFC5444_, which is described further.
 
-
 ## 11.11 RFC5444 Initial Configuration.
  
 _RFC5444_ defines a message encapsulation and serialization protocol to operate in an ad-hoc mobile network, which provides the serialization and deserialization of messages and offers the possibility to read various parameters related to the packet without the need completely packet deserialization.
 
 _RFC5444_ was created to work with the _RPL_ protocol, which has been extended to different routing protocols, due to it adapts to the needs of this type of networks. It was designed for devices with low computational calculation and low energy consumption, which makes it ideal for this application.
 
-The API called ```oonf_api``` is used, which provides the necessary functions for the serialization and deserialization of the message.
+The API called `oonf_api` is used, which provides the necessary functions for the serialization and deserialization of the message.
 
-Below, we describe specifically how the initial configuration of the ````reader``` and ```writer``` is performed, for serialization and deserialization of packets.
-
+Below, we describe specifically how the initial configuration of the `reader` and `writer` is performed, for serialization and deserialization of packets.
 
 ### 11.11.1 RFC544 Reader.
 
-For the configuration of the ```Reader``` object, we must use the API ```oonf_api```. We also need a ```mutex``` to control access to the resource by different system processes. We would have something like the following:
+For the configuration of the `Reader` object, we must use the API `oonf_api`. We also need a `mutex` to control access to the resource by different system processes. We would have something like the following:
 
 ```cpp
 /**
@@ -599,9 +581,9 @@ For the configuration of the ```Reader``` object, we must use the API ```oonf_ap
 static struct rfc5444_reader _reader;
 static mutex_t _reader_lock;
 ```
-This type of data specified from the ```oonf_api``` library, specifically the files related to serialization and deserialization of the _RFC5444_ rule, easily identified by ```rfc *****.C```.
+This type of data specified from the `oonf_api` library, specifically the files related to serialization and deserialization of the _RFC5444_ rule, easily identified by `rfc *****.C`.
 
-Having the static global variable ```_reader```, we proceed to its initial configuration, making use of the ```mutex``` created before for access control to the resource.
+Having the static global variable `_reader`, we proceed to its initial configuration, making use of the `mutex` created before for access control to the resource.
 
 ```cpp
 /* Initialize RFC5444 reader */
@@ -613,18 +595,18 @@ Having the static global variable ```_reader```, we proceed to its initial confi
     mutex_unlock(&_reader_lock);
 ```
 
-The code above runs inside the ```aodvv2_init``` function, like the ones above, and it's as simple as:
+The code above runs inside the `aodvv2_init` function, like the ones above, and it's as simple as:
 
- - Block the ```Reader``` resource.
- - Initiate the ```Reader``` with some special settings.
- - Register the ```Reader```.
- - Unlock the ```Reader``` resource.
+ - Block the `Reader` resource.
+ - Initiate the `Reader` with some special settings.
+ - Register the `Reader`.
+ - Unlock the `Reader` resource.
 
 Below we explain the functions that start and register the resource.
 
 ### 11.11.2 rfc5444_reader_init.
 
-This function can be found inside the file called ```rfc5444_reader.c``` and its implementation is:
+This function can be found inside the file called `rfc5444_reader.c` and its implementation is:
 
 ```cpp
 /**
@@ -648,14 +630,14 @@ rfc5444_reader_init(struct rfc5444_reader *context) {
 }
 ```
 
-The previous function is responsible for initializing the ```Reader``` with default values, allocating memory spaces, the previous code starts from the ```oonf_api``` and the only requirement is to pass as a parameter a reference to the previously created ```Reader``` object.
+The previous function is responsible for initializing the `Reader` with default values, allocating memory spaces, the previous code starts from the `oonf_api` and the only requirement is to pass as a parameter a reference to the previously created `Reader` object.
 
 ### 11.11.3 aodvv2_rfc5444_reader_register
-The purpose of this function is register the ```Reader``` object as a data deserializer. 
+The purpose of this function is register the `Reader` object as a data deserializer. 
 To do this, the necessary _callback_ functions must be assigned so that they are triggered through internal API events for each processed read block. The main purpose of the function is to register the consumers of packets and addresses blocks. 
-This function is found in a file called ```rfc_reader.c```, developed by the **btcven/LOCHA** team.
+This function is found in a file called `rfc_reader.c`, developed by the **btcven/LOCHA** team.
 
-_RFC5444_ defines a type of message called ```message type-length-value```, which allows to create a list of custom entries of the ```tlv``` messages required in the development of the application, and this way be able to register consumers with available _callbacks_ to process the packet once it reaches the node.
+_RFC5444_ defines a type of message called `message type-length-value`, which allows to create a list of custom entries of the `tlv` messages required in the development of the application, and this way be able to register consumers with available _callbacks_ to process the packet once it reaches the node.
 
 ```cpp
 void aodvv2_rfc5444_reader_register(struct rfc5444_reader *reader,
@@ -682,38 +664,41 @@ void aodvv2_rfc5444_reader_register(struct rfc5444_reader *reader,
                                         ARRAY_SIZE(_address_consumer_entries));
 }
 ```
-We are going to see, step by step, each of the instructions in the function created to register the ```reader``` and assign the corresponding _callbacks_.
+
+We are going to see, step by step, each of the instructions in the function created to register the `reader` and assign the corresponding _callbacks_.
 
 The first thing is calling the same function 4 times, but with different parameters.
 
 The purpose is to configure the consumers of  addresses and messages for every type of packet (_RREQ_, _RREP_ and _RERR_).
 
-#### 11.11.3.1 rfc5444_reader_add_message_consumer 1.
+#### 11.11.3.1 rfc5444_reader_add_message_consumer 1
+
 The purpose of this first call is to register a _callback_ to process of the _RFC5444_ package of type _RREP_.
 
 ```cpp
+
 rfc5444_reader_add_message_consumer(reader, &_rrep_consumer,
                                         NULL, 0);
 ```
 
 The function parameters are:
 
- - ```reader```: object configured in the _AODV_ initialization function responsible for deserializing incoming packets.
+ - `reader`: object configured in the _AODV_ initialization function responsible for deserializing incoming packets.
 
- - ```_rrep_consumer```: data structure defined within the ```oonf_api``` and that defines the following attributes:
+ - `_rrep_consumer`: data structure defined within the `oonf_api` and that defines the following attributes:
 
-    ```cpp
-            /*
-        * Message consumer, will be called once for every message of
-        * type RFC5444_MSGTYPE_RREP that contains all the mandatory message TLVs
-        */
-        static struct rfc5444_reader_tlvblock_consumer _rrep_consumer =
-        {
-            .msg_id = RFC5444_MSGTYPE_RREP,
-            .block_callback = _cb_rrep_blocktlv_messagetlvs_okay,
-            .end_callback = _cb_rrep_end_callback,
-        };
-    ```
+```cpp
+/*
+* Message consumer, will be called once for every message of
+* type RFC5444_MSGTYPE_RREP that contains all the mandatory message TLVs
+*/
+static struct rfc5444_reader_tlvblock_consumer _rrep_consumer =
+{
+    .msg_id = RFC5444_MSGTYPE_RREP,
+    .block_callback = _cb_rrep_blocktlv_messagetlvs_okay,
+    .end_callback = _cb_rrep_end_callback,
+};
+```
 
 For this why two _callbacks_ can be registered, which are executed for every incoming _RREP_ message.
 
@@ -800,8 +785,6 @@ We have already configured the consumers of _RREQ_ and _RREP_ message  for the a
 
 The content of each _callback_ makes sense when messages are received within the _AODV_ structure, which means that this will only happen by the nature of the reactive protocol when a user wants to send a packet for which no route is known or when a packet is received which should be retransmitted.
 
-
-
 ## 11.12 RFC5444 Writer.
 ```writer``` is the object in charge of serializing _AODV_ packets before they are sent to remote nodes. The ```oonf_api``` defines the files necessary to create and manipulate _RFC5444_ packets. To initialize the packet serializer known as ```writer```, we need to configure some global variables inside the ```aodvv2_init``` file:
 
@@ -821,11 +804,11 @@ static uint8_t _writer_pkt_buffer[CONFIG_AODVV2_RFC5444_PACKET_SIZE];
 static mutex_t _writer_lock;
 ```
 
-- The ```writer``` object represents the internal status of the _RFC5444 writer_.
+- The `writer` object represents the internal status of the _RFC5444 writer_.
 
-- ```writer_context``` is an object of type  ```aodvv2_writer_target_t``` that represents a structure used to define an _RFC5444_ packet for a specific IP destination and with a specific message type such as ```rfc5444_msg_type```.
+- `writer_context` is an object of type `aodvv2_writer_target_t` that represents a structure used to define an _RFC5444_ packet for a specific IP destination and with a specific message type such as `rfc5444_msg_type`.
 
-The ```aodvv2_writer_target_t``` object offers the possibility of creating an _RFC5444_ packet for a specific IP and of a specific message type, and which contains the _AODV_ packet that we want to serialize so that it is transmitted to external nodes. The structure is:
+The `aodvv2_writer_target_t` object offers the possibility of creating an _RFC5444_ packet for a specific IP and of a specific message type, and which contains the _AODV_ packet that we want to serialize so that it is transmitted to external nodes. The structure is:
 
 ```cpp
 typedef struct {
@@ -870,41 +853,41 @@ The interface to generate the _RFC5444_ packets has the following format:
 
 ```cpp
 struct rfc5444_writer_target {
-  /* buffer for packet generation */
-  uint8_t *packet_buffer;
+    /* buffer for packet generation */
+    uint8_t *packet_buffer;
 
-  /* maximum number of bytes per packets allowed for target */
-  size_t packet_size;
+    /* maximum number of bytes per packets allowed for target */
+    size_t packet_size;
 
-  /* callback for target specific packet handling */
-  void (*addPacketHeader)(struct rfc5444_writer *, struct rfc5444_writer_target *);
-  void (*finishPacketHeader)(struct rfc5444_writer *, struct rfc5444_writer_target *);
-  void (*sendPacket)(struct rfc5444_writer *, struct rfc5444_writer_target *, void *, size_t);
+    /* callback for target specific packet handling */
+    void (*addPacketHeader)(struct rfc5444_writer *, struct rfc5444_writer_target *);
+    void (*finishPacketHeader)(struct rfc5444_writer *, struct rfc5444_writer_target *);
+    void (*sendPacket)(struct rfc5444_writer *, struct rfc5444_writer_target *, void *, size_t);
 
-  /* internal handling for packet sequence numbers */
-  bool _has_seqno;
-  uint16_t _seqno;
+    /* internal handling for packet sequence numbers */
+    bool _has_seqno;
+    uint16_t _seqno;
 
-  /* node for list of all targets*/
-  struct list_entity _target_node;
+    /* node for list of all targets*/
+    struct list_entity _target_node;
 
-  /* packet buffer is currently flushed */
-  bool _is_flushed;
+    /* packet buffer is currently flushed */
+    bool _is_flushed;
 
-  /* buffer for constructing the current packet */
-  struct rfc5444_tlv_writer_data _pkt;
+    /* buffer for constructing the current packet */
+    struct rfc5444_tlv_writer_data _pkt;
 
-  /* number of bytes used by messages */
-  size_t _bin_msgs_size;
+    /* number of bytes used by messages */
+    size_t _bin_msgs_size;
 };
 
 ```
 
 This type of structure gives us some _callbacks_ to control the process in creating the messages.
 
-By being clear about the behavior and hierarchy of these structures, we continue with the ```writer``` object configuration.
+By being clear about the behavior and hierarchy of these structures, we continue with the `writer` object configuration.
 
-In the global variables for the ```writer``` configuration, some _buffers_ are defined, which are assigned to the ```writer``` and their use is:
+In the global variables for the `writer` configuration, some _buffers_ are defined, which are assigned to the `writer` and their use is:
 
 ```cpp
 /*Assign the requiered buffers to process store the packet its going to be created 
@@ -922,11 +905,11 @@ _writer_context.target.packet_size = sizeof(_writer_pkt_buffer);
 _writer_context.target.sendPacket = _send_packet;
 ```
 
-In the previous code we can see that it is allocating resources to the ```writer```, to the ```buffers``` that allows the ```writer``` to process the information and create the _RFC5444_ packet.
+In the previous code we can see that it is allocating resources to the `writer`, to the `buffers` that allows the `writer` to process the information and create the _RFC5444_ packet.
 
-In the last line of the previous code, we will see the assignment of a _callback_ function to the container or ```wraper``` to be able to send the packet. This function should be the responsibility of the developer to implement it.
+In the last line of the previous code, we will see the assignment of a _callback_ function to the container or `wraper` to be able to send the packet. This function should be the responsibility of the developer to implement it.
 
-We have created an ```aodvv2_writer_target``` object that must be initialized and registered and this is obtained with:
+We have created an `aodvv2_writer_target` object that must be initialized and registered and this is obtained with:
 
 ```cpp
     /* Initialize writer */
@@ -938,9 +921,7 @@ We have created an ```aodvv2_writer_target``` object that must be initialized an
     aodvv2_rfc5444_writer_register(&_writer, &_writer_context);
 ```
 
-
-
-## 11.13  Summary.
+## 11.13  Summary
 
 Something that we also need to add in the initialization is the possibility of register us to the _IPV6_ network layer and assigning a _callback_ that will be executed every time you want to send a packet to another node and there is no known route to the destination. This feature is something that _RIOT-OS_ offers and allows us to know when to start the route search process without the need to search internal tables managed by our code.
 
@@ -950,5 +931,5 @@ The instruction to know when to start the reactive protocol is:
  _netif->ipv6.route_info_cb = _route_info;
 ```
 
-```_route_info``` represents the _callback_ that is wanted to register and that is executed in that case.
+`_route_info` represents the _callback_ that is wanted to register and that is executed in that case.
 

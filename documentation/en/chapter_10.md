@@ -1,4 +1,3 @@
-
 # 10. AODVv2 modeling.
 
 We will describe the protocol model from the point of view of a node called **H**.
@@ -19,7 +18,6 @@ A node maintains a table of routes classified by nodes.
     - Active
     - Invalid
 
-
 ## 10.2 Messages.
 
 The protocol has three types of messages:
@@ -35,7 +33,7 @@ Each message contains the following:
 For example we could write a message as follows:
 
 ```
-RREQ(h,(sO,sT),(O,T)).
+  RREQ(h,(sO,sT),(O,T)).
 ```
 
 ## 10.3 Initial state.
@@ -52,7 +50,7 @@ The notation **y >> x** expresses that the route in the route message is prefera
  - 2. if ```ys = xs```, and ```y.h + 1 < xh```, or 
  - **x** it's in a broken state and ```y.h + 1 ≤ xh```.
 
- 
+
 ## 10.5 Model to create a Route Request.
 
 **rreq-gen(T)**: The following algorithm generates an _RREQ_ to node T.
