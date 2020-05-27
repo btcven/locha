@@ -1,5 +1,6 @@
 commit_message": "Translation: %original_file_name% (%language%)"
 append_commit_message": false
+preserve_hierarchy: true
 files:
   - source: /documentation/en/*.md
     translation: /documentation/%two_letters_code%/%original_file_name%
