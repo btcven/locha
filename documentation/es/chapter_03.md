@@ -1,5 +1,5 @@
-# 3. Proposed modifications
+# 3. Modificaciones propuestas
 
-The goal is to implement the current version of the AODVv2 with no major changes in an embedded system with limited resources to analyze the behavior of the network while working the routing protocol. It's also part of the goal to build the hardware to obtain and analyze the results in real environments.
+Se pretende implementar la versión actual del protocolo AODVv2 sin cambios notables, en un sistema embebido con recursos limitados para analizar el comportamiento de la red funcionando con el nombrado protocolo de encaminamiento; también se pretende construir el hardware necesario para obtener y analizar resultados en entornos reales.
 
-If the protocol's working parameters change, it may improve or downgrade the performance of the nodes in the network. For instance, the TTL (Time To Live), which indicates the lifespan of a route stored inside a router, is a very important parameter to take into account that may have a strong impact over the network performance, and could change depending on the size of the network. [2]
+Si varían los parámetros de funcionamiento del protocolo, se puede mejorar o degradar el desempeño de los nodos en la red. Por ejemplo, el tiempo TTL que indica la vida útil de una ruta almacenada dentro de un router, parámetro de vital importancia, que podría tener un fuerte impacto en el desempeño de la red y variará dependiendo del tamaño de la red. [2]
