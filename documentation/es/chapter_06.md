@@ -47,7 +47,7 @@ Para la carga de la batería de litio hemos decidido utilizar el chip de la fami
 
 ## 6.4 Control de energía de la batería
 
-<img src="imple_pic/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
+<img src="../pics/BatteryManagementSystem-selection.svg"  height="450" width="550" align="left"/>
 
 El control de energía es el sistema que se encarga de leer variables relacionadas con la batería como energía disponible, tiempo de carga, corriente suministrada, etc.
 
