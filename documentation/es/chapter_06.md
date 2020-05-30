@@ -4,7 +4,9 @@ En esta sección se presentan los parámetros que se usaron para la elección de
 
 ## 6.1 Módulo de radio frecuencia
 
-<img src="../pics/RF-selection.svg"  height="650" width="450"/>
+<figure>
+<img src="../pics/RF-selection.svg" width="400"/>
+</figure>
 
 Para elegir el módulo de radio que contiene el microcontrolador (MCU), la RF y modulación necesaria para transmitir en la frecuencia 915 MHz, se establecieron algunos parámetros:
 
@@ -17,6 +19,7 @@ Para elegir el módulo de radio que contiene el microcontrolador (MCU), la RF y 
 La tabla muestra tres familias de MCU con interface de RF de acuerdo con los criterios basados en la necesidad actual, elegiendo el `CC1312R1` como el módulo más económico, robusto, amplio rango de cobertura y de bajo consumo para desempeñar la tarea que el `Turpial` requiere como dispositivo transceptor.
 
 La familia de MCUs `CC135x` cumplen con la mayoría de requerimientos, sin embargo provee más funciones de las que se necesitan encareciendo su valor y en consecuencia, descartado.
+
 <br/>
 
 ## 6.2 Fuente de voltaje
@@ -24,7 +27,7 @@ La familia de MCUs `CC135x` cumplen con la mayoría de requerimientos, sin embar
 Para que el Turpial de Locha Mesh funcione de forma óptima, se debe seleccionar cuidadosamente el dispositivo que regulará la corriente proveniente de la batería y alimentará al dispositivo.
 
 <br/>
-<img src="../pics/powerSupply-selection.svg"  height="650" width="450"/>
+<img src="../pics/powerSupply-selection.svg" width="400"/>
 <br/>
 
 Los parámetros a tomar en cuenta para la elección del dispositvo que alimenta al circuito:
