@@ -1,7 +1,7 @@
-
 # 13. Generación y procesamiento de mensajes.
 
 El procesamiento de mensajes tiene este esquema general:
+
 - Recibir mensajes entrantes de ruta.
 - Actualizar tablas de rutas según corresponda.
 - Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
@@ -20,18 +20,19 @@ Después de procesar un mensaje, la información se almacena en la tabla de ruta
  MF = Message Flags
  Size = number of octets in MsgHdr, AddrBlk, AddrTLVs */
 
-build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size, 
- hopLimit, hopCount, tlvLength)
+build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size, hopLimit, hopCount, tlvLength)
 {
- /* Build RFC 5444 message header fields */
- msg-type = msgType;
- MF = Flags;
- MAL = 3 or 15; // for IPv4 or IPv6
- msg-size = Size;
- msg-hop-limit = hopLimit;
- if (hopCount != 0) /* if hopCount is 0, do not include */
- msg-hop-count = hopCount;
- msg.tlvs-length = tlvLength;
+    /* Build RFC 5444 message header fields */
+    msg-type = msgType;
+    MF = Flags;
+    MAL = 3 or 15; // for IPv4 or IPv6
+    msg-size = Size;
+    msg-hop-limit = hopLimit;
+    
+    /* if hopCount is 0, do not include */
+    if (hopCount != 0) 
+    msg-hop-count = hopCount;
+    msg.tlvs-length = tlvLength;
 }
 ```
 
