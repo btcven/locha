@@ -59,19 +59,17 @@ Una onda consiste en la propagación de una perturbación de alguna propiedad de
 
 Implicando un transporte de energía sin transporte de materia.El espacio perturbado puede contener materia (aire, agua, etc) o no (vació).
 
-
-<img src="../pics/wave.svg" alt="drawing" height="300" width="400" align="block"/>
+<figure>
+    <img src="../pics/wave.svg" alt="drawing" height="300" width="400"/>
+</figure>
 
 En el ejemplo de la imagen generando una onda con una cuerda, se puede apreciar la deformación del medio el cual representa el transporte de energía, sin transportar la materia misma.
 
 ## 1 Caracteristicas de una onda
 
-
 <figure>
-<img src="../pics/wave-characteristics.svg" alt="drawing" height="330" width="400" align="left"/>
-
-<img src="../pics/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
-
+    <img src="../pics/wave-characteristics.svg" alt="drawing" height="330" width="400"/>
+    <img src="../pics/frequency.svg" alt="drawing" height="330" width="400"/>
 </figure>
 
 Una onda puede ser completamente descrita por 5 características llamadas amplitud, frecuencia, periodo, longitud de onda y velocidad.
@@ -89,7 +87,6 @@ f = 1/T
 
 ```
 
- 
 ### 1.1.3 Periodo de tiempo (T)
 
 El tiempo requerido para producir una vibración completa (onda o ciclo) se llama período de tiempo de la onda. Se denota como T. La unidad SI del período de tiempo es el segundo (s). La frecuencia y el período de tiempo son recíprocos entre sí.
@@ -176,7 +173,7 @@ El uso de una onda portadora también soluciona muchos problemas de circuito, an
 Como se dijo antes una señal moduladora , puede ser una señal de audio, video, o datos, cualquier señal de estas al ser mezclada con la portadora generan la señal modulada que se transmite a través de la antena.
 
 
-<img src="imple_pic/modulator1.svg" alt="drawing" height="180" width="400" align="block"/>
+<img src="../pics/modulator1.svg" alt="drawing" height="180" width="400"/>
 
 
 ## 2.3 Por que modular una señal?
