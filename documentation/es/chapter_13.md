@@ -1,12 +1,12 @@
-# 13. Generation and processing of messages.
 
-Message processing has this general scheme:
+# 13. Generación y procesamiento de mensajes.
 
- - Receive incoming route  messages.
- - Update route tables as appropriate.
- - Answer as needed, often regenerating the incoming message with updated information.
+El procesamiento de mensajes tiene este esquema general:
+- Recibir mensajes entrantes de ruta.
+- Actualizar tablas de rutas según corresponda.
+- Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
 
-After processing a message, the information is stored in the routes table. For this reason, it is appropiate to set values ​​in the outgoing message fields, using the information in the routes table or the fields of the incoming message.
+Después de procesar un mensaje, la información se almacena en la tabla de rutas. Por este motivo es apropiado establecer valores en los campos de mensajes salientes, utilizando la información de la tabla de rutas o los campos del mensaje entrante.
 
 
 ## 13.1 build_rfc_5444_message_header.
@@ -39,9 +39,10 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size,
 
 ```cpp
 /* Process a RREQ received on link L */
+
 receive_RREQ (inRREQ, L)
 {
-if (inRREQ.NbrIP present in blacklist) 
+ if (inRREQ.NbrIP present in blacklist) 
  {
  if (blacklist_expiration_time < CurrentTime)
  return; // don't process or regenerate RREQ
@@ -91,9 +92,9 @@ if (inRREQ.NbrIP present in blacklist)
 }
 ```
 
-<figure>
-<img src="imple_../pics/Receive_RREQ.png" width="100%"/>
-</figure>
+
+<img src="../pics/Receive_RREQ.png" alt="drawing" height="600" width="800" align="center"/>
+
 
 ## 13.3 generate_rreq.
 
@@ -140,7 +141,7 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
  metricAddrBlkTlv.value = outRREQ.OrigMetric;
  if (outRREQ.MetricType != DEFAULT_METRIC_TYPE)
  metricAddrBlkTlv.typeExtension = outRREQ.MetricType;
-
+ 
  if (outRREQ.ValidityTime is required)
  {
  /* Build VALIDITY_TIME Address Block TLV */
@@ -152,6 +153,7 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
  /* multicast RFC 5444 message to LL-MANET-Routers */
 }
+
 ```
 
 ## 13.4 regenerate_RREQ.
@@ -189,7 +191,7 @@ regenerate_RREQ (inRREQ, rte)
  /* Build Address Block using prefix length information from 
  outRREQ.OrigPrefixLen if necessary */
  AddrBlk = {outRREQ.OrigAddr, outRREQ.TargAddr};
-
+ 
  /* Include sequence numbers in appropriate Address Block TLVs */
  /* OrigSeqNum Address Block TLV */
  origSeqNumAddrBlkTlv.value = outRREQ.OrigSeqNum;
@@ -217,8 +219,7 @@ regenerate_RREQ (inRREQ, rte)
 }
 ```
 
-## 13.5 generate_rrep
-
+## 13.5 generate_rrep.
 ```cpp
 generate_rrep(inRREQ, rte)
 {
@@ -273,7 +274,7 @@ generate_rrep(inRREQ, rte)
 }
 ```
 
-## 13.6 receive_rrep
+## 13.6 receive_rrep.
 
 ```cpp
 /* Process a RREP received on link L */
@@ -334,26 +335,27 @@ Receive_RREP (inRREP, L)
 }
 ```
 
-## 13.7 regenerate_rrep
+## 13.7 regenerate_rrep.
 
 ```cpp
 Regenerate_RREP(inRREP, rte)
 {
-    if (rte does not exist) {
-        Generate_RERR(inRREP);
-        return;
-    }
+ if (rte does not exist)
+ {
+ Generate_RERR(inRREP);
+ return;
+ }
 
-    outRREP.HopLimit = inRREP.HopLimit - 1;
-    if (outRREP.HopLimit == 0) /* don't regenerate */
-    return;
+ outRREP.HopLimit = inRREP.HopLimit - 1;
+ if (outRREP.HopLimit == 0) /* don't regenerate */
+ return;
 
-    if (inRREP.HopCount exists) {
-        if (inRREP.HopCount >= MAX_HOPCOUNT)
-            return; // don't regenerate the RREP
-
-        outRREP.HopCount = inRREP.HopCount + 1;
-    }
+ if (inRREP.HopCount exists)
+ {
+ if (inRREP.HopCount >= MAX_HOPCOUNT)
+ return; // don't regenerate the RREP
+ outRREP.HopCount = inRREP.HopCount + 1;
+ }
 
  /* Marshall parameters */
  /* Include the AckReq when:
@@ -397,8 +399,9 @@ Regenerate_RREP(inRREP, rte)
 
  Build_RFC_5444_Message_Header (RREP, 4, IPv4 or IPv6, NN,
  outRREP.HopLimit, 0, tlvLength);
-
+ 
  /* unicast RFC 5444 message to rte[OrigAddr].NextHop */ 
 }
+
 
 ```
