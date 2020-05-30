@@ -1,61 +1,57 @@
-# 5. Routing Protocols
+# 5. Protocolos de enrutamiento
 
-There are many routing protocols used for information management but not all of them are relevant to the WNS, their use case is completely different. The loss of information in wired networks its due to the great amount of data traffic traveling through the network, whereas in WNS the medium is very hostile, the air, where devices and transmissions are exposed to enviroment changes like noise and other alterations that may take place, to say nothing of how devices must _fight_ to access the medium. Therefore the approach given to an ad-hoc network protocol is different to the one used in wired networks, on the latter the protocols are not design to work with that much stress.
+Existe un gran número de protocolos usados para el manejo de la información, pero no todos son aplicables a las redes de sensores (WNS), ya que el medio en el que se emplean es totalmente diferente. En las redes cableadas la pérdida de información se debe a la gran cantidad de tráfico que corre por el medio, mientras que en las WNS el medio usado para la comunicación es más hostil, el aire, donde los dispositivos y las transmisiones están expuestas a las implicaciones medioambientales, al ruido y otros inconvenientes que se pueda dar en el medio, todo esto sin mencionar que los dispositivos deben _luchar_ por acceder al medio de comunicación. Es por ello que el enfoque que se le da a un protocolo para redes ad hoc es muy diferente al usado en redes cableadas, ya que en este último caso los protocolos no están pensados para trabajar con tanto _stress_. 
 
-## 5.1 Types of routing protocols
+## 5.2 Clasificación de los protocolos según su funcionamiento 
+Los protocolos usados en las redes inalámbricas se clasifican en tres tipos, estos protocolos se han desarrollado ante la necesidad de controlar el enrutamiento en las redes ad hoc [3], teniendo en cuenta las limitaciones de los dispositivos:
 
-There are three types of routing protocols for wireless networks, these protocols have been developed due the need to control the routing on ad-hoc networks [3] keeping in mind the limitations of the devices:
+### 5.2.1 Protocolos Proactivos
 
-### 5.1.1 Proactive Protocols
+Son aquellos que actualizan periódicamente las tablas de enrutamiento de todos los nodos de la red aunque no estén enviando información. Cuando surge algún cambio entre las conexiones de la red, la tabla se actualiza y el protocolo elige la ruta mas óptima para enviar información. Esto se debe al intercambio de mensajes de control, lo que incrementa el consumo de batería por el número de paquetes enviados a la red.
 
-In this type of protocols the routing tables of the nodes are regularly updated eventhough they are not sending any information. When a change happens within the network, the routing table updates and the protocol chooses the optimal route to send the data. This is due to the exchange of control messages which increases the battery consumption by the number of packets sent into the network.
+### 5.2.2 Protocolos Reactivos 
 
-### 5.1.2 Reactive Protocols
+Estos únicamente tienen rutas de encaminamiento en sus tablas cuando un nodo origen tiene que realizar una comunicación con otro nodo en la red. Los protocolos reactivos al iniciar una comunicación y no tener una ruta para llegar al nodo destino, envían un mensaje de descubrimiento de ruta, al recibir la respuesta a dicho mensaje añade esta ruta en su tabla de enrutamiento. Es entonces posible la comunicación con el destino. El mayor inconveniente es la latencia que se añade al primer paquete de la transmisión por esa nueva ruta, pero a su vez mejora las prestaciones de la batería en los nodos. Dentro de este protocolo existen dos subclases: 
 
-These only add routes on-demand. When a reactive protocols needs to communicate with a node and are not provided with a route to its destiny they will initiate a route discovery process, the answer received will add the route in its routing table. It is then when a communication with the destinatary is possible. The major inconvenience with this protocol is the latency added to the first packet of that transmission by that new route, but at the same time it improves the battery consumption in the nodes. This protocol has two subclasses:
+- **Enrutamiento origen**: La ruta de los nodos por donde tiene que pasar la información es almacenada en las cabeceras de los paquetes, de modo que los nodos intermedios no necesitan tablas de enrutamiento, ya que solo basta con leer las cabeceras para saber a quien reenviar la información. 
 
-- **Source routing**: The route of the nodes is stored in the header of the packets, so that intermediary nodes don't need routing tables as they only need to read the header to know to who resend the information.
+No es aconsejable usarlo en redes extensas, ya que a medida que el mensaje pasa por cada nodo se incrementa la cabecera del paquete.
 
-Not recommended to larger networks, as the message hops through each node the header of the packet increases.
+- **Enrutamiento salto a salto**: La ruta la escoge cada nodo en cualquier momento, ya que cuando se envía la información la cabecera del paquete contiene la dirección del nodo destino y la dirección del siguiente salto. 
 
-- **Next hop routing**: The route is choose by any node, at any time, as to when information is sent the header of the packet contains the address of the recipient node and the address of the next hop.
+Este se adapta más rápido a los cambios de la topología pero genera un gasto superior de recursos en los nodos intermedios pues tienen que almacenar en tablas de enrutamiento las rutas correspondientes. 
 
-This one adapts faster to changes in the topology but it makes intermediate nodes to expend more resources storing suitable routing tables.
+### 5.2.3 Protocolos híbridos 
+Los protocolos híbridos son una mezcla de los protocolos proactivos y los reactivos. El fin de estos es usar las mejores características que ofrecen ambos. Los protocolos dividen las redes en zonas, y los nodos que están lejos del destino utilizan enrutamiento reactivo mientras que los que están cerca utilizan enrutamiento proactivo, como es el caso de ZRP (The Zone Routing Protocol). 
 
-### 5.1.3 Hybrid Protocols
-
-Hybrids protocols are a mix between proactive and reactive protocols. The point is to use the best features offered by each of them. The protocols divide the network in zones, and the nodes that are far of the node destiny use the reactive routing while those nodes near the destiny use proactive routing, this is the case of ZRP (Zone Routing Protocol).
-
-Another examples of hybrid protocols are OSI IS-IS (Intermediate System to Intermediate System), and EIGRP (Enhanced Interior Gateway Routing Protocol) from CISCO.
+Otros ejemplos de protocolos híbridos son IS-IS de OSI (Intermediate System to Intermediate System) y EIGRP (Enhanced Interior Gateway Routing Protocol) de CISCO. 
 
 
-## 5.2 Routing protocol selection criteria
+### 5.2.4 Criterios para seleccionar el protocolo
 
-The type of network to implement must be based in low consumption embedded devices which will limit the hardware, therefore:
+El tipo de red a implementar debe ser una red basada en dispositivos embebidos de bajo consumo energético, lo cual limita el hardware que lo compone, por lo tanto este debe:
+- Obtener las mejores rutas de encaminamiento.
+- Hallar un mínimo de transmisión de mensajes.
+- Baja latencia de los paquetes entre la fuente y el destino.
+- La red debe estabilizarse en el menor tiempo posible.
+- No sobrecargar la red con mensajes de control.
+- Sea resiliente frente a posibles fallos.
 
-- Must find the best routes.
-- Set a minimun message transmission.
-- Low latency between the source and the destiny.
-- Must not flood the network with control messages.
-- Resilient, self healing.
-
-In all routing protocols used for wireless networks and WNS it's important to set the routes. If a protocol chooses good routes, it will result in a minor latency between the source and the destiny, therefore it will perform less transmission messages consuming less energy from the device.
+En todos los protocolos de encaminamiento usados para redes inalámbricas y _WNS_ es importante el establecimiento de ruta. Si un protocolo elige buenas rutas de encaminamiento ofrecerá menor latencia entre la fuente y el destino, por consiguiente realizará menos transmisiones de mensajes, por ende consumirá menos energía del dispositivo.
 
 
-## 5.3 Locha Mesh routing protocol
+## 5.3 Elección del protocolo para la implementación de Locha Mesh
 
 <figure>
-    <img src="../pics/protocolo_seleccion.svg">
-    <figcaption>Fig. 5.2</figcaption>
+<img src="../pics/protocolo_seleccion.svg"  height="650" width="450"/>
 </figure>
 
-In this diagram we summarize the criteria for choosing a protocol suitable for Locha Mesh. We can enphasize the following:
+En este diagrama resumimos los criterios importantes para la elección del protocolo que más se adapta a Locha Mesh. Podemos destacar que: 
 
-- Free `loops`.
-- Low computing cost, since its executed inside an embedded system with limited resources.
-- The protocol must be reactive to avoid flooding the network with messages even when the routes are not being used, and save battery while the user its not requiring routes.
+- Debe ser libre de `loops`.
+- El costo computacional debe ser muy bajo, dado que se ejecuta dentro de un sistema embebido con recursos limitados.
+- El protocolo debe ser reactivo, para evitar inundar la red con mensajes aún cuando las rutas no se están utilizando, y para ahorrar batería mientras no se requieren rutas por parte del usuario.
 
-It is observed that the highest score in the chart belongs to the AODVv2 protocol and TORA. We have decided to work with the AODVv2, since it has available documentation updated online, although it's plausible a revision for TORA.
+Se puede apreciar en la tabla que la puntuación más alta al sumar cada columna es para el protocolo _AODVv2_ y _TORA_. Hemos decidido trabajar con el protocolo _AODVv2_, ya que cuenta con documentación actualizada en la web, aunque es plausible una revisión de _TORA_.
 
-Another point to take into account is the network topology that will be used for the deployment, according to the chart regarding the criteria on the client side and reducing the points of failure, the star topology is discarded and in its place the mesh topology will be implemented.
-
+Otro punto a tener en cuenta es la topología de red se utilizará para la implementación, según la tabla, respetando los criterios por parte del cliente y reduciendo los puntos de fallo la topología en estrella es descartada y en su lugar se utilizará la topología en malla para Locha Mesh.
