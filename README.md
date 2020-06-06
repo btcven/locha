@@ -43,12 +43,6 @@ The Locha Mesh devices are battery powered and could also use solar panels. Ther
   - [Stay connected](#stay-connected)
   - [License](#license)
 
-The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
-transactions could be possible without access to the Internet. We are implementing and inproving the protocol and developing the firmware for affordable devices like the ```Turpial```,
-```Harpia```, or their DIY equivalents.
-
-We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
-
 ## Backers
 
 <figure>
