@@ -55,7 +55,6 @@ We adhere to open source ethos at every step and aim to make this tool as decent
   <a href="https://locha.io/monero">
   <img src="images/329px_281px_MoneroCommunity.png" alt="drawing" height="281px" width="329px" />
   </a>
-  <figcaption>Monero Community</figcaption>
 </figure>
 
 ### Become a backer
