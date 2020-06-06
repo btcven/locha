@@ -18,8 +18,19 @@
 
 <h1 align="center">Locha Mesh</h1>
 
+## What is the Locha Mesh?
 
-# Table of Contents
+During the year 2018 in Venezuela there were power blackouts throughout the whole country which left cities without power for weeks, even cell towers run out of power supply after a few days, so despite people managed to charge their phones with generators or cars' battery, there wasn’t any cell service for them to communicate with others. No calls, no SMS, no mobile data.
+
+How do you communicate and do commerce when there is no communication infrastructure, nor power grid at all?
+
+The Locha Mesh is an open-source and open-hardware project initiated by the non-profit [Bitcoin Venezuela](https://www.bitcoinvenezuela.com) in 2018, to create the software, protocol, and hardware needed for a resilient, decentralized, mesh network of devices capable of transmitting messages, data, Bitcoin transactions, and services completely off-grid without having to rely on an Internet connection or even the electrical grid, for disaster hit countries and privacy-concerned individuals and groups.
+
+The Locha Mesh devices are battery powered and could also use solar panels. There will be custom made hardware, the Turpial, which is mobile-first so you can carry it around. (you can pre-order a Turpial device by making a donation to the project) and also DIY alternatives. The Turpial device can also be attached to a computer (desktop, laptop, Raspberry Pi...) to offer services to others and get paid in Bitcoin, Lightning Network, and Monero RPC-Pay. You can add a bigger antenna and power amplifier to serve a wider area or reach longer distances.
+
+<br/>
+
+## Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Backers](#backers)
     - [Become a backer](#become-a-backer)
@@ -34,11 +45,18 @@
 
 The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
 transactions could be possible without access to the Internet. We are implementing and inproving the protocol and developing the firmware for affordable devices like the ```Turpial```,
-```Harpia```, or their DIY equivalents. 
+```Harpia```, or their DIY equivalents.
 
 We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
 
 ## Backers
+
+<figure>
+  <a href="https://locha.io/monero">
+  <img src="images/329px_281px_MoneroCommunity.png" alt="drawing" height="281px" width="329px" />
+  </a>
+  <figcaption>Monero Community</figcaption>
+</figure>
 
 ### Become a backer
 
