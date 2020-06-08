@@ -31,12 +31,13 @@ Depending of if we want a simple-client or multi-client system we need:
 A dev-kit as above described connected via USB port of our PC or credit card sized computer like Raspberry PI or similar.
 
 ### For multi-client
-<div style="text-align: center;">
-    <figure>
-        <img src="../pics/basic_turpial.svg" height="300px">
-        <figcaption>
-            Simplified multi-client system
-        </figcaption>
-    </figure>
-</div>
+
+
+<figure>
+    <img align="center" src="../pics/basic_turpial.svg" height="300px">
+    <figcaption>
+        Simplified multi-client system
+    </figcaption>
+</figure>
+
 
