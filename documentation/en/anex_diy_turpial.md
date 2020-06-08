@@ -32,7 +32,7 @@ A dev-kit as above described connected via USB port of our PC or credit card siz
 
 ### For multi-client
 
-<figure>
+<figure style="align: center;">
     <img src="../pics/basic_turpial.svg" height="300px">
     <figcaption>Simplified multi-client system</figcaption>
 </figure>
