@@ -27,11 +27,32 @@ Depending of if we want a simple-client or multi-client system we need:
 
 A dev-kit as above described connected via USB port of our PC or credit card sized computer like Raspberry PI or similar.
 
+The USB port provide connectivity and power source for the board so this is the simplest setup, only flash the firmware following the instructions in [btcven/radio-firmware](https://github.com/btcven/radio-firmware)
+
 ### For multi-client
 
+We need:
+
+- LAUNCHXL-CC1312R1 or compatible dev-kit with the latest firmware available in our [radio-firmware](https://github.com/btcven/radio-firmware) repository.
+
+- ESP32 dev board such as [WROVER-KIT-VB]() with the latest firmware available in the[turpial-firmware](https://github.com/btcven/turpial-firmware) repository
+
+We recommend to follow the instructions carefully for flashing the firmware and initial setup in each repository.
+
+A simplified blocks schema of our DIY Turpial
 
 <p align="center">
     <img src="../pics/basic_turpial.svg" height="400px">
 </p>
+
+In our case the USB to Serial converter and the _CC1312R_ MCU is on the Launchpad and the ESP32 in the WROVER dev-kit.
+
+Between both boards we need to connect only two wires for the UART interface and GND for a common reference
+
+| LAUNCHPAD-CC1312R1 | WROVER DEV-KIT |
+|--------------------|----------------|
+| DIO11              | GPIO22         |
+| DIO12              | GPIO21         |
+| GND                | GND            |
 
 
