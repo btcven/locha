@@ -9,14 +9,14 @@ The basis of the entire system is the _CC1312R_, a small MCU with radio transcep
 Not many manufacturers are integrating the MCU descrived above, only the italian [Radiocontrolli](https://www.radiocontrolli.com/) develop modules and kits for evaluation.
 
 <figure>
-    <img src="../pics/radiocontrolli-cc1312r.jpg">
+    <img src="../pics/radiocontrolli-cc1312r.jpg" height="300px" />
     <figcaption>RadioControlli cc1312r module </figcaption>
 </figure>
 
 Texas Instruments (TI) develops a ready-to-use development kit named [LAUNCXL-CC1312R1](https://www.ti.com/tool/LAUNCHXL-CC1312R1) with debugger, MCU, and power supply. this was our development platform for months previously to the first Turpial board.
 
 <figure>
-    <img src="../pics/launchxl-cc1312r1_cc1312r1-top-prof1.jpg">
+    <img src="../pics/launchxl-cc1312r1_cc1312r1-top-prof1.jpg" height="300px" />
     <figcaption>Dev-kit launchxl-cc1312r </figcaption>
 </figure>
 
