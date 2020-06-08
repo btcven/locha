@@ -10,14 +10,14 @@ Not many manufacturers are integrating the MCU descrived above, only the italian
 
 <figure>
     <img src="../pics/radiocontrolli-cc1312r.jpg">
-    <label>RadioControlli cc1312r module </label>
+    <figcaption>RadioControlli cc1312r module </figcaption>
 </figure>
 
 Texas Instruments (TI) develops a ready-to-use development kit named [LAUNCXL-CC1312R1](https://www.ti.com/tool/LAUNCHXL-CC1312R1) with debugger, MCU, and power supply. this was our development platform for months previously to the first Turpial board.
 
 <figure>
     <img src="../pics/launchxl-cc1312r1_cc1312r1-top-prof1.jpg">
-    <label>Dev-kit launchxl-cc1312r </label>
+    <figcaption>Dev-kit launchxl-cc1312r </figcaption>
 </figure>
 
 Other compatible modules are _CC1352R_, _CC1352P_, both of TI and (not yet tested) _AT86RF2xx_ family from _Microchip_
@@ -34,6 +34,6 @@ A dev-kit as above described connected via USB port of our PC or credit card siz
 
 <figure>
     <img src="../pics/basic_turpial.svg">
-    <label>Simplified multi-client system</label>
+    <figcaption>Simplified multi-client system</figcaption>
 </figure>
 
