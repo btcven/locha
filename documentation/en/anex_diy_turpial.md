@@ -6,7 +6,7 @@ Turpial consist of a MCU with a integrated radio transceptor [_CC1312R_](https:/
 
 The basis of the entire system is the _CC1312R_, a small MCU with radio transceptor for Sub-1-GHz frequencies and a PA for TX output power up to **+14dBm**
  
-Not many manufacturers are integrating the MCU descrived above, only the italian [Radiocontrolli](https://www.radiocontrolli.com/) develop modules and kits for evaluation.
+Not many manufacturers are integrating the MCU described above, only the italian [Radiocontrolli](https://www.radiocontrolli.com/) develop modules and kits for evaluation.
 <p align="center">
     <img src="../pics/radiocontrolli-cc1312r.jpg" height="300px" />
 </p>
@@ -35,7 +35,7 @@ We need:
 
 - LAUNCHXL-CC1312R1 or compatible dev-kit with the latest firmware available in our [radio-firmware](https://github.com/btcven/radio-firmware) repository.
 
-- ESP32 dev board such as [WROVER-KIT-VB]() with the latest firmware available in the[turpial-firmware](https://github.com/btcven/turpial-firmware) repository
+- ESP32 dev board such as [WROVER-KIT-VB]() with the latest firmware available in the [turpial-firmware](https://github.com/btcven/turpial-firmware) repository
 
 We recommend to follow the instructions carefully for flashing the firmware and initial setup in each repository.
 
@@ -45,9 +45,7 @@ A simplified blocks schema of our DIY Turpial
     <img src="../pics/basic_turpial.svg" height="400px">
 </p>
 
-In our case the USB to Serial converter and the _CC1312R_ MCU is on the Launchpad and the ESP32 in the WROVER dev-kit.
-
-Between both boards we need to connect only two wires for the UART interface and GND for a common reference
+In our case the USB to Serial converter and the _CC1312R_ MCU are on the Launchpad, and between this and the _WROVER dev-kit_ we need to connect only two wires for the UART interface and GND for a common ground reference.
 
 | LAUNCHPAD-CC1312R1 | WROVER DEV-KIT |
 |--------------------|----------------|
