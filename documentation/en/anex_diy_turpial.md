@@ -99,3 +99,12 @@ Connect the _BabySitter_ as follow:
 <p align="center">
     <img src="../pics/diy_baby.svg" height="600px">
 </p>
+
+
+You can use a 1000mAh battery or greater, type LiPo, 18650, etc. Or without battery using the _Charge Port_ connected to a power bank or computer.
+
+
+## Final considerations
+
+Here we have described how to make a DIY version of the Turpial with some variants. Depending of your goal, budget or skills you can choose one or another one.
+The _Turpial_ ...
