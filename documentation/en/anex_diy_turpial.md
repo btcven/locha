@@ -53,4 +53,22 @@ In our case the USB to Serial converter and the _CC1312R_ MCU are on the Launchp
 | DIO12              | GPIO21         |
 | GND                | GND            |
 
+At first any _ESP32 board_ can work, only follow the next recommendation: 
 
+1. Use only the UART1 in the _ESP32_ to connect to _CC1312R_ dev-board or module.
+2. The UART0 is reserved to connect _USB to Serial converter_ in most of dev-boards for debugging purposes and bootloading.
+3. Actually ESP32-S2 is not supported.
+
+The list of ESP32 boards available in the market is huge, for example:
+
+| Board Name                     | UART1 TX/RX | Manufacturer                            | Observations                       |
+|--------------------------------|-------------|-----------------------------------------|------------------------------------|
+| HUZZAH32 - ESP32 Feather       | 17/16       | [Adafruit](https://www.adafruit.com)    | LiPo Battery charger               |
+| WiFi KIT 32                    |             | [Heltec](https://heltec.org)            | LiPo Battery charger, OLED display |
+| TTGO T7 V1.3 MINI 32           | 1/3         | [Lilygo](http://www.lilygo.cn)          | Battery charger, small factor      |
+| Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/)   | Battery charger                    | 
+| ESP32 NodeMCU (various models) | N/A         | Several                                 | Cheap                              |
+| Wemos (various models)         | N/A         | Several                                 | Cheap                              |               
+
+
+We can use the USB connection in each board as power source or in some models a power management system is available, including battery charger,but keep in mind not all _ESP32_ based boards can be used as power source for the _CC1312R_, check the output current that each board can offer.
