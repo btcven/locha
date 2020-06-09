@@ -108,4 +108,4 @@ You can use a 1000mAh battery or greater, LiPo type, 18650, etc. Or without batt
 
 In this tutorial we have described how to make a DIY version of the Turpial device, including different approaches depending on your goal, budget or skills.
 
-The Turpial customed hardware we have designed includes everything mentioned above in a portable form, a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).
+The Turpial customed hardware we have designed includes everything mentioned above in a portable form plus a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).
