@@ -35,7 +35,7 @@ We need:
 
 - LAUNCHXL-CC1312R1 or compatible dev-kit with the latest firmware available in our [radio-firmware](https://github.com/btcven/radio-firmware) repository.
 
-- ESP32 dev board such as [WROVER-KIT-VB]() with the latest firmware available in the [turpial-firmware](https://github.com/btcven/turpial-firmware) repository
+- ESP32 dev board such as [WROVER-KIT-VB](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-wrover-kit.html) with the latest firmware available in the [turpial-firmware](https://github.com/btcven/turpial-firmware) repository
 
 We recommend to follow the instructions carefully for flashing the firmware and initial setup in each repository.
 
@@ -53,6 +53,12 @@ In our case the USB to Serial converter and the _CC1312R_ MCU are on the Launchp
 | DIO12              | GPIO21         |
 | GND                | GND            |
 
+
+<p align="center">
+    <img src="../pics/diy.svg" height="500px">
+</p>
+
+
 At first any _ESP32 board_ can work, only follow the next recommendation: 
 
 1. Use only the UART1 in the _ESP32_ to connect to _CC1312R_ dev-board or module.
@@ -64,7 +70,7 @@ The list of ESP32 boards available in the market is huge, for example:
 | Board Name                     | UART1 TX/RX | Manufacturer                            | Observations                       |
 |--------------------------------|-------------|-----------------------------------------|------------------------------------|
 | HUZZAH32 - ESP32 Feather       | 17/16       | [Adafruit](https://www.adafruit.com)    | LiPo Battery charger               |
-| WiFi KIT 32                    |             | [Heltec](https://heltec.org)            | LiPo Battery charger, OLED display |
+| WiFi KIT 32                    | ---         | [Heltec](https://heltec.org)            | LiPo Battery charger, OLED display |
 | TTGO T7 V1.3 MINI 32           | 1/3         | [Lilygo](http://www.lilygo.cn)          | Battery charger, small factor      |
 | Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/)   | Battery charger                    | 
 | ESP32 NodeMCU (various models) | N/A         | Several                                 | Cheap                              |
