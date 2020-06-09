@@ -78,3 +78,24 @@ The list of ESP32 boards available in the market is huge, for example:
 
 
 We can use the USB connection in each board as power source or in some models a power management system is available, including battery charger,but keep in mind not all _ESP32_ based boards can be used as power source for the _CC1312R_, check the output current that each board can offer.
+
+But if you need more power or the power, you can add a battery manager and power source in the system such a named [_"Babysitter"_](https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide?_ga=2.19040816.900141778.1591701673-1481710619.1579527500) from SparkFun, it can monitoring the battery status and current drain in real time using the _I2C_ interface.
+
+
+Connect the _BabySitter_ as follow:
+
+| LAUNCHPAD-CC1312R1 | BabySitter | WROVER DEV-KIT |
+|--------------------|------------|----------------|
+| DIO4               | SDA        | N/A            |
+| DIO5               | SCL        | N/A            |
+| DIO8               | GPOUT      | N/A            |
+| GND                | GND        | GND            |
+| 3V3                | VPU        | N/A            |
+|                    |            |                |
+| 3V3                | VOUT +     | 3V3            |
+| GND                | VOUT -     | GND            |
+
+
+<p align="center">
+    <img src="../pics/diy_baby.svg" height="600px">
+</p>
