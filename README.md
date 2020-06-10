@@ -74,7 +74,7 @@ In this page you will find all the information related to the progress of the pr
 
 The Locha Mesh is under active development. If you are a C/C++ developer and you want to join the development efforts, or you are a maker and would like to setup the development kits to have them ready for when the firmwares are ready, or if you are a phreaker and you want to hack new ways for decentralized communications, please follow the instructions below on how to get started.
 
-* You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or [compatible development hardware](https://github.com/btcven/locha/blob/master/documentation/en/diy_turpial.md) which is comprised of an ESP32 and a radio module.
+* You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or the DIY [compatible development hardware](./documentation/en/diy_turpial.md) which is comprised of an ESP32 and a radio module.
 
 * Once you have the hardware you need to follow the instructions on [how to flash the ESP32](https://github.com/btcven/turpial-firmware#getting-started), and [how to flash the radio module](https://github.com/btcven/radio-firmware#getting-started); If you want to collaborate in transcription in other different languages, you are welcome.
 
