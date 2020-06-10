@@ -35,3 +35,4 @@
 * 14 []()
 
 * Anex. A - Modulators
+* DIY Turpial hardware
