@@ -1,7 +1,7 @@
 ## Project Index
 <br/>
 
-* 1 [Locha Mesh - A network for the people]()
+* 1 [Locha Mesh - the resilient network]()
   * 1.2 [Motivation]()
   * 1.2 [Goals]()
   * 1.3 [Planning]()
@@ -34,4 +34,5 @@
 * 13 []()
 * 14 []()
 
-* Anex. A - Modulators 
+* Anex. A - Modulators
+* DIY Turpial hardware
