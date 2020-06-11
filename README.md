@@ -106,7 +106,12 @@ The Locha Mesh is under active development. If you are a C/C++ developer and you
 
 ## Reporting issues, bugs, or improvements
 
-Thank you for reading through the code if you have any idea, buh report, or improvement you can make a PR to the `dev` branch or open an issue [here](https://github.com/btcven/locha/issues) for general questions/suggestion or under each specific repo.
+Thank you for reading through the code if you have any idea, bug report, or improvement you can make a PR to the `dev` branch or open an issue [here](https://github.com/btcven/locha/issues) for general questions or suggestions, or under each specific repo:
+
+- General: https://github.com/btcven/locha/issues/issues
+- Messaging app: https://github.com/btcven/locha-mesh-chat/issues
+- Firmware of the Turpial boards: https://github.com/btcven/turpial-firmware/issues
+- Radio firmware and protocol: https://github.com/btcven/radio-firmware/issues
 
 
 <br>
