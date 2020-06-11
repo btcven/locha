@@ -103,12 +103,11 @@ The Locha Mesh is under active development. If you are a C/C++ developer and you
 
 <br/>
 
-----
-### Reporting issues, bugs, or improvements
+
+## Reporting issues, bugs, or improvements
 
 Thank you for reading through the code if you have any idea, buh report, or improvement you can make a PR to the `dev` branch or open an issue [here](https://github.com/btcven/locha/issues) for general questions/suggestion or under each specific repo.
 
-----
 
 <br>
 
