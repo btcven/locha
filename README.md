@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/btcven/locha/graphs/contributors">Contributors</a> |
+  <a href="./AUTHORS">Authors</a> |
   <a href="#backers">Backers</a>
 </p>
 
