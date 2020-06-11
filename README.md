@@ -37,9 +37,7 @@ The Locha Mesh devices are battery powered and could also use solar panels. Ther
   - [Getting started](#getting-started)
   - [What's in the code?](#whats-in-the-code)
   - [Contribution guidelines](#contribution-guidelines)
-  - [Supported devices](#supported-devices)
-    - [Turpial](#turpial)
-      - [:warning: Warning :warning:](#warning-warning-warning)
+  - [Reporting issues](#reporting-issues-bugs-or-improvements)
   - [Stay connected](#stay-connected)
   - [License](#license)
 
