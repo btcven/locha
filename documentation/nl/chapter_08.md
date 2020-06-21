@@ -81,7 +81,7 @@ We will show [7] graphically how the network is flooded with route request messa
 
 The _AODV_ protocol, being reactive, must wait for a node to try to send a message to another remote node. The following images represent the logical sequence until reaching the destination node.
 
-### Step 1
+### Stap 1
 
 <figure>
 <img src="../pics/RREQ1.png" width="100%"/>
@@ -95,7 +95,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - This type of message (_multicast_) will be heard by all its neighbors inside the coverage.
 
-### Step 2
+### Stap 2
 
 <figure>
 <img src="../pics/RREQ2.png" width="100%"/>
@@ -103,7 +103,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - Node **S** sends an _RREQ_ (route request) message to all of its neighbors: **B**, **C**, and **E**. As it can be seen, the direct neighbors of node **S** do not have the required route information so they must start retransmission of the _RREQ_, to its closest neighbors. Nodes can receive the same route request package from different nodes.
 
-### Step 3
+### Stap 3
 
 <figure>
 <img src="../pics/RREQ3.png" width="100%">
@@ -113,7 +113,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - _AODVv2_ handles a route message table [10] to verify that a node will never recreate a _RREQ_ message that it has already recreated before, no matter where it comes.
 
-### Step 4
+### Stap 4
 
 <figure>
 <img src="../pics/RREQ4.png" width="100%"/>
@@ -123,7 +123,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - Verification is done through the route message table, which must be interpolated every time a _RREQ_ or _RREP_ type message is received.
 
-### Step 5
+### Stap 5
 
 <figure>
 <img src="../pics/RREQ5.png" width="100%"/>
@@ -133,7 +133,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - The _RREQ_ package may not be delivered to node **D**, despite the flood of messages on the network.
 
-### Step 6
+### Stap 6
 
 <figure>
 <img src="../pics/RREQ6.png" width="100%"/>
@@ -147,7 +147,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 - When _RREP_ messages begin to be created, the intermediate nodes learn a reverse route to the origin node of the _RREP_ message, and in this way a two-way route could be established between the **S** and **D** nodes.
 
-### Step 7
+### Stap 7
 
 <figure>
 <img src="../pics/RREQ7.png" width="100%"/>
@@ -161,7 +161,7 @@ The _AODV_ protocol, being reactive, must wait for a node to try to send a messa
 
 ### 8.3.1 Advantages of search of routes by network flooding.
 
-The advantages are:
+De voordelen zijn:
 
 - Simplicity.
 - More efficient than other protocols when the transmission frequency is low enough.
