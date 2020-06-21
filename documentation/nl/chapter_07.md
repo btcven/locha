@@ -85,8 +85,8 @@ _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard pr
     <th>OS</th>
     <th>min RAM</th>
     <th>min ROM</th>
-    <th>C support</th>
-    <th>C++ support</th>
+    <th>C ondersteuning</th>
+    <th>C++ ondersteuning</th>
     <th>Multi-threading</th>
     <th>MCU w/o MMU</th>
     <th>Modularity</th>
