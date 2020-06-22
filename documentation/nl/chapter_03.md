@@ -1,4 +1,4 @@
-# 3. Proposed modifications
+# 3. Voorgestelde wijzigingen
 
 The goal is to implement the current version of the AODVv2 with no major changes in an embedded system with limited resources to analyze the behavior of the network while working the routing protocol. It's also part of the goal to build the hardware to obtain and analyze the results in real environments.
 
