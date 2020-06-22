@@ -12,33 +12,42 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/btcven/locha/graphs/contributors">Contributors</a> |
+  <a href="./AUTHORS">Authors</a> |
   <a href="#backers">Backers</a>
 </p>
 
 <h1 align="center">Locha Mesh</h1>
 
+## What is the Locha Mesh?
 
-# Table of Contents
+During the year 2018 in Venezuela there were power blackouts throughout the whole country which left cities without power for weeks, even cell towers run out of power supply after a few days, so despite people managed to charge their phones with generators or cars' battery, there wasn’t any cell service for them to communicate with others. No calls, no SMS, no mobile data.
+
+How do you communicate and do commerce when there is no communication infrastructure, nor power grid at all?
+
+The Locha Mesh is an open-source and open-hardware project initiated by the non-profit [Bitcoin Venezuela](https://www.bitcoinvenezuela.com) in 2018, to create the software, protocol, and hardware needed for a resilient, decentralized, mesh network of devices capable of transmitting messages, data, Bitcoin transactions, and services completely off-grid without having to rely on an Internet connection or even the electrical grid, for disaster hit countries and privacy-concerned individuals and groups.
+
+The Locha Mesh devices are battery powered and could also use solar panels. There will be custom made hardware, the Turpial, which is mobile-first so you can carry it around. (you can pre-order a Turpial device by making a donation to the project) and also DIY alternatives. The Turpial device can also be attached to a computer (desktop, laptop, Raspberry Pi...) to offer services to others and get paid in Bitcoin, Lightning Network, and Monero RPC-Pay. You can add a bigger antenna and power amplifier to serve a wider area or reach longer distances.
+
+<br/>
+
+## Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Backers](#backers)
     - [Become a backer](#become-a-backer)
   - [Getting started](#getting-started)
   - [What's in the code?](#whats-in-the-code)
   - [Contribution guidelines](#contribution-guidelines)
-  - [Supported devices](#supported-devices)
-    - [Turpial](#turpial)
-      - [:warning: Warning :warning:](#warning-warning-warning)
+  - [Reporting issues](#reporting-issues-bugs-or-improvements)
   - [Stay connected](#stay-connected)
   - [License](#license)
 
-The Locha Mesh is a radio network for off-grid messaging, Bitcoin and other cryptocurrencies
-transactions could be possible without access to the Internet. We are implementing and inproving the protocol and developing the firmware for affordable devices like the ```Turpial```,
-```Harpia```, or their DIY equivalents. 
-
-We adhere to open source ethos at every step and aim to make this tool as decentralized as possible so users can transmit with freedom.
-
 ## Backers
+
+<figure>
+  <a href="https://locha.io/monero">
+  <img src="images/329px_281px_MoneroCommunity.png" alt="drawing" height="281px" width="329px" />
+  </a>
+</figure>
 
 ### Become a backer
 
@@ -59,11 +68,11 @@ You can support the Locha Mesh open-source software and hardware efforts by dona
 
 ## Getting started
 
-In this page you will find all the information related to the progress of the project, in two languages, [Spanish](./documentation/ES/implementacion.MD), and [English](./documentation/EN/implementation.MD). This work is still under development stage, but all days we are updating the information to expose all the progress about the project
+In this page you will find all the information related to the progress of the project, in two languages, [Spanish](./documentation/es/index.md), and [English](./documentation/en/index.md). This work is still under development stage, but all days we are updating the information to expose all the progress about the project
 
 The Locha Mesh is under active development. If you are a C/C++ developer and you want to join the development efforts, or you are a maker and would like to setup the development kits to have them ready for when the firmwares are ready, or if you are a phreaker and you want to hack new ways for decentralized communications, please follow the instructions below on how to get started.
 
-* You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or [compatible development hardware](https://github.com/btcven/rdymac/blob/master/documents/turpial-description.md) which is comprised of an ESP32 and a radio module.
+* You need to acquire a Turpial device (currently only available as a [pre-order](https://locha.io/buy)); or the DIY [compatible development hardware](./documentation/en/diy_turpial.md) which is comprised of an ESP32 and a CC1312R radio module.
 
 * Once you have the hardware you need to follow the instructions on [how to flash the ESP32](https://github.com/btcven/turpial-firmware#getting-started), and [how to flash the radio module](https://github.com/btcven/radio-firmware#getting-started); If you want to collaborate in transcription in other different languages, you are welcome.
 
@@ -94,40 +103,16 @@ The Locha Mesh is under active development. If you are a C/C++ developer and you
 
 <br/>
 
-## Supported devices
 
-### Turpial
-A Turpial is a small and portable device
-[ESP32](https://www.espressif.com/en/products/hardware/esp-wroom-32/overview)
-based system.
+## Reporting issues, bugs, or improvements
 
-Radio module, battery type, and more details about the board are currently
-described
-[here](https://github.com/btcven/locha/blob/master/documents/turpial-description.md).
+Thank you for reading through the code if you have any idea, bug report, or improvement you can make a PR to the `dev` branch or open an issue [here](https://github.com/btcven/locha/issues) for general questions or suggestions, or under each specific repo:
 
+- General: https://github.com/btcven/locha/issues/issues
+- Messaging app: https://github.com/btcven/locha-mesh-chat/issues
+- Firmware of the Turpial boards: https://github.com/btcven/turpial-firmware/issues
+- Radio firmware and protocol: https://github.com/btcven/radio-firmware/issues
 
-
-<figure align="center">
-  <img src="images/turpial-finished-board.jpg" alt="drawing" height="533" width="400" />
-  <figcaption>Turpial Board</figcaption>
-</figure>
-<figure align="center">
-  <img src="images/turpial-size-compared.jpg" alt="drawing" height="338px" width="600px" />
-  <figcaption>Size comparison of a Turpial board</figcaption>
-</figure>
-
-
-<br>
-
-----
-#### :warning: Warning :warning:
-
-Please take into account that some things in this repo are in a very early
-stage. Thank you for reading through the code and for sharing your ideas on
-Twitter and the [Issues](https://github.com/btcven/locha/issues) section here
-at GitHub or under each specific repo.
-
-----
 
 <br>
 
@@ -157,5 +142,3 @@ limitations under the License.
 Read the full text:
 [Locha Mesh Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE)
 
-----
-Leeme en: [Español](README.es.md)

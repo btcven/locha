@@ -1,54 +1,54 @@
-# 2. What is Locha Mesh?
+# 2. ¿Qué es Locha Mesh?
 
-Locha Mesh is an open source project of networks and wireless resilient communications in order to build a free data network, with a incorruptible focus in the security and the privacy of the information flowing in the network. A network created and managed by its users. Locha Mesh is a distributed network that doesn't belong to anyone in particular but to us all. Locha Mesh offers free and permissionless access to the network. Anyone can join to it at any time, and use it to find its recipient inside the mesh, finding different paths to send and receive data packets foreseeing failures in the connection.
+Locha Mesh es un proyecto open source de redes y comunicaciones inalámbricas resilientes para construir una red de datos libre, teniendo como principio incorruptible la seguridad y privacidad de la información que fluye por la red. Una red creada, administrada y gestionada por los propios usuarios. Locha Mesh es una red distribuida, no pertenece a nadie en particular, nos pertenece a todos. Locha Mesh ofrece acceso libre y gratuito a la red. Cualquier persona puede acceder a ella en cualquier momento, pudiendo hacer uso de la misma para encontrar al destinatario dentro de la red, previendo fallos en la conexión estableciendo diferentes rutas para enviar y recibir paquetes de información.
 
-## 2.1 Why a Mesh?
+## 2.1 ¿Por qué una red en malla?
 
-This type of network suits the need to connect nodes that are constantly moving around, due to this the topology is a dynamic one, reducing the points of failure and dependency on fixed infrastructure, to preclude the censorship or the manipulation of the mesh.
+Este tipo de red se ajusta a la necesidad de interconectar nodos que usualmente están en movimiento y debido a esto, la topología de la red es de tipo dinámica, lo que disminuye los puntos de falla y dependencia de infraestructura, imposibilitando cualquier tipo de censura a la red o manipulación de la misma. 
 
-The concepts of a wireless network or ad-hoc has been studied for a long time, creating diverse protocols that with more or less success deal with their biggest enemy, the _single-hop_ or is there life beyond my neighbors?
+Los conceptos de red inalámbrica de tipo malla o Ad-hoc, han sido estudiados a lo largo del tiempo, estableciendo diversos protocolos que con mayor o menor éxito lidian con uno de sus mayores enemigos, _single-hop_ (único salto) o ¿Hay vida más allá de mis vecinos?
 
-Today, its use is very popular and has promoted an emergent field which offers a vast amount of applications that needs to be interconnected at all times wirelessly, interacting efficiently with eachother without having to give up the security in the communication.
+Hoy, su uso se ha popularizado y ha dado pie a un campo emergente, el cual ofrece una gran cantidad de aplicaciones en las que impera la necesidad de mantener dispositivos interconectados sin desplegar una red cableada, y que estos interactúen con la mayor eficiencia sin renunciar a la seguridad en la comunicación.
 
-These networks can proportionate a safe and reliable communication system, where no person, or business can censor, veto or access any information unless it is the recipient of it. Another interesting application if the disaster hit countries, poor infrastructure, or those suffering the effects of war, political repression, and its also replicable for those persons who value their personal information.
+Este tipo de redes pueden proporcionar un medio de comunicación fiable y seguro, donde ninguna persona, empresa o administración, aún siendo partícipe activo de la misma, pueda vetar, censurar o acceder a cualquier información, a menos que de forma expresa, sea el destinatario. Otro interesante campo de aplicación es en zonas afectadas por catástrofes naturales, pobre infraestructura, o aquellas que han sufrido los efectos de conflictos bélicos, políticos, y replicable por aquellas personas que valoran su información personal.
 
-## 2.2 Why use 433/868/915 MHz as base frecuency?
+## 2.2 ¿Por qué usar 915 MHZ como frecuencia base?
 
-Radio frecuency (RF) communication is a basic feature of a Wireless Sensor Network (WSN), its clearly an advantage in front of, for example, infra red transmission too. The use of wireless devices is worldwide regulated , most countries have a space in their radio spectrum for unlicensed use, meaning, it doesn't need a special permit for each application.
+La comunicación por radio frecuencia (RF) es una de las características básicas de una red de sensores inalámbrica (WSN), debido a las claras ventajas que presenta frente a otras tecnologías inalámbricas, como por ejemplo la transmisión por infrarrojos. El uso de dispositivos inalámbricos está regulado mundialmente, por lo que la mayoría de los países tiene un espacio en el espectro de radio que es de uso libre o sin licencia, es decir, que no se necesita un permiso especial para cada aplicación. 
 
-Most commercial products operate in these free bands, also known as ISM (Industrial, Scientific and Medical) to avoid the cost of the licenses. Because of this, a big number of wireless technologies like ZigBee, Bluetooth, Wi-Fi, and wireless telephony among others, use these frequencies.
+La mayoría de los productos comerciales operan en estas bandas libres, también conocidas como bandas ISM (Industrial, Scientific and Medical) para sortear los mencionados costes de las licencias. Por ser las bandas ISM de uso libre, un gran número de tecnologías inalámbricas como ZigBee, Bluetooth, WiFi, y la telefonía inalámbrica, entre otras,utilizan estas frecuencias. 
 
-The radio spectrum is divided in bands, at the same time each band subdivides into fixed width channels. The ISM bands subdivides into two larger groups: 2.4 GHz and sub-GHz frequencies, including the 315, 433, 784, 868 and 915 MHz bands. The choice between a group or another will depend on the characteristics of the application, like the range, battery consumption, data rate, size of the antenna, cost, etc.
-
-
-Currently, communication of the WNSs are based on both the standard 802.15.4 and ZigBee protocol. That protocol adds features to the network that are not available in such standard, and it operates in  2.4 GHz and 868/915 MHz ISM band. ZigBee was created to proportionate a protocol for wireless networks with low energy consumption and competitive price.
+El espectro de radio está divido en bandas, y a su vez cada banda se divide en canales de ancho fijo. Las bandas ISM pueden subdividirse también en dos grandes grupos: 2.4 GHz y frecuencias sub-GHz, que incluyen las bandas de 315, 433, 784, 868 y 915 MHz; la elección de un grupo u otro dependerá siempre de las características de la aplicación, entre las que cabe destacar el alcance, el consumo de energía, la tasa de datos, el tamaño de la antena, el coste, etc.
 
 
-The standard EEEI 802.15.4 divides the available frecuency spectrum in 27 channels:
-
-- Channel k=0, for frecuency 868.3 MHz, used for European countries.
-- Channels k=1...10, for frecuencies of 906+2*(k+1) MHz, used for United States, Australia and some other countries too.
-- Channels k=11...26, for frecuencies of 2405+5*(k-11) MHz worldwide used.
-
-### 2.2.1 2.4 GHz vs 433/868/915 MHz
-
-Each of those RF bands have a distinctive characteristic which gives some advantage over the others, according to the needs of the final application. As previously mentioned, the 2.4 GHz is widely used, because it allows a major data rate and its worldwide free of charge. However, for applications with low data rate, and where the reach its the major priority, sub-GHz bands seems to be a better candidate for it.
-
-The frecuency and the bandwidth for the transmission are directly related to the quality of the wireless communication. At major frecuencies, there's more spectrum so the channels have more bandwidth. For instance, there are a 1000 times more spectrum space between 1 and 2 GHz than in 1 and 2 MHz. Hence, the 2.4 GHz band has more capacity to transmit a major data rate than the lower frecuency bands. Nonetheless, this capacity has a drawback, it decreases the distance of the transmission, which penalize the network functionality at high frecuencies in wide areas.
-
-There are two reasons to justify this phenomenon: the power transmission of RF and the losses over propagation. As the radio wave travels over the air, its intensity decreases to the point its not possible to extract the data modulated of the signal. The radio signal transmitted with more power will travel further before they weaken too much. Besides, the signal of the wave of a major frequency decreases very quickly.
-
-In Europe, the devices of 2.4 GHz have a regulated RF power to maximum of 100 mW, meanwhile the power of the 915 MHz is 500 mW, which means the latter theoretically can reach a reliable transmission range of five times the range a device of 2.4 GHz could reach.
-
-On industrial environments in which a WSN can be deployed, the functionality of the communication its influenced for the ability of the radio signal to penetrate, reflect and bend towards obstacles.
-
-Consequently, in the presence of a major signal frequency the lower its bandwidth will be, as a result the RF wave has more losses going thru the walls.
-
-Taking all these considerations in mind, sub-GHz frequencies offer an alternative to the congested 2.4 GHz band, to which devices like Wi-Fi routers inside offices or homes, computers and mobile phones with active Bluetooth, microwaves, all cause interference in the air.
-
-Even though the 2.4 GHz band is currently the top pick due to its costs and global usage, the sub-GHz offer a major reach, less power consumption and broad efficiency in the data transmission with some geographic restrictions and a slightly higher technology cost. Nonetheless, the final cost for each application may vary, although 2.4 GHz radio modules are less expensive, in a real deployement it will be needed more nodes to cover the same area than by using 915 MHz radio modules, whose individual cost per node is superior but by having a bigger reach, the number of nodes needed decreases.
+Hoy, las comunicaciones de las WSNs se basan en gran medida tanto en el estándar 802.15.4 como en el protocolo ZigBee. Este último añade funcionalidades a la red no disponibles con el mencionado estándar, y opera en las bandas ISM de 2.4 GHz y 868/915 MHz, ya que fue creado con la finalidad de proporcionar un protocolo para dispositivos de redes inalámbricas, con bajo consumo de energía y que resultara competitivo en precio.
 
 
-## 2.3 Why Locha Mesh uses the protocol stack?
+El estándar IEEE 802.15.4 divide el espectro disponible de frecuencias mencionadas anteriormente en un total de 27 canales:
 
-Locha Mesh intents to adhere to the existing network standards in order to maximize its interoperability through a radio transceiver EEEI 802.15.4g compatible with 6LoWPAN, which allows it to be independent from the internet, and making possible the interconection of the Locha Mesh with internet.
+- Canal k=0, para la frecuencia de 868.3 MHz, para uso en países de Europa.
+- Canales k=1...10, para frecuencias de 906+2*(k+1) MHz, para uso en Estados Unidos, Australia y otros pocos países.
+- Canales k=11...26, para frecuencias de 2405+5*(k-11) MHz de uso global
+
+### 2.2.1 Comparativa: 2.4 GHz vs. 868/915 MHz
+
+Cada una de las bandas de radiofrecuencia mencionadas anteriormente, tiene una característica distintiva que la coloca en ventaja con respecto a las demás,según las necesidades de la aplicación final. Como mencionamos anteriormente, la banda de 2.4 GHz es la más utilizada, por permitir una mayor tasa de datos y por ser de uso libre mundialmente. Sin embargo, para aplicaciones de baja tasa de datos y donde el alcance sea la prioridad principal, las bandas sub-GHz parecen ser las que mejor se adaptan a estas condiciones.
+
+La frecuencia y el ancho del canal de transmisión están directamente relacionados con la calidad de la comunicación inalámbrica. A mayores frecuencias, hay más espectro, y por lo tanto los canales son más anchos. Por ejemplo, hay 1000 veces más espacio de espectro entre 1 y 2 GHz que entre 1 y 2 MHz. Es por esto que la banda de 2.4 GHz tiene capacidad para transmitir una mayor tasa de datos que las bandas de menor frecuencia. Sin embargo, esta capacidad de datos trae como consecuencia una disminución de la distancia de transmisión, lo que penaliza la funcionalidad de redes a altas frecuencias en entornos de áreas muy amplias.
+
+Existen dos razones fundamentales que justifican este fenómeno: la potencia de transmisión de RF y las pérdidas por propagación. A medida que la onda de radio se propaga por el aire, su intensidad decrece, hasta el punto de no poder extraerse los datos modulados de la señal. Entonces, las señales de radio que se transmiten con una potencia mayor, viajarán más lejos antes de que se hagan demasiado débiles. Además, la señal de las ondas de radio de mayor frecuencia disminuye mucho más rápidamente.
+
+En Europa, los dispositivos de 2.4 GHz tienen una potencia de RF regulada a un máximo de 100 mW, mientras que la potencia de los de 915 MHz es de 500 mW, lo que significa que estos últimos tienen una distancia de transmisión fiable teóricamente de cinco veces la distancia que podría alcanzar un dispositivo de 2.4 GHz.
+
+En entornos industriales, como en los que pueden desplegarse las redes de sensores, el funcionamiento de la comunicación se ve influenciado también por la habilidad de la señal de radio de penetrar, reflejarse y curvarse alrededor de obstáculos.
+
+Se conoce que a mayor frecuencia de la señal menor es su longitud de onda por lo que la onda de RF tiene más pérdidas al atravesar las paredes.
+
+Teniendo todas estas consideraciones en cuenta, las frecuencias sub-GHz ofrecen la alternativa a la congestionada banda de 2.4 GHz, a la que dispositivos como routers WiFi en oficinas o casas, ordenadores y teléfonos móviles con Bluetooth activo, hornos microondas, provocan mucha interferencia en el medio.
+
+Aún cuando la banda de 2.4 GHz es la más utilizada actualmente debido a su coste y su posibilidad de uso mundial, las bandas sub-GHz ofrecen mayor alcance, menor consumo energético y mayor eficiencia en la transmisión de datos con la respectivas restricciones geográfica y con un coste de tecnología ligeramente mayor. Sin embargo, el coste final de cada aplicación es relativo, pues aunque los módulos de radio de 2.4 GHz son más económicos, en un despliegue real se necesitará una mayor cantidad de nodos para cubrir la misma área que con módulos de 915 MHz, cuyo coste individual por nodo es superior, pero al tener un alcance significativamente mayor, el número de nodos disminuye.
+
+
+## 2.3 ¿Por qué la red Locha Mesh usa el stack de red?
+
+Locha Mesh intenta adherirse a los estándares de red existentes para maximizar su interoperabilidad a partir de un transceptor de radio IEEE 802.15.4g compatible con 6LoWPAN, lo que da la posibilidad de ser independiente de internet, ofreciendo la posibilidad de interconectar la red Locha con la red de internet.
