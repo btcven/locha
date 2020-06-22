@@ -2,7 +2,7 @@
 
 Here we will describe the necessary pieces of hardware needed to connect to the Locha Mesh, using a DIY version of the Turpial as an example.
 
-A Turpial consist of a MCU with a integrated radio transceiver [_CC1312R_](https://www.ti.com/product/CC1312R), a WiFi module _ESP32_ and some complementary circuits such as _USB to Serial_ converter, power amplifier (PA) for the radio transceiver, power source and battery charger and some LEDs for a visual interpretation of the system status. 
+A Turpial consist of a MCU with a integrated radio transceiver [_CC1312R_](https://www.ti.com/product/CC1312R), a WiFi module _ESP32_ and some complementary circuits such as _USB to Serial_ converter, power amplifier (PA) for the radio transceiver, power source and battery charger and some LEDs for a visual interpretation of the system status.
 
 The basis of the entire system is the _CC1312R_, a small MCU with radio transceiver for Sub-GHz frequencies and a PA for TX output power up to **+14dBm**.
 
@@ -23,7 +23,7 @@ Other compatible modules are _CC1352R_, _CC1352P_, both of TI and _AT86RF2xx_ fa
 
 The assembly will depend on if we want a simple-client or multi-client system, for those we'll need:
 
-### For Single-Client 
+### For Single-Client
 
 A dev-kit as above described connected via USB port of our PC or credit card sized computer like a Raspberry PI or similar.
 
@@ -59,7 +59,7 @@ In our case the USB to Serial converter and the _CC1312R_ MCU are on the Launchp
 </p>
 
 
-At first, any _ESP32 board_ can work, just make sure to follow the next recommendations: 
+At first, any _ESP32 board_ can work, just make sure to follow the next recommendations:
 
 1. Use only the UART1 in the _ESP32_ to connect to _CC1312R_ dev-board or module.
 2. The UART0 is reserved to connect _USB to Serial converter_ in most of dev-boards for debugging purposes and bootloading.
@@ -72,14 +72,14 @@ The list of ESP32 boards available in the market is huge, for example:
 | HUZZAH32 - ESP32 Feather       | 17/16       | [Adafruit](https://www.adafruit.com)    | LiPo Battery charger               |
 | WiFi KIT 32                    | ---         | [Heltec](https://heltec.org)            | LiPo Battery charger, OLED display |
 | TTGO T7 V1.3 MINI 32           | 1/3         | [Lilygo](http://www.lilygo.cn)          | Battery charger, small factor      |
-| Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/)   | Battery charger                    | 
+| Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/)   | Battery charger                    |
 | ESP32 NodeMCU (various models) | N/A         | Several                                 | Cheap                              |
 | Wemos (various models)         | N/A         | Several                                 | Cheap                              |               
 
 
 We can use the USB connection in each board as power source or in some models a power management system is available, including battery charger, but keep in mind not all _ESP32_ based boards can be used as power source for the _CC1312R_, check the output current that each board can offer.
 
-But in case you need more power you can add a battery manager and power source in the system like the [_"Babysitter"_](https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide?_ga=2.19040816.900141778.1591701673-1481710619.1579527500) from SparkFun, it can monitor the battery status and current drain in real time using the _I2C_ interface.
+In case you need more power you can add a battery manager and power source in the system like the [_"Babysitter"_](https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide?_ga=2.19040816.900141778.1591701673-1481710619.1579527500) from SparkFun, it can monitor the battery status and current drain in real time using the _I2C_ interface.
 
 
 Connect the _Babysitter_ as follows:
@@ -101,11 +101,11 @@ Connect the _Babysitter_ as follows:
 </p>
 
 
-You can use a 1000mAh battery or greater, LiPo type, 18650, etc. Or without battery by using the _Charging Port_ connected to a power bank or a computer's USB port.
+You can use a 1000mAh battery or greater, LiPo type, 18650, etc., or without battery by using the charging port connected to a power bank or a computer's USB port.
 
 
 ## Final considerations
 
 In this tutorial we have described how to make a DIY version of the Turpial device, including different approaches depending on your goal, budget or skills.
 
-The Turpial customed hardware we have designed includes everything mentioned above in a portable form plus a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).
+The Turpial custom hardware we have designed includes everything mentioned above in a portable form plus a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).
