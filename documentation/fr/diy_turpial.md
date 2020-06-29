@@ -77,7 +77,7 @@ The list of ESP32 boards available in the market is huge, for example:
 
 We can use the USB connection in each board as power source or in some models a power management system is available, including battery charger, but keep in mind not all _ESP32_ based boards can be used as power source for the _CC1312R_, check the output current that each board can offer.
 
-But in case you need more power you can add a battery manager and power source in the system like the [_"Babysitter"_](https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide?_ga=2.19040816.900141778.1591701673-1481710619.1579527500) from SparkFun, it can monitor the battery status and current drain in real time using the _I2C_ interface.
+In case you need more power you can add a battery manager and power source in the system like the [_"Babysitter"_](https://learn.sparkfun.com/tutorials/battery-babysitter-hookup-guide?_ga=2.19040816.900141778.1591701673-1481710619.1579527500) from SparkFun, it can monitor the battery status and current drain in real time using the _I2C_ interface.
 
 
 Connect the _Babysitter_ as follows:
@@ -97,11 +97,11 @@ Connect the _Babysitter_ as follows:
     <img src="../pics/diy_baby.svg" height="600px">
 </p>
 
-You can use a 1000mAh battery or greater, LiPo type, 18650, etc. Or without battery by using the _Charging Port_ connected to a power bank or a computer's USB port.
+You can use a 1000mAh battery or greater, LiPo type, 18650, etc., or without battery by using the charging port connected to a power bank or a computer's USB port.
 
 
 ## Final considerations
 
 In this tutorial we have described how to make a DIY version of the Turpial device, including different approaches depending on your goal, budget or skills.
 
-The Turpial customed hardware we have designed includes everything mentioned above in a portable form plus a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).
+The Turpial custom hardware we have designed includes everything mentioned above in a portable form plus a power amplifier, and other elements which improve the performance of the system. You can buy a Locha Mesh Turpial [here](https://locha.io/buy).

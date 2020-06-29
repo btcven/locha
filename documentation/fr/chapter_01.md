@@ -1,4 +1,4 @@
-## 1. Motivatie
+## 1. Motivation
 
 Even though telecom technology has taken a big leap in terms of development, it becomes evident it's own susceptibility. We're not talking about technology by itself but about people, those are the ones vulnerable to the side effects of communication isolation resulting from centralization, and regulation of communication standards worldwide.
 
@@ -27,7 +27,7 @@ Figure 1.1 shows the simplified architecture of a cellular network versus an ad-
   <figcaption>Fig.1.1</figcaption>
 </figure>
 
-## 1.2 Doelen
+## 1.2 Goals
 
 Locha Mesh main goal is the implementation of the AODVv2 routing protocol to enable a resilient communication system, composed of the following:
 
