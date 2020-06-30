@@ -36,7 +36,7 @@
   },
   "Settings": {
     "name": "Name",
-    "editName": "Edit name",
+    "editName": "Modifier le nom",
     "enterName": "Enter name",
     "cancelButton": "cancel",
     "saveButton": "save",
