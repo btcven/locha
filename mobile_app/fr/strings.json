@@ -25,10 +25,10 @@
     "titleRestore": "Restore Account",
     "buttonFile": "Restore with file",
     "subtitleRestore": "restore account with words, it is very important that you enter the words correctly, otherwise your account will not be restored with the same uid",
-    "titleUsername": "Add username",
-    "textUsername": "Please enter your name or alias",
+    "titleUsername": "Add nickname",
+    "textUsername": "Please enter a nickname",
     "restorePinTitle": "restore pin",
-    "restorePinText": "enter the backup words to be able to restore your pin"
+    "restorePinText": "enter the backup words to be able to restore your PIN"
   },
   "Drawer": {
     "contacts": "Contacts",
@@ -36,7 +36,7 @@
   },
   "Settings": {
     "name": "Name",
-    "editName": "Edit name",
+    "editName": "Modifier le nom",
     "enterName": "Enter name",
     "cancelButton": "cancel",
     "saveButton": "save",
