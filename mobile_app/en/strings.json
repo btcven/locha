@@ -53,7 +53,7 @@
     "addContact": "Add contact",
     "editContact": "Edit contact",
     "name": "Nickname",
-    "uid": "ipv6 adress",
+    "uid": "IPv6 address",
     "wait": "please wait",
     "existName": "there is already a contact with that nickname",
     "existContact": "existing contact",
@@ -73,7 +73,7 @@
     "deleteBody": "Are you sure you want to delete all messages?",
     "clean": "Clear chat",
     "voice": "Voice",
-    "copyingMessage": "Copying message",
+    "copyingMessage": "Message copied to clipboard",
     "photo": "Photo"
   },
   "Languages": {
