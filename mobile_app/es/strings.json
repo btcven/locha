@@ -51,6 +51,7 @@
     "addContact": "Agregar contacto",
     "editContact": "Editar contacto",
     "name": "Nombre del contacto",
+    "uid": "direccion ipv6",
     "wait": "Por favor espere",
     "existName": "ya existe un contacto con ese nombre",
     "existContact": "Contacto existente",
@@ -59,7 +60,8 @@
   },
   "Header": {
     "contacts": "Contactos",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "search": "Buscar"
   },
   "Chats": {
     "message": "Mensaje",
@@ -67,6 +69,7 @@
     "commentImage": "Agregar comentario",
     "titleDelete": "Eliminar chat",
     "deleteBody": "¿Esta seguro de eliminar todos los mensajes?",
+    "copyingMessage": "Mensaje copiado",
     "clean": "Limpiar chat",
     "voice": "Audio",
     "photo": "Foto"

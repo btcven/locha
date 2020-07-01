@@ -53,6 +53,7 @@
     "addContact": "Add contact",
     "editContact": "Edit contact",
     "name": "Nickname",
+    "uid": "IPv6 address",
     "wait": "please wait",
     "existName": "there is already a contact with that nickname",
     "existContact": "existing contact",
@@ -61,7 +62,8 @@
   },
   "Header": {
     "contacts": "Contacts",
-    "settings": "Settings"
+    "settings": "Settings",
+    "search": "Search"
   },
   "Chats": {
     "message": "Message",
@@ -71,6 +73,7 @@
     "deleteBody": "Are you sure you want to delete all messages?",
     "clean": "Clear chat",
     "voice": "Voice",
+    "copyingMessage": "Message copied to clipboard",
     "photo": "Photo"
   },
   "Languages": {
