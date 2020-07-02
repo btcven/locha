@@ -42,7 +42,7 @@
     "saveButton": "save",
     "gallery": "Gallery",
     "camera": "Camera",
-    "uidCody": "ID (IPv6) copied to clipboard",
+    "uidCopy": "ID (IPv6) copied to clipboard",
     "language": "Language",
     "qrText": "Friends can scan this QR to add you as contact",
     "textBackup": "Enter your PIN code to continue",
