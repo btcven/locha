@@ -51,7 +51,7 @@ The Locha Mesh devices are battery powered and could also use solar panels. Ther
 
 ### Become a backer
 
-You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $350 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
+You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $200 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
 
 * Become a Sponsor here in GitHub and get Turpial devices for yoru contributions: https://github.com/sponsors/rdymac
 
