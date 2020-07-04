@@ -83,7 +83,6 @@
     "es": "Spaans"
   },
   "DeviceSettings": {
-    
     "retryButton": "retry",
     "headerTitle": "device settings",
     "errorInfo": "Connection failed. Please verify that you are connected to a Turpial device's WiFi hotspot.",

@@ -51,15 +51,15 @@ The Locha Mesh devices are battery powered and could also use solar panels. Ther
 
 ### Become a backer
 
-You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $350 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
+You can support the Locha Mesh open-source software and hardware efforts by donating through any of the methods listed below. Depending o the amount donated you could be eligible to receive a Locha Mesh Turpial device in pre-order. [Contact us](mailto:randy+donation@locha.io) if you've made a donation of $200 USD or more and you'd like to receive (or donate to a cause) a Turpial device.
 
-* Become a Sponsor here in GitHub: https://github.com/sponsors/rdymac (your sponsorship may be matched by GitHub!)
+* Become a Sponsor here in GitHub and get Turpial devices for yoru contributions: https://github.com/sponsors/rdymac
 
 * Donate any amount using Bitcoin and Lightning Network to the open-source efforts: https://locha.io/donate
 
-* Pre-order 3 Turpial devices for a $1000 USD worth of BTC donation to the open-source efforts: https://locha.io/buy
+* Pre-order 3 Turpial devices for $500 USD or 1 for $200 USD donation to the open-source efforts using Bitcoin, Monero, card, Apple Pay or Google Pay: https://locha.io/#pre-order
 
-* Support and share our Monero Community Crowdfunding System (CCS) proposal [here](https://locha.io/monero/).
+* Support and share our Monero Community Crowdfunding System (CCS) proposals [here](https://locha.io/monero/).
 
 * Donate ETH and ERC20 tokens through the Gitcoin Grants page [here](https://gitcoin.co/grants/385/locha-mesh-private-txs-censorship-resistant-dapps?tab=activity).
 
