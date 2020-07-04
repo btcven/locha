@@ -28,7 +28,8 @@
     "titleUsername": "Add nickname",
     "textUsername": "Please enter a nickname",
     "restorePinTitle": "Restore PIN",
-    "restorePinText": "Enter the backup phrase to restore your PIN"
+    "restorePinText": "Enter the backup phrase to restore your PIN",
+    "buy": "Pre-order Turpial device"
   },
   "Drawer": {
     "contacts": "Contacts",
@@ -47,7 +48,8 @@
     "qrText": "Friends can scan this QR to add you as contact",
     "textBackup": "Enter your PIN code to continue",
     "erroPin": "Wrong PIN",
-    "createBackup": "Create backup file"
+    "createBackup": "Create backup file",
+    "deviceSettings": "Device settings",
   },
   "Contacts": {
     "addContact": "Add contact",
@@ -76,11 +78,9 @@
     "copyingMessage": "Message copied to clipboard",
     "photo": "Photo"
   },
-  "Languages": {
-    "en": "English",
-    "es": "Spanish"
-  },
   "DeviceSettings": {
+    "retryButton": "retry",
+    "headerTitle": "Device Settings",
     "errorInfo": "Connection failed. Please verify that you are connected to a Turpial device's WiFi hotspot.",
     "deviceTitle": "Device Characteristics",
     "bateryStatus": "Battery status",
