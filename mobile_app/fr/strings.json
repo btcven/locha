@@ -1,6 +1,5 @@
 {
   "Initial": {
-    "buy": "Buy turpial device",
     "title": "Locha Mesh",
     "subtitle": "The Locha Mesh is an off-grid resilient network for communications, Bitcoin and cryptocurrencies payments, and data transmission without Internet.",
     "text": "Do you want to create a new account or restore a previously used account?",
@@ -36,7 +35,6 @@
     "setting": "Settings"
   },
   "Settings": {
-    "deviceSettings": "device Settings",
     "name": "Name",
     "editName": "Edit nickname",
     "enterName": "Nickname",
@@ -83,8 +81,6 @@
     "es": "Spanish"
   },
   "DeviceSettings": {
-    "retryButton": "retry",
-    "headerTitle": "device settings",
     "errorInfo": "Connection failed. Please verify that you are connected to a Turpial device's WiFi hotspot.",
     "deviceTitle": "Device Characteristics",
     "bateryStatus": "Battery status",

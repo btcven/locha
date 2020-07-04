@@ -1,6 +1,5 @@
 {
   "Initial": {
-    "buy": "Comprar dispositivo",
     "title": "Bienvenido",
     "subtitle": "Gracias por usar Locha Mesh, es una red de radio para comunicaciones y transacciones de Bitcoin sin internet o incluso red eléctrica. Estamos trabajando no solo en un protocolo, sino también en el firmware para dispositivos asequibles como Turpial o Harpia.",
     "text": "Para continuar por favor ingrese su alias y su contraseña de seguridad",
@@ -26,7 +25,8 @@
     "titleUsername": "Agregar Nombre de Usuario",
     "textUsername": "Por favor ingrese su nombre o alias",
     "restorePinTitle": "Restaurar pin",
-    "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin"
+    "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin",
+    "buy": "Comprar dispositivo",
   },
   "Drawer": {
     "contacts": "Contactos",
@@ -47,7 +47,7 @@
     "textBackup": "Ingrese su codigo pin para continuar",
     "erroPin": "pin incorrecto",
     "createBackup": "Crear archivo de respaldo",
-    "deviceSettings": "configurar dispositivo"
+    "deviceSettings": "Configuración del dispositivo"
   },
   "Contacts": {
     "addContact": "Agregar contacto",
@@ -76,13 +76,9 @@
     "voice": "Audio",
     "photo": "Foto"
   },
-  "Languages": {
-    "en": "Ingles",
-    "es": "Español"
-  },
   "DeviceSettings": {
     "retryButton": "reintentar",
-    "headerTitle": "Configuracion del dispositvo",
+    "headerTitle": "Configuracion del Dispositivo",
     "errorInfo": "falló la conexión, verifique que esté conectada al dispositivo turpial",
     "deviceTitle": "Características del dispositivo",
     "bateryStatus": "Estado de la batería",
@@ -104,8 +100,8 @@
     "credentialTitle": "Credenciales",
     "ChangeCredencial": "Cambiar credenciales",
     "ChangePassword": "Cambiar contraseña",
-    "usernameError": "Este campo no debe estar vacio",
-    "passwordError": "Este campo no debe estar vacio",
+    "usernameError": "Este campo no debe estar vacío",
+    "passwordError": "Este campo no debe estar vacío",
     "confirmPassword": "Las contraseñas no coinciden"
   }
 }
