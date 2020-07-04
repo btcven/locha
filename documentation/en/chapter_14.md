@@ -5,19 +5,19 @@ In this paper, we aims to explain and describe the necessary process to run the 
 
 A performance evaluation of AODVv2 routing protocol is carried out by varying network size, varying network traffic and varying mobility.
 
-To do the test, Renode simulator was used due to is an open source development framework which accelerates IOT embedded systems development by letting you simulate physical hardware systems, including both the CPU, peripherals, sensors, environment and wired or wireless medium between nodes. 
+To do the test, Renode simulator was used due to is an open source development framework which accelerates IOT embedded systems development by letting you simulate physical hardware systems, including both the CPU, peripherals, sensors, environment and wired or wireless medium between nodes.
 
 
 ## 14.2 Simulation Stages Overview.
-This is the first attempt to test AODVv2 routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process. 
+This is the first attempt to test AODVv2 routing protocol C++ implementation by simulator in order to check the protocol behavior and performance. The information collected here help us to debug the firmware and speed up the development process.
 
 Different simulation stages has been considered to evaluate the parameters under consideration i.e. density, mobility, packets received/packets lost, throughput and delay. Implementation of AODV has been done using RIOT OS and renode development framework to expose the results.
 
 ## 14.2.1 Network Size.
-The network is varied from 3 nodes to 24 nodes in order to study the scalability of the routing protocol. It is extremely important for a routing protocol to perform well for large networks as well as for small networks. By varying the size, the aim is to study the scalability of the routing protocol in terms of how well it addresses the maintenance of a large number of nodes and routes. The selected area of simulation is 1000m x 1000m, which provides sufficient space for nodes to be mobile and sufficiently placed apart to observe the impact of multihop routing. The network size is varied so that the behavior of the protocol scales with the network size. More importantly, as the network size increases, the link (and route breakage) probability increases. 
+The network is varied from 3 nodes to 24 nodes in order to study the scalability of the routing protocol. It is extremely important for a routing protocol to perform well for large networks as well as for small networks. By varying the size, the aim is to study the scalability of the routing protocol in terms of how well it addresses the maintenance of a large number of nodes and routes. The selected area of simulation is 1000m x 1000m, which provides sufficient space for nodes to be mobile and sufficiently placed apart to observe the impact of multihop routing. The network size is varied so that the behavior of the protocol scales with the network size. More importantly, as the network size increases, the link (and route breakage) probability increases.
 
 ## 14.2.2 Traffic Load.
-To study the impact of traffic load on the performance of the protocols, the input traffic load is varied using icmp6 (ping6) messages while keeping other parameters such as Network Size and Mobility constant. The traffic load strains the network and creates additional load on the wireless network and therefor it give us a good idea of the performance of the protocol under heavy load conditions.The input load is varied because as the network load increases, the collisions on the wireless medium also increase along with packet losses. Thus, it is interesting to see the behavior of the two protocols as the network load increases. 
+To study the impact of traffic load on the performance of the protocols, the input traffic load is varied using icmp6 (ping6) messages while keeping other parameters such as Network Size and Mobility constant. The traffic load strains the network and creates additional load on the wireless network and therefor it give us a good idea of the performance of the protocol under heavy load conditions.The input load is varied because as the network load increases, the collisions on the wireless medium also increase along with packet losses. Thus, it is interesting to see the behavior of the two protocols as the network load increases.
 
 ## 14.2.3 Mobility.
 Mobility has a significant impact on the performance of routing protocols because mobility causes changes in the topology of the network. More precisely, mobility causes route breakages and creation of new ones, which forces the routing protocol to converge again. This enables us to study how well the protocol performs in terms of dynamically evolving network conditions.
@@ -148,7 +148,7 @@ The experiment consider this stage environment  with up 3 nodes. Initially all r
 ```
 
 ### 14.4.1 Renode simulation
-In the simulation we have 3 nodes with the following assigned IPs: 
+In the simulation we have 3 nodes with the following assigned IPs:
 
 
 ##### Table 1
@@ -223,7 +223,7 @@ Now we are going to try to reach a third node C without RF coverage  sending a r
 When node A send a __RREQ__, node B get this one and recreate and forward a new RREQ, node C is the target then it will need  to reply with RREP message,Node B again receive a new message but in this case the message is from node C and is of type RREP message and it will need to reply by recreating RREP message to node A from node C ,  notice on every hop the __hop_limit__ is decreasing its value.
 
 
-##### Table 2 
+##### Table 2
 
 | Node | Message type | Message flags | Address length | Hop limit |
 |:----:|--------------|:-------------:|:--------------:|:---------:|
@@ -242,20 +242,20 @@ The below image are showing again the updated table with availables routes to se
 <img src="../pics/simulation_3nodesNibOut5.svg" alt="drawing" width="300" />
 
 
-At this point we are showing the routing protocolo behavior on a basic topology distribution, the next step, is to try to change this one and analyze the result when a target receive RREQ from more than one node. 
+At this point we are showing the routing protocolo behavior on a basic topology distribution, the next step, is to try to change this one and analyze the result when a target receive RREQ from more than one node.
 
 
 ## 14.5 Second stage environment
 
 In this section we are going to show the protocol behavior when the number of nodes with up 4 ones. the following figure are showing the node's position over cartesian plane and this information will need to be added to renode's script.
 
-In this point there aren't any address inside table route, we are going to find a route from node A to node D, then print the routing table available in each of thouse nodes. The below picture show the output after run __nib__ __route__. 
+In this point there aren't any address inside table route, we are going to find a route from node A to node D, then print the routing table available in each of thouse nodes. The below picture show the output after run __nib__ __route__.
 
 Node B table routes is showing the available forwarding paths, The below information means node B works as a bridge between node A and D.
 
 In this stage we can realized node D doesn't stored information about Node C route; Here we can have many questions about what we could do with the new node C route, because node D can reach a stale RREQ from node C, but the route can help to avoid a new RREQ from node D to discover node C. maybe a local neighbor set could contain this stale information to be processed later.  
 
-###### Nodes's distribution 
+###### Nodes's distribution
 
 <img src="../pics/simulation_4nodesTopology.svg" alt="drawing" height="400" width="800"/>
 <br>
@@ -277,7 +277,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
    <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -291,7 +291,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
    <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -304,7 +304,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
    <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -317,7 +317,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
    <td> wireless SetPosition radio 110 0 0 </td>
     <td>110</td>
@@ -328,7 +328,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
 </div>
 <br>
 
- 
+
 We can try to send a message from node B or C to node A and it can be success because both intermediate nodes have stored a reverse route back to the originator of the RREQ (node A).
 The only thing we cannot forget is the route inside node C to reach node A is an unconfirmed as bidirectional path.
 
@@ -356,7 +356,7 @@ After carry out the request the following picture show the content of route tabl
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
  </tr>
  <tr>
@@ -365,7 +365,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
  </tr>
  <tr>
@@ -374,7 +374,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
  </tr>
   <tr>
@@ -383,7 +383,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
  </tr>
 </table>
@@ -392,7 +392,7 @@ After carry out the request the following picture show the content of route tabl
 # 14.6 third stage environment
 henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
 
-The current firmware has implemented an __UDP__ server and client to listend and send packets to/from anywhere.\
+The current firmware has implemented an __UDP__ server and client to listen and send packets to/from anywhere.\
 When network stack is not able to resolve the remote address, __AODV__is triggered and  __find_route__ command is execute automatically.  
 
 
@@ -427,7 +427,7 @@ In the below picture we can realized based on information in its route table tha
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
     <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -441,7 +441,7 @@ In the below picture we can realized based on information in its route table tha
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:1:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
     <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -454,7 +454,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 170 70 0 </td>
     <td>170</td>
@@ -467,7 +467,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -480,7 +480,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:5:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 170 -70 0 </td>
     <td>170</td>
@@ -493,7 +493,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:6:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:5:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 210 0 0 </td>
     <td>210</td>
@@ -514,7 +514,7 @@ Each nodes maintains a sequence number, which saves a time stamp, and a routing 
 Here we are going to try to send a message from node F to node G, this latest one is a direct neighbor to F, but we can see the flooding process was able to reach all nodes in the network, but all the new learned routes are not confirmed as a bidirectional ones yet. Table 6 are showing all nodes inside the network has stored a route to node F `2001::200:6:0:0`, this latest include node A that isn't a direct neighbor to node F .
 steps to execute the test is as follow:
 - Run __UDP__ server from node G.
-- Run __UDP__ client and setting up the client information from node F. 
+- Run __UDP__ client and setting up the client information from node F.
 
 ###### Node G
 ```
@@ -531,7 +531,7 @@ When the client try to send a message to destination, the reactive protocol is t
 <img src="../pics/simulation_7nodesTopology.svg" width="100%"/>
 
 Here we can realized node F is able to reach five nodes when carry out a RREQ, also node A has a path to node F through flooding carry out by nodes B and D .
-Each node is able to drop a redundant messages, but take in mind each redundant message need to be processed before can be dropped, that's mean energy and processor consumption. This is a good point to figure out the best approach to process the incoming messages. 
+Each node is able to drop a redundant messages, but take in mind each redundant message need to be processed before can be dropped, that's mean energy and processor consumption. This is a good point to figure out the best approach to process the incoming messages.
 
 ##### Table 6
 <div>
@@ -550,7 +550,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
     <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -563,7 +563,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
     <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -576,7 +576,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 170 70 0 </td>
     <td>170</td>
@@ -589,7 +589,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -602,7 +602,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:5:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 170 -70 0 </td>
     <td>170</td>
@@ -615,7 +615,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:6:0:0/128 dev #7</li>
             <li>2001::200:7:0:0/128 via fe80::200:7:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 120 0 0 </td>
     <td>120</td>
@@ -628,7 +628,7 @@ Each node is able to drop a redundant messages, but take in mind each redundant 
         <ul>
             <li>2001::200:7:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul> 
+        </ul>
     </td>
       <td> wireless SetPosition radio 210 0 0 </td>
     <td>210</td>
@@ -666,7 +666,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:1:0:0/128 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>0</td>
     <td>0</td>
@@ -680,7 +680,7 @@ The main goal of the routing protocol is packet delivery, in the following image
             <li><code>2001::200:2:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>100</td>
     <td>0</td>
@@ -694,7 +694,7 @@ The main goal of the routing protocol is packet delivery, in the following image
             <li><code>2001::200:3:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
              <li><code>2001::200:10:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>200</td>
     <td>0</td>
@@ -708,7 +708,7 @@ The main goal of the routing protocol is packet delivery, in the following image
             <li><code>2001::200:4:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
              <li><code>2001::200:10:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>300</td>
     <td>0</td>
@@ -721,7 +721,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:5:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>0</td>
     <td>-100</td>
@@ -734,7 +734,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:6:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>100</td>
     <td>-100</td>
@@ -747,7 +747,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:7:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>200</td>
     <td>-100</td>
@@ -761,7 +761,7 @@ The main goal of the routing protocol is packet delivery, in the following image
             <li><code>2001::200:8:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>300</td>
     <td>-100</td>
@@ -774,7 +774,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:9:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>0</td>
     <td>-200</td>
@@ -787,7 +787,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:a:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>100</td>
     <td>-200</td>
@@ -800,7 +800,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:b:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:a:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>200</td>
     <td>-200</td>
@@ -814,7 +814,7 @@ The main goal of the routing protocol is packet delivery, in the following image
             <li><code>2001::200:c:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>300</td>
     <td>-200</td>
@@ -827,7 +827,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:d:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>0</td>
     <td>-300</td>
@@ -840,7 +840,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:e:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:d:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>100</td>
     <td>-300</td>
@@ -853,7 +853,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:f:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:e:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>200</td>
     <td>-300</td>
@@ -866,7 +866,7 @@ The main goal of the routing protocol is packet delivery, in the following image
         <ul>
             <li><code>2001::200:10:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
-        </ul> 
+        </ul>
     </td>
     <td>300</td>
     <td>-300</td>
@@ -881,7 +881,7 @@ The main goal of the routing protocol is packet delivery, in the following image
 
 ## 14.9 Experimental Results
 
-We evaluated the efficiency of the AODVv2 protocol via simulations in renode, As mentioned earlier, the overall number of control packets generated by __AODVV2__ is more higher than for standard __AODV__, due to in this latest version there aren't intermediate __RREP__ from nodes that know the path to the destination, this approach in order to avoid __loop_free__ generations and ensure reliable paths. 
+We evaluated the efficiency of the AODVv2 protocol via simulations in renode, As mentioned earlier, the overall number of control packets generated by __AODVV2__ is more higher than for standard __AODV__, due to in this latest version there aren't intermediate __RREP__ from nodes that know the path to the destination, this approach in order to avoid __loop_free__ generations and ensure reliable paths.
 
 In general the test carried out by simulation showed us we are almost there to get the protocol working with very high efficiency talking about delivery packets , security and low energy consumption. This is the first attemp to have running __AODVv2__ routing protocol on embedded platform device. The test was designed specifically to know the capacity to deliver packets and all the test to get any node were success in all.  
 
