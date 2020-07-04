@@ -1,5 +1,6 @@
 {
   "Initial": {
+    "buy": "Comprar dispositivo",
     "title": "Bienvenido",
     "subtitle": "Gracias por usar Locha Mesh, es una red de radio para comunicaciones y transacciones de Bitcoin sin internet o incluso red eléctrica. Estamos trabajando no solo en un protocolo, sino también en el firmware para dispositivos asequibles como Turpial o Harpia.",
     "text": "Para continuar por favor ingrese su alias y su contraseña de seguridad",
@@ -45,7 +46,8 @@
     "buttonFile": "Restaurar con archivo",
     "textBackup": "Ingrese su codigo pin para continuar",
     "erroPin": "pin incorrecto",
-    "createBackup": "Crear archivo de respaldo"
+    "createBackup": "Crear archivo de respaldo",
+    "deviceSettings": "configurar dispositivo"
   },
   "Contacts": {
     "addContact": "Agregar contacto",
@@ -79,6 +81,8 @@
     "es": "Español"
   },
   "DeviceSettings": {
+    "retryButton": "reintentar",
+    "headerTitle": "Configuracion del dispositvo",
     "errorInfo": "falló la conexión, verifique que esté conectada al dispositivo turpial",
     "deviceTitle": "Características del dispositivo",
     "bateryStatus": "Estado de la batería",
@@ -102,6 +106,6 @@
     "ChangePassword": "Cambiar contraseña",
     "usernameError": "Este campo no debe estar vacio",
     "passwordError": "Este campo no debe estar vacio",
-    "confirmPassword":"Las contraseñas no coinciden"
+    "confirmPassword": "Las contraseñas no coinciden"
   }
 }
