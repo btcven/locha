@@ -2,74 +2,73 @@
 
 A pesar de los grandes avances en las tecnologías de telecomunicaciones, es evidente la susceptibilidad de las mismas. No solo hablamos de tecnologías, sino de las personas, quienes son vulnerables a los efectos secundarios del aislamiento comunicacional resultante de la centralización y regulación de los estándares de comunicación global.
 
-Los avances surgidos desde la aparición de las redes inalámbricas en 1970, su crecimiento y demanda en esta última década ha sido exponencial. Concretamente, existen dos vertientes en cuanto a redes inalámbricas se refiere, atendiendo a la arquitectura de red subyacente encontramos a las redes inalámbricas con infraestructura y las redes inalámbricas sin infraestructura. 
+Los avances surgidos desde la aparición de las redes inalámbricas en 1970, su crecimiento y demanda en esta última década ha sido exponencial. Concretamente, existen dos vertientes en cuanto a redes inalámbricas se refiere, atendiendo a la arquitectura de red subyacente encontramos a las redes inalámbricas con infraestructura y las redes inalámbricas sin infraestructura.
 
-Sobre las redes inálambricas con infraestructura podemos hablar de las redes celulares, éstas conectan de forma inalámbrica al usuario con la red telefónica básica siempre y cuando esté dentro del radio de cobertura de la red, acomodando un gran número de usuarios dentro de un área geográfica extensa empleando un espectro de frecuencia limitado; su servicio es de alta calidad, comparable con el de los sistemas telefónicos cableados. En este tipo de redes, los enrutadores o estaciones base, son fijos y cableados y las unidades móviles se conectan y se comunican con su estación base más cercana dentro de su radio de alcance. Si el dispositivo móvil sale del alcance de su estación base, se produce una transferencia o handoff desde la estación base inicial hasta una nueva.
+Como ejemplo de infraestructura de redes inalámbricas podemos echar un vistazo a las redes celulares. en estas redes el usuario puede conectarse inalámbrico a la red principal siempre y cuando esté dentro del rango de cobertura de la red, así es como puede servir a un gran número de usuarios dentro de un extenso área geográfica mediante el uso de un espectro de frecuencia limitada. Su servicio es de alta calidad, comparable con el de los sistemas telefónicos cableados. En este tipo de redes, los enrutadores o estaciones base, son fijos y cableados y las unidades móviles se conectan y se comunican con su estación base más cercana dentro de su radio de alcance. Si el dispositivo móvil sale del alcance de su estación base, se produce una transferencia o _handoff_ desde la estación base inicial hasta una nueva.
 
-Podemos enfocar la popularidad de las redes inlámbricas en 1980 con el despliegue de teléfonos análogos de 1G, limitados solo a un país debido a los diferentes estándares establecidos por situación geográfica. Estas condiciones impulsaron el desarrollo de la generación 2G para la decada siguiente, añadiendo fax, datos y mensajería, sin ser adoptada como estándar homogéneo a nivel mundial. Esta generación recientemente ha sido extendida a 2.5G mejorando el soporte de transmisión de datos de baja y alta velocidad. El cambio a la generación 3G determinó la adopción a un estándar globalizado, con capacidad de roaming internacional, incrementando el ancho de banda considerablemente. A pesar de estos avances, la red 3G presentó dificultades en su despliegue, también en el cumplimiento de prestaciones debido a las limitaciones en la arquitectura de su red, naciendo la red 4G, la cual se basa en una aproximación de sistemas abiertos, combinando tecnologías inalámbricas con líneas cableadas, convergiendo voz, contenido multimedia y datos sobre una misma troncal IP. 
+The popularity of the wireless networks started back in the 1980s with the deployment of analog 1G phones limited to one country due to the different standards established by geographic situation. These conditions encourage the development of the 2G for the next decade, adding fax, data service and SMS, but it wasn't adopted as a worldwide standard. This generation was recently extended to 2.5G improving the support of low and high speed data transmition. The transition to 3G determined the adoption of a globalized standard adding roaming, and upgrading the size of the bandwith considerably. In spite of these improvements, 3G presented some difficulties in its deployment and also in the delivering of its services due to limitations on the architecture of the network, which resulted in the creation of the 4G network based on VoIP, relaying all of the services through IP.
 
-Otros ejemplos relevantes de redes inalámbricas son las redes de área local inalámbrica WLAN (Wireless Local Area Network) y Bluetooth, siendo ampliamente utilizados en millones de productos que se interconectan entre sí o con aquellos de uso diario sirviendo de puente para estos a internet.
+Another relevant example of wireless networking infrastructure are the WLAN (Wireless Local Area Network) and Bluetooth which are vastly used in millions of daily used product that connect between devices or serve as bridge to internet.
 
-Para servir al objetivo de Locha Mesh, las redes inalámbricas con infraestructura son inviables y físicamente vulnerables a los cambios repentinos que pueden afectar su infraestructura, como también sus limitaciones presentes en la misma y su cobertura de red, o las regulaciones mediadas por políticas restrictivas del libre uso de las redes, las cuales limitan al público el acceso a contenidos, también usado para censurar y perseguir tanto a los individuos como los contenidos solicitados por ellos, lo cual lleva nuestra investigación al segundo tipo de redes inalámbricas, sin infraestructura. 
+To serve to the Locha Mesh main goal, the wireless network infrastructure are non-viable and phisically vulnerable to sudden changes that can affect their infrastructure, as well as other limitations like network coverage, or regulations measured by restrictive policies which limits the access of online content to the public, also being used for censor the users and the requested content, therefore our investigation lead us to the latter perspective of wireless infrastructureless networks.
 
-Las redes inalámbricas sin infraestructura no poseen enrutadores fijos, por tanto los integrantes de la red deben conectarse arbitrariamente entre sí. Es aquí donde encontramos las redes ad hoc, que surgen de manera espontánea, son dinámicas, y gozan por definición de capacidad de autoconfiguración. Este tipo de red permite interconectar nodos independientes, limitados en potencia de transmisión y procesamiento para proporcionar una mayor cobertura de red y capacidad de cómputo.
+Ad-hoc wireless network does not possess fixed routers, so the participants of the networks could connect voluntarily with each other. These networks appear spontaneously, they are dynamic and can also self-configure. This kind of network allows to interconnect independent nodes, limited on power transmission and processing power to provide a major network coverage and better performance.
 
-Los componentes de estas redes, denominados nodos, funcionan como enrutadores que descubren y mantienen las rutas de otros nodos en la red, sin que exista un acuerdo previo en cuanto al papel que cada nodo debe asumir. Por el contrario, cada nodo toma sus decisiones autónomamente basándose en la situación de la red, por ejemplo, dos ordenadores personales equipados con tarjetas de red inalámbricas pueden configurar una red independiente siempre y cuando cada uno de los equipos este dentro del radio de cobertura del otro. 
+The participants of these networks, known as nodes, work as routers that find and keep the routes of other nodes in the network without a previous agreement about the part each node must take over. On the other hand, each node can make decisions independently based on the network actual state, e.g. two personal computers equipped with wireless network adapters can form an independent network as long as each one is in the range of the other.
 
-Las aplicaciones de este tipo de red pueden incluir otros como las operaciones de emergencia de búsqueda y salvamento, congresos o convenciones en los que los participantes desean compartir información de manera inmediata y la adquisición de datos en terrenos inhóspitos. Las redes ad hoc inalámbricas son un tema de gran interés, desde el punto de vista de la investigación y del mundo empresarial, por la creciente demanda de conectividad _anywhere and everywhere_, que los actuales estándares no logran satisfacer dada su naturaleza centralizada.
+The applications of this type of network could also include the rescue efforts, conferences or conventions where attendees wish to share information immediately, or accessing data in inhospitable places. Ad-hoc wireless networks are very interesting topic for research and business due to the growing demand for connectivity _anywhere and everywhere_, that the actual standards can't satisfy as a result of their centralized nature.
 
-Vivimos en un mundo interconectado, las invenciones en este campo permiten realizar grandes puentes hacia un futuro en el que las comunicaciones mantengan una relación simbiótica con la infraestructura actual, y donde la descentralización de prestaciones sea el estándar que garantice el acceso de cualquier persona a la red y los contenidos dispuestos en ella, la cual sea un medio resiliente que permita aún en situaciones extremas e impredecibles la comunicación, la cooperación y el comercio entre los individuos.
+We live in an interconnected world, new inventions in this field allow us to create bridges to a future where communications can maintain a symbiotic relationship with the current infrastructure, and where the decentralized services are the standard that guarantee the access to any person to the network and the contents in it, a resilient resource that even in the most unexpected extreme situations can still be capable of enabling communications, cooperation and commerce between individuals.
 
-La Figura 1.1 muestra la arquitectura simplificada de una red celular frente a una red ad hoc inalámbrica. 
-En la Figura 1.1 (a) se representan tres estaciones base que se comunican con sus correspondientes nodos móviles. Al contrario, en la Figura 1.1 (b) se exhibe una red ad hoc inalámbrica en la que los nodos no solo pueden ser dispositivos móviles, sino que también pueden formar parte otros elementos como punto de acceso.
+Figure 1.1 shows the simplified architecture of a cellular network versus an ad-hoc network. The Figure 1.1 (a) represent three base stations communicating with their mobile nodes. In contrast, Figure 1.1 (b) exhibits an ad-hoc wireless network in which the nodes are not only mobile devices but also can be part of other elements like an access point.
 
 <figure>
-  <img src="../pics/network-topology.png" alt="drawing" width="80%"/>
+  <img src="../pics/network-topology.png"/>
   <figcaption>Fig.1.1</figcaption>
 </figure>
 
-## 1.2 Objetivos
+## 1.2 Goals
 
-El objetivo de Locha Mesh es la implementación del protocolo de enrutamiento AODVv2 para habilitar un sistema de comunicación resiliente, que comprende las siguientes fases:
+Locha Mesh main goal is the implementation of the AODVv2 routing protocol to enable a resilient communication system, composed of the following:
 
-1. Selección del protocolo de enrutamiento más adecuado para la transmisión de paquetes entre nodos.
-2. Selección del hardware más adecuado con los recursos necesarios para ejecutar el software y almacenar los datos necesarios. 
-3. Implementación del protocolo AODVv2 en un entorno basado en un sistema operativo embebido, en este caso [RIOT-OS](https://www.riot-os.org/).
-4. Verificar el rendimiento del protocolo AODVv2 en escenarios reales y contrastarlo con lo previsto por el marco teórico desarrollado con anterioridad.
-5. Desarrollo del driver necesario para la integración con el sistema operativo con el hardware.
-6. Cálculo y establecimiento de valores de constantes para el funcionamiento de la red.
+1. Choosing the most suitable routing protocol for the packets transmission between nodes.
+2. Select the proper hardware for the execution of the software and storing the necessary data.
+3. Implementation of the AODVv2 protocol in an embedded system, for this case [RIOT-OS](https://www.riot-os.org/).
+4. Verify the performance of the AODVv2 protocol and contrast it with what was previously planned.
+5. Development of the driver needed for the integration with the OS and the hardware.
+6. Compute set of constant values for the network operation.
 
-Este propósito fundamental puede a su vez descomponerse en los objetivos parciales enumerados a continuación:
+Our secondary goals are:
 
-- Estudio teórico sobre las redes ad hoc inalámbricas y sus protocolos de enrutamiento.
-- Familiarización con las herramientas de simulación.
-- Determinación de los parámetros a considerar para la generación de datos.
-- Implementación y ejecución de los bancos de experimentos.
-- Obtención y filtrado de datos.
-- Generación y análisis de resultados.
-- Extracción de conclusiones.
-- Redacción de la documentación.
-- Selección del sistema operativo a utilizar en el proyecto que cumpla con los requerimientos necesarios, basados en criterios expuestos más adelante.
+- Theoretical research for ad-hoc wireless networks and routing protocols.
+- Familiarization with simulation tools.
+- Determine parameters for data generation.
+- Implementation and execution of a testbed.
+- Data collection.
+- Analysis of results and conclusions.
+- Drafting the documentation.
+- Choosing an OS based on the criteria latter exposed.
+
+AODVv2 protocol presents some challenges in order to work optimally in the application areas provided for this kind of network:
 
 
-El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera óptima en las áreas de aplicación provistas para este tipo de redes, como lo son:
+* #### Dynamic topology
+* #### Scarce resourses (hardware)
+* #### Heterogeneity between nodes (hardware differences)
 
-<ul class="w3-ul w3-border">
- <li><h4>Topología dinámica.</h4></li>
- <li><h4>Restricciones de recursos (hardware).</h4></li>
- <li><h4>Heterogeneidad entre nodos (diferencias en el hardware).</h4></li>
-</ul>
 
-## 1.3 Planificación
-Hacemos énfasis en establecer y seguir una secuencia lógica de pasos para llevar a cabo este proyecto; el desarrollo de este proyecto se puede dividir en las siguientes subtareas:
-- Preparación y planificación: Durante la fase de preparación se acudió a diferentes fuentes bibliográficas para la obtención del conocimiento necesario acerca de las redes ```ad-hoc``` y de los diferentes ```protocolos de enrutamineto``` para completar la fase de documentación necesaria.
-- Diseño del Hardware necesario para completar este proyecto; el diseño del hardware a su vez se puede descomponer en varias subtareas como lo son:
-  - Diseño de la fuente de voltaje que provee eficiencia energética y alimentación al circuito digital.
-  - Diseño del circuito de carga para la batería.
-  - Diseño del sistema de radio compatible con el estándar IEEE 802.15.4.
-  - Diseño del sistema de control, el cual estará encargado de recibir información desde la aplicación móvil y transferirla al módulo de radio para su correcto manejo en la red ad-hoc.
-  - Diseño del circuito impreso necesario para montar todos los componentes.
-  - Test del hardware para comprobar que todos los periféricos necesarios son funcionales.
-- Diseño de la aplicación móvil, la cual sirve como GUI o interface gráfica.
-- Diseño del driver necesario para hacer la integración del hardware con el sistema operativo.
+## 1.3 Planning
+
+We strongly recommend to establish and follow a logical sequence for the development of this project:
+
+- Preparedness and planning: during the preparation phase we researched about `ad-hoc` network and the many `routing protocols` to complete our documentation on this subject.
+- The hardware design:
+  - Power supply.
+  - Battery circuit.
+  - Radio module compatible with IEEE 802.15.4.
+  - Firmware in charge of receiving the information from the mobile app and send it to the radio module.
+  - Printed circuit board needed to assemble all of the components.
+  - Functionality test of the hardware.
+- Mobile App, which will be the GUI.
+- Driver for the integration of the hardware with the OS.
 
