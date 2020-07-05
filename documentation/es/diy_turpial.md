@@ -48,16 +48,14 @@ A simplified blocks schema of our DIY Turpial:
 In our case the USB to Serial converter and the _CC1312R_ MCU are on the Launchpad, and between this and the _WROVER dev-kit_ we need to connect only two wires for the UART interface and GND for a common ground reference.
 
 | LAUNCHPAD-CC1312R1 | WROVER DEV-KIT |
-|--------------------|----------------|
+| ------------------ | -------------- |
 | DIO11              | GPIO22         |
 | DIO12              | GPIO21         |
 | GND                | GND            |
 
-
 <p align="center">
     <img src="../pics/diy.svg" height="500px">
 </p>
-
 
 At first, any _ESP32 board_ can work, just make sure to follow the next recommendations:
 
@@ -67,14 +65,14 @@ At first, any _ESP32 board_ can work, just make sure to follow the next recommen
 
 The list of ESP32 boards available in the market is huge, for example:
 
-| Board Name                     | UART1 TX/RX | Manufacturer                            | Observations                       |
-|--------------------------------|-------------|-----------------------------------------|------------------------------------|
-| HUZZAH32 - ESP32 Feather       | 17/16       | [Adafruit](https://www.adafruit.com)    | LiPo Battery charger               |
-| WiFi KIT 32                    | ---         | [Heltec](https://heltec.org)            | LiPo Battery charger, OLED display |
-| TTGO T7 V1.3 MINI 32           | 1/3         | [Lilygo](http://www.lilygo.cn)          | Battery charger, small factor      |
-| Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/)   | Battery charger                    |
-| ESP32 NodeMCU (various models) | N/A         | Several                                 | Cheap                              |
-| Wemos (various models)         | N/A         | Several                                 | Cheap                              |               
+| Board Name                     | UART1 TX/RX | Manufacturer                          | Observations                       |
+| ------------------------------ | ----------- | ------------------------------------- | ---------------------------------- |
+| HUZZAH32 - ESP32 Feather       | 17/16       | [Adafruit](https://www.adafruit.com)  | LiPo Battery charger               |
+| WiFi KIT 32                    | ---         | [Heltec](https://heltec.org)          | LiPo Battery charger, OLED display |
+| TTGO T7 V1.3 MINI 32           | 1/3         | [Lilygo](http://www.lilygo.cn)        | Battery charger, small factor      |
+| Thing Plus - ESP32 WROOM       | 17/16       | [SparkFun](https://www.sparkfun.com/) | Battery charger                    |
+| ESP32 NodeMCU (various models) | N/A         | Several                               | Cheap                              |
+| Wemos (various models)         | N/A         | Several                               | Cheap                              |
 
 
 We can use the USB connection in each board as power source or in some models a power management system is available, including battery charger, but keep in mind not all _ESP32_ based boards can be used as power source for the _CC1312R_, check the output current that each board can offer.
@@ -85,7 +83,7 @@ In case you need more power you can add a battery manager and power source in th
 Connect the _Babysitter_ as follows:
 
 | LAUNCHPAD-CC1312R1 | Babysitter | WROVER DEV-KIT |
-|--------------------|------------|----------------|
+| ------------------ | ---------- | -------------- |
 | DIO4               | SDA        | N/A            |
 | DIO5               | SCL        | N/A            |
 | DIO8               | GPOUT      | N/A            |
@@ -95,11 +93,9 @@ Connect the _Babysitter_ as follows:
 | 3V3                | VOUT +     | 3V3            |
 | GND                | VOUT -     | GND            |
 
-
 <p align="center">
     <img src="../pics/diy_baby.svg" height="600px">
 </p>
-
 
 You can use a 1000mAh battery or greater, LiPo type, 18650, etc., or without battery by using the charging port connected to a power bank or a computer's USB port.
 
