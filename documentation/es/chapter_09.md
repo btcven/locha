@@ -1,65 +1,71 @@
+# 9. Packet format for MANET networks.
 
-# 9. Formato de paquetes para redes MANET.
+_AODVv2_ specifies that control messages have to be mapped to a container called MANET (Generalized Mobile Ad-Hoc Network Packet/Message Format) [RFC5444]. This packet format provides a single encapsulation for multiple Ad-Hoc routing protocols.
 
-_AODVv2_ especifica que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (_MANET_) Packet/Message Format [RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
+RFC5444 makes the transmission of control messages more efficient, structuring the content by reducing the number of bytes to transmit.
 
-El _RFC5444_ dota de una mayor eficiencia a las trasmisiones de los mensajes de control, estructura el contenido  reduciendo el número de bytes a transmitir.
+The RFC5444 format defines the following elements:
+- Packet: It is the highest level entity. A packet contains a header and zero or more messages.
+- Message: It is the entity that transports the protocol information. A message consists of a header, a TLV (type-length-value) block, and an addresses block.
+- Addresses block: consists of one or more addresses, and an attribute block.
+- TLV Block: It consists in one or more TLVs.
+- TLV: It is a structure (type-length-value) where:
+ - Type: It is the identifier of the data type that follows.
+ - Length: This field indicates how many bytes the field value occupies.
+ - Value: It is the concrete value of the object to which it refers.
 
-El formato _RFC5444_ define los siguientes elementos:
-- Paquete: Es la entidad de mayor nivel. Un paquete contiene una cabecera y cero o más mensajes.
-- Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje está formado por una cabecera, un bloque TLV (type-length-value) y un bloque de direcciones.
-- Bloque de direcciones: Está formado por una o más direcciones, y un bloque de atributos.
-- Bloque TLV: Está formado por uno o más TLV.
-- TLV: Es una estructura donde: 
-  - Type: Es el identificador del tipo de dato que viene a continuación.
-  - Length: Este campo indica cuantos bytes ocupa el campo value.
-  - Value: Es el valor concreto del objeto al que se refiere.
+The following image represents the structure of an _RFC544_ package and its dependencies.
 
-En la siguiente imagen se representa la estructura de un paquete RFC544 y sus dependencias.
+<figure> 
+    <img src="../pics/rfc5444-pkt.png" width="100%" />
+</figure>
 
- <img src="../pics/rfc5444-pkt.png" alt="drawing" height="600" width="1000" align="center"/>
+Each type of control message has to be adapted to the format of the _RFC5444_ packet.
 
-Cada tipo de mensaje de control se tiene que adaptar al formato del paquete _RFC5444_.
+_AODVv2_ doesn´t require access to the packet header [RFC5444].
 
-_AODVv2_ no requiere acceso al encabezado del paquete [RFC5444].
+The _AODVv2_ packet header use:
 
-En el encabezado del paquete AODVv2 usa:
-- **msg-type**. 
+- **msg-type**.
 - **msg-hop-limit**.
 - **msg-addr-length**.
 
-**msg-addr-length** indica el tamano de la direccion en el mensaje, cuyo valor corresponde a ```addr_length en octetos -1```, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
+**msg-addr-length** indicates the size of the address in the message, whose value corresponds to _addr_length in octets -1_; for example, for _IPV4_ it would be 3 and for _IPV6_ it would be equal to 15.
 
- Para esto primero vamos a revisar cuales son los campos de cabecera del paquete _RFC5444_ que utiliza _AODVv2_.
+This is why we will first review which are the header fields of the _RFC5444_ packet that _AODVv2_ uses.
 
-## 9.1 Información del paquete.
-Esta sección del mensaje permite conocer rápidamente información como:
- - Versión del paquete.
--  Número de secuencia.
-- _Flags_ que permiten conocer si los _TLV_ están en el paquete sin deserializar el mismo. 
+## 9.1 Packet info.
+This section of the message allows to quickly know information such as:
 
-### 9.1.1 pkt-header.
+- Packet version.
+- Sequence number.
+- _Flags_ that allow knowing if the TLVs are in the packet without deserializing it.
 
-Lo definimos como sigue:
+### 9.1.1 pkt-header
 
-**version**: Es un campo que contiene un entero sin signo de 4 bits y especifica la versión en la cual el paquete y el contenido del mensaje ha sido construido.
+We define it as follows:
 
-**pkt-flag**: Es un campo de 4 bits que especifica la interpretación del resto del encabezado del paquete:
-- **bit 0** (_phaseseqnum_) si está indicado uno('1'), entonces significa que el **pkt-seq--num** está incluido en el **pkt-header**. En caso contrario, no lo está.
-- **bit 1**(_phastlv_): Si está indicado uno('1'), significa que el **tlv-block** está incluido en el **pkt-header**. En caso contrario, no lo está.
-- **bit 2-3**: Están reservados y deberían ser limpiados en cada transmisión y deben ser ignorados en cada recepción.
- 
-**pkt-seq-num**: Es omitido si el _phaseseqnum flag_ está establecido a cero('0'). En caso contrario, es un entero sin signo de 16 bits, especificando el número de secuencia de un paquete.
+**version**: It is a field that contains a 4-bit unsigned integer and specifies the version in which the packet and the message content have been built.
 
-**tlv*block**: Es omitido si el _phastlv  flag_ esta establecido a cero('0'). En caso contrario, se define en [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
+**pkt-flag**: It is a 4-bit field that specifies the interpretation of the rest of the packet header:
 
-## 9.2 Mensajes.
-Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. Los mensajes contienen:
+ - **bit 0** (phaseseqnum) if one ('1') is indicated, then it means that the **pkt-seq-num** is included in the **pkt-header**. Otherwise, it is not.
 
-- Un mensaje header
-- Un bloque de mensaje _TLV_ que contiene cero o más _TLVs_, asociados con el mensaje completo.
-- Cero o más bloques de direcciones, cada bloque conteniendo uno o más objetos de direcciones.
-- Un bloque _TLV_ de bloque de dirección, que contiene cero o más _TLVs_.
+ - **bit 1** (phastlv): If one ('1') is indicated, it means that the **tlv-block** is included in the **pkt-header**. Otherwise, it is not.
+
+ - **bit 2-3**: They are reserved and should be cleaned in each transmission and must be ignored in each reception.
+
+**pkt-seq-num**: It is ignored if the _phaseseqnum-flag_ is set to zero ('0'). Otherwise, it is a 16-bit unsigned integer, specifying the sequence number of a packet.
+
+**tlv*block**: It is ignored if the _phastlv-flag_ is set to zero ('0'). Otherwise, it is defined in [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
+
+## 9.2 Messages.
+Packets can contain the packet header, and one or more messages. The messages contain:
+
+ - A message header.
+ - A TLV message block that contains zero or more TLVs, associated with the complete message.
+ - Zero or more address blocks, each block contains one or more addresses objects.
+ - An address block TLV block, which contains zero or more TLVs.
 
 ```
  <message> = <msg-header>
@@ -76,39 +82,46 @@ Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. L
  <msg-seq-num>?
 ```
 
-### 9.2.1 msg-header.
+### 9.2.1 msg-header
 
-**msg-type**: Es un campo que aloja un entero sin signo de 8 bits, especificando el tipo de mensaje.
+**msg-type**: It is a field that houses an 8-bit unsigned integer, specifying the type of message.
 
-**msg-flags**: Es un campo de 4 bits que especifica la interpretación del resto del encabezado del mensaje:
-- **bit 0** (_mhasorig_): Si está establecido en uno ('1') significa que **msg-orig-addr** será incluido en **msg-header**. En caso contrario, no.
-- **bit 1** (_mhashoplimit_): Si está establecido en uno ('1'), significa que **msg-hop-limit** será incluido en **msg-header**. En caso contrario, no.
-- **bit 2** (_mhashopcount_): Si está establecido en uno ('1'), significa que  **msg-hop-count** será incluido en **msg-header**. En caso contrario, no.
-- **bit 3** (_mhaseqnum_): Si está establecido en uno ('1'), entonces significa que **msg-seq-num** será incluido en **msg-header**. En caso contrario, no.
+**msg-flags**: It is a 4-bit field that specifies the interpretation of the rest of the message header:
+
+ - **bit 0**(mhasorig): If set to one ('1') it means that **msg-orig-addr** will be included in **msg-header**. Otherwise, no.
+ - **bit 1**(mhashoplimit): If set to one ('1'), it means that **msg-hop-limit** will be included in **msg-header**. Otherwise, no.
+ - **bit 2**(mhashopcount): If set to one ('1'), it means that **msg-hop-count** will be included in **msg-header**. Otherwise, no.
+ - **bit 3**(mhaseqnum): If it is set to one ('1'), then it means that **msg-seq-num** will be included in **msg-header**. Otherwise, no.
 
 ### 9.2.2 msg-header-length
+**ONGOING PROCESS**
 
-**No revisar aun EN PROCESO DE DESARROLLO**
-Es un campo que contiene un entero sin signo de 8 bits 
+It is a field that contains an 8-bit unsigned integer
 
-AODVv2 utilza los siguientes campos del mensaje Header RFC5444
+_AODVv2_ uses the following fields from the _RFC5444_ Header message
 
-<img src="../pics/header-rfc5444.png" alt="drawing" height="100" width="400" align="center"/>
+<figure>
+    <img src="../pics/header-rfc5444.png"/>
+</figure>
 
-<br>
+### The address block is made up of::
 
-### El address block esta formado por
+<figure>
+    <img src="../pics/tlv-addr-block.png"/>
+</figure>
 
-<img src="../pics/tlv-addr-block.png" alt="drawing" height="100" width="460" align="center"/>
+### TLV for _OrigPrefix_ will be formed by
 
-<h3> El TLV para OrigPrefix estará formado por:</h3>
+<figure>
+    <img src="../pics/tlvOrigPrefix.png"/>
+</figure>
 
-<img src="../pics/tlvOrigPrefix.png" alt="drawing" height="120" width="460" align="center"/>
+### The TLV for _OrigPrefix_ will be formed of
 
-<h3>El TLV para TargPrefix estará formado por:</h3>
+<figure>
+    <img src="../pics/tlvTargetPrefix.png"/>
+</figure>
 
-<img src="../pics/tlvTargetPrefix.png" alt="drawing" height="120" width="460" align="center"/>
+## 9.3 oonf_api
+For the encapsulation of the _AODVv2_ packet within the _RFC5444_ packet container, the API called [oon_api](https://github.com/benpicco/oonf_api), is used, which facilitates the reading and writing of said packet within the container.
 
-
-## 9.3 oonf_api.
-Para el encapsulado del paquete _AODVv2_ dentro del contenedor de paquete _RFC5444_, se hace uso de la API llamada [oon_api](https://github.com/benpicco/oonf_api), la cual facilita la lectura y escritura de dicho paquete dentro del contenedor.
