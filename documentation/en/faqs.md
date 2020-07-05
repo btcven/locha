@@ -71,7 +71,6 @@ For these situations, other nodes can work as ‘servers’ and store messages f
 
 
 #### I want to contribute. Where do I start?
-
 Thank you for joining us! Please read our [Contributing section](https://github.com/btcven/locha/blob/master/CONTRIBUTING.md) before you make a PR or open an [issue](https://github.com/btcven/locha/issues). 
 
 
