@@ -1,253 +1,223 @@
-
 # 8. AODVv2.
 
-[7,9] _AODV_ es un protocolo de enrutamiento para redes móviles ad-hoc (_MANETs_) inalámbricas. _AODV_ es la evolución de su anterior protocolo llamado _DYMO_ (2003), que luego adopta el nombre de _AODVv2_ (2013).
+[7,9] _AODV_ is a routing protocol for wireless mobile ad-hoc networks (MANETs). _AODV_ is the evolution of its previous protocol called _DYMO_ (2003), which later adopted the name of _AODVv2_ (2013).
 
-El _AODV_ es ideal para las redes ad-Hoc. Intercambia mensajes cuando necesita establecer una comunicación; es decir, envía mensajes a los vecinos para calcular cada ruta. _AODV_ evita la problemática que tiene _DYMO_, pero por el contrario incrementa la latencia en el primer paquete a enviar cada vez que se calcula la ruta.
+_AODV_ is ideal for ad-Hoc networks. Exchange messages when you need to establish communication; that is, it sends messages to neighbors to calculate each route. _AODV_ avoids the problem that DYMO has, but on the contrary it increases the latency in the first packet to send every time the route is calculated.
 
-
-En la siguiente figura [11] podemos observar las diferentes versiones de _AODVv2_ y _DYMO_.
+In the following image [11] we can see the different versions of _AODVv2_ and _DYMO_.
 
 ![draft version](../pics/aodv-versions.png "draft version")
 
-En **Locha Mesh**, nos centramos en la evolución de _AODV_ llamado _AODVv2_, pero simplemente hablaremos de _AODV_ para referirnos a la versión más actual del protocolo de enrutamiento.
+At **Locha Mesh**, we focus on the evolution of _AODV_ called _AODVv2_, but we will simply talk about _AODV_ to refer to the most current version of the routing protocol.
 
-_AODV_ es uno de los cuatro protocolos estandarizados por el grupo de trabajo _IETF MANET_. El protocolo encuentra rutas alternativas bajo demanda siempre que sea necesario, lo que significa que primero establece una ruta entre un nodo de origen y un destino (descubrimiento de ruta), y luego mantiene una ruta entre los dos nodos durante los cambios de topología (mantenimiento de la ruta).
+_AODV_ is one of the four protocols standardized by the IETF MANET working group. The protocol finds alternative routes on demand whenever necessary, which means that it first establishes a route between a source node and a destination (route discovery), and then maintains a route between the two nodes during topology changes (maintenance of the route).
 
-Las versiones más recientes aplican [13] más restricciones para actualizar la tabla de enrutamiento y de esta manera garantizar la libertad del bucle.
+The latest versions aplly [13] more restrictions to update the routing table and to guarantee the freedom of the loop. It holds a maximum of two routes for each destination: while one is invalid and the other is not confirmed.
 
-Mantiene como máximo dos rutas para cada destino: mientras una es inválida y la otra no está confirmada.
+To avoid loops in this version, an incoming route updates the existing route with the same status. The routing table always maintains the best routes for each state.
 
-Para evitar bucles en esta versión, una ruta entrante actualiza la ruta existente con el mismo estado. La tabla de enrutamiento siempre mantiene las mejores rutas para cada estado.
+## 8.1 Features.
 
-## 8.1 Características.
+The characteristics of the protocol are:
 
-<h2>Las características del protocolo son:</h2>
+1. [7] Low control signaling.
+2. Minimum processing signaling.
+3. Loop prevention.
+4. It only works with bidirectional links.
 
-<ol>
- <li>[7] Señalización de control baja. </li>
- <li>Señalización de procesamiento mínima.</li>
- <li>Prevención de bucles.</li>
- <li>Funciona sólo con enlaces bidireccionales.</li>
-</ol> 
+Each node has an associated routing table that it uses to link to other nodes. These routing tables contain the following fields:
 
-Cada nodo tiene asociada una tabla de enrutamiento que utiliza para poder enlazar con otros nodos. Estas tablas de enrutamiento contienen los siguientes campos: 
+1. Origin IP address
+2. Time-to-live (TTL)
+3. Destination IP address
+4. Destination sequence number
+5. Hop counter (hop count)
 
-<ol>
- <li>Dirección IP origen</li>
- <li>Tiempo de vida (TTL) </li>
- <li>Dirección IP destino</li>
- <li>Número secuencia destino</li>
- <li>Contador de saltos (hop count)</li>
-</ol>
+The fields of the source and destination IP addresses appear to always know the origin of the packets and their destination.
 
-Aparecen los campos de las direcciones IP del origen y del destino para saber en todo momento el origen los paquetes y su destino.
+A field with the sequence number of the destination node also appears, which is used to distinguish between new information and old information, thus avoiding the formation of loops and transmissions of old routes.
 
-También aparece un campo con el número de secuencia del nodo de destino que sirve para distinguir entre información nueva e información antigua y de esta forma evitar formación de bucles y transmisiones de rutas antiguas. 
+Another parameter that is stored in tables is the lifetime. It is used to prevent lost packets from traveling over the network and to use links whose status has not been known for a long time.
 
-Otro parámetro que se almacena en las tablas es el tiempo de vida. Sirve para evitar que viajen paquetes perdidos por la red y utilizar enlaces de los que no se conoce su estado desde hace mucho tiempo. 
+When two packets arrive at a destination from the same source through different paths, the _hop count_ field shows the number of hops they have had to make in each of the routes. In this way it is known which of them is the shortest route and therefore it has to be selected to send the information.
 
-Cuando a un destino le llegan dos paquetes desde la misma fuente por caminos distintos, el campo _hop count_ muestra el número de saltos que han tenido que hacer para cada una de las rutas. De esta forma se sabe cuál de ellas es la ruta más corta y que por tanto tiene que seleccionarse para hacer el envío de información. 
+Every time you want to communicate a source with a destination, a route discovery process starts, which ends when you receive a packet with the calculated route.
 
-Cada vez que se quiere comunicar un origen con un destino se inicia un proceso de descubrimiento de ruta, que finaliza cuando recibe un paquete con la ruta calculada.
+There is another concept known as "route maintenance", which is used to act in the event that a link breaks along a route. This is accomplished by giving to the discovered paths time-to-live (TTL) before considering them invalid.
 
-Existe otro concepto conocido como "mantenimiento de ruta", que sirve para actuar en caso de que se rompa un enlace a lo largo de una ruta. Esto se consigue dando tiempo de vida (TTL) a las rutas descubiertas antes de considerarlas como inválidas.
+## 8.2 Discovery of routes.
+[7] When a node wants to transmit a packet to a destination, the first thing to do is search its route table and see if there is one to this destination, previously calculated. In case of finding it, it would not initiate any route discovery process, it would suppose that the one stored in its route table is correct and is updated. Otherwise, it will begin the process of discovery of  route to find a new valid path.
 
+The process begins with sending a _RREQ_ (Route Request) packet in _broadcast_ mode. This packet reaches the neighboring nodes that are a hop away and these in turn forward it to their neighbors and so on until they reach the destination.
 
-## 8.2 Descubrimiento de rutas. 
-[7] Cuando un nodo quiere transmitir un paquete a un destino, lo primero que debe hacer es buscar en su tabla de rutas y ver si existe una hacia este destino, previamente calculada. En el caso de encontrarla no iniciaría ningún proceso de descubrimiento de ruta, supondría que la que tiene almacenada en su tabla de rutas es correcta y está actualizada. En el caso contrario, comenzará el proceso de descubrimiento para encontrar un nuevo camino válido. 
+Any node that knows the route to the destination during the search process, can reply with a _RREP_ (Route Reply) packet to the source node indicating the route it needs. While the search process is being carried out, all the nodes update the routing tables.
 
-El proceso comienza con el envío de un paquete _RREQ_ (Route Request) en modo _broadcast_. Este paquete llega a los nodos vecinos que se encuentran a un salto de distancia y éstos a su vez lo reenvían a sus vecinos y así sucesivamente hasta llegar al destino. 
+In the _RREQ_ package format of the _AODV_ protocol, we find the following fields::
 
-Cualquier nodo que durante el proceso de búsqueda conozca la ruta hacia el destino, puede contestar con un paquete de _RREP_ (Route Reply) al nodo origen indicando la ruta que necesita. Mientras se va realizando el proceso de búsqueda, todos los nodos van actualizando las tablas de enrutamiento.
+1. Origin IP address
+2. Sequence number of the origin
+3. Destination IP address
+4. Sequence number of the destination
+5. RREQ identifier
+6. Hop counter (hop count)
 
-En el formato del paquete _RREQ_ del protocolo _AODV_, nos encontramos los siguientes campos: 
-
-<ol>
- <li>Dirección IP origen.</li>
- <li>Número de secuencia del origen.</li>
- <li>Dirección IP del destino.</li>
- <li>Número de secuencia del destino.</li>
- <li>RREQ identificador.</li>
- <li>Contador de saltos (hop count).</li>
-</ol>
-
-Uno de los campos es el identificador que se va modificando cada vez que se genera un envío de _RREQ_. Esto sirve para que los nodos que lo vayan recibiendo (nodos intermedios) sepan si el paquete es idéntico al anterior (tiene el mismo identificador) y deben descartarlo, o por el contrario, si deben retransmitirlo (porque el identificador de paquetes es distinto). 
+One of the fields is the identifier that is modified every time an _RREQ_ shipment is generated. This is so that the nodes that receive it (intermediate nodes) know if the packet is identical to the previous one (it has the same identifier) ​​and they must discard it, or on the contrary, if they must retransmit it (because the packet identifier is different). 
 
 <figure>
-<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ-table-route.png"  width="100%" />
 </figure>
 
-
-En esta figura podemos observar como el nodo **A** desea buscar una ruta hacia el nodo **I**.
-El primer paso será buscar en su tabla de rutas y ver si tiene una ruta almacenada al destino. De no ser así debe iniciar un proceso de descubrimiento de ruta, donde envía un mensaje _multicast_ a todos sus vecinos al alcance de la señal de radiofrecuencia.
+In this figure we can see how node A wants to search for a route to node I. The first step will be to search its route table and see if it has a stored route to the destination. If not, you must start a route discovery process, where you send a _multicast_ message to all your neighbors within range of the radio signal.
 
 <figure>
-<img src="../pics/aodv-family.png" alt="drawing" height="290" width="380" align="left"/>
+<img src="../pics/aodv-family.png" width="80%"/>
 </figure>
 
-Comparando este proceso con la vida cotidiana sería como salir a la calle a buscar a tu hijo pero no lo ves. Lo primero que haces es gritar y esperar respuesta. Este grito representa un mensaje _multicast_ que puede ser escuchado por tus vecinos. Si ellos saben dónde está tu hijo, pueden informarte con un nuevo mensaje (_RREP_), entregando una ruta hacia donde se encuentra tu hijo. Pero si no saben dónde está, podrían iniciar un nuevo grito a sus vecinos más cercanos (_multicast_), para ver si pueden ayudar en la búsqueda y así sucesivamente hasta encontrar el destino, en este caso tu hijo.
+Comparing this process with daily life would be like going out into the street to look for your child but you don't see it. The first thing you do is yell and wait for a response. This scream represents a _multicast_ message that can be heard by your neighbors. If they know where your child is, they can inform you with a new message (_RREP_), providing a route to where your child is. But if they don't know where it is, they could start a new cry to their closest neighbors (multicast), to see if they can help in the search and so on until they find the destination, in this case your son.
 
-<br/>
+## 8.3 Route request process in an ad-hoc network.
 
-## 8.3 Proceso de requerimiento de ruta en una red ad hoc.
+We will show [7] graphically how the network is flooded with route request messages, in order to find a destination node of which only the assigned IP address is known.
 
-Mostraremos [7] gráficamente cómo se inunda la red con mensajes de requerimiento de ruta, con el fin de encontrar un nodo destino del cual no se conoce más que la dirección IP que tiene asignada.
+The _AODV_ protocol, being reactive, must wait for a node to try to send a message to another remote node. The following images represent the logical sequence until reaching the destination node.
 
-El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto. Las siguientes imágenes representan la secuencia lógica hasta llegar al nodo de  destino.
-
-### Paso 1
+### Step 1
 
 <figure>
-<img src="../pics/RREQ1.png" alt="drawing" height="250" width="350"/>
+<img src="../pics/RREQ1.png" width="100%"/>
 </figure>
 
-- El nodo **S** desea enviar un paquete con información hacia el nodo **D**. 
+- Node **S** wants to send a packet with information to node **D**..
 
-- Primero debe buscar en su tabla de rutas y confirmar si la ruta al destino existe o no.
+- You must first search your route table and confirm whether the route to the destination exists or not.
 
-- Si la ruta hacia el destino existe,  enviará el mensaje con la información del usuario de la aplicación.
-Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ruta. 
+- If the route to the destination exists, it will send the message with the information of the user of the application. But if it don't have a route, the node should start a route search process.
 
-- Este tipo de mensaje (_multicast_) será escuchado por todos sus vecinos dentro del radio de cobertura.
+- This type of message (_multicast_) will be heard by all its neighbors inside the coverage.
 
-### Paso 2
+### Step 2
 
 <figure>
-<img src="../pics/RREQ2.png" alt="drawing" height="250" width="350"/>
+<img src="../pics/RREQ2.png" width="100%"/>
 </figure>
 
+- Node **S** sends an _RREQ_ (route request) message to all of its neighbors: **B**, **C**, and **E**. As it can be seen, the direct neighbors of node **S** do not have the required route information so they must start retransmission of the _RREQ_, to its closest neighbors. Nodes can receive the same route request package from different nodes.
 
-- El nodo **S** envía un mensaje RREQ (requerimiento de ruta) a todos sus vecinos: **B**, **C** y **E**. Como se puede ver, los vecinos directos del nodo **S** no tienen información de la ruta requerida así que deben iniciar la retransmisión del _RREQ_, a sus vecinos más cercanos. Los nodos pueden recibir el mismo paquete de requerimiento de ruta desde diferentes nodos.
-
-<br/>
-
-### Paso 3
+### Step 3
 
 <figure>
-<img src="../pics/RREQ3.png" alt="drawing" height="250" width="350"/>
+<img src="../pics/RREQ3.png" width="100%">
 </figure>
 
-- El **nodo H** recibe el RREQ de dos vecinos distintos, lo que podría dar lugar a una colisión.
+- Node **H** receives the _RREQ_ message from two different neighbors, which could lead to a collision.
 
-- _AOdvv2_ maneja una tabla de mensajes de ruta [10] para verificar que un nodo nunca recreará un _RREQ_ que ya ha recreado antes, no importa de dónde venga.
+- _AODVv2_ handles a route message table [10] to verify that a node will never recreate a _RREQ_ message that it has already recreated before, no matter where it comes.
 
-<br/>
-
-### Paso 4
+### Step 4
 
 <figure>
-<img src="../pics/RREQ4.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ4.png" width="100%"/>
 </figure>
 
-- El nodo **C** recibe el mensaje _RREQ_ desde **G** y **H**, pero no lo recrea, porque el **nodo C** ya ha recreado este mensaje antes.
-  
-- La verificación se hace por medio de la tabla de mensajes de ruta, la cual debe ser interpolada cada vez que se recibe algún mensaje tipo _RREQ_ o _RREP_.
+- Node **C** receives the _RREQ_ message from **G** and **H**, but does not recreate it, because node **C** has recreated this message before.
 
-<br/>
+- Verification is done through the route message table, which must be interpolated every time a _RREQ_ or _RREP_ type message is received.
 
-### Paso 5
+### Step 5
 
 <figure>
-<img src="../pics/RREQ5.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ5.png" width="100%"/>
 </figure>
 
-- En este caso el nodo **J** y el **K** retransmiten el paquete hacia **D**, debido a que estos nodos no se conocen el uno del otro y sus transmisiones podrían colisionar. 
+- In this case nodes **J** and **K** retransmit the packet to **D**, due to these nodes do not know each other and their transmissions could collide.
 
-- Es posible que el paquete con el RREQ no se entregue al nodo **D**, a pesar de la inundación de mensajes en la red.
+- The _RREQ_ package may not be delivered to node **D**, despite the flood of messages on the network.
 
-<br/>
-
-### Paso 6
+### Step 6
 
 <figure>
-<img src="../pics/RREQ6.png" alt="drawing" height="250" width="350"/>
+<img src="../pics/RREQ6.png" width="100%"/>
 </figure>
 
-- El **nodo D** no recrea el paquete debido a que es el destinatario del mensaje de solicitud de ruta.
+- Node **D** does not recreate the package due to it is the recipient of the route request message.
 
-- En el proceso cada nodo intermedio debería conocer la manera de regresar al nodo que recreó el mensaje RREQ.
+- In the process, each intermediate node should know how to return to the node that recreated the _RREQ_ message.
 
-- Al ejecutar el _RREQ_, cada nodo involucrado en el proceso está aprendiendo una ruta inversa al nodo originador del mensaje de requerimiento de ruta.
+- By executing the _RREQ_ message, each node involved in the process is learning a reverse route to the originating node of the route request message.
 
-- Cuando se empiezan a crear los mensajes _RREP_, los nodos intermedios aprenden una ruta inversa hacia el nodo originador del mensaje de _RREP_, y de esta manera se podría establecer una ruta bidireccional entre los nodos **S** y **D**.
+- When _RREP_ messages begin to be created, the intermediate nodes learn a reverse route to the origin node of the _RREP_ message, and in this way a two-way route could be established between the **S** and **D** nodes.
 
-<br/>
-
-### Paso 7
+### Step 7
 
 <figure>
-<img src="../pics/RREQ7.png" alt="drawing" height="250" width="350" align="left"/>
+<img src="../pics/RREQ7.png" width="100%"/>
 </figure>
 
-- Ya se ha completado la inundación del mensaje del _RREQ_ por toda la red.
+- The flooding of the _RREQ_ message across the network is now complete.
 
-- Los nodos que no están en la ruta de **S** o aislados de la red no recibirán el paquete, por ejemplo el **Z**.
+- Nodes that are not in the path of **S** or are  isolated from the network will not receive the package, for example **Z**.
 
-- Los nodos que pasan a través del destinatario tampoco reciben el paquete, por ejemplo el **N**.
+- The nodes that pass through the receiver also don´t receive the packet, for example **N**.
 
-<br/>
+### 8.3.1 Advantages of search of routes by network flooding.
 
-### 8.3.1 Ventajas de la búsqueda de rutas por inundación de la red.
+The advantages are:
 
-Las ventajas son:
-
-- Simplicidad.
-- Más eficiente que otros protocolos cuando la frecuencia de la transmisión es suficientemente baja.
-- Confiable en la entrega de paquetes.
-  Los paquetes al destino podrían ser entregados por distintas rutas. 
+- Simplicity.
+- More efficient than other protocols when the transmission frequency is low enough.
+- Trustworthy in package delivery. Packages to the destination could be delivered by different routes.
 
 
-### 8.3.2 Desventajas de la inundación de mensajes en la red.
+### 8.3.2 Disadvantages of search of routes by network flooding.
 
-- Potencialmente, se pueden entregar paquetes de datos a demasiados nodos que no necesitan recibirlos.
-En el ejemplo anterior, **J** y el **K** pueden transmitir al **D** simultáneamente y en este caso el destinatario podría no recibir el paquete.
+- Potentially, data packages can be delivered to too many nodes that do not need to receive them.
+- In the example above, **J** and **K** can transmit to **D** simultaneously, and in this case the receiver might not receive the package.
 
-### 8.3.3 Entrada de ruta inversa.
+### 8.3.3 Reverse route entrance.
 
-Cuando un nodo intermedio recibe un mensaje _RREQ_, el nodo debe configurar una entrada en una tabla de rutas local con la siguiente información:
-  - Dirección IP de la fuente del mensaje.
-  - Número de secuencia de la fuente.
-  - Número de saltos al nodo fuente.
-  - Dirección IP del nodo del cual el RREQ fue recibido.  
-  - Usando una ruta inversa un nodo puede enviar un RREP a la fuente.
-  - Una entrada en la tabla de rutas también incluye un tiempo de vida (TTL) de una ruta.
+When an intermediate node receives an RREQ message, the node must configure an entry in a local route table with the following information:
 
-Estas rutas aprendidas por medio de los mensajes _RREQ_, aún no se pueden confirmar como bidireccionales. Son enlaces que sabemos que son capaces de enviar mensajes , pero debemos asegurarnos que puede recibir también, a través de los mensajes _RREQ_ack_ o del mismo mensaje _RREP_, del cual hablaremos más adelante.
+  - IP address of the message source.
+  - Sequence number of the source.
+  - Number of hops to the source node.
+  - IP address of the node from which the _RREQ_ was received.
+  - Using a reverse route a node can send a _RREP_ message to the source.
+  - An entry in the route table also includes a time-to-live (TTL) of a route.
 
-<br/>
+These routes learned through _RREQ_ messages can´t yet be confirmed as bidirectional. They are links that we know are capable of sending messages, but we must make sure that they can also receive, through the _RREQ_ack_ messages or the _RREP_ message itself, which we will talk about later.
 
-## 8.4 Mantenimiento de rutas. 
-El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla siguen siendo válidas. Para realizar esta tarea se utilizan los Route Error Message (_RERR_). Estos mensajes de control los genera  _AODVv2_ cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan el envío de un mensaje _RERR_:
+## 8.4 Routes maintenance.
+[8] Route routing table maintenance is the process by which the algorithm ensures that the active routes in the table remain valid. Route Error Messages (_RERR_) are used to perform this task. These control messages are generated by _AODVv2_ when you want to inform one or more nodes that one or more routes are no longer valid. There are three events that cause a _RERR_ message to be sent:
 
-- Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento, el nodo enviara un _RERR_ a la fuente para informar que no existe una ruta hacia el destino.
-- Cuando no se puede reenviar un mensaje _RREP_ porque la ruta hacia el generador del _RREQ_ no es válida. En este caso el nodo debe enviar el mensaje  _RERR_ hacia el generador del mensaje _RREP_ para informar que la ruta hacia el origen del mensaje _RREQ_ no es válida.
-- Cuando un nodo detecta que uno de los enlaces de un nodo vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas han pasado a ser invalidas.
+- When a node has to forward an IP package but there is no valid route in its routing table, the node will send a _RERR_ to the source to report that there is no route to the destination.
 
+- When an _RREP_ message can´t be forwarded because the path to the _RREQ_ message generator is invalid. In this case the node must send the _RERR_ message to the _RREP_ message generator to report that the route to the origin of the _RREQ_ message is invalid.
 
-Cuando una ruta es encontrada se le da un tiempo de vida (TTL) y se considera útil hasta que un temporizador asociado a esta ruta no expire. Esto se utiliza para no tener que iniciar un descubrimiento de ruta para cada mensaje de información que se quiere enviar. 
+- When a node detects that one of the links from a neighboring node has broken, it must inform all nodes using that link that all routes have become invalid.
 
-Durante una comunicación entre el nodo origen y el nodo destino pude ocurrir que alguno de los nodos modifique su posición. Esto puede dar lugar a que se rompa el enlace y que la ruta quede inutilizada. 
-El nodo vecino al enlace roto debe ser el encargado de informar al resto de nodos sobre dicho suceso. Para ello se utiliza el envío del mensaje _RERR_. 
+When a route is found it is given a time-to-live (TTL) and it is considered useful until a timer associated with this route doesn´t expire. This is used so that you don´t have to initiate a route discovery for each information message you want to send.
 
-El mensaje viene a ser igual que el mensaje _RREP_ pero con un número de salto igual a infinito. Es decir, el nodo que detecta el enlace roto envía al origen un _RERR_ con valor de _hop count_ de valor infinito, lo que hace que cualquier otra ruta sea mejor y deban reencaminarse los paquetes por otro sitio. De esta manera, el nodo origen decide si ha terminado la comunicación con el nodo destino o si por el contrario debe iniciar un nuevo proceso de descubrimiento de ruta.
+During a communication between the origin node and the destination node it could happen that one of the nodes changes its position. This can make the link to break out and the path unusable. The node neighboring the broken link must be in charge of inform the rest of the nodes about this event. The sending of the RERR message is used for this purpose.
 
-_AODV_ presenta una serie de opciones de optimización, como la posibilidad de reparar a nivel local un enlace roto que forma parte de una ruta activa. Cuando se rompe un enlace, en lugar de enviar un paquete de _RERR_ al origen, el nodo que ha detectado la rotura puede intentar repararlo localmente enviando un _RREQ_ con el número de secuencia del destino incrementado en uno hacia ese destino. 
+The message is the same as the _RREP_ message but with a hop number equal to infinity. In other words, the node that detects the broken link sends an _RERR_ to the origin with a _hop-count_ value of infinite value, which makes any other route better and they must reroute the packages through other way. In this way, the origin node decides if communication with the destination node has ended or if it should start a new route discovery process instead.
 
-Los paquetes de datos se quedan almacenados en este nodo esperando recibir un _RREP_ con una nueva ruta disponible hacia el destino. Si este nuevo procedimiento no tiene éxito y el _RREP_ no llega, entonces sí que será necesario informar sobre la rotura del enlace enviándole un paquete _RERR_.
+_AODV_ presents a number of optimization options, such as the chance to locally repair a broken link that is part of an active route.
 
-## 8.5 Tabla de rutas.
+When a link breaks, instead of sending a _RERR_ package to the origin, the node that has detected the break can try to repair it locally by sending a _RREQ_ message with the destination sequence number increased by one to that destination.
 
-Tenemos también un ejemplo para ilustrar  la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos
+The data packages remain stored on this node waiting to receive a _RREP_ message with a new available route to the destiny. If this new procedure isn´t successful and the _RREP_ message  doesn´t arrive, then it will be necessary to report about the broken link by sending it a _RERR_ package.
 
-La siguiente figura muestra una topología básica de nodos y la tabla de rutas que es usada para encontrar a otros nodos.
+## 8.5 Routes table.
+
+We also have an example to illustrate the route table at each node after a route request to all nodes.
+
+The following figure shows a basic node topology and the route table that is used to find other nodes.
 
 <figure>
-<img src="../pics/RREQ-table-route.png" alt="drawing" height="250" width="450" align="center"/>
+<img src="../pics/RREQ-table-route.png" height="250" width="100%"/>
 </figure>
 
-
-### Tabla de rutas para nodo A
+### Routes table for node A
 
 <div>
 <table style="width:100%; float:left">
@@ -285,9 +255,7 @@ La siguiente figura muestra una topología básica de nodos y la tabla de rutas 
 </table>
 </div>
 
-
-
-### Tabla de rutas para nodo B
+### Routes table for node B
 
 <div>
 <table style="width:100%; float:left">
@@ -321,11 +289,11 @@ La siguiente figura muestra una topología básica de nodos y la tabla de rutas 
     <td>E</td>
     <td>3</td>
  </tr>
+
 </table>
 </div>
 
-
-### Tabla de rutas para nodo E
+### Routes table for node E
 
 <div>
 <table style="width:100%; float:left">
@@ -363,7 +331,7 @@ La siguiente figura muestra una topología básica de nodos y la tabla de rutas 
 </table>
 </div>
 
-### Tabla de rutas para nodo H
+### Routes table for node H
 
 <div>
 <table style="width:100%; float:left">
@@ -401,7 +369,7 @@ La siguiente figura muestra una topología básica de nodos y la tabla de rutas 
 </table>
 </div>
 
-### Tabla de rutas para nodo J
+### Routes table for node J
 
 <div>
 <table style="width:100%; float:left">
@@ -435,197 +403,188 @@ La siguiente figura muestra una topología básica de nodos y la tabla de rutas 
     <td>H</td>
     <td>1</td>
  </tr>
-
 </table>
 </div>
 
-Hasta ahora se ha presentado una descripción general del protocolo AODVv2. Ahora vamos a detallar los procesos, estructuras de datos y mensajes implementados y testados en escenarios reales.
+So far an overview of the AODVv2 protocol has been presented. Now we are going to detail the processes, data structures, implemented messages and tested in real scenarios.
 
 ## 8.6 Router Client Set.
-El Router Client Set es es una tabla conceptual en la cual almacenamos los clientes del router _AODV_, con el fin de limitar los mensajes de ruta que recrea el nodo (_RREQ_, _RREP_) solo a los clientes registrados en dicha tabla.
+The Router Client Set is a conceptual table in which we store the clients of the _AODV_ router, in order to limit the route messages recreated by the node (_RREQ_, _RREP_) only to the clients registered in that table.
 
 ## 8.7 Neighbor Set.
-La tabla Neighbor Set contiene información relativa a los routers vecinos. Se actualiza a partir de los mensajes de control. También contiene información relativa a la bidireccionalidad del enlace: una ruta solo se considerará válida cuando se confirme que el enlace es bidireccional.
+The Neighbor Set table contains information regarding neighboring routers. It´s updated from the control messages. It also contains information regarding the bidirectionality of the link: a route will only be considered valid when the link is confirmed to be bidirectional.
 
 ## 8.8 Sequence Number.
-Los números de secuencia permiten a los enrutadores _AODVv2_ determinar el orden temporal de los mensajes de descubrimiento de ruta, identificando la información de enrutamiento obsoleta para que pueda descartarse. 
-Cada router _AODVv2_ debe mantener su propio Sequence Number, incluido en todos los mensajes _RREQ_ y _RREP_ creados por él.
-Es necesario garantizar que el número de secuencia crece de uno en uno por cada mensaje _RREQ_ o _RREP_ creado. Si el valor llega a 65535, se debe resetear este valor a 1, el valor 0 está reservado para indicar que el número de secuencia del nodo es desconocido.
-Para determinar si un mensaje de ruta está obsoleto, debe comparar el número de secuencia adjunto en el mensaje con la información existente sobre esa ruta.
+Sequence numbers allow _AODVv2_ routers to determine the time order of route discovery messages, identifying obsolete routing information so that it can be discarded. Each _AODVv2_ router must maintain its own _Sequence Number_, included in all _RREQ_ and _RREP_ messages created by it. It is necessary to ensure that the sequence number grows one by one for each _RREQ_ or _RREP_ message created. If the value reaches 65535, this value must be reset to 1, the value 0 is reserved to indicate that the node sequence number is unknown. To determine if a route message is obsolete, you must compare the sequence number attached to the message with the existing information about that route.
 
 ## 8.9 Local Route Set.
 
-Todos los routers _AODVv2_ deben mantener un conjunto de rutas locales, con información sobre las rutas aprendidas a partir de los mensajes de control. 
-Cuando una ruta se considere válida se deberá añadir la entrada correspondiente en la tabla de rutas, y cuando una ruta pasa de válida a inválida se debe borrar la entrada correspondiente en la tabla de rutas.
+All _AODVv2_ routers must maintain a set of local routes, with information about the routes learned from the control messages. When a route is considered valid, the corresponding entry in the routes table must be added in the route table; and when a route changes from valid to invalid, the corresponding entry must be deleted in the route table.
 
 ## 8.10 Multicast Route Message Set.
 
-Los mensajes _RREQ_, por defecto, son multicast y pueden ser reenviados varias veces. El _multicast route message set_ tiene como finalidad proporcionar información relativa a los mensajes _RREQ_ y _RREP_ recibidos previamente, y así poder compararlos con los mensajes de ruta recibidos y determinar si la información que contienen es antigua. Esto permite al router controlar el envío de tráfico redundante.
+RREQ messages, by default, are _multicast_ and can be forwarded multiple times. The purpose of the _multicast route message set_ is to provide information related to the _RREQ_ and _RREP_ messages previously received, so that they can be compared with the received route messages and determine if the information they contain is old. This allows the router to control the sending of redundant traffic.
 
-## 8.11 Mensajes.
+## 8.11 Messages.
 
-Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar entre los nodos la información relativa a las rutas. _AODVv2_ define 4 tipos de mensajes de control:
+We are going to detail the control messages that the protocol uses to communicate routes information between nodes. _AODVv2_ defines 4 types of control messages:
 
 - Route Request (_RREQ_).
 - Route Reply (_RREP_).
 - Route Reply Acknowledgement (_RREP_Ack_).
-- Route Error (_RERR_). 
+- Route Error (_RERR_).
 
-### 8.11.1 Contenido del mensaje de requerimiento de ruta RREQ.
-
-<figure>
-<img src="../pics/RREQMSG.svg" alt="drawing" height="260" width="280"/>
-</figure>
-
-- **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREQ_. El _RREQ_Gen_ establece el número máximo de saltos que atravesará el mensaje _RREQ_.
-- **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
-- **PrefixLengthList** (Opcional): Contiene _OrigPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _OrigAddr_.
-- **OrigSeqNum** :Número de secuencia de _OrigPrefix_, que se incrementa como se indica [aqui](#88-Sequence-Number).
-- **MetricType**: Tipo de métrica asociada con _OrigMetric_.
-- **OrigMetric**: El valor de la métrica asociada a la ruta a _OrigPrefix_.
-
-### 8.11.2 Contenido del mensaje de respuesta de ruta RREP.
+### 8.11.1 Contents of the RREQ route request message.
 
 <figure> 
-  <img src="imple_pic/RREPMSG.svg" alt="drawing" height="260" width="280" align="left"/>
+ <img src="../pics/RREQMSG.svg" width="90%"/>
 </figure>
 
-- **msg_hop_limit**: msg_hop_limit: Contiene un número entero que decrece en 1 su valor en cada salto que atraviesa el mensaje _RREP_.El _RREP_Gen_ establece el número máximo de saltos que atravesaráel mensaje _RREP_.
-- **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
-- **PrefixLengthList** (Opcional): Contiene _TargPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _TargAddr_.
-- **TargetSeqNum** :El número de secuencia asociado a _TargPrefix_.
-- **MetricType**: El tipo de métrica asociada a _TargMetric_.
-- **TargetMetric**: El valor de la métrica asociada con la ruta a _TargPrefix_.
+- **msg_hop_limit**: contains an integer that decreases by 1 each hop that goes through the _RREQ_ message. The _RREQ_Gen_ message sets the maximum number of hops that the _RREQ_ message will traverse.
+- **AddressList**: contains _OrigPrefix_ y+and _TargPrefix_.
+- **PrefixLengthList** (Optional): contains _OrigPrefixLen_, if omitted, the length of the prefix (in bits) is equal to the length of the _OrigAddr_.
+- **OrigSeqNum** :_OrigPrefix_ sequence number, which is incremented as indicated here [aqui](#88-Sequence-Number).
+- **MetricType**: type of metric associated with _OrigMetric_.
+- **OrigMetric**: the value of the metric associated with the path to _OrigPrefix_.
 
-### 8.11.3 Contenido del Mensaje RREP_Ack.
+### 8.11.2 Contents of the RREP route response message.
 
-<figure> 
-  <img src="imple_pic/ACKMSG.svg" alt="drawing" height="60" width="280"/>
+<figure>  
+ <img src="../pics/RREPMSG.svg" width="90%"/>
 </figure>
 
-- **AckReq** (Opcional): Si se incluye, informa al receptor que debe enviar un mensaje _RREP_Ack_ para confirmar la bidireccionalidad del enlace
+- **msg_hop_limit**: contains an integer that decreases its value by 1 for each hop that the _RREP_ message traverses. The _RREP_Gen_ messages sets the maximum number of hops that the _RREP_ message will traverse.
+- **AddressList**: contains _OrigPrefix_ and _TargPrefix_.
+- **PrefixLengthList** (Optional): contains _TargPrefixLen_, if omitted, the length of the prefix (in bits) is equal to the length of the_TargAddr_ adress.
+- **TargetSeqNum** : the sequence number associated with _TargPrefix_.
+- **MetricType**: the type of metric associated with _TargMetric_.
+- **TargetMetric**: the value of the metric associated with the path to  _TargPrefix_.
 
-### 8.11.4 Contenido del Mensaje RERR.
+### 8.11.3 RREP_Ack message content.
 
 <figure> 
-  <img src="imple_pic/RERRMSG.svg" alt="drawing" height="220" width="280"/>
-</figure
+   <img src="../pics/ACKMSG.svg" width="90%"/>
+</figure>
 
-- **PktSource** (Opcional:) Representa la dirección IP del paquete que disparo el RERR.
-- **AddressList**: Las direcciones de las rutas que no están disponibles.
-- **PrefixLengthList**: El tamaño del prefijo en bits, asociado con las rutas que no están disponibles o enlaces rotos.
-- **SeqNumList**: La secuencia de número conocida del link roto.
-- **MetricTypeList**: El tipo de métricas asociadas a las rutas que ya no estan disponibles.
+- **AckReq** (Optional): If included, informs the receiver that it must send an _RREP_Ack_ message to confirm the bidirectionality of the link.
 
-El mensaje Route Error (_RERR_) es utilizado para informar a los nodos que no existe una ruta. Este tipo de mensajes hace parte del mantenimiento de rutas y cada nodo logra actualizar sus tablas de rutas y eliminar rutas obsoletas o enlaces rotos, con la información de este tipo de mensajes
+### 8.11.4 RERR message content.
 
-## 8.12 Procesos del protocolo AODVv2
+<figure> 
+   <img src="../pics/RERRMSG.svg" width="90%"/>
+</figure>
 
-Vamos a ver una descripción de cada proceso del protocolo. 
+- **PktSource** (Optional :) represents the IP address of the packet that triggered the _RERR_.
+- **AddressList**: the addresses of the routes that are not available.
+- **PrefixLengthList**: the prefix size in bits, associated with unavailable paths or broken links.
+- **SeqNumList**: the known number sequence of the broken link.
+- **MetricTypeList**: the type of metrics associated with routes that are no longer available.
+
+
+The Route Error (_RERR_) message is used to inform the nodes that doesn´t exist a route. This type of messages is part of the maintenance of routes and each node manages to update its route tables and eliminate obsolete routes or broken links, with the information of this type of messages.
+
+## 8.12 AODVv2 protocol processes.
+
+Let's see a description of each protocol process.
 
 ### 8.12.1 Next Hop Monitoring.
 
-Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a través de enlaces unidireccionales. Para ello los routers _AODV2_ deben verificar la bidireccionalidad del enlace con el siguiente salto antes de marcar una ruta como válida en el Local Route Set.
+The purpose of this process [10] is to ensure that routes are not established through unidirectional links. To do this, AODV2 routers must verify the bidirectionality of the link with the next hop before marking a route as valid in the Local Route Set.
 
-- Para comprobar si un enlace es bidireccional con un router upstream se utiliza el mensaje de control _RREP_Ack_. Al enviarlo, se espera otro _RREP_Ack_ como respuesta. Si este mensaje llega en un tiempo menor a _RREP_Ack_SENT_TIMEOUT_ demuestra que el enlace es bidireccional, en caso contrario el enlace se considera unidireccional.
-- Para un router _downstream_, el hecho de recibir un mensaje _RREP_ que contiene en el campo _TargAddr_ la dirección destino de una solicitud de ruta, es una confirmación de que el enlace está activo y es bidireccional, ya que un mensaje _RREP_ requiere que un mensaje _RREQ_ previamente haya recorrido el enlace en dirección contraria.
+- To check if a link is bidirectional with an upstream router, the _RREP_Ack_ control message is used. Upon submission, another _RREP_Ack_ is expected in response. If this message arrives in less time than _RREP_Ack_SENT_TIMEOUT_ it shows that the link is bidirectional, otherwise the link is considered unidirectional.
+- For a downstream router, receiving an _RREP_ message that contains the destination address of a route request in the _TargAddr_ field is a confirmation that the link is active and is bidirectional, due to an _RREP_ message requires an _RREQ_ message, that previously have traveled the link in the opposite direction.
 
 ### 8.12.2 Neighbor Set Update.
 
-Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set. Esto permite registrar los vecinos del router _AODVv2_ y establecer la relación que mantiene con cada una de ellos. 
+The purpose of this process  [10] is to update the Neighbor Set table. When a control message is received, the process to update the Neighbor Set table starts. This allows registering the neighbors of the _AODVv2_ router and establishing the relationship that it maintains with each of them.
 
-- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la Neighbor Set cambia a Confirmed. 
-- Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
+- When a router receives an _RREP_ message and its reception is expected, the link to the router that sent the package is confirmed as bidirectional, and therefore the corresponding entry state of the Neighbor Set changes to "Confirmed".
 
-
-Para una descripción detallada de los procesos involucrados en la búsqueda y mantenimiento de rutas, pueden dirigirse a las especificaciones más actualizadas del protocolo [10].
-
-## 8.13 Procesamiento de la información de los mensajes de ruta.
-
-En todos los mensajes de ruta [10] hay información: los _RREQ_ contienen la ruta hacia _OrigPrefix_, y los _RREP_ hacia _TargPrefix_. Esta información se almacena en Local Route Set. 
-
-Como paso previo al proceso de evaluación, se convierten las estructuras de los mensajes _RREQ_ y _RREP_ a una estructura tipo _AdvRte_, común para ambos. Esto facilita el proceso de desarrollo reduciendo el número de funciones a implementar.
+- When a router receives an _RREP_Ack_ message and it is due to sending an _RREP_Ack_ with AckReq, the link is confirmed as bidirectional and the Neighbor Set table has to be updated.
 
 
-### 8.13.1 Evaluación de la información de ruta.
+For a detailed description of the processes involved in route search and maintenance, you can refer to the most up-to-date protocol specifications[10].
 
-Este proceso tiene como finalidad [10] evaluar si la información de la ruta que contiene el _AdvRte_ se utilizará para actualizar la tabla Local Route Set. Para ello se compara el coste y el número de secuencia del _AdvRte_ con la entrada correspondiente en la tabla Local Route Set.
+## 8.13 Processing of route message information.
 
-### 8.13.2 Actualización de la información de las rutas.
+In all route messages [10] there is information: RREQs contain the route to OrigPrefix, and RREPs toward TargPrefix. This information is stored in the Local Route Set.
 
-Después de determinar [10] que el _AdvRte_ se utilizará para actualizar la tabla Local Route Set. Este proceso se encarga de añadir una nueva entrada o actualizar una existente.
+As a previous step to the evaluation process, the structures of the _RREQ_ and _RREP_ messages are converted to an _AdvRte_ type structure, common to both. This facilitates the development process by reducing the number of functions to implement.
 
-### 8.13.3 Eliminación de los mensajes redundantes usando la Multicast Route Message Set.
+### 8.13.1 Evaluation of route information.
 
-Cuando los mensajes de ruta inundan una _MANET_, un nodo podría recibir varias veces el mismo mensaje de ruta. Si no se evita, parte de estos mensajes serán reenviados generando tráfico innecesario.
+The purpose of this process [10] is to assess whether the route information contained in the _AdvRte_ will be used to update the Local Route Set table. To do this, the cost and the sequence number of the _AdvRte_ are compared with the corresponding entry in the Local Route Set table.
 
-Para solucionar este problema cada router _AODVv2_ almacena información de los mensajes de ruta que recibe en la tabla Multicast Route Message Set.
+### 8.13.2 Update of route information.
 
-Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
+After determining [10] that the _AdvRte_ will be used to update the Local Route Set table. This process is responsible for adding a new entry or updating an existing one.
 
-A partir de esto se toma la decisión si el mensaje es reenviado o no.
+### 8.13.3 Elimination of redundant messages using the Multicast Route Message Set.
 
-### 8.13.4 Creación de mensajes RREQ.
+When route messages flood a MANET, a node might receive the same route message multiple times. If not avoided, part of these messages will be forwarded generating unnecessary traffic.
 
-- Un mensaje _RREQ_ se genera cuando un Client Router registrado en la tabla *Local Route Set* de un router _AODVv2_ quiere enviar un paquete IP y no existe una ruta hacia al destino en su tabla _RIB_. Tras configurar los parámetros descritos [aquí](#8111-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), se procede a su envío. La dirección IP de destino del paquete que contiene el mensaje _RREQ_ será la dirección *multicast* LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) para IPV6 específicada por el [RFC 5498](https://tools.ietf.org/html/rfc5498).
+To resolve this problem, each _AODVv2_ router stores information about the route messages it receives in the Multicast Route Message Set table.
 
-- Antes de crear un _RREQ_, el enrutador debe verificar si recientemente se envió un _RREQ_ para el destino solicitado. Si es así, y aún no se ha alcanzado el tiempo de espera para una respuesta, el enrutador debe continuar esperando una respuesta sin generar un nuevo _RREQ_. 
+Each time an _RREQ_ or _RREP_ message is received, the Multicast Route Message Set table is queried whether the information in the incoming message is redundant or not.
 
-- Si se ha alcanzado el tiempo de espera, puede generar un nuevo _RREQ_. Si se configura el almacenamiento en buffer, el paquete IP entrante debe almacenarse en buffer hasta que se complete el descubrimiento de ruta.
+From this, the decision is made whether the message is forwarded or not.
 
-- Si se ha alcanzado el límite permitido de mensajes de control _AODVv2_, no debe generar ningún otro mensaje. 
+### 8.13.4 Creation of RREQ messages.
+- An _RREQ_ message is generated when a Client Router registered in the Local Route Set table of an _AODVv2_ router wants to send an IP package and there is no route to the destination in its RIB table.  After configuring the described parameters [here](#8111-Contenido-del-mensaje-de-requerimiento-de-ruta-RREQ), it is sent. The destination IP address of the packet containing the RREQ message will be the LL-MANET-Routers (`FF02:0:0:0:0:0:0:6D`) for IPV6 specified by [RFC 5498](https://tools.ietf.org/html/rfc5498).
 
-- Si se acerca al límite, el mensaje debe enviarse si las prioridades en la Sección [7.5](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1) lo permiten.
+- Before creating an _RREQ_ message, the router must verify if an _RREQ_ was recently sent for the requested destination. If so, and the timeout for a response has not yet been reached, the router should continue waiting for a response without generating a new _RREQ_.
 
-- Este mensaje se usa para crear el mensaje [RFC5444] correspondiente (Sección[8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), que se entrega al multiplexor RFC5444 para su posterior procesamiento.
+- If the timeout has been reached, it can generate a new _RREQ_. If buffering is configured, the incoming IP package must be buffered until route discovery is complete.
 
-- Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusion en _LL-MANET-Routers_
+- If the allowed limit of _AODVv2_ control messages has been reached, it should not generate any other messages.
 
-Para generar un mensaje _RREQ_ el router _AODVv2_ debe seguir estos pasos:
+- If it´s near the limit, the message should be sent if the priorities in Section [7.5](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1) allow it.
+
+- This message is used to create the corresponding message \[RFC5444\] (Sección[8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), which is delivered to the RFC5444 multiplexer for further processing
+
+- By default, the multiplexer has instructions for handling multicast messages on LL-MANET-Routers.
+
+To generate an _RREQ_ message, the _AODVv2_ router must follow these steps:
 
 1. Set **msg_hop_limit** = MAX_HOPCOUNT
 2. Set **msg_hop_count** = 0, if including it
 3. Set **AddressList** = {OrigAddr, TargAddr}
-4. Para PrefixLengthList:
- - Si **OrigAddr** es parte de un rango de direcciones configuradas como cliente del router, set 
+4. For PrefixLengthList:
+ - If **OrigAddr** is part of a range of addresses configured as a client of the router, set
+
  - PrefixLengthList = {OrigPrefixLen, null}.
- - en caso contrario omitir PrefixLengthList. 
-5. Para OrigSeqNum:
- - Incrementar la secuencia de número del router como se especifica en la sección [4.4](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1).
- - Set OrigSeqNum = SeqNum. 
-6. Para TargSeqNum:
- - Si existe una ruta no válida que coincida con TargAddr utilizando la coincidencia de prefijo más larga y tenga un número de secuencia válido, establecer TargSeqNum.
- - TargSeqNum = número de secuencia de la ruta almacenada.
- - Si no existen rutas inválidas que coincidan con la dirección de destino, o la ruta no tiene un número de secuencia, se omite el TargetSeqNum. 
-7. Incluya el elemento de datos MetricType y establezca el tipo acorde o comparable con metricType.
-8. Establecer OrigMetric = Route[OrigAddr]. Metric, es decir RouterClient.Cost.
-9. Incluir el elemento de datos ValidityTime si anuncia que la ruta a OrigAddr a través de este enrutador se ofrece por un tiempo limitado, y configure ValidityTime en consecuencia.
+ - otherwise omit PrefixLengthList.
+5. For OrigSeqNum:
+ - Increase the router number sequence as specified in section [4.4](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1).
+ - Set OrigSeqNum = SeqNum.
+6. For TargSeqNum:
+ - If there is an invalid path that matches TargAddr using the longest prefix match and has a valid sequence number, set TargSeqNum.
+ - TargSeqNum = sequence number of the stored path.
+ - If there are no invalid routes that match the destination address, or the route doesn´t have a sequence number, the TargetSeqNum is ignored.
+7. Include the MetricType data element and set the type to be chord or comparable to metricType.
+8. Set OrigMetric = Route[OrigAddr]. Metric, i.e.  RouterClient.Cost.
+9. Include the ValidityTime data item if it announce that the route to OrigAddr through this router is offered for a limited time, and configure ValidityTime accordingly.
 
-### 8.13.5 Recepción de mensajes RREQ.
-Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREQ_. Entre ellas: 
-- Comprueba que los contenidos de los campos son válidos.
-- Actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. 
-- Por último si la solicitud de descubrimiento de ruta va dirigida a él, envía un mensaje _RREP_. Si no es así reenvía el mensaje _RREQ_.
+### 8.13.5 Reception of RREQ messages.
+This process is responsible for performing operations when an AODVv2 router receives an RREQ message. Between them:
+- Checks that the contents of the fields are valid.
+- Updates the Neighbor Set, Local Route Set, and Multicast Route Message Set tables.
+- Finally, if the route discovery request is addressed to it, it sends an RREP message. If not, it forwards the RREQ message.
 
-### 8.13.6 Reenvío de mensajes RREQ.
-Un mensaje _RREP_ se genera cuando un nodo recibe un _RREQ_ y el campo _AddressList_. El _TargPrefix_ del mensaje coincide con una entrada de la tabla Router Client Set del router. Cuando esto sucede genera un mensaje _RREP_ configurando los campos descritos [aquí](#8112-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) y lo envía en dirección al _RREQ_Gen_
-con el contenido del mensaje de requerimiento de ruta RREQ.
+### 8.13.6 Forwarding RREQ messages.
+An _RREP_ message is generated when a node receives an _RREQ_ and the AddressList field. The TargPrefix in the message matches an entry in the Router Client Set table of the router. When this happens, it generates an _RREP_ message configuring the fields described [here](#8112-Contenido-del-mensaje-de-respuesta-de-ruta-RREP) and sends it to the _RREQ_Gen_ with the content of the _RREQ_ route request message.
 
+### 8.13.7 Reception of RREP messages.
+This process is responsible for performing operations when an _AODVv2_ router receives an _RREP_ message. Between them, checks that the contents of the fields are valid, update the Neighbor Set, Local Route Set and Multicast Route Message Set tables. If the final destination of the message is the router itself, and the message contains a valid route, the route discovery process is terminated, adding the corresponding entry to the routing table.
 
-### 8.13.7 Recepción de mensajes RREP.
-Este proceso se encarga de realizar las operaciones cuando un router _AODVv2_ recibe un mensaje _RREP_. Entre ellas comprueba que los contenidos de los campos son válidos, actualiza las tablas Neighbor Set, Local Route Set y Multicast Route Message Set. Si el destino final del mensaje es el propio router, y el mensaje contiene una ruta válida se da por finalizado el proceso de descubrimiento de ruta, añadiendo la entrada correspondiente a la tabla de enrutamiento.
+### 8.13.8 RREP messages forwarding.
+The purpose of this process is to forward _RREP_ messages. To do this, it will check if the maximum number of hops has not been exceeded. If so, it forward the message
 
+### 8.13.9 Generation of RREP_Ack messages.
+The route response acknowledgment is used as a request and as a response message to test the bidirectionality of a link through which the route response has also been sent.
 
-### 8.13.8 Reenvío de mensajes RREP. 
-Este proceso tiene como finalidad el reenvío de los mensajes _RREP_. Para ello comprobará si no se ha superado el número de saltos máximo. Si es así reenvía el mensaje.
+### 8.13.10 Reception of RREP_Ack messages.
+When an _AODVv2_ router receives an _RREP_Ack_ message, it will check if the message contains an _AckReq_ and if the message was expected or not. If the message contains an _AckReq_, it will start the process to send a response of type _RREP_Ack_. If not, and if the message was expected, it will update the Neighbor Set table to establish the link to the issuer of the _RREP_Ack_ as bidirectional.
 
-### 8.13.9 Generación de mensajes RREP_Ack.
-El acuse de recibo de respuesta de ruta se utiliza como solicitud y como
-mensaje de respuesta para probar la bidireccionalidad de un enlace a través del cual la respuesta de ruta también se ha enviado.
-
-### 8.13.10 Recepción de mensajes RREP_Ack.
-Cuando un router _AODVv2_ recibe un _RREP_Ack_, comprobará si el mensaje contiene un _AckReq_ y si el mensaje era esperado o no. Si el mensaje contiene
-un _AckReq_ iniciará el proceso para enviar una respuesta del tipo _RREP_Ack. Si no es así y el mensaje era esperado actualizará la tabla Neighbor Set para establecer el enlace con el emisor del _RREP_Ack_ como bidireccional.
-
-### 8.13.11 Generación de RREP_Ack Response.
-Un router _AODvv2_ generará un _RREP_Ack Response_ cuando reciba un _RREP_Ack_ que contenga un _AckReq_.
+### 8.13.11 Generation of RREP_Ack Response.
+An _AODvv2_ router will generate an _RREP_Ack Response_ when it receives an _RREP_Ack_ that contains an _AckReq_.
