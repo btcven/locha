@@ -24,7 +24,7 @@ A Harpia node is a Locha Mesh standalone node which can provide services on the 
 #### How does the Locha Mesh work?
 The Locha Mesh works by having multiple nodes collaborating with each other on the network, each node implements a routing protocol which makes all nodes connected to the network available through multiple hops. We use IEEE 802.15.4g radios, and a 6LoWPAN/IPv6 stack.
 
-In order to route packets over the mesh, we implemented AODVv2 protocol which only finds a route to a node when we ask for it, so it's relatively efficient to use. You can find more information on the routing protocol in our documentation, see (AODVv2)[./chapter_08.md].
+In order to route packets over the mesh, we implemented AODVv2 protocol which only finds a route to a node when we ask for it, so it's relatively efficient to use. You can find more information on the routing protocol in our documentation, see [AODVv2](/chapter_08.md).
 
 #### What can be transmitted over the Locha Mesh?
 The Locha Mesh uses long-range radio connections in the ISM band (915 MHz in America, 868 MHz EU), in this band you can transmit encrypted data at a theoretical speed of ~200 kilobits per second (kbit/s). The data transmitted over the Locha Mesh from the LoChat mobile app or a computer can be any type of file: text, images, audio recordings, offline signed transactions, blocks data, etcetera.
