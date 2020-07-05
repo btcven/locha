@@ -390,7 +390,7 @@ After carry out the request the following picture show the content of route tabl
 # 14.6 third stage environment
 henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
 
-The current firmware has implemented an __UDP__ server and client to listen and send packets to/from anywhere.\ When network stack is not able to resolve the remote address, __AODV__is triggered and  __find_route__ command is execute automatically.
+The current firmware has implemented an __UDP__ server and client to listend and send packets to/from anywhere.\ When network stack is not able to resolve the remote address, __AODV__is triggered and  __find_route__ command is execute automatically.
 
 
 In this stage we are going to set up the staging environment with up 6 nodes. Initially all routing tables and buffers are empty, the originator and destination of the data packets are identified as nodes A, B, C, D, E and F.
