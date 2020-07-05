@@ -61,7 +61,6 @@ Yes! The Locha Mesh protocol is hardware agnostic. This means that there are no 
 
 
 #### How many devices running the Locha Mesh protocol are needed to create a mesh?
-
 Two or three devices can alredy be a mesh, but it would not be a resilient communication method. The more devices there are like the Turpial, the DIY version, and Harpia nodes, the better the Locha Mesh will be because it will provide more routes and hops for data to be transmitted over.
 
 
