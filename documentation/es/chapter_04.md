@@ -1,25 +1,25 @@
-# 4. Estructura de descomposición del proyecto Locha Mesh
+# 4. Work Breakdown Structure of Locha Mesh
 
-La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo que se realizará en el proyecto. A continuación se presenta la lista de tareas necesarias para alcanzar los objetivos:
+The WBS of Locha Mesh is based on the following:
 
-**Formación**: La formación para desarrollar el proyecto se parte en tres:
-- RIOT OS: El sistema operativo en el que se basa la aplicación a implementar.
-- Driver necesario para la integración con el sistema operativo.
-- Hardware necesario para ejecutar la aplicación.
+**Core**:
+- RIOT OS.
+- Driver (needed for the integration with the OS).
+- Hardware.
 
-**Diseño**: Grupo de tareas necesarias para llevar a cabo el diseño de la aplicación, podemos destacar:
-- Selección del protocolo más adecuado para la tarea prevista.
-- Selección del modulo de radio con el cual se pretende interconectar los nodos a la red.
-- Criterios de calidad, eficiencia y bajo consumo, para el diseño del software y el hardware.
+**Design**: Tasks needed for the design of the application:
+- Protocol that is expected to be capable of delivering positive results.
+- Radio module selection.
+- Quality, efficiency, and low consumption design for the hardware and software.
 
-**Implementación**: Secciones a implementar para la consecusión del proyecto, tales como la gestión de los módulos de radio, simulación del movimiento de los nodos, del consumo de la batería y la implementación de estados.
+**Implementation**: The management of the radio modules, movement simulation of the nodes, battery consumption and state logs set to deploy.
 
-**Gestión**: Procesos técnicos del proyecto.
+**Management**: Technical process of the project.
 
-**Planificación**: Definir los pasos a seguir para llevar a cabo el proyecto.
+**Planning**: Define the next steps to achieve our goal.
 
-**Seguimiento y control**: Seguimiento del proyecto.
+**Tracing**: Work log.
 
-**Reuniones**: Reuniones realizadas con el director del proyecto.
+**Meetings**: Online calls discussing progress of our project.
 
-**Documentación**: Documentación que recoja todo lo trabajado en el proyecto. 
+**Documentation**: Written throughout the development of the project. 
