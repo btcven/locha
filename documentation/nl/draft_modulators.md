@@ -61,17 +61,15 @@ A wave is a disturbance of some space property travelling through it:
 Implies an energy transport without matter transport.
 
 
-<img src="imple_pic/wave.svg" alt="drawing" height="300" width="400" align="block" />
+<img src="../pics/wave.svg" alt="drawing" height="300" width="400" align="block" />
 
 The example in the figure generating a wave with a string, it can be appreciate the deformity of the medium in which the energy transport is represented, without having to transport the matter itself.
 
 ## 1. Wave characteristics
 
 <figure>
-<img src="imple_pic/wave-characteristics.svg" alt="drawing" height="330" width="400" align="left"/>
-
-<img src="imple_pic/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
-
+  <img src="../pics/wave-characteristics.svg" alt="drawing" height="330" width="400" align="left"/>
+  <img src="../pics/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
 </figure>
 
 ### 1.1.1 Amplitude (A)
@@ -172,7 +170,7 @@ A carrier wave is an modulated signal that allows more efficient transmissions a
 A modulated signal can be a signal of audio, video, or data. Any of these signals mixed with the carrier generate the modulated signal transmitted through the antenna.
 
 
-<img src="imple_pic/modulator1.svg" alt="drawing" height="180" width="400" align="block" />
+<img src="../pics/modulator1.svg" alt="drawing" height="180" width="400" align="block" />
 
 
 ## 2.3 Why modulate a signal?
@@ -182,28 +180,28 @@ As stated before, modulation allows to take advantage of the communication chann
 
 ## 2.4 Types of modulation
 
-<img src="imple_pic/modulator-types.svg" alt="drawing" height="400" width="800" align="center" />
+<img src="../pics/modulator-types.svg" alt="drawing" height="400" width="800" align="center" />
 
 
 ### 2.4.1 Analog Modulation:
 
 
 #### 2.4.1.1 Amplitude Modulation (AM)
-<br>
-<img src="imple_pic/AM_modulator.svg" alt="drawing" height="200" width="400" align="left" />
+<br/>
+<img src="../pics/AM_modulator.svg" alt="drawing" height="200" width="400" align="left" />
 
 In AM modulation, the amplitude of the sine wave its altered. The high frequency of the carrier its modulated to a low frequency signal.
 
-<br>
-<br>
-<br>
-<br>
+<br/>
+<br/>
+<br/>
+<br/>
 
 #### 2.4.1.2 Frequency modulation
 
-<img src="imple_pic/FM_modulator.svg" alt="drawing" height="220" width="600" align="center" />
-<br>
-<br>
+<img src="../pics/FM_modulator.svg" alt="drawing" height="220" width="600" align="center" />
+<br/>
+<br/>
 
 In this type of modulation the amplitude of the carrier signal is constant while the frequency varies, this can be done in two ways, direct or indirec, for instance, FM Radio uses the indirect method for radio broadcasts.
 
@@ -219,14 +217,14 @@ ASK its a modulation technique in which the amplitude shift into two or more amp
 
 As AM, ASK is also linear and sensitive to atmospheric noise, distortions, and propagation conditions in different routes on PSTN, among other factors. Amplitude modulation requires an excessive bandwidth and therefore an energy expense[16], but modulation and demodulation are cheap enough.
 
-<img src="imple_pic/ask_modulator.svg" alt="drawing" height="400" width="400" align="center" />
+<img src="../pics/ask_modulator.svg" alt="drawing" height="400" width="400" align="center" />
 
 
 #### 2.5.2.2 Frecuency Shift Keying (FSK)
 
 FSK is a digital frequency modulation technique for binary data transmission. As in FM, the data is encoded in the carrier wave by shifting its frequency between preset frequencies. This technique is also used for Morse code, among other uses.
 
-<img src="imple_pic/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center" />
+<img src="../pics/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center" />
 
 In this modulation form the sine carrier takes two frequency values directly determined by the binary data signal. [17]
 
@@ -239,7 +237,7 @@ These two frequencies act like two phase digital switch controlled by a digital 
 
 This technique has a drawback in which abrupt changes take place while switching the frequencies, such changes generate undesirable harmonics (sine wave) increasing the bandwidth, which is not desirable in signal modulation.
 
-<img src="imple_pic/modulator-switch.svg" alt="drawing" height="200" width="600" align="center" />
+<img src="../pics/modulator-switch.svg" alt="drawing" height="200" width="600" align="center" />
 
 
 
@@ -255,12 +253,12 @@ In this particular case in which we want to modulate a digital signal (pulse gen
 
 This modulation technique, like the previous one, handles a different frequency for each symbol. The difference is the VCO deletes the abrupt changes in the frequency due it doesn't needs to multiplex between different frequency generators, it consists in controlling the the frequency coming from the generator.
 
-<img src="imple_pic/modulation-vco.svg" alt="drawing" height="250" width="800" align="center" />
+<img src="../pics/modulation-vco.svg" alt="drawing" height="250" width="800" align="center" />
 
 
 #### 2.5.2.3 Gaussian Frequency Shift Keying (GFSK)
 
-<img src="imple_pic/Gaussian-filter.svg" alt="drawing" height="300" width="450" align="left" />
+<img src="../pics/Gaussian-filter.svg" alt="drawing" height="300" width="450" align="left" />
 
 This technique is similar to the FSK, previously described, with an improvement on the signal bandwidth.
 
@@ -304,7 +302,7 @@ By their functionality:
 
 ### 3.2.1 Frequency response
 
-<img src="imple_pic/filter-graph.svg" alt="drawing" height="300" width="450" align="center" />
+<img src="../pics/filter-graph.svg" alt="drawing" height="300" width="450" align="center" />
 
 # Chapter 4 FSK Demodulator
 
