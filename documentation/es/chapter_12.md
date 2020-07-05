@@ -1,15 +1,14 @@
-# 12. Generación de mensajes RREQ.
-Ahora nos centraremos en el proceso para generar los mensajes de búsqueda de ruta y el proceso que dispara el evento necesario.
+# 12. Generation of RREQ messages.
 
+Now we will focus on the process to generate the route search messages and the process that triggers the necessary event.
 
-## 12.1 Búsqueda de rutas.
+## 12.1 Search of routes.
 
-Es el punto de inicio del proceso para comprobar si existe o no una ruta hacia el destino que se quiere encontrar.
-Veremos la búsqueda de rutas y cuáles son las acciones a tomar en caso de que no exista una ruta hacia ese destino.
+It is the starting point of the process to check whether or not there is a route to the destination you want to find. We will see the search for routes and which are the actions to be taken in case there is no route towards that destination.
 
-## 12.2 Estructura de un mensaje RREQ.
+## 12.2 Structure of a RREQ message.
 
-La estructura que define un mensaje _RREQ_, al igual que al _RREP_, es:
+The structure that defines a _RREQ_ message, like the _RREP_, is:
 
 ```cpp
 /**
@@ -28,20 +27,19 @@ typedef struct {
                             successfully parsed. */
 } aodvv2_packet_data_t;
 ```
+In short, it is the object that we must interpolate and then wrap it in the _RFC5444_ packet and this way send it to another node on the network.
 
-En definitiva, es el objeto que debemos interpolar para luego envolverlo dentro del paquete _RFC5444_ y así enviarlo a otro nodo de la red.
+## 12.3 Reactive search.
+Reactive search begins when you don't have a route towards a destination. The network stack hands over control to a previously registered _callback_ to initiate some route search process, in this case the process is _AODV_.
 
-## 12.3 Búsqueda reactiva.
-La búsqueda reactiva se inicia cuando no se tiene una ruta hacia un destino. El stack de red entrega el control a una _callback_ previamente registrada para que inicie algún proceso de búsqueda de ruta, en este caso el proceso es _AODV_.
-
-En el siguiente código de registro de _callback_,   __route_info es la _callback_ que queremos ejecutar  cuando no exista una ruta hacia un destino:
+In the following _callback_ registration code, `_route_info` is the _callback_ that we want to execute when there is no route to a destination:
 
 ```cpp
-//registro de callback
+// callback register
 _netif->ipv6.route_info_cb = _route_info,
 ```
 
-El código relacionado con __route_info_ es:
+The code related to `_route_info` is:
 
 ```cpp
 static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
@@ -85,18 +83,19 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
             DEBUG("aodvv2: unknown route info!\n");
             break;
     }
-}
+};
+
 ```
 
-La callback que se ejecuta al no encontrar una ruta, entrega información importante como:
+The _callback_ that runs on not finding a route, gives important information like:
 
-- Tipo de mensaje. 
-- Dirección IP del destinatario.
-- Variable genérica tipo _void_ que en este caso representa el paquete _IPV6_ que se desea transmitir, incluyendo _headers_ y _payload_.
+ - Type of message.
+ - Recipient's IP address.
+ - Generic `void` type variable that in this case represents the _IPV6_ packet that wants to be transmitted, including _headers_ and _payload_.
 
+The `switch` function serves as a filter to select the code to be executed depending on the type of arriving message. We will focus on the routes request messages.
 
-La función _switch_ sirve de filtro para seleccionar el código a ejecutar dependiendo del tipo de mensaje que llega-
-Nos centraremos en los mensajes de solicitud de ruta. Específicamente en la siguiente parte de código, hemos eliminado los otros posibles casos del _switch_:
+Specifically in the following part of the code, we have removed the other possible cases of the `switch`:
 
 ```cpp
 
@@ -125,39 +124,33 @@ static void _route_info(unsigned type, const ipv6_addr_t *ctx_addr,
             }
             break;
         }
-}
+};
 
 ```
 
-Observamos que recibimos un parámetro llamado _ctx_, de tipo _void_, que significa que debemos hacer un _casting_ al parámetro para recibir la estructura correcta con los _headers IPV6_.
+We observe that we receive a parameter called `ctx`, of type _void_, which means that we must make a `casting` to the parameter to receive the correct structure with the _IPV6  headers_.
 
-Éstos contienen información acerca del origen y el destino del paquete, con lo que se puede iniciar una búsqueda en la tabla interna de clientes del router para conocer si se debe transmitir o retransmitir el mensaje de solicitud de búsqueda.
-La diferencia entre transmitir y retransmitir es que la retransmisión indica que el nodo que intenta buscar una ruta (o el originador del requerimiento de ruta) es un nodo diferente al que esta procesando el mensaje. Si el caso es de transmisión, quiere decir que el mensaje de requerimiento de ruta se inicia en el nodo que esta procesando el mensaje.
+These contains information about the origin and destination of the packet, so you can start a search on the router's client table to know if the search request message should be transmitted or retransmitted. The difference between transmitting and retransmitting is retransmission indicates that the node trying to find a route (or the creator of the route request) is a different node than the one that is processing the message. If it is transmission, it means that the route request message starts at the node that is processing the message.
 
-Cada nodo es cliente de su propia tabla de clientes del router. Si queremos transmitir un mensaje para el cual no existe ruta, se dispara una _callback_ y se deben ejecutar las siguientes acciones para poder iniciar el proceso de búsqueda:
+Each node is client of its own router client table. If we want to transmit a message which there is no route for, a _callback_ is triggered and we should  execute the next actions in order to start the search process:
 
-- _cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;_: recuperar el paquete _IPV6_ y almacenarlo en una variable de su tipo.
-
-- _ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);_: recuperar los headers de _IPV6_.
-
-- _if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {_: buscar si el requerimiento de ruta proviene de un cliente registrado (en este caso el mismo nodo) que ya se agregó al inicializar la tabla de clientes dentro de la funcion _aodvv2_init_, argumentando que cada nodo es cliente de su propia tabla.
-Para este caso, esa lista de clientes del nodo solo contendrá al propio nodo como cliente de esa tabla.
-
+- `cpp gnrc_pktsnip_t *pkt = (gnrc_pktsnip_t *)ctx;`: retrieving the _IPV6_ packet and storing it in a variable of its type.
+- `ipv6_hdr_t *ipv6_hdr = gnrc_ipv6_get_header(pkt);`: retrieve _IPV6 headers_.
+- `if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {`: search if the selected route requirement of a registered client (in this case the same node) that has already been added when initializing the clients table in the `aodvv2_init`  function, arguing that each node is a client of its own table. In this case, that clients list of the node will only contain the node itself as client of that table.
 
 ```cpp
-  
-    if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {
-        if (aodvv2_buffer_pkt_add(ctx_addr, pkt) == 0) {
-            DEBUG("aodvv2: finding route\n");
-            aodvv2_find_route(&ipv6_hdr->src, ctx_addr);
-        }
+if (aodvv2_client_find(&ipv6_hdr->src) != NULL) {
+    if (aodvv2_buffer_pkt_add(ctx_addr, pkt) == 0) {
+        DEBUG("aodvv2: finding route\n");
+        aodvv2_find_route(&ipv6_hdr->src, ctx_addr);
+    }
+}
 ```
 
-Después de buscar si el cliente esta registrado en la tabla de clientes, procedemos a almacenar el paquete con el mensaje del cliente en un buffer para poder recuperarlo cuando la ruta sea encontrada.
-Si ese intento por almacenar el paquete tuvo éxito, procedemos a ejecutar la función que se encarga de iniciar el protocolo _AODV_ y buscar una ruta para el destino solicitado.
+After searching if the client is registered in the clients table, we proceed to register the packet with the client's message in a buffer so we can retrieve it when the route is found. If that attempt to register the packet was successful, we proceed to execute the function that is responsible of starting the _AODV_ protocol and searching for a route to the requested destination.
 
 ## 12.4 aodvv2_find_route
-Esta función tiene como objetivo iniciar el protocolo de routing.
+This function is intended to start the routing protocol.
 
 ```cpp
 int aodvv2_find_route(const ipv6_addr_t *orig_addr,
@@ -189,64 +182,66 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
 }
 ```
 
-- La función recibe como parámetros la IP del origen y del destino.
-- _aodvv2_packet_data_t pkt_: crea un objeto del tipo del paquete _AODV_ que queremos enviar y que debe ser similar al implementado en el código.
-- Interpolamos el objeto que representa el paquete _AODV_ con la información necesaria:
+- The function receives the IP of the origin and destination as parameters.
 
-    ```cpp
-    aodvv2_packet_data_t pkt;
-     /* Set metric information */
-    pkt.hoplimit = aodvv2_metric_max(METRIC_HOP_COUNT);
-    pkt.metric_type = CONFIG_AODVV2_DEFAULT_METRIC;
+- `aodvv2_packet_data_t pkt`: create an  _AODV_ packet object that we want to send and that must be similar to the  implemented one in the code.
 
-    /* Set OrigNode information */
-    ipv6_addr_to_netaddr(orig_addr, &pkt.orig_node.addr);
-    pkt.orig_node.metric = 0;
-    pkt.orig_node.seqnum = aodvv2_seqnum_get();
-    aodvv2_seqnum_inc();
+- We interpolate the object that represents the _AODV_ packet with the necessary information:
 
-    /* Set TargNode information */
-    ipv6_addr_to_netaddr(target_addr, &pkt.targ_node.addr);
-    pkt.targ_node.metric = 0;
-    pkt.targ_node.seqnum = 0;
-    ```
+```cpp
+aodvv2_packet_data_t pkt;
+    /* Set metric information */
+pkt.hoplimit = aodvv2_metric_max(METRIC_HOP_COUNT);
+pkt.metric_type = CONFIG_AODVV2_DEFAULT_METRIC;
 
-- Añadimos el mensaje de requerimiento de ruta a la tabla de mensajes _RREQ_ para evitar reenviar mensajes redundantes (_aodvv2_rreqtable_add(&pkt)_). Las tablas en esta implementación son _arrays_ para mensajes de rutas y para clientes. Todas se procesan de la misma manera y a continuación ilustramos el código necesario para añadir un mensaje de ruta: 
+/* Set OrigNode information */
+ipv6_addr_to_netaddr(orig_addr, &pkt.orig_node.addr);
+pkt.orig_node.metric = 0;
+pkt.orig_node.seqnum = aodvv2_seqnum_get();
+aodvv2_seqnum_inc();
 
+/* Set TargNode information */
+ipv6_addr_to_netaddr(target_addr, &pkt.targ_node.addr);
+pkt.targ_node.metric = 0;
+pkt.targ_node.seqnum = 0;
+```
 
-  ```cpp
-     void aodvv2_rreqtable_add(aodvv2_packet_data_t *packet_data)
-    {
-        if (_get_comparable_rreq(packet_data)) {
+- We added the route request message to the _RREQ_ message table to avoid forwarding redundant messages `(aodvv2_rreqtable_add (& pkt))`. The tables in this implementation are _arrays_ for route messages and for clients. They are all processed in the same way and below we illustrate the code needed to add a route message:
+
+```cpp
+void aodvv2_rreqtable_add(aodvv2_packet_data_t *packet_data)
+{
+    if (_get_comparable_rreq(packet_data)) {
+        return;
+    }
+
+    /* find empty rreq and fill it with packet_data */
+
+    for (unsigned i = 0; i < ARRAY_SIZE(rreq_table); i++) {
+        if (!rreq_table[i].timestamp.seconds &&
+            !rreq_table[i].timestamp.microseconds) {
+            rreq_table[i].origNode = packet_data->orig_node.addr;
+            rreq_table[i].targNode = packet_data->targ_node.addr;
+            rreq_table[i].metricType = packet_data->metric_type;
+            rreq_table[i].metric = packet_data->orig_node.metric;
+            rreq_table[i].seqnum = packet_data->orig_node.seqnum;
+            rreq_table[i].timestamp = packet_data->timestamp;
             return;
         }
-        /*find empty rreq and fill it with packet_data */
-
-        for (unsigned i = 0; i < ARRAY_SIZE(rreq_table); i++) {
-            if (!rreq_table[i].timestamp.seconds &&
-                !rreq_table[i].timestamp.microseconds) {
-                rreq_table[i].origNode = packet_data->orig_node.addr;
-                rreq_table[i].targNode = packet_data->targ_node.addr;
-                rreq_table[i].metricType = packet_data->metric_type;
-                rreq_table[i].metric = packet_data->orig_node.metric;
-                rreq_table[i].seqnum = packet_data->orig_node.seqnum;
-                rreq_table[i].timestamp = packet_data->timestamp;
-                return;
-            }
-        }
     }
-  ```
+};
+```
 
-  El código busca en el _array_ y si el mensaje se ha enviado antes simplemente lo desecha; de lo contrario lo almacena para conocer en el futuro cualquier mensaje redundante.
+The code searches the _array_: if the message has been sent before, it simply discards it; otherwise it stores it to know any redundant messages in the future.
 
-- Después de tener configurado y almacenado el paquete _AODV_, procedemos a enviarlo al _thread_ principal dentro del archivo _aodv2.c_, que además de recibir mensajes UDP del exterior también puede recibir mensajes clasificados de la misma aplicacion por medio de algo conocido como _IPC_.
+- After having configured and stored the _AODV_ packet, we proceed to send it to the main thread within the `aodv2.c` file, which in addition to receiving _UDP_ messages from outside can also receive classified messages from the same application through something known as _IPC_.
 
-- Enviamos el paquete al thread principal de la aplicación: 
+- We send the packet to the main thread of the application:
 
     ```cpp
     aodvv2_send_rreq(&pkt, &ipv6_addr_all_manet_routers_link_local);
     ```
-    Pasamos como argumentos el paquete _AODV_ y la dirección IP a la que queremos enviar el mensaje, que en este caso es la dirección de _multicast_ especificado en el _RFC5498_ (sección 6) y que tiene este valor asignado:
+    We sent as arguments the _AODV_ packet and the IP address to which we want to send the message, which in this case is the _multicast_ address specified in _RFC5498_ (section 6) and that has this assigned value:
 
     ```cpp
     #define IPV6_ADDR_ALL_MANET_ROUTERS_LINK_LOCAL {{ 0xff, 0x02, 0x00, 0x00, \
@@ -255,11 +250,11 @@ int aodvv2_find_route(const ipv6_addr_t *orig_addr,
                                                   0x00, 0x00, 0x00, 0x6d }}
     ```
 
-A continuación describimos el proceso para tomar el paquete _AODV_ que hemos creado y cómo le hacemos llegar ese paquete al _thread_ principal de la aplicación.
+The following describes the process for taking the _AODV_ packet that we have created and how we can take  that packet to the main application thread.
 
 ### 12.4.1 aodvv2_send_rreq
 
-Ahora describiremos la función que recibe el paquete _AODV_ y cuál es el procedimiento para enviarlo al _thread_ principal, que fue creado para recibir mensajes _UDP_ entrantes pero también puede ser reutilizado para enviar y recibir mensajes entre las distintas partes de la aplicación.
+Now we will describe the function that the _AODV_ packet receives and which is the procedure to send it to the main thread, which was created to receive incoming _UDP_ messages but it can also be reused to send and receive messages between the different parts of the application.
 
 ```cpp
 int aodvv2_send_rreq(aodvv2_packet_data_t *pkt,
@@ -291,10 +286,11 @@ int aodvv2_send_rreq(aodvv2_packet_data_t *pkt,
 }
 ```
 
-El código se puede resumir en las siguientes partes:
+The code can be summarized in the following parts:
 
-- Creación de un objeto tipo _aodvv2_msg_t_ para recibir el paquete y añadir información extra como la dirección del próximo salto, que en este caso es una dirección _multicast_ debido a que se necesita encontrar una ruta.
-- Crear un objeto tipo _msg_t_, que es el formato adecuado que espera el _IPC_ para ser transmitido al _thread_ principal de la aplicación.
+ - Create an `aodvv2_msg_t`  object to receive the packet and add extra information such as the next hop address, which in this case is a _multicast_ address because a route needs to be found.
+
+ - Create an `msg_t`  object, which is the right format that the _IPC_ waits to be transmitted to the main application thread.
 
     ```cpp
     msg_t ipc_msg;
@@ -307,14 +303,13 @@ El código se puede resumir en las siguientes partes:
     }
     ```
 
-    Después de asignar el paquete _AODV_ al objeto _msg_t_, lo enviamos al _IPC_ para que se reciba en el _loop_ de la aplicación.
-    Se le ha asignado el tipo _AODVV2_MSG_TYPE_SEND_RREQ_. De esa misma manera debemos recuperarlo en el _loop_ donde se desea procesar, porque hasta este punto solo tenemos un paquete _AODV_, pero aún falta crear el formato _RFC5444_ que deberá contener el paquete.
+    After assigning the _AODV_ packet to the `msg_t` object, we send it to the _IPC_ so that it is received in the application loop. It has been assigned  `AODVV2_MSG_TYPE_SEND_RREQ`. In the same way we must retrieve it in the loop where we want to process it, because up to this point we only have an _AODV_ packet, but we still need to create the _RFC5444_ format that must contain the packet.
 
 
-### 12.4.2 
-Vamos a ilustrar la parte del código relacionado con la recepción del mensaje que se envió en el apartado anterior para ser recibido en esta función.
+### 12.4.2
+We are going to illustrate the part of the code related to the reception of the message that was sent in the previous section to be received in this function.
 
-Lo realmente importante es la función privada que tiene por nombre __send_rreq_, que es la encargada de procesar el paquete; es decir, la serialización del paquete _AODV_ y el formato _RFC5444_ que se le da. Después de esto se dispara una _callback_ que permite hacer uso del _socket UDP_ para enviar el mensaje _multicast_ para la solicitud de ruta.
+What is really important is the private function named `_send_rreq`, which is in charge of processing the package; it means that the serialization of the _AODV_ packaet and the _RFC5444_ format that is given to it. After this a _callback_ is triggered allowing the _UDP socket_ to be used to send the _multicast_ message for the route request.
 
 ```cpp
 static void *_event_loop(void *arg)
@@ -342,10 +337,9 @@ static void *_event_loop(void *arg)
 }
 ```
 
-
 ### 12.4.3  _send_rreq
-Esta función es la que se ha asignado como función  _callback_, que es ejecutada cada vez que se crea un paquete _RFC5444_.
-La asignación de la _callback_ se hizo dentro de la función de inicializacion del AODV, y fue detllada en el capítulo 11.12.
+
+This function is the one that has been assigned as a _callback_ function, which is executed every time an _RFC5444_ packet is created. The _callback_ assignment was done within the _AODV_ initialization function, and was detailed in chapter 11.12.
 
 ```cpp
 static void _send_rreq(aodvv2_packet_data_t *packet_data,
@@ -371,12 +365,11 @@ static void _send_rreq(aodvv2_packet_data_t *packet_data,
 
     mutex_unlock(&_writer_lock);
 }
-
 ```
 
-Con la instruccion _ rfc5444_writer_create_message_alltarget(&_writer, RFC5444_MSGTYPE_RREQ)_ se genera el paquete _multicast_ y en el momento que se ejecuta la línea que llama a la función _rfc5444_writer_flush(&_writer, &_writer_context.target, false)_, a continuación se llama a la función de _callback_ que hemos dispuesto para ser ejecutada después de generar un paquete _RFC5444_, que llamamos  __send_packet_ y nos devuelve el paquete con formato _RFC5444_, y además su tamaño.
+With the instruction `_rfc5444_writer_create_message_alltarget (& writer, RFC5444_MSGTYPE_RREQ)` the _multicast_ packet is generated and at the moment that we execute the line that calls the `_rfc5444_writer_flush` function (& _ writer, & writer_context.target, false)`; we call the _callback_ function that we have disposed to be executed after generating a _RFC5444_ packet, that we named`_send_packet``` which retrieve us a packet  with _RFC5444_ format, and with its size.
 
-La ultima línea de código hace la asignación de la función de _callback_ para enviar el paquete.
+The last line of code assigns the _callback_ function to send the packet.
 
 ```cpp
 /*Assign the requiered buffers to process store the packet its going to be created 
@@ -394,7 +387,7 @@ _writer_context.target.packet_size = sizeof(_writer_pkt_buffer);
 _writer_context.target.sendPacket = _send_packet;
 ```
 
-Ahora veremos el código de la funcion de _callback_ que envía el paquete (__send_packet_).
+Now we will see the code of the _callback_ function that sends the package (`_send_packet`).
 
 ```cpp
 static void _send_packet(struct rfc5444_writer *writer,
@@ -449,30 +442,31 @@ static void _send_packet(struct rfc5444_writer *writer,
 
 ```
 
-Laa función no es nada complicada de entender si se conocen las estructuras de los paquetes _UDP_ e _IPV6_.
+The function is not complicated to understand if the structures of the _UDP_ and _IPV6_ packets are known.
 
-- Esta línea de código utiliza una macro para obtener una referencia a la estructura que contiene  el objeto _target_ del tipo _rfc5444_writer_target_, y está contenido dentro de la estructura  _aodvv2_writer_target_t_.
-Con la macro se puede obtener fácilmente una referencia a la estructura contenedora simplemente pasando como argumento el puntero a ese campo contenido en la estructura. 
-Por ejemplo:
+This line of code uses a macro to obtain a reference to the structure that contains the _target_ object  `RFC5444_writer_target`, and is contained within the `aodvv2_writer_target_t` structure. With the macro it´s easy get a reference to the container structure simply by passing the pointer to that field contained in the structure as an argument. For example:
 
   ```cpp
   aodvv2_writer_target_t *ctx = container_of(iface, aodvv2_writer_target_t,
                                                target);
     ```
-    **Ejemplo**:
+
+
+    **Example**:
+
     ```cpp
     struct my_struct_t {
          ...; 
          something_t n; 
          ... } my_struct;
-    
+
     &my_struct == container_of(&my_struct.n, struct my_struct_t, n).
     ```
 
-Las siguientes líneas de código tienen como objetivo crear los _header_ necesarios para enviar el paquete al stack de red.
-Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente información más extendida sobre el manejo de las capas de red en _RIOT-OS_ y cómo crear los _header_ necesarios.
+The following lines of code aim to create the necessary _headers_ to send the packet to the network _stack_. The tasks executed are as follows, and you will find more information soon about handling network layers in _RIOT-OS_ and how to create the necessary _headers_.
 
-- Primero se debe generar el _payload_ que se desea enviar, en este caso el paquete _RFC5444_, que a su vez contiene el paquete _AODV_.
+- First, we must generate the _payload_ we want to send, in this case the _RFC5444_ packet, which in turn contains the _AODV_ packet.
+
 
     ```cpp
     /* Generate our pktsnip with our RFC5444 message */
@@ -483,7 +477,7 @@ Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente in
     }
     ```
 
-- construir el paquete _UDP_
+- build the _UDP_ packet
 
   ```cpp
   /* Build UDP packet */
@@ -496,7 +490,7 @@ Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente in
     }
   ```
 
-- Construir el _header IPV6_
+- build the _header IPV6_
 
   ```cpp
   /* Build IPv6 header */
@@ -508,7 +502,7 @@ Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente in
     }
    ```
 
-- Construir el _header_ para la _netif_
+- build the `netif` _header_
 
   ```cpp
   /* Build netif header */
@@ -517,7 +511,7 @@ Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente in
     LL_PREPEND(ip, netif_hdr);
     ```
 
-- Enviar el paquete a la capa de _UDP_ dentro del stack de _RIOT-OS_ para que lo emita.
+- Send the packet to the _UDP_ layer within the _RIOT-OS stack_ for issue it.
 
   ```cpp
   /* Send packet */
@@ -525,4 +519,7 @@ Las tareas ejecutadas son las siguientes, y se podrá encontrar próximamente in
                                         GNRC_NETREG_DEMUX_CTX_ALL, ip);
     ```
 
-Hasta aquí hemos finalizado con el envío de mensajes _RREQ_, y en próximos capítulos explicaremos los detalle del proceso de los mensaje _RREP_.
+We have finished sending _RREQ_ messages, and in future chapters we will explain the details of the _RREP_ message process.
+
+
+
