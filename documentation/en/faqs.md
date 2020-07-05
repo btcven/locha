@@ -3,7 +3,6 @@
 Welcome to the FAQ of Locha Mesh! Please note that some questions may redirect you to our Documentation for further explaining. 
 
 #### What is a mesh network?
-
 A mesh network is a network topology in which all of the participants, known as nodes, connect to each other in order to be able to transmit (route) data from/to another node. The connection is dynamic and can be composed of any number available of devices speaking the same protocol.
 
 
