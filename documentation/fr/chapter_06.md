@@ -7,26 +7,27 @@ This section presents the parameters that were used to choose all the control an
 
 <img src="../pics/RF-selection.svg"  height="650" width="450" align="left" alt="RF Selection" />
 
-To choose the radio module that contains the microcontroller (MCU), the RF and modulation needed to transmit on the 915 MHz frequency, some parameters were established:
-- Support of IEEE 802.15.4 standard.
-- At least 2 UART ports.
-- Low-cost.
-- Easy to use.
-- Support for the Sub-GHz band to 915 MHz.
+To choose the radio module that contains the microcontroller (MCU), the RF and modulation needed to transmit on the Sub-GHz ISM band some parameters were established:
+
+- Support of IEEE 802.15.4 standard
+- At least 2 UART ports
+- Affordable
+- Easy to use
+- Support for the Sub-GHz ISM band
 
 The chart shows three MCU's families with RF interface according to the criteria based on the current demand, choosing the CC1312R1 as the most economical, solid, with wide range coverage and low consumption module to perform the task  that the Turpial requires as a transceptor device.
 
 The MCUs family CC135X fulfills most of the requirements, nevertheless, provides more functions than required, increasing its value and consequently discarded.
 
-<br>
-<br>
-
+<br/>
+<br/>
 
 ## 6.2 Voltage source
 
 For the Locha Mesh's Turpial to work optimally, the device that will regulate the voltage deriving from the battery and will power the device must be carefully selected.
 
-<br>
+<br/>
+
 <img src="../pics/powerSupply-selection.svg"  height="650" alt="Power Supply Selection" />
 
 The parameters to take into account for the selection of the device that supplies the circuit are:
