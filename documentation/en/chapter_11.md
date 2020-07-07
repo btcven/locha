@@ -790,7 +790,7 @@ The content of each _callback_ makes sense when messages are received within the
 
  - ```buffers```: for storing the packets and _TLV_ messages to be processed.
  - ```rfc5444_writer```: for the creation of  the _RFC5444_ packets that represents its status.
- - ```_writer_context```: This object behaves like a  ```wraper``` that allows us to have a custom data structure to cover the needs of the **Turpial** but also making said structure compatible with the ```oonf_api```.
+ - ```_writer_context```: This object behaves like a  ```wrapper``` that allows us to have a custom data structure to cover the needs of the **Turpial** but also making said structure compatible with the ```oonf_api```.
 
 ```cpp
 /**
@@ -907,7 +907,7 @@ _writer_context.target.sendPacket = _send_packet;
 
 In the previous code we can see that it is allocating resources to the `writer`, to the `buffers` that allows the `writer` to process the information and create the _RFC5444_ packet.
 
-In the last line of the previous code, we will see the assignment of a _callback_ function to the container or `wraper` to be able to send the packet. This function should be the responsibility of the developer to implement it.
+In the last line of the previous code, we will see the assignment of a _callback_ function to the container or `wrapper` to be able to send the packet. This function should be the responsibility of the developer to implement it.
 
 We have created an `aodvv2_writer_target` object that must be initialized and registered and this is obtained with:
 
