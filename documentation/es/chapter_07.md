@@ -39,7 +39,7 @@ Hablando de redes de sensores inalámbricos, se espera que los dispositivos se c
 
 - Contiki-ng y TinyOS no son sistemas operativos en tiempo real, pero son la referencia en redes de sensores inalámbricos.
 
-- El OS Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta construido sobre un nucleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_. Por otro lado Linux usa un planificador, que garantiza un horario de ejecución para las tareas.
+- El OS Contiki-ng tiene una arquitectura en capas mientras que TinyOS esta construido sobre un núcleo monolítico. Al igual que Linux, Contiki-ng es impulsado por eventos y es similar a TinyOS. Ambos usan una estrategia _FIFO_. Por otro lado Linux usa un planificador, que garantiza un horario de ejecución para las tareas.
 
 - El modelo de programación de Contiki-ng y TinyOS esta definido por eventos de tal manera que todas las tareas son ejecutadas en el mismo contexto.
 
@@ -61,15 +61,15 @@ RIOT-OS (OS en tiempo real para IoT) llena el vacío entre sistemas operativos d
 
 - Tener una API única, independiente del hardware.
 
-RIOT-OS se basa en una arquitectura de microkernel que permite multi-hilo utilizando una API estándar. Repleto de características heredadas de FireKernel, RIOT-OS también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para el stack de red TCP/IP. Este enfoque modular hace que RIOT-OS sea robusto contra fallos de  componentes individuales, proporcionando alta confiabilidad y una API amigable para los programadores.
+RIOT-OS se basa en una arquitectura de microkernel que permite multi-hilo utilizando una API estándar. Repleto de características heredadas de FireKernel, RIOT-OS también proporciona soporte para C++, que permite el uso de bibliotecas potentes, incluye soporte para el stack de red TCP/IP. Este enfoque modular hace que RIOT-OS sea robusto contra fallos de componentes individuales, proporcionando alta confiabilidad y una API amigable para los programadores.
 
-RIOT-OS permite a los programadores crear tantos hilos como sean necesarios. La única restricción es la cantidad de memoria  disponible para cada hilo.
+RIOT-OS permite a los programadores crear tantos hilos como sean necesarios. La única restricción es la cantidad de memoria disponible para cada hilo.
 
 Thanks to the Kernel message API and using these threads, it is possible to implement distributed systems in a simple way.
 
 Gracias a la API de mensajes del Kernel y usando estos hilos, es posible implementar sistemas distribuidos de una manera simple.
 
-Para cumplir con los requisitos en tiempo real, RIOT-OS hace cumple períodos constantes para las tareas del núcleo (por ejemplo: ejecución del planificador, _inter comunication  process_ (IPC), operaciones de temporizador, etc).
+Para cumplir con los requisitos en tiempo real, RIOT-OS hace cumple períodos constantes para las tareas del núcleo (por ejemplo: ejecución del planificador, _Inter-Process Communication_ (IPC), operaciones de temporizador, etc).
 
 En términos de hardware MCU y capacidades de memoria, RIOT-OS compite principalmente con Linux. En comparación RIOT puede reducirse a órdenes con menos requerimientos de memoria y está construido con soporte incorporado para eficiencia energética y capacidades en tiempo real.
 
