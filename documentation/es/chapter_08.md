@@ -199,7 +199,7 @@ Cuando una ruta es encontrada se le da un tiempo de vida (TTL) y se considera ú
 
 Durante una comunicación entre el nodo origen y el nodo destino pude ocurrir que alguno de los nodos modifique su posición. Esto puede dar lugar a que se rompa el enlace y que la ruta quede inutilizada. El nodo vecino al enlace roto debe ser el encargado de informar al resto de nodos sobre dicho suceso. Para ello se utiliza el envío del mensaje _RERR_.
 
-El mensaje viene a ser igual que el mensaje _RREP_ pero con un número de salto igual a infinito. Es decir, el nodo que detecta el enlace roto envía al origen un _RERR_ con valor de _hop count_ de valor infinito, lo que hace que cualquier otra ruta sea mejor y deban reencaminarse los paquetes por otro sitio. De esta manera, el nodo origen decide si ha terminado la comunicación con el nodo destino o si por el contrario debe iniciar un nuevo proceso de descubrimiento de ruta.
+El mensaje viene a ser igual que el mensaje _RREP_ pero con un número de salto igual a infinito. Es decir, el nodo que detecta el enlace roto envía al origen un _RERR_ con valor de _hop count_ de valor infinito, lo que hace que cualquier otra ruta sea mejor y deban enrutar los paquetes por otro sitio. De esta manera, el nodo origen decide si ha terminado la comunicación con el nodo destino o si por el contrario debe iniciar un nuevo proceso de descubrimiento de ruta.
 
 Las ventajas son:
 
@@ -443,7 +443,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 - **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREQ_. El _RREQ_Gen_ establece el número máximo de saltos que atravesará el mensaje _RREQ_.
 - **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
 - **PrefixLengthList** (Opcional): Contiene _OrigPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _OrigAddr_.
-- **OrigSeqNum** :Número de secuencia de _OrigPrefix_, que se incrementa como se indica [aqui](#88-Sequence-Number).
+- **OrigSeqNum** :Número de secuencia de _OrigPrefix_, que se incrementa como se indica [aquí](#88-Sequence-Number).
 - **MetricType**: Tipo de métrica asociada con _OrigMetric_.
 - **OrigMetric**: El valor de la métrica asociada a la ruta a _OrigPrefix_.
 
