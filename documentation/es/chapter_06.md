@@ -1,13 +1,13 @@
 # 6. Hardware de Locha Mesh
 
-En esta sección se presentan los parámetros que se usaron para la elección de los dispositivos de transmisión y control actualmente utilizandos en Locha Mesh.
+En esta sección se presentan los parámetros que se usaron para la elección de los dispositivos de transmisión y control actualmente utilizados en Locha Mesh.
 
 
 ## 6.1 Módulo de radio frecuencia
 
 <img src="../pics/RF-selection.svg"  height="650" width="450" align="left" alt="Para elegir el módulo de radio que contiene el microcontrolador (MCU), la RF y modulación necesaria para transmitir en la frecuencia 915 MHz, se establecieron algunos parámetros:" />
 
-La tabla muestra tres familias de MCU con interface de RF de acuerdo con los criterios basados en la necesidad actual, elegiendo el `CC1312R1` como el módulo más económico, robusto, amplio rango de cobertura y de bajo consumo para desempeñar la tarea que el `Turpial` requiere como dispositivo transceptor.
+La tabla muestra tres familias de MCU con interface de RF de acuerdo con los criterios basados en la necesidad actual, eligiendo el `CC1312R1` como el módulo más económico, robusto, amplio rango de cobertura y de bajo consumo para desempeñar la tarea que el `Turpial` requiere como dispositivo transceptor.
 
 - Soporte del estándar IEEE 802.15.4.
 - Al menos 2 puertos USART.
@@ -44,7 +44,7 @@ When weighting the difference devices, it is observed that the LTC3113 provides 
 <img src="../pics/BatteryChargerSelection.svg"  height="650" alt="Para que el Turpial de Locha Mesh funcione de forma óptima, se debe seleccionar cuidadosamente el dispositivo que regulará la corriente proveniente de la batería y alimentará al dispositivo." />
 <br>
 
-Para la carga de la batería de litio hemos decidido utilizar el chip de la familia `BQ2407x`, el cual es de fácil adquisicion y se ajusta a los requerimientos de carga lineal y durabilidad en las baterías al tener un sistema de carga robusto, como el que se presenta en el diseño del Turpial.
+Para la carga de la batería de litio hemos decidido utilizar el chip de la familia `BQ2407x`, el cual es de fácil adquisición y se ajusta a los requerimientos de carga lineal y durabilidad en las baterías al tener un sistema de carga robusto, como el que se presenta en el diseño del Turpial.
 
 ## 6.4 Control de energía de la batería
 <img src="../pics/BatteryManagementSystem-selection.svg"  height="650" alt="Battery Management System" />
@@ -64,12 +64,12 @@ Locha Mesh específicamente trabaja con el ESP32 WROVER, el cual consta de:
 - Ejemplos en la plataforma de Arduino que se pueden portar al entorno de espressif sin mucha dificultad.
 - Bajo consumo.
 
-Para la seleccion del microcontrolador (MCU), nos hemos centrado en la famila de microcontroladores de `espressif`, ya que esta es una marca que ofrece una gran variaded de dispositivos con increíbles características como los es Bluetooth y WiFi a muy bajo costo, que difícilmente otra marca podría ofrecer además de la amplia documentación que existe para este dispositivo.
+Para la selección del microcontrolador (MCU), nos hemos centrado en la familia de microcontroladores de `espressif`, ya que esta es una marca que ofrece una gran variaded de dispositivos con increíbles características como los es Bluetooth y WiFi a muy bajo costo, que difícilmente otra marca podría ofrecer además de la amplia documentación que existe para este dispositivo.
 - 4 Mb Flash SPI.
 - 8 Mb PSRAM.
 - Frecuencia de 80 MHz a 240 MHz.
 - WiFi.
-- BlueTooth.
+- Bluetooth.
 - USART x3.
 - Dual core.
 
