@@ -20,12 +20,12 @@ Un nodo mantiene una tabla de rutas clasificada por nodos.
 
 ## 10.2 Mensajes.
 
-El protocolo tiene tres tipos de mensajes :
+El protocolo tiene tres tipos de mensajes:
 - RREQ (Route Request)
 - RREP (Route Reply)
 - RERR (Route Error)
 
-Cada mensaje tiene los siguientes componentes
+Cada mensaje tiene los siguientes componentes:
 - **h**: hopcount.
 - **tlv** = (sO, sT): número de secuencia para el origen, y destino, este último posiblemente indefinido.
 - **(O, T)**: el par de origen y destino.
@@ -44,7 +44,7 @@ En el estado inicial un nodo no tiene definidas las rutas a origen y destino y e
 
 Enumeraremos las acciones tomadas durante la operación normal del protocolo. Las acciones son atómicas pero pueden ocurrir en cualquier momento. En el protocolo, las acciones como una ruta de expiración, están basadas en temporizadores, para garantizar que no sucedan con demasiada frecuencia.
 
-La notación **y>>x** expresa que la ruta en el mensaje de ruta es preferible a la entrada en la tabla de ruta **x**. En la descripción del protocolo _AODVv2_, esto es cierto si
+La notación **y>>x** expresa que la ruta en el mensaje de ruta es preferible a la entrada en la tabla de ruta **x**. En la descripción del protocolo _AODVv2_, esto es cierto si:
 
  - 1. `ys > xs`
  - 2. si `ys = xs`, y `y.h + 1 < xh`, o
@@ -64,7 +64,7 @@ true ==>
 
 ## 10.6 Modelo para recibir un Route Request.
 
-***rreq-recv (RREQ(m),K)**: Esta acción procesa un mensaje Route Request .
+***rreq-recv (RREQ(m),K)**: Esta acción procesa un mensaje Route Request.
 
 ```
 m = (h,(sO, sT),(O, T)) de un vecino K. 
@@ -110,7 +110,7 @@ else // H is an intermediate node
 
 ## 10.8 Modelo para recibir un Route Error.
 
-**rerr-recv(RERR (m), K)**: Esta acción procesa un mensaje de error (RERR) del vecino K. Marca cualquier ruta que pase por K como rota y comunica el error. It marks any route that goes through **K** as broken and reports the error. Esto es más permisivo que el protocolo al marcar rutas como rotas. En el protocolo  hay otros campos en el mensaje _RERR_ que se pueden usar para distinguir si el mensaje de error de K pertenece a una ruta de origen o destino.
+**rerr-recv(RERR (m), K)**: Esta acción procesa un mensaje de error (RERR) del vecino K. Marca cualquier ruta que pase por K como rota y comunica el error. It marks any route that goes through **K** as broken and reports the error. Esto es más permisivo que el protocolo al marcar rutas como rotas. En el protocolo hay otros campos en el mensaje _RERR_ que se pueden usar para distinguir si el mensaje de error de K pertenece a una ruta de origen o destino.
 
 ```
 true ==>
