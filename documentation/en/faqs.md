@@ -47,7 +47,7 @@ Communications over the Internet or phone could stop working during power outage
 
 Using the Internet today seems simple and innocent, but in reality, the Internet is plagued with privacy invasive apps, surveillance, blockades, cuts, and also websites, ISPs, governments and even algorithms spying on your activity on the Internet and social media platforms. Also, in order to have Internet at home or mobile data in your phone, you must provide your personal information. If you are travelling and you need a SIM card of the country you’re currently visiting, you must provide your ID or even scan your face otherwise it will not be activated.
 
-This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse inmediately as they already have the information they need and the way to find you (your phone data connection). 
+This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse as they already have the information they need and the way to find you (your phone data connection). 
 
 We believe these situations can be avoided and that communications must be private and safe. To read more on this, see our [Motivation](./chapter_01.md).
 
@@ -61,7 +61,7 @@ Yes! The Locha Mesh protocol is hardware agnostic. This means that there are no 
 
 
 #### How many devices running the Locha Mesh protocol are needed to create a mesh?
-Two or three devices can alredy be a mesh, but it would not be a resilient communication method. The more devices there are like the Turpial, the DIY version, and Harpia nodes, the better the Locha Mesh will be because it will provide more routes and hops for data to be transmitted over.
+Two or three devices can already be a mesh, but it would not be a resilient communication method. The more devices there are like the Turpial, the DIY version, and Harpia nodes, the better the Locha Mesh will be because it will provide more routes and hops for data to be transmitted over.
 
 
 #### Do I need to be ‘on-line’ at all times to receive messages?
