@@ -45,9 +45,9 @@
 
 
 
-# Teoria de señales y moduladores
+# Teoría de señales y moduladores
 
-En este documento se pretende mostrar los principios y conceptos fundamentales que hacen posible interconectar nodos de manera inalambrica sin necesidad de cables,irradiando señales por medio de técnicas descritas mas adelante, y recibiendo estas mismas señales del lado de un receptor aplicando técnicas que igualmente se describen en este documento.
+En este documento se pretende explicar los principios y conceptos fundamentales que hacen posible interconectar nodos de manera inalámbrica sin necesidad de cables, irradiando y recibiendo señales por medio de técnicas descritas en esta sección.
 
 # Capitulo 1 Ondas
 
@@ -121,7 +121,7 @@ Las ondas mecánicas necesitan un medio material elástico (sólido, líquido o 
 las ondas electromagnéticas se propagan por el espacio sin necesidad de un medio material, pudiendo por lo tanto propagarse en el vacío. Esto es debido a que las ondas electromagnéticas son producidas por las oscilaciones de un campo eléctrico, en relación con un campo magnético asociado. Las ondas electromagnéticas viajan aproximadamente a una velocidad de 300000 km/s, de acuerdo a la velocidad puede ser agrupado en rango de frecuencia. Este ordenamiento es conocido como Espectro Electromagnético, objeto que mide la frecuencia de las ondas. Los rayos X, la luz visible o los rayos ultravioleta son ejemplos de ondas electromagnéticas.
 
 #### 2.1.3 Gravitational wave
-las ondas gravitacionales son perturbaciones que alteran la geometría misma del espacio-tiempo y aunque es común representarlas viajando en el vacío, técnicamente no podemos afirmar que se desplacen por ningún espacio, sino que en sí mismas son alteraciones del espacio-tiempo.
+Las ondas gravitacionales son perturbaciones que alteran la geometría misma del espacio-tiempo y aunque es común representarlas viajando en el vacío, técnicamente no podemos afirmar que se desplacen por ningún espacio, sino que en sí mismas son alteraciones del espacio-tiempo.
 
 ### 2.2 Wave Dimension
 
@@ -159,15 +159,15 @@ Information signals are rarely in an appropiate state for transmission. Signals 
 
 Modulation is a process in which the carrier signal is altered in one of its characteristics in order to properly transmit the data, protecting it from noise and interferences. [15]
 
-La Demodulación es el proceso inverso(es decir,la onda modulada se convierte nuevamente a su forma original). La modulación se realiza en el transmisor en un circuito llamado modulador,y la demodulación se realiza en el receptor en un circuito llamado demodulador o detector.
+La Demodulación es el proceso inverso (es decir, la onda modulada se convierte nuevamente a su forma original). La modulación se realiza en el transmisor en un circuito llamado modulador, y la demodulación se realiza en el receptor en un circuito llamado demodulador o detector.
 
-## Una señal portadora es una onda eléctrica que puede ser modificada en alguno de sus parámetros por la señal de información (sonido, imagen o datos) para obtener una señal modulada y que se transporta por el canal de comunicaciones
+## Una señal portadora es una onda eléctrica que puede ser modificada en alguno de sus parámetros por la señal de información (sonido, imagen o datos) para obtener una señal modulada y que se transporta por el canal de comunicaciones.
 
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud d ela señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
 
 ## Es necesario modular las señales por diferentes razones:
 
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud d ela señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
 
 
 <img src="../pics/modulator1.svg" alt="drawing" height="180" width="400" align="block" />
@@ -175,7 +175,7 @@ En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o
 
 ## Es necesario modular las señales por diferentes razones:
 
-Como se dijo antes una señal moduladora , puede ser una señal de audio, video, o datos, cualquier señal de estas al ser mezclada con la portadora generan la señal modulada que se transmite a través de la antena.
+Como se dijo antes una señal moduladora, puede ser una señal de audio, video, o datos; cualquier señal de éstas al ser mezclada con la portadora generan la señal modulada que se transmite a través de la antena.
 
 
 ## Las formas básicas de Modulación son:
@@ -190,7 +190,7 @@ Como se dijo antes una señal moduladora , puede ser una señal de audio, video,
 <br/>
 <img src="../pics/AM_modulator.svg" alt="drawing" height="200" width="400" align="left" />
 
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud d ela señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
 
 <br/>
 <br/>
@@ -220,20 +220,20 @@ As AM, ASK is also linear and sensitive to atmospheric noise, distortions, and p
 <img src="../pics/ask_modulator.svg" alt="drawing" height="400" width="400" align="center" />
 
 
-#### La modulación por desplazamiento de frecuencia o FSK del inglés Frequency Shift Keying es una técnica de modulación para la transmisión digital de información utilizando dos o más frecuencias diferentes para cada símbolo.​ La señal moduladora solo varía entre dos valores de tensión discretos formando un tren de pulsos donde uno representa un "1" o "marca" y el otro representa el "0" o "espacio".
+#### La modulación por desplazamiento de frecuencia o FSK (del inglés Frequency Shift Keying), es una técnica de modulación para la transmisión digital de información, utilizando dos o más frecuencias diferentes para cada símbolo.​ La señal moduladora solo varía entre dos valores de tensión discretos formando un tren de pulsos donde uno representa un "1" o "marca" y el otro representa el "0" o "espacio".
 
 FSK is a digital frequency modulation technique for binary data transmission. As in FM, the data is encoded in the carrier wave by shifting its frequency between preset frequencies. This technique is also used for Morse code, among other uses.
 
 <img src="../pics/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center" />
 
-En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente  por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
+En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
 
 
 ##### En la siguiente figura tenemos dos portadoras con diferente frecuencia, para representar los diferentes símbolos dentro del mensaje, en este caso cero(0) y uno(lógico), la frecuencia del oscilador 1 debe ser diferente a la del oscilador 2 pero teniendo en cuanta que la diferencia no debe ser muy grande.
 
 On the next figure we have two carriers with different frequencies to represent the different symbols inside the message, in this case 0 and 1. The frequency of the oscillator 1 must be different to the oscillator 2 but keeping in mind that the difference can't be too big.
 
-En la siguiente figura tenemos dos portadoras con diferente frecuencia, para representar los diferentes símbolos dentro del mensaje, en este caso cero(0) y uno(lógico), la frecuencia del oscilador 1 debe ser diferente a la del oscilador 2 pero teniendo en cuanta que la diferencia no debe ser muy grande.
+En la siguiente figura tenemos dos portadoras con diferente frecuencia, para representar los diferentes símbolos dentro del mensaje, en este caso cero (0) y uno (lógico), la frecuencia del oscilador 1 debe ser diferente a la del oscilador 2 pero teniendo en cuenta que la diferencia no debe ser muy grande.
 
 En este tipo de modulación, la señal moduladora tiene una amplitud constante pero varia la frecuencia, la cual es utilizada para alterar la frecuencia de la señal portadora o carrier.
 
@@ -247,16 +247,16 @@ En este tipo de modulación, la señal moduladora tiene una amplitud constante p
 
 La frecuencia instantánea de salida del oscilador es controlada por el voltaje de entrada. Es un tipo de oscilador que puede producir una frecuencia de señal de salida en un amplio rango (pocos Hertz-cientos de Giga Hertz) dependiendo de la tensión de entrada de corriente continua que se le haya asignado.
 
-Este tipo de osciladores al no presentar voltaje en su entrada o lo que es igual a 0 voltios, debe oscilar en una frecuencia llamada frecuencia libre de oscilación, y al empezar a incrementar el voltaje de entrada , la señal de salida se ve alterada en su frecuencia creciendo de forma lineal respecto al voltaje de entrada.
+Este tipo de osciladores al no presentar voltaje en su entrada o lo que es igual a 0 voltios, debe oscilar en una frecuencia llamada frecuencia libre de oscilación, y al empezar a incrementar el voltaje de entrada, la señal de salida se ve alterada en su frecuencia creciendo de forma lineal respecto al voltaje de entrada.
 
-Los siguientes son algunos casos extremos de estas técnicas
+Los siguientes son algunos casos extremos de estas técnicas:
 
 This modulation technique, like the previous one, handles a different frequency for each symbol. The difference is the VCO deletes the abrupt changes in the frequency due it doesn't needs to multiplex between different frequency generators, it consists in controlling the the frequency coming from the generator.
 
 <img src="../pics/modulation-vco.svg" alt="drawing" height="250" width="800" align="center" />
 
 
-#### modulacion GFSK = filtro Gaussiano + FSK
+#### modulación GFSK = filtro Gaussiano + FSK
 
 <img src="../pics/Gaussian-filter.svg" alt="drawing" height="300" width="450" align="left" />
 
@@ -268,13 +268,13 @@ Al pasar la señal moduladora (Data) a través de un filtro Gaussiano la salida 
 
 Con esto observamos que:
 
-`modulacion GFSK = filtro Gaussiano + FSK`
+`modulación GFSK = filtro Gaussiano + FSK`
 
 We said before that having these abrupt changes from 0 to 1 in the modulated signal increases the bandwidth. We conclude that the improvement that this type of filter provides in FSK modulation is the decrease of the spectrum bandwidth in the output signal.
 
 #### 2.5.2.4 Phase Shift Keying (PSK)
 
-En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente  por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
+En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
 
 
 # Chapter 3 Filters
@@ -291,11 +291,11 @@ Existen diferentes tipos de filtros clasificados por su funcionalidad:
   - Doble banda lateral sin portadora - DBL-SP.
   - Banda lateral única - BLU.
 - Filtros Análogos: Procesa señales continuas, basado en componentes electrónicos análogos.
-  - Pasivos: Basado en Condensadores, Bobinas y Resistencias, presenta perdidas por atenuación . It presents attenuation losses.
+  - Pasivos: Basado en Condensadores, Bobinas y Resistencias, presenta pérdidas por atenuación. It presents attenuation losses.
    - Pasa bajos.
    - Pasa altos.
    - Pasa banda.
-  - Pasivos: Basado en Condensadores, Bobinas y Resistencias, presenta perdidas por atenuación . These offer amplitude.
+  - Activos: Basado en Condensadores, Bobinas y Resistencias. These offer amplitude.
    - Pasa bajos.
    - Pasa altos.
    - Pasa banda.
@@ -304,7 +304,7 @@ Existen diferentes tipos de filtros clasificados por su funcionalidad:
 
 <img src="../pics/filter-graph.svg" alt="drawing" height="300" width="450" align="center" />
 
-# modulacion GFSK = filtro Gaussiano + FSK
+# modulación GFSK = filtro Gaussiano + FSK
 
 This chapter shows some insight in the process involved in the reception of a signal modulated on FSK, emitted by a node. To receive the original data without the carrier some process must be done, for this goal we will use low-pass filters, which allows filter the modulated signal removing its high frequency components, leaving just the original message, this process is known as demodulation.
 
