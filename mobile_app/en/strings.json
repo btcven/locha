@@ -29,13 +29,14 @@
         "textUsername": "Please enter a nickname",
         "restorePinTitle": "Restore PIN",
         "restorePinText": "Enter the backup phrase to restore your PIN",
-        "buy": "Pre-order Turpial device"
+        "buy": "Buy turpial device"
     },
     "Drawer": {
         "contacts": "Contacts",
         "setting": "Settings"
     },
     "Settings": {
+        "deviceSettings": "device Settings",
         "name": "Name",
         "editName": "Edit nickname",
         "enterName": "Nickname",
@@ -48,8 +49,7 @@
         "qrText": "Friends can scan this QR to add you as contact",
         "textBackup": "Enter your PIN code to continue",
         "erroPin": "Wrong PIN",
-        "createBackup": "Create backup file",
-        "deviceSettings": "Device settings"
+        "createBackup": "Create backup file"
     },
     "Contacts": {
         "addContact": "Add contact",
@@ -65,7 +65,8 @@
     "Header": {
         "contacts": "Contacts",
         "settings": "Settings",
-        "search": "Search"
+        "search": "Search",
+        "notConnected": "Not connected"
     },
     "Chats": {
         "message": "Message",
@@ -78,9 +79,13 @@
         "copyingMessage": "Message copied to clipboard",
         "photo": "Photo"
     },
+    "Languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
     "DeviceSettings": {
         "retryButton": "retry",
-        "headerTitle": "Device Settings",
+        "headerTitle": "device settings",
         "errorInfo": "Connection failed. Please verify that you are connected to a Turpial device's WiFi hotspot.",
         "deviceTitle": "Device Characteristics",
         "bateryStatus": "Battery status",
@@ -105,5 +110,15 @@
         "usernameError": "This field can't be empty",
         "passwordError": "This field can't be empty",
         "confirmPassword": "Passwords don't match"
+    },
+    "WifiConnect": {
+        "title": "connect to a valid AP",
+        "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+        "buttonConnect": "Connect",
+        "buttonCancel": "Cancel",
+        "connectionError": "connection error",
+        "successfulConnection": "successful connection",
+        "inputSSID": "Enter SSID",
+        "inputPasword": "Enter Password"
     }
 }
