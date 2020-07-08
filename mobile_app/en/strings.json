@@ -28,7 +28,8 @@
     "titleUsername": "Add nickname",
     "textUsername": "Please enter a nickname",
     "restorePinTitle": "Restore PIN",
-    "restorePinText": "Enter the backup phrase to restore your PIN"
+    "restorePinText": "Enter the backup phrase to restore your PIN",
+    "buy": "Buy turpial device"
   },
   "Drawer": {
     "contacts": "Contacts",
@@ -107,7 +108,7 @@
     "ChangeCredencial": "Add new Credentials",
     "ChangePassword": "Change password",
     "usernameError": "This field can't be empty",
-    "passwordExrror": "This field can't be empty",
+    "passwordError": "This field can't be empty",
     "confirmPassword": "Passwords don't match"
   },
   "WifiConnect": {
@@ -117,8 +118,7 @@
     "buttonCancel": "Cancel",
     "connectionError": "connection error",
     "successfulConnection": "successful connection",
-    "inputSSID":"Enter SSID",
-    "inputPasword":"Enter Password"
-
+    "inputSSID": "Enter SSID",
+    "inputPasword": "Enter Password"
   }
 }

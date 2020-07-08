@@ -2,9 +2,9 @@
 
 El procesamiento de mensajes tiene este esquema general:
 
-- Recibir mensajes entrantes de ruta.
-- Actualizar tablas de rutas según corresponda.
-- Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
+ - Recibir mensajes entrantes de ruta.
+ - Actualizar tablas de rutas según corresponda.
+ - Responder según sea necesario, a menudo regenerando el mensaje entrante con información actualizada.
 
 Después de procesar un mensaje, la información se almacena en la tabla de rutas. Por este motivo es apropiado establecer valores en los campos de mensajes salientes, utilizando la información de la tabla de rutas o los campos del mensaje entrante.
 
@@ -28,7 +28,7 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size, hopLimit, hopCo
     MAL = 3 or 15; // for IPv4 or IPv6
     msg-size = Size;
     msg-hop-limit = hopLimit;
-    
+
     /* if hopCount is 0, do not include */
     if (hopCount != 0) 
     msg-hop-count = hopCount;
@@ -93,9 +93,9 @@ receive_RREQ (inRREQ, L)
 }
 ```
 
-
-<img src="../pics/Receive_RREQ.png" alt="drawing" height="600" width="800" align="center"/>
-
+<figure>
+<img src="imple_../pics/Receive_RREQ.png" width="100%"/>
+</figure>
 
 ## 13.3 generate_rreq.
 
@@ -142,7 +142,7 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
  metricAddrBlkTlv.value = outRREQ.OrigMetric;
  if (outRREQ.MetricType != DEFAULT_METRIC_TYPE)
  metricAddrBlkTlv.typeExtension = outRREQ.MetricType;
- 
+
  if (outRREQ.ValidityTime is required)
  {
  /* Build VALIDITY_TIME Address Block TLV */
@@ -154,7 +154,6 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
  /* multicast RFC 5444 message to LL-MANET-Routers */
 }
-
 ```
 
 ## 13.4 regenerate_RREQ.
@@ -192,7 +191,7 @@ regenerate_RREQ (inRREQ, rte)
  /* Build Address Block using prefix length information from 
  outRREQ.OrigPrefixLen if necessary */
  AddrBlk = {outRREQ.OrigAddr, outRREQ.TargAddr};
- 
+
  /* Include sequence numbers in appropriate Address Block TLVs */
  /* OrigSeqNum Address Block TLV */
  origSeqNumAddrBlkTlv.value = outRREQ.OrigSeqNum;
@@ -221,6 +220,7 @@ regenerate_RREQ (inRREQ, rte)
 ```
 
 ## 13.5 generate_rrep.
+
 ```cpp
 generate_rrep(inRREQ, rte)
 {
@@ -400,9 +400,8 @@ Regenerate_RREP(inRREP, rte)
 
  Build_RFC_5444_Message_Header (RREP, 4, IPv4 or IPv6, NN,
  outRREP.HopLimit, 0, tlvLength);
- 
+
  /* unicast RFC 5444 message to rte[OrigAddr].NextHop */ 
 }
-
 
 ```
