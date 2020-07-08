@@ -47,7 +47,7 @@ Las comunicaciones por Internet o teléfono podrían dejar de funcionar durante 
 
 Usar Internet hoy parece simple e inocente, pero en realidad, Internet está plagado de aplicaciones invasivas de la privacidad, vigilancia, bloqueos, cortes y también sitios web, proveedores de Internt (ISPs), gobiernos e incluso algoritmos espiando su actividad en Internet y plataformas de redes sociales. Además, para tener Internet en casa o datos móviles en tu teléfono debes entregar tu información personal. Si estás viajando y necesitas una tarjeta SIM del país que estás visitando, debes entregar tu documento de identidad o incluso escanear tu cara, sino no activarán el servicio.
 
-This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse inmediately as they already have the information they need and the way to find you (your phone data connection).
+This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse as they already have the information they need and the way to find you (your phone data connection).
 
 Creemos que estas situationes se pueden evitar y que las comunicaciones deben ser privadas y seguras. Para leer más sobre esto, dirígete a [Motivación](./chapter_01.md).
 
@@ -60,8 +60,8 @@ El dispositivo Turpial de Locha Mesh puede actualmente pre-ordenarse haciendo un
 ¡Sí! El protocolo de Locha Mesh es agnóstico al hardware usado. Esto significa que no hay "especificaciones técnicas propietarias o cerradas" para que un dispositivo sea un nodo dentro de Locha Mesh, aparte de lo que hemos especificado en las guías para la versión [DIY (hazlo tú mismo) del Turpial para Locha Mesh](./diy_turpial.md).
 
 
-#### How many devices running the Locha Mesh protocol are needed to create a mesh?
-Two or three devices can alredy be a mesh, but it would not be a resilient communication method. The more devices there are like the Turpial, the DIY version, and Harpia nodes, the better the Locha Mesh will be because it will provide more routes and hops for data to be transmitted over.
+#### ¿Cuántos dispositivos corriendo el protocolo de Locha Mesh hacen falta para crear una mesh?
+Two or three devices can already be a mesh, but it would not be a resilient communication method. Cuantos más dispositivos como el Turpial, versiones DIY, y nodos Harpia existan mejor será Locha Mesh porque habrá más saltos y rutas disponibles por los cuales transmitir los datos.
 
 
 #### Do I need to be ‘on-line’ at all times to receive messages?
