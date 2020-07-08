@@ -1,67 +1,67 @@
-# FAQ
+# Preguntas Frecuentes
 
-Welcome to the FAQ of Locha Mesh! Please note that some questions may redirect you to our Documentation for further explaining.
+¡Bienvenido al FAQ de Locha Mesh! Tenga en cuenta que algunas preguntas pueden redirigirle a nuestra Documentación para más información.
 
-#### What is a mesh network?
-A mesh network is a network topology in which all of the participants, known as nodes, connect to each other in order to be able to transmit (route) data from/to another node. The connection is dynamic and can be composed of any number available of devices speaking the same protocol.
-
-
-#### What is Locha Mesh?
-Locha Mesh is an open-source software and hardware project developing an alternative and resilient data transmission technology for communications and payments without having to rely on an Internet connection, using the mesh network topology to enable direct p2p connections between nodes. The Locha Mesh has full IPv6 support so most of the current applications can run on it.
+#### ¿Qué es una red mesh?
+Una red en malla (mesh network) es una topología de red en la que todos los participantes, conocidos como nodos, se conectan unos a otros para transmitir (enrutar) datos desde o hacia otro nodo. La conexión es dinámica y puede estar compuesta por cualquier número disponible de dispositivos que hablan el mismo protocolo.
 
 
-#### Why is Locha Mesh licensed under the Apache License 2.0?
-We chose the [Apache License 2.0](https://github.com/btcven/locha/blob/master/LICENSE) because it has some advantages fit for this project, it is one of the licenses approved by the [Open Source Initiative](https://opensource.org/licenses), and it's also widely used in the industry. The Apache License 2.0 allows any user to use our code freely (giving proper attribution) and modify it. Also, users of the source code are not forced to contribute back the changes they make or to publish them.
-
-#### What is a ‘Turpial’ node?
-A Turpial node is a portable router which can have smartphones or computers connected to it using its WiFi hotspot or USB in order to send data over the Locha Mesh to other devices, doing hops from one to another until it reaches the destinatary. A Turpial can connect any device to the Locha Mesh network.
+#### ¿Qué es Locha Mesh?
+Locha Mesh es un proyecto de software y hardware de código abierto desarrollando una tecnología resiliente de transmisión de datos para comunicaciones y pagos sin tener que depender de una conexión a Internet, usando la topologia de red en malla para habilitar conexiones p2p directas entre nodos. Locha Mesh tiene soporte completo para IPV6 por lo que la mayoría de las aplicaciones actuales pueden ejecutarse en ellas.
 
 
-#### What is a ‘Harpia’ node?
-A Harpia node is a Locha Mesh standalone node which can provide services on the network such as an Internet gateway, Bitcoin transactions broadcast, latest blocks data, Electrum Server, a remote monerod, or any other. This device can have a larger antenna plugged, a power amplifier, or even a satellite dish, extending the transmission range in several kilometers.
+#### ¿Por qué Locha Mesh está licenciada bajo la Apache License 2.0?
+Elegimos la [Licencia Apache 2.0](https://github.com/btcven/locha/blob/master/LICENSE) porque tiene algunas ventajas adecuadas para éste proyecto, es una de las licencias aprobadas por la [Open Source Initiative](https://opensource.org/licenses), también es ampliamente utilizada en la industria. La licencia Apache 2.0 permite a cualquier usuario utilizar libremente nuestro código (mencionando la fuente) y modificarlo. Además, los usuarios del código fuente no están obligados a contribuir de vuelta los cambios que hacen o a publicarlos.
+
+#### ¿Qué es un nodo 'Turpial'?
+Un nodo Turpial es un router portátil que puede tener telefónos móviles o computadoras conectados a él, usando su hotspot de WiFi o USB para enviar datos sobre Locha Mesh a otros dispositivos, haciendo saltos de uno a otro hasta alcanzar al destinatario. Un Turpial puede conectar cualquier dispositivo a la red de Locha Mesh.
 
 
-#### How does the Locha Mesh work?
-The Locha Mesh works by having multiple nodes collaborating with each other on the network, each node implements a routing protocol which makes all nodes connected to the network available through multiple hops. We use IEEE 802.15.4g radios, and a 6LoWPAN/IPv6 stack.
-
-In order to route packets over the mesh, we implemented AODVv2 protocol which only finds a route to a node when we ask for it, so it's relatively efficient to use. You can find more information on the routing protocol in our documentation, see [AODVv2](./chapter_08.md).
-
-#### What can be transmitted over the Locha Mesh?
-The Locha Mesh uses long-range radio connections in the ISM band (915 MHz in America, 868 MHz EU), in this band you can transmit encrypted data at a theoretical speed of ~200 kilobits per second (kbit/s). The data transmitted over the Locha Mesh from the LoChat mobile app or a computer can be any type of file: text, images, audio recordings, offline signed transactions, blocks data, etcetera.
+#### ¿Qué es un nodo 'Harpia'?
+Un nodo Harpia es un nodo independiente de Locha Mesh que puede proveer servicios en la red como puente a Internet, transmisión de transacciones de Bitcoin, los datos de los últimos bloques, servidor de Electrum, monerod remoto, u otros. Este dispositivo puede tener una antena más grande conectada, un amplificador de potencia, o incluso un plato de satélite, que amplía el rango de transmisión en varios kilómetros.
 
 
-#### How far in kilometers (km) can you transmit data over the Locha Mesh?
-Turpial nodes are able to reach other Turpial devices in 1-2 km radius in urban areas. Take into account that electromagnetic noise, obstacles between antennas, antenna altitude or antenna type can affect the coverage range.
+#### ¿Cómo funciona Locha Mesh?
+Locha Mesh funciona teniendo múltiples nodos colaborando entre sí en la red, cada nodo implementa un protocolo de enrutamiento lo cual hace que todos los nodos conectados a la red estén disponibles a través de múltiples saltos. Utilizamos radios IEEE 802.15.4g, y el stack de red 6LoWPAN/IPv6.
+
+Para enrutar los paquetes sobre la mesh, implementamos el protocolo AODVv2 que solo encuentra una ruta a un nodo cuando se lo pedimos, por lo que es relativamente eficiente de usar. Puedes encontrar más información sobre el protocolo de enrutamiento en nuestra documentación, dirígete a [AODVv2](./chapter_08.md).
+
+#### ¿Qué se puede transmitir a través de Locha Mesh?
+Locha Mesh utiliza conexiones de radio de larga distancia en la banda ISM (915 MHz en América, 868 MHz Europa), en esta banda puedes transmitir datos encriptados a una velocidad teórica de ~200 kilobits por segundo (kbit/s). Los datos transmitidos por Locha Mesh desde la aplicación móvil LoChat, o una computadora pueden ser cualquier tipo de archivo: imágenes, grabaciones de audio, transacciones firmadas sin conexión, datos de bloques, etc.
 
 
-#### Is the data ‘encrypted’? What encryption method the Locha Mesh protocol uses?
-The Locha Mesh protocol doesn’t make a distinction between encrypted data or plain text. Data encryption happens at the app level, a chat app using the Locha Mesh protocol can encrypt the information before sending it to the network, or leave it unencrypted for anyone to see it.
+#### ¿Qué tan lejos en kilómetros (km) puedes transmitir datos por Locha Mesh?
+Los nodos Turpial son capaces de alcanzar otros nodos Turpial en un radio de 1 a 2 km en zonas urbanas. Tenga en cuenta que el ruido electromagnético, obstaculos entre antenas, altitud de la antena o el tipo de antena puede afectar el rango de cobertura.
 
 
-#### What radio frequencies can a Turpial node or a DIY version of the Turpial use and why?
-The Turpial device uses a 915 MHz radio module, other versions of the same Turpial device could work with different radio modules for the 868 MHz band or 433 MHz band for different regions.
+#### ¿Los datos están 'cifrados'? ¿Qué método de cifrado utiliza el protocolo Locha Mesh?
+El protocolo de Locha Mesh no distingue entre datos cifrados o texto plano. El cifrado de datos ocurre en el nivel de la aplicación, una aplicación de chat usando el protocolo Locha Mesh puede cifrar la información antes de enviarla a la red, o dejarla sin cifrar para que cualquiera lo vea.
 
 
-#### Why do we need a decentralized mesh network?
-Communications over the Internet or phone could stop working during power outages, infrastructure failures, itself, natural disasters, government’s censorship, or the lack of infrastructure itself. These situations happen regularly in many places around the globe and there are no alternatives for communications in place.
-
-Using the Internet today seems simple and innocent, but in reality, the Internet is plagued with privacy invasive apps, surveillance, blockades, cuts, and also websites, ISPs, governments and even algorithms spying on your activity on the Internet and social media platforms. Also, in order to have Internet at home or mobile data in your phone, you must provide your personal information. If you are travelling and you need a SIM card of the country you’re currently visiting, you must provide your ID or even scan your face otherwise it will not be activated.
-
-This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse inmediately as they already have the information they need and the way to find you (your phone data connection).
-
-We believe these situations can be avoided and that communications must be private and safe. To read more on this, see our [Motivation](./chapter_01.md).
+#### ¿Qué frecuencias de radio puede un nodo Turpial o una versión DIY del Turpial usar y por qué?
+El dispositivo Turpial utiliza un módulo de radio de 915 MHz, otras versiones del mismo dispositivo Turpial podrían funcionar con diferentes módulos de radio para la banda 868 MHz o 433 MHz para diferentes regiones.
 
 
-#### Where can I buy a Locha Mesh device?
-The Turpial device by Locha Mesh can currently be pre-ordered by making a donation [here](https://locha.io/#pre-order).
+#### ¿Por qué necesitamos una red mesh descentralizada?
+Las comunicaciones por Internet o teléfono podrían dejar de funcionar durante apagones, fallas de infraestructura, desastres naturales, censura del gobierno o la falta de infraestructura propiamente dicha. Estas situaciones ocurren regularmente en muchos lugares de todo el mundo y no existen alternativas para las comunicaciones existentes.
+
+Usar Internet hoy parece simple e inocente, pero en realidad, Internet está plagado de aplicaciones invasivas de la privacidad, vigilancia, bloqueos, cortes y también sitios web, proveedores de Internt (ISPs), gobiernos e incluso algoritmos espiando su actividad en Internet y plataformas de redes sociales. Además, para tener Internet en casa o datos móviles en tu teléfono debes entregar tu información personal. Si estás viajando y necesitas una tarjeta SIM del país que estás visitando, debes entregar tu documento de identidad o incluso escanear tu cara, sino no activarán el servicio.
+
+This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse as they already have the information they need and the way to find you (your phone data connection).
+
+Creemos que estas situationes se pueden evitar y que las comunicaciones deben ser privadas y seguras. Para leer más sobre esto, dirígete a [Motivación](./chapter_01.md).
 
 
-#### Can other devices join the Locha Mesh network?
-Yes! The Locha Mesh protocol is hardware agnostic. This means that there are no “exclusive closed-source” specs for a device to be a node inside the Locha Mesh, other than what we have specified on the guides for a [DIY version of the Turpial for the Locha Mesh](./diy_turpial.md).
+#### ¿Dónde puedo comprar un dispositivo Locha Mesh?
+El dispositivo Turpial de Locha Mesh puede actualmente pre-ordenarse haciendo una donación [aquí](https://locha.io/#pre-order).
 
 
-#### How many devices running the Locha Mesh protocol are needed to create a mesh?
-Two or three devices can alredy be a mesh, but it would not be a resilient communication method. The more devices there are like the Turpial, the DIY version, and Harpia nodes, the better the Locha Mesh will be because it will provide more routes and hops for data to be transmitted over.
+#### ¿Pueden otros dispositivos unirse a la red de Locha Mesh?
+¡Sí! El protocolo de Locha Mesh es agnóstico al hardware usado. Esto significa que no hay "especificaciones técnicas propietarias o cerradas" para que un dispositivo sea un nodo dentro de Locha Mesh, aparte de lo que hemos especificado en las guías para la versión [DIY (hazlo tú mismo) del Turpial para Locha Mesh](./diy_turpial.md).
+
+
+#### ¿Cuántos dispositivos corriendo el protocolo de Locha Mesh hacen falta para crear una mesh?
+Two or three devices can already be a mesh, but it would not be a resilient communication method. Cuantos más dispositivos como el Turpial, versiones DIY, y nodos Harpia existan mejor será Locha Mesh porque habrá más saltos y rutas disponibles por los cuales transmitir los datos.
 
 
 #### Do I need to be ‘on-line’ at all times to receive messages?

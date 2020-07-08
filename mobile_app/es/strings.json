@@ -14,42 +14,42 @@
         "subTitleCreateAccount": "Asegúrate de guardar correctamente tu frase de respaldo en caso de que la necesites para restaurar tu cuenta",
         "titleConfirm": "Confirmar Palabras",
         "subTitleCorfirm": "Confirme sus palabras para continuar con el proceso de crear cuenta",
-        "titlePin": "Agregue si codigo pin",
+        "titlePin": "Agregue su código PIN",
         "subtitlePin": "Es muy importante que recuerde el pin ingresado, con él tendrá acceso a su cuenta.",
         "subtitlePin2": "Ingrese su PIN para acceder a su cuenta",
         "forgotPin": "¿Olvidaste tú pin?",
-        "click": "click aqui",
+        "click": "Haz click aquí",
         "error1": "Pin erróneo",
-        "error2": "Es obligatorio completar todos los campos.",
-        "error3": "las palabras no coinciden, compruébalo, lo he intentado de nuevo",
+        "error2": "Es obligatorio completar todos los campos",
+        "error3": "Las palabras no coinciden, compruébalo e inténtalo de nuevo",
         "titleRestore": "Restaurar cuenta",
         "buttonFile": "Restaurar desde un archivo",
-        "subtitleRestore": "es muy importante que ingrese las palabras correctamente, de lo contrario su cuenta no se restaurará con el mismo uid",
+        "subtitleRestore": "Para restaurar su cuenta con una frase de respaldo, introduzca las palabras en el orden correcto.",
         "titleUsername": "Agregar Nombre de Usuario",
         "textUsername": "Por favor ingrese su nombre o alias",
         "restorePinTitle": "Restaurar pin",
         "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin",
-        "buy": "Pre-ordenar dispositivo Turpial"
+        "buy": "Buy turpial device"
     },
     "Drawer": {
         "contacts": "Contactos",
         "setting": "Configuración"
     },
     "Settings": {
+        "deviceSettings": "device Settings",
         "name": "Nombre",
         "editName": "Editar nombre",
         "enterName": "Ingrese nombre",
         "cancelButton": "cancelar",
         "saveButton": "guardar",
-        "gallery": "Galeria",
-        "camera": "Camara",
+        "gallery": "Galería",
+        "camera": "Cámara",
         "uidCopy": "ID (IPv6) copiada al portapapeles",
         "language": "Idioma",
         "qrText": "Escanee el código QR para agregarlo como contacto",
-        "textBackup": "Ingrese su codigo pin para continuar",
-        "erroPin": "pin incorrecto",
-        "createBackup": "Crear archivo de respaldo",
-        "deviceSettings": "Configuración del dispositivo"
+        "textBackup": "Ingrese su código PIN para continuar",
+        "erroPin": "PIN incorrecto",
+        "createBackup": "Crear archivo de respaldo"
     },
     "Contacts": {
         "addContact": "Agregar contacto",
@@ -60,12 +60,13 @@
         "existName": "ya existe un contacto con ese nombre",
         "existContact": "Contacto existente",
         "invalidFormat": "Formato invalido",
-        "contactSuccessfully": "Contacto creado exitosamente!"
+        "contactSuccessfully": "¡Contacto creado exitosamente!"
     },
     "Header": {
         "contacts": "Contactos",
         "settings": "Configuración",
-        "search": "Buscar"
+        "search": "Buscar",
+        "notConnected": "Not connected"
     },
     "Chats": {
         "message": "Mensaje",
@@ -78,10 +79,14 @@
         "copyingMessage": "Mensaje copiado",
         "photo": "Foto"
     },
+    "Languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
     "DeviceSettings": {
-        "retryButton": "reintentar",
-        "headerTitle": "Configuracion del Dispositivo",
-        "errorInfo": "falló la conexión, verifique que esté conectada al dispositivo turpial",
+        "retryButton": "Reintentar",
+        "headerTitle": "device settings",
+        "errorInfo": "Falló la conexión, verifique que esté conectada al dispositivo Turpial.",
         "deviceTitle": "Características del dispositivo",
         "bateryStatus": "Estado de la batería",
         "devicename": "Nombre del dispositivo",
@@ -105,5 +110,15 @@
         "usernameError": "Este campo no debe estar vacío",
         "passwordError": "Este campo no debe estar vacío",
         "confirmPassword": "Las contraseñas no coinciden"
+    },
+    "WifiConnect": {
+        "title": "connect to a valid AP",
+        "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+        "buttonConnect": "Connect",
+        "buttonCancel": "Cancel",
+        "connectionError": "connection error",
+        "successfulConnection": "successful connection",
+        "inputSSID": "Enter SSID",
+        "inputPasword": "Enter Password"
     }
 }

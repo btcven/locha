@@ -1,5 +1,5 @@
-# 11. Operaciones de inicializacion del protocolo AODVv2.
-Explicaremos los procesos involucrados en la inicializacion y puesta en marcha del protocolo _AODVv2_ sobre el hardware embebido  basado en el cc1312 y el sistema operativo RIOT-OS, que conforman la plataforma del `Turpial`.
+# 11. Operaciones de inicialización del protocolo AODVv2.
+Explicaremos los procesos involucrados en la inicialización y puesta en marcha del protocolo _AODVv2_ sobre el hardware embebido basado en el cc1312 y el sistema operativo RIOT-OS, que conforman la plataforma del `Turpial`.
 
 ## 11.1 Proceso de inicialización.
 
@@ -7,11 +7,11 @@ Explicaremos los procesos involucrados en la inicializacion y puesta en marcha d
 <img src="../pics/aodvv2_init.svg" width="100%"/>
 </figure>
 
-El proceso de inicializacion del protocolo _AODV_ sobre un nodo de red requiere seguir una serie de pasos para configurar el software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
+El proceso de inicialización del protocolo _AODV_ sobre un nodo de red requiere seguir una serie de pasos para configurar el software y hardware necesarios para la correcta operación del protocolo de enrutamiento.
 
 En la imagen podemos ver cada una de las funciones que se deben ejecutar antes de poder conectarnos a la red **Locha Mesh**.
 
-Los procesos ejecutados en la etapa de inicializacion configuran las tablas manejadas dentro del protocolo, inicializan la interfaz de red y obtienen la dirección IP necesaria para operar en la red, entre otros recursos.
+Los procesos ejecutados en la etapa de inicialización configuran las tablas manejadas dentro del protocolo, inicializan la interfaz de red y obtienen la dirección IP necesaria para operar en la red, entre otros recursos.
 
 Todos los algoritmos presentados aquí están desarrollados bajo el sistema operativo RIOT-OS, por parte del equipo de **Locha**.
 
@@ -31,7 +31,7 @@ La función _aodvv2_seqnum_init_ es parte de unas funciones localizadas dentro d
 
  - Leer el contador y obtener su valor (get). (get)
 
- - Incrementar el contador en uno (inc), como detalla el protocolo,por cada _RREQ_ o _RREP_ que genere este nodo.
+ - Incrementar el contador en uno (inc), como detalla el protocolo, por cada _RREQ_ o _RREP_ que genere este nodo.
 
 ### 11.2.1 Rutina para manejar el número de secuencia.
 
@@ -61,7 +61,7 @@ aodvv2_seqnum_t aodvv2_seqnum_get(void)
 }
 ```
 
-Conociendo el papel que desempeña el numero de secuencia en el protocolo _AODV_, vemos que las funciones no hacen mas de lo que dice su nombre:
+Conociendo el papel que desempeña el número de secuencia en el protocolo _AODV_, vemos que las funciones no hacen más de lo que dice su nombre:
 
 ## 11.3 aodvv2_routing_table_init
 
@@ -93,8 +93,8 @@ typedef struct {
 
 La directiva _CONFIG_AODVV2_MAX_ROUTING_ENTRIES_ representa la cantidad de rutas que se pueden mantener en el nodo. Los recursos disponibles en el hardware tienen esta limitación.
 
-### 11.3.2 Rutina para la inicializacion de la tabla de rutas locales.
-Algo que tmabién necesitamos agregar en la inicializacion es la posibilidad de registrarnos a la capa de red _IPV6_ y asignar una _callback_ que será ejecutada cada vez que se quiera enviar un paquete a otro nodo y no se conozca una ruta al destino. Esta característica es algo que ofrece _RIOT-OS_ y nos permite conocer en qué momento iniciar el proceso de búsqueda de rutas sin la necesidad de buscar en tablas internas manejadas por nuestro código.
+### 11.3.2 Rutina para la inicialización de la tabla de rutas locales.
+Algo que también necesitamos agregar en la inicialización es la posibilidad de registrarnos a la capa de red _IPV6_ y asignar una _callback_ que será ejecutada cada vez que se quiera enviar un paquete a otro nodo y no se conozca una ruta al destino. Esta característica es algo que ofrece _RIOT-OS_ y nos permite conocer en qué momento iniciar el proceso de búsqueda de rutas sin la necesidad de buscar en tablas internas manejadas por nuestro código.
 
 ```cpp
 static aodvv2_local_route_t routing_table[CONFIG_AODVV2_MAX_ROUTING_ENTRIES];
@@ -123,11 +123,11 @@ void aodvv2_routingtable_init(void)
 
 La rutina encargada de iniciar la tabla de rutas se encuentra definida en el archivo _aodvv2_routingtable_init_ y el código es el siguiente:
 
-Iniciar la tabla de rutas equivale a  poner a cero todas las entradas de la tabla de rutas y crear algunas variables de tiempo que sirven para medir si la información  obtenida del mensaje de rutas es obsoleta o, por el contrario, nos brinda información útil para el correcto funcionamiento del router _AODV_.
+Iniciar la tabla de rutas equivale a poner a cero todas las entradas de la tabla de rutas y crear algunas variables de tiempo que sirven para medir si la información obtenida del mensaje de rutas es obsoleta o, por el contrario, nos brinda información útil para el correcto funcionamiento del router _AODV_.
 
 ## 11.4 aodv_rreqtable_init
 
-Esta función inicializa una tabla con la intencion de almacenar información de mensajes _multicast_ entrantes para evitar retransmitir mensajes redundantes. Esta tabla lleva un registro de cada mensaje _RREQ_ entrante, por lo que nuevos mensajes entrantes _RREQ_, buscando el mismo destino desde un mismo origen, son eliminados sin la necesidad de retransmitirlos.
+Esta función inicializa una tabla con la intención de almacenar información de mensajes _multicast_ entrantes para evitar retransmitir mensajes redundantes. Esta tabla lleva un registro de cada mensaje _RREQ_ entrante, por lo que nuevos mensajes entrantes _RREQ_, buscando el mismo destino desde un mismo origen, son eliminados sin la necesidad de retransmitirlos.
 
 ### 11.4.1 Esquema de una entrada en la tabla de mensaje de rutas RREQ.
 _writer_context_ es un objeto del tipo _aodvv2_writer_target_t_ que representa una estructura que sirve para definir un paquete _RFC5444_ para un destino IP específico y con un tipo de mensaje específico como _rfc5444_msg_type_.
@@ -143,7 +143,7 @@ typedef struct {
 } aodvv2_rreq_entry_t;
 ```
 
-### 11.4.2 Rutina para la inicializacion de la tabla de mensajes Multicast entrantes.
+### 11.4.2 Rutina para la inicialización de la tabla de mensajes Multicast entrantes.
 
 Este es el formato del mensaje que se almacenará en la tabla de mensaje de rutas (_RREQ_)
 
@@ -178,9 +178,9 @@ void aodvv2_rreqtable_init(void)
 
 La variable _mutex_ sirve para bloquear el acceso a la tabla por otros procesos dentro de la aplicación.
 
-Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero revisa en su tabla de rutas (NIB). Si no encuentra una ruta para ese destino, debe iniciar un proceso de buffering para alamacenar el paquete dentro del nodo hasta que encuentre la ruta solicitada.
+Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero revisa en su tabla de rutas (NIB). Si no encuentra una ruta para ese destino, debe iniciar un proceso de buffering para almacenar el paquete dentro del nodo hasta que encuentre la ruta solicitada.
 
-### 11.5.1 Rutina para la inicializacion del buffer de paquetes.
+### 11.5.1 Rutina para la inicialización del buffer de paquetes.
 
 The following code represents the function that is responsible for initializing the buffer where a message packet will be stored if a route to the destination is not known. The routine is inside the `aodvv2_buffer.c` file, which also offers routines for manipulating information.
 
@@ -192,7 +192,7 @@ void aodvv2_buffer_init(void)
 ```
 ### 11.5.2 Estructura del mensaje en buffer.
 
-El siguiente código representa la función que se encarga de inicializar el buffer donde se almacenará un paquete de mensaje si no se conoce una ruta hacia el destino. La rutina se encuentra dentro del archivo _aodvv2_buffer.c_, que también ofrece rutinas para la manipulacion de la información.
+El siguiente código representa la función que se encarga de inicializar el buffer donde se almacenará un paquete de mensaje si no se conoce una ruta hacia el destino. La rutina se encuentra dentro del archivo _aodvv2_buffer.c_, que también ofrece rutinas para la manipulación de la información.
 
 ```cpp
 typedef struct {
@@ -238,7 +238,7 @@ void aodvv2_client_init(void)
 
 El _mutex_ permite acceder al recurso (tabla de clientes) sin ser interrumpido por otros procesos tratando de leer o escribir la tabla.
 
-En esta fracción de código presente en la inicializacion del protocolo _AODV_, estamos suscribiendo el nodo para que pueda escuchar todos los mensajes _UDP_ procedentes de nodos externos, sin la necesidad de configurar _UDP_ por nuestra cuenta haciendo uso de la implementación que trae _RIOT-OS_ para el manejo de este tipo de suscripciones a mensajes externos.
+En esta fracción de código presente en la inicialización del protocolo _AODV_, estamos suscribiendo el nodo para que pueda escuchar todos los mensajes _UDP_ procedentes de nodos externos, sin la necesidad de configurar _UDP_ por nuestra cuenta haciendo uso de la implementación que trae _RIOT-OS_ para el manejo de este tipo de suscripciones a mensajes externos.
 
 Por tanto no es responsabilidad de la implementación del protocolo configurar la interface de red que se va a utilizar para la conexión con la red inalámbrica, pero su configuración dentro de la plataforma de _RIOT-OS_, se resume en las siguientes líneas de código.
 
@@ -275,7 +275,7 @@ static gnrc_netif_t *_find_ieee802154_netif(void)
 }
 ```
 
-## 11.8 Dirección IP global
+## 11.8 Dirección IP global.
 El código itera sobre las interfaces de red disponibles, y si encuentra una disponible y compatible con _IEEE802.15.4_, retorna un puntero con la dirección de esa interface.
 
 Cuando tengamos la interface de red configurada, el siguiente paso es configurar una dirección _IPV6_ global y de carácter único sobre toda la red, con la intención de evitar direcciones IP duplicadas.
@@ -291,7 +291,7 @@ Cuando tengamos la interface de red configurada, el siguiente paso es configurar
 
 Podría darse el caso de que el nodo tenga más de una interface de red. Por esto es necesaria la búsqueda de la dirección global en cualquiera de las interfaces disponibles en el hardware.
 
-### 11.8.1  _find_netif_global_addr
+### 11.8.1  _find_netif_global_addr.
 Para el envío de paquetes entre nodos, es necesario configurar direcciones IP globales. Si no, el stack de red no será capaz de rutear los paquetes de manera correcta debido a que todas las boards del `Turpial` cuentan con dos tipos de direcciones IPV6: una global y otra local.
 
 ```cpp
@@ -320,7 +320,7 @@ static int _find_netif_global_addr(ipv6_addr_t *addr)
 }
 ```
 
-## 11.9 aodvv2_client_add
+## 11.9 aodvv2_client_add.
 
 Esta función es utilizada para añadir clientes a la tabla correspondiente. Se usa por primera vez dentro de la rutina de inicialización del protocolo, ya que el mismo dispositivo debe agregarse a sí mismo como cliente en esta tabla.
 
@@ -371,20 +371,20 @@ aodvv2_client_entry_t *aodvv2_client_add(const ipv6_addr_t *addr,
 ```
 
 ## 11.10 Registro en el stack de red.
-Para poder escuchar mensajes entrantes provenientes de nodos externos, debemos registrarnos a un tipo especifico de mensajes, en este caso los mensajes _UDP_. _RIOT-OS_ ofrece la posibilidad de tener un hilo o thread desde el cual se podrán escuchar mensajes entrantres mediante el protocolo _UDP_ con tan solo realizar una suscripción a dicho tipo de mensajes. Este mecanismo es conocido como _IPC_ (Inter Communication process), y se puede configurar para que se ejecute de forma sincrónica o asíncrona.
+Para poder escuchar mensajes entrantes provenientes de nodos externos, debemos registrarnos a un tipo especifico de mensajes, en este caso los mensajes _UDP_. _RIOT-OS_ ofrece la posibilidad de tener un hilo o thread desde el cual se podrán escuchar mensajes entrantes mediante el protocolo _UDP_ con tan solo realizar una suscripción a dicho tipo de mensajes. Este mecanismo es conocido como _IPC_ (Inter Communication process), y se puede configurar para que se ejecute de forma sincrónica o asíncrona.
 
 /* * Message consumer, will be called once for every message of * type RFC5444_MSGTYPE_RREP that contains all the mandatory message TLVs */ static struct rfc5444_reader_tlvblock_consumer _rrep_consumer =
         { .msg_id = RFC5444_MSGTYPE_RREP, .block_callback = _cb_rrep_blocktlv_messagetlvs_okay, .end_callback = _cb_rrep_end_callback, };
 
 La diferencia entre el tipo de configuración seleccionado para escuchar los mensajes radica en que cuando tenemos recepción de mensajes de forma asíncrona, habilitamos una cola de mensajes la cual almacena los mensajes hasta que sean leídos, respetando el tamaño de la cola de mensajes.
 
-En la funcion _gnrc_netreg_entry_init_pid(&netreg, UDP_MANET_PORT, _pid)_,  _pid_ hace referencia al ID del thread que se designa para el manejo de este tipo de mensajes. Como en la creación de cualquier thread necesitamos algunos parámetros estándar de los threads en C++. Para la creación del thread que se encarga de esperar los mensajes, procedemos a la implementación creando un espacio de ejecución en paralelo con otros procesos dentro de _RIOT-OS_, conocido como multi-task.
+En la función _gnrc_netreg_entry_init_pid(&netreg, UDP_MANET_PORT, _pid)_, _pid_ hace referencia al ID del thread que se designa para el manejo de este tipo de mensajes. Como en la creación de cualquier thread necesitamos algunos parámetros estándar de los threads en C++. Para la creación del thread que se encarga de esperar los mensajes, procedemos a la implementación creando un espacio de ejecución en paralelo con otros procesos dentro de _RIOT-OS_, conocido como multi-task.
 
 ### 11.10.1 Rutina para la suscripción de mensajes de red.
 
 __cb_rrep_blocktlv_messagetlvs_okay_: esta función se ejecuta en el momento que el mensaje llega al nodo.
 
-El término __event_loop_ en la siguiente parte de código hace referencia a la funcion que ejecuta el código necesario para estar a la espera de los mensajes entrantes a los cuales se ha suscrito.
+El término _event_loop_ en la siguiente parte de código hace referencia a la función que ejecuta el código necesario para estar a la espera de los mensajes entrantes a los cuales se ha suscrito.
 
 ```cpp
 _pid = thread_create(_stack, sizeof(_stack), CONFIG_AODVV2_RFC5444_PRIO,
@@ -392,7 +392,7 @@ _pid = thread_create(_stack, sizeof(_stack), CONFIG_AODVV2_RFC5444_PRIO,
                          "aodvv2");
 ```
 
-Después de crear el proceso encargado de ejecutar una tarea durante todo el tiempo de vida (TTL) de la aplicación, debemos relacionar este proceso con una tarea en particular. En este caso la tarea es  escuchar los mensajes _UDP_ entrantes, los cuales pueden configurarse usando la siguiente funcion de _RIOT-OS_.
+Después de crear el proceso encargado de ejecutar una tarea durante todo el tiempo de vida (TTL) de la aplicación, debemos relacionar este proceso con una tarea en particular. En este caso la tarea es escuchar los mensajes _UDP_ entrantes, los cuales pueden configurarse usando la siguiente función de _RIOT-OS_.
 
 ```cpp
 /* Register netreg */
@@ -400,7 +400,7 @@ Después de crear el proceso encargado de ejecutar una tarea durante todo el tie
     gnrc_netreg_register(GNRC_NETTYPE_UDP, &netreg);
 ```
 
-__address_consumer_entries_: esta estructura define los tipos de entradas para los bloques de dirección para los que el _reader_ se va a registrar.
+_address_consumer_entries_: esta estructura define los tipos de entradas para los bloques de dirección para los que el _reader_ se va a registrar.
 
 ```cpp
 /**
@@ -528,7 +528,7 @@ static void *_event_loop(void *arg)
 
 Ahora veremos cómo implementar la función que se encarga de escuchar los mensajes entrantes además de procesarlos y se revisa qué tipo de mensaje ha llegado y cuál debe ser el procedimiento aplicado, dependiendo del tipo y la información contenida en él.
 
-La estructura principal de la funcion la forman un ciclo _while_ infinito típico de las funciones asignadas a ejecutarse en un thread o proceso independiente, y un _switch_, el cual filtra entre los diferentes mensajes entrantes, para tomar decisiones dependiendo del tipo de mensaje.
+La estructura principal de la función la forman un ciclo _while_ infinito típico de las funciones asignadas a ejecutarse en un thread o proceso independiente, y un _switch_, el cual filtra entre los diferentes mensajes entrantes, para tomar decisiones dependiendo del tipo de mensaje.
 
 ```cpp
 static void *_event_loop(void *arg)
@@ -662,13 +662,13 @@ void aodvv2_rfc5444_reader_register(struct rfc5444_reader *reader,
 
 _RFC5444_ define un tipo de mensaje llamado _message type-length-value_, que permiten crear una lista de entradas personalizadas de los mensajes _tlv_ requeridos en el desarrollo de la aplicación, y así poder registrar consumidores con _callback_ disponibles para el procesamiento del paquete una vez llegue al nodo.
 
-Los parámetros pasados a esta función difieren un poco de la configuración anterior debido a que tiene dos parametros extra:
+Los parámetros pasados a esta función difieren un poco de la configuración anterior debido a que tiene dos parámetros extra:
 
 Lo primero es que se hace una llamada a la misma función 4 veces, pero con diferentes parámetros.
 
 #### 11.11.3.1 rfc5444_reader_add_message_consumer 1.
 
-La intencion es configurar los consumidores de direcciones y de mensajes para cada tipo de paquete (_RREQ_, _RREP_, _RERR_).
+La intención es configurar los consumidores de direcciones y de mensajes para cada tipo de paquete (_RREQ_, _RREP_, _RERR_).
 
 ```cpp
 
@@ -678,9 +678,9 @@ rfc5444_reader_add_message_consumer(reader, &_rrep_consumer,
 
 En esta primera llamada se pretende registrar una _callback_ para el procesado del paquete _RFC5444_ del tipo _RREP_.
 
- - _reader_: objeto configurado dentro de la función de inicializacion de _AODV_ encargado de deserializar los paquetes entrantes.
+ - _reader_: objeto configurado dentro de la función de inicialización de _AODV_ encargado de deserializar los paquetes entrantes.
 
- - __rrep_consumer_: estructura de datos definida dentro de la _oonf_api_ y que define los siguientes atributos:
+ - _rrep_consumer_: estructura de datos definida dentro de la _oonf_api_ y que define los siguientes atributos:
 
 ```cpp
 /*
@@ -695,9 +695,9 @@ En esta primera llamada se pretende registrar una _callback_ para el procesado d
         };
 ```
 
-Los parametros de la función son:
+Los parámetros de la función son:
 
- - __cb_rrep_blocktlv_messagetlvs_okay_: esta función se ejecuta en el momento que el mensaje llega al nodo.
+ - _cb_rrep_blocktlv_messagetlvs_okay_: esta función se ejecuta en el momento que el mensaje llega al nodo.
 
  - __cb_rrep_end_callback_: esta función al final del proceso de lectura realizado en la primer _callback_, habilita la posibilidad de procesar nuestras propias _callbacks_.
 
@@ -712,7 +712,7 @@ rfc5444_reader_add_message_consumer(reader, &_rrep_address_consumer,
 ```
 
 
-El prpósito de esta función es registrar la _callback_ encargada de leer los bloques de dirección y registrar los tipos de dirección que se desean capturar.
+El propósito de esta función es registrar la _callback_ encargada de leer los bloques de dirección y registrar los tipos de dirección que se desean capturar.
 
  - _reader_: igual al definido en el apartado anterior.
 
@@ -783,7 +783,7 @@ _writer_ es el objeto encargado de serializar los paquetes _AODV_ antes de ser e
 
  - _buffers_: para almacenar los paquetes y los mensajes TLV a procesar.
  - _rfc5444_writer_:  para la creación de los paquetes _RFC5444_ que representa el estado del mismo.
- - __writer_context_: este objeto se comporta como un _wraper_ o envoltura que nos permite tener una estructura de datos personalizada para cubrir las necesidades del `Turpial` pero ademas haciendo dicha estructura compatible con la _oonf_api_.
+ - `_writer_context`: This object behaves like a  `wrapper` that allows us to have a custom data structure to cover the needs of the **Turpial** but also making said structure compatible with the `oonf_api`.
 
 ```cpp
 /**
@@ -801,7 +801,7 @@ static mutex_t _writer_lock;
 
 - _writer_context_ es un objeto del tipo _aodvv2_writer_target_t_ que representa una estructura que sirve para definir un paquete _RFC5444_ para un destino IP específico y con un tipo de mensaje específico como _rfc5444_msg_type_.
 
-El objeto _aodvv2_writer_target_t_ ofrece la posibilidad de crear un paquete _RFC5444_ para una IP específica y de un tipo de mensaje específico, y que contiene el paquete _AODV_ que queremos serialiar para que se transmita a nodos externos. La estructura es:
+El objeto _aodvv2_writer_target_t_ ofrece la posibilidad de crear un paquete _RFC5444_ para una IP específica y de un tipo de mensaje específico, y que contiene el paquete _AODV_ que queremos serializar para que se transmita a nodos externos. La estructura es:
 
 ```cpp
 typedef struct {
@@ -882,7 +882,7 @@ _writer_context.target.sendPacket = _send_packet;
 
 En el code anterior podemos ver que se están asignando recursos al _writer_, los _buffers_ que permitirán al _writer_ procesar la información y crear el paquete _RFC5444_.
 
-En la última línea del código anterior, vemos la asignación de una funciçon de _callback_ al contenedor o _wraper_ para poder enviar el paquete. Esta función debe ser responsabilidad del programador implementarla.
+In the last line of the previous code, we will see the assignment of a _callback_ function to the container or `wrapper` to be able to send the packet. Esta función debe ser responsabilidad del programador implementarla.
 
 Hemos creado un objeto _aodvv2_writer_target_ que debe ser inicializado y registrado y esto se consigue con:
 
@@ -898,7 +898,7 @@ Hemos creado un objeto _aodvv2_writer_target_ que debe ser inicializado y regist
 
 ## 11.13  Resumen
 
-Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero revisa en su tabla de rutas (NIB). Si no encuentra una ruta para ese destino, debe iniciar un proceso de buffering para alamacenar el paquete dentro del nodo hasta que encuentre la ruta solicitada.
+Cuando un cliente desea enviar un paquete con un mensaje el stack de red primero revisa en su tabla de rutas (NIB). Si no encuentra una ruta para ese destino, debe iniciar un proceso de buffering para almacenar el paquete dentro del nodo hasta que encuentre la ruta solicitada.
 
 La instrucción para conocer cúando iniciar el protocolo reactivo es:
 

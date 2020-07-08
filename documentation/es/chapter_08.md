@@ -79,7 +79,7 @@ Comparando este proceso con la vida cotidiana sería como salir a la calle a bus
 
 Mostraremos [7] gráficamente cómo se inunda la red con mensajes de requerimiento de ruta, con el fin de encontrar un nodo destino del cual no se conoce más que la dirección IP que tiene asignada.
 
-El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto. Las siguientes imágenes representan la secuencia lógica hasta llegar al nodo de  destino.
+El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar un mensaje a otro nodo remoto. Las siguientes imágenes representan la secuencia lógica hasta llegar al nodo de destino.
 
 ### Paso 1
 
@@ -91,7 +91,7 @@ El protocolo _AODV_ por ser reactivo, debe esperar a que un nodo intente enviar 
 
 - Primero debe buscar en su tabla de rutas y confirmar si la ruta al destino existe o no.
 
-- Si la ruta hacia el destino existe,  enviará el mensaje con la información del usuario de la aplicación. Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ruta.
+- Si la ruta hacia el destino existe, enviará el mensaje con la información del usuario de la aplicación. Pero si no se tiene una ruta, el nodo debe iniciar un proceso de búsqueda de ruta.
 
 - Este tipo de mensaje (_multicast_) será escuchado por todos sus vecinos dentro del radio de cobertura.
 
@@ -175,7 +175,7 @@ The advantages are:
 
 ### 8.3.3 Entrada de ruta inversa.
 
-Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
+Cada vez que se recibe un mensaje _RREQ_ o _RREP_, se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
 
   - Dirección IP de la fuente del mensaje.
   - Número de secuencia de la fuente.
@@ -184,14 +184,14 @@ Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multic
   - Usando una ruta inversa un nodo puede enviar un RREP a la fuente.
   - Una entrada en la tabla de rutas también incluye un tiempo de vida (TTL) de una ruta.
 
-Estas rutas aprendidas por medio de los mensajes _RREQ_, aún no se pueden confirmar como bidireccionales. Son enlaces que sabemos que son capaces de enviar mensajes , pero debemos asegurarnos que puede recibir también, a través de los mensajes _RREQ_ack_ o del mismo mensaje _RREP_, del cual hablaremos más adelante.
+Estas rutas aprendidas por medio de los mensajes _RREQ_, aún no se pueden confirmar como bidireccionales. Son enlaces que sabemos que son capaces de enviar mensajes, pero debemos asegurarnos que puede recibir también, a través de los mensajes _RREQ_ack_ o del mismo mensaje _RREP_, del cual hablaremos más adelante.
 
 ## 8.3 Proceso de requerimiento de ruta en una red ad hoc.
-El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla siguen siendo válidas. Para realizar esta tarea se utilizan los Route Error Message (_RERR_). Estos mensajes de control los genera  _AODVv2_ cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan el envío de un mensaje _RERR_:
+El [8] mantenimiento de las rutas de las tablas de enrutamiento es el proceso mediante el cual el algoritmo asegura que las rutas activas de la tabla siguen siendo válidas. Para realizar esta tarea se utilizan los Route Error Message (_RERR_). Estos mensajes de control los genera _AODVv2_ cuando quiere informar a uno o varios nodos de que una o varias rutas han dejado de ser válidas. Hay tres eventos que provocan el envío de un mensaje _RERR_:
 
 - Cuando un nodo tiene que reenviar un paquete IP pero no existe una ruta válida en su tabla de enrutamiento, el nodo enviara un _RERR_ a la fuente para informar que no existe una ruta hacia el destino.
 
-- Cuando no se puede reenviar un mensaje _RREP_ porque la ruta hacia el generador del _RREQ_ no es válida. En este caso el nodo debe enviar el mensaje  _RERR_ hacia el generador del mensaje _RREP_ para informar que la ruta hacia el origen del mensaje _RREQ_ no es válida.
+- Cuando no se puede reenviar un mensaje _RREP_ porque la ruta hacia el generador del _RREQ_ no es válida. En este caso el nodo debe enviar el mensaje _RERR_ hacia el generador del mensaje _RREP_ para informar que la ruta hacia el origen del mensaje _RREQ_ no es válida.
 
 - Cuando un nodo detecta que uno de los enlaces de un nodo vecino se ha roto, debe informar a todos los nodos que usan ese enlace de todas las rutas han pasado a ser invalidas.
 
@@ -209,7 +209,7 @@ Cuando no se puede reenviar un mensaje _RREP_ porque la ruta hacia el generador 
 
 ## 8.4 Mantenimiento de rutas.
 
-Tenemos también un ejemplo para ilustrar  la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos
+Tenemos también un ejemplo para ilustrar la tabla de rutas en cada nodo después de un requerimiento de ruta a todos los nodos.
 
 La siguiente figura muestra una topología básica de nodos y la tabla de rutas que es usada para encontrar a otros nodos.
 
@@ -442,7 +442,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 
 - **msg_hop_limit**: Contiene un número entero que decrece en 1 cada salto que atraviesa el mensaje _RREQ_. El _RREQ_Gen_ establece el número máximo de saltos que atravesará el mensaje _RREQ_.
 - **AddressList**: Contiene _OrigPrefix_ y _TargPrefix_.
-- **PrefixLengthList** (Opcional): Contiene _OrigPrefixLen_, si se omite,la longitud del prefijo (en bits) es igual a la longitud de la dirección _OrigAddr_.
+- **PrefixLengthList** (Opcional): Contiene _OrigPrefixLen_, si se omite, la longitud del prefijo (en bits) es igual a la longitud de la dirección _OrigAddr_.
 - **OrigSeqNum** :Número de secuencia de _OrigPrefix_, que se incrementa como se indica [aquí](#88-Sequence-Number).
 - **MetricType**: Tipo de métrica asociada con _OrigMetric_.
 - **OrigMetric**: El valor de la métrica asociada a la ruta a _OrigPrefix_.
@@ -466,7 +466,7 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
    <img src="../pics/ACKMSG.svg" width="90%"/>
 </figure>
 
-- **AckReq** (Opcional): Si se incluye, informa al receptor que debe enviar un mensaje _RREP_Ack_ para confirmar la bidireccionalidad del enlace
+- **AckReq** (Opcional): Si se incluye, informa al receptor que debe enviar un mensaje _RREP_Ack_ para confirmar la bidireccionalidad del enlace.
 
 ### 8.11.4 Contenido del Mensaje RERR.
 
@@ -478,10 +478,10 @@ Vamos a detallar los mensajes de control que el protocolo utiliza para comunicar
 - **AddressList**: Las direcciones de las rutas que no están disponibles.
 - **PrefixLengthList**: El tamaño del prefijo en bits, asociado con las rutas que no están disponibles o enlaces rotos.
 - **SeqNumList**: La secuencia de número conocida del link roto.
-- **MetricTypeList**: El tipo de métricas asociadas a las rutas que ya no estan disponibles.
+- **MetricTypeList**: El tipo de métricas asociadas a las rutas que ya no están disponibles.
 
 
-El mensaje Route Error (_RERR_) es utilizado para informar a los nodos que no existe una ruta. Este tipo de mensajes hace parte del mantenimiento de rutas y cada nodo logra actualizar sus tablas de rutas y eliminar rutas obsoletas o enlaces rotos, con la información de este tipo de mensajes
+El mensaje Route Error (_RERR_) es utilizado para informar a los nodos que no existe una ruta. Este tipo de mensajes hace parte del mantenimiento de rutas y cada nodo logra actualizar sus tablas de rutas y eliminar rutas obsoletas o enlaces rotos, con la información de este tipo de mensajes.
 
 ## 8.11 Mensajes.
 
@@ -498,7 +498,7 @@ Este proceso tiene como finalidad [10] asegurar que no se establecen rutas a tra
 
 Este proceso tiene como finalidad [10] la de actualizar la tabla Neighbor Set. Cuando se recibe un mensaje de control se inicia el proceso para actualizar la tabla Neighbor Set. Esto permite registrar los vecinos del router _AODVv2_ y establecer la relación que mantiene con cada una de ellos.
 
-- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción,el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la Neighbor Set cambia a Confirmed.
+- Cuando un router recibe un mensaje _RREP_ y se esperaba su recepción, el enlace con el router que ha enviado el paquete es confirmado como bidireccional, y por lo tanto el estado de la entrada correspondiente de la Neighbor Set cambia a Confirmed.
 
 - Cuando un router recibe un mensaje _RREP_Ack_ y éste es debido al envío de un _RREP_Ack_ con _AckReq_, el enlace es confirmado como bidireccional y se tiene que actualizar la tabla Neighbor Set.
 
@@ -523,7 +523,7 @@ Después de determinar [10] que el _AdvRte_ se utilizará para actualizar la tab
 
 Cuando los mensajes de ruta inundan una _MANET_, un nodo podría recibir varias veces el mismo mensaje de ruta. Si no se evita, parte de estos mensajes serán reenviados generando tráfico innecesario.
 
-Cada vez que se recibe un mensaje _RREQ_ o _RREP_,se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
+Cada vez que se recibe un mensaje _RREQ_ o _RREP_, se consulta en la tabla Multicast Route Message Set si la información que contiene el mensaje entrante es redundante o no.
 
 Vamos a ver una descripción de cada proceso del protocolo.
 
@@ -542,7 +542,7 @@ A partir de esto se toma la decisión si el mensaje es reenviado o no.
 
 - Este mensaje se usa para crear el mensaje [RFC5444] correspondiente (Sección[8](https://datatracker.ietf.org/doc/draft-perkins-manet-aodvv2/?include_text=1)), que se entrega al multiplexor RFC5444 para su posterior procesamiento.
 
-- Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusion en _LL-MANET-Routers_
+- Por defecto, el multiplexor tiene instrucciones para el manejo de mensajes de multidifusión en _LL-MANET-Routers_.
 
 Para generar un mensaje _RREQ_ el router _AODVv2_ debe seguir estos pasos:
 
