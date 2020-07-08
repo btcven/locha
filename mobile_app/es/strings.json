@@ -24,18 +24,19 @@
         "error3": "Las palabras no coinciden, compruébalo e inténtalo de nuevo",
         "titleRestore": "Restaurar cuenta",
         "buttonFile": "Restaurar desde un archivo",
-        "subtitleRestore": "es muy importante que ingrese las palabras correctamente, de lo contrario su cuenta no se restaurará con el mismo uid",
+        "subtitleRestore": "Para restaurar su cuenta con una frase de respaldo, introduzca las palabras en el orden correcto.",
         "titleUsername": "Agregar Nombre de Usuario",
         "textUsername": "Por favor ingrese su nombre o alias",
         "restorePinTitle": "Restaurar pin",
         "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin",
-        "buy": "Pre-ordenar dispositivo Turpial"
+        "buy": "Buy turpial device"
     },
     "Drawer": {
         "contacts": "Contactos",
         "setting": "Configuración"
     },
     "Settings": {
+        "deviceSettings": "device Settings",
         "name": "Nombre",
         "editName": "Editar nombre",
         "enterName": "Ingrese nombre",
@@ -48,8 +49,7 @@
         "qrText": "Escanee el código QR para agregarlo como contacto",
         "textBackup": "Ingrese su código PIN para continuar",
         "erroPin": "PIN incorrecto",
-        "createBackup": "Crear archivo de respaldo",
-        "deviceSettings": "Configuración del dispositivo"
+        "createBackup": "Crear archivo de respaldo"
     },
     "Contacts": {
         "addContact": "Agregar contacto",
@@ -65,7 +65,8 @@
     "Header": {
         "contacts": "Contactos",
         "settings": "Configuración",
-        "search": "Buscar"
+        "search": "Buscar",
+        "notConnected": "Not connected"
     },
     "Chats": {
         "message": "Mensaje",
@@ -78,9 +79,13 @@
         "copyingMessage": "Mensaje copiado",
         "photo": "Foto"
     },
+    "Languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
     "DeviceSettings": {
         "retryButton": "Reintentar",
-        "headerTitle": "Configuración del Dispositivo",
+        "headerTitle": "device settings",
         "errorInfo": "Falló la conexión, verifique que esté conectada al dispositivo Turpial.",
         "deviceTitle": "Características del dispositivo",
         "bateryStatus": "Estado de la batería",
@@ -105,5 +110,15 @@
         "usernameError": "Este campo no debe estar vacío",
         "passwordError": "Este campo no debe estar vacío",
         "confirmPassword": "Las contraseñas no coinciden"
+    },
+    "WifiConnect": {
+        "title": "connect to a valid AP",
+        "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+        "buttonConnect": "Connect",
+        "buttonCancel": "Cancel",
+        "connectionError": "connection error",
+        "successfulConnection": "successful connection",
+        "inputSSID": "Enter SSID",
+        "inputPasword": "Enter Password"
     }
 }
