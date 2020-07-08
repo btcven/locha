@@ -28,8 +28,7 @@
     "titleUsername": "Add nickname",
     "textUsername": "Please enter a nickname",
     "restorePinTitle": "Restore PIN",
-    "restorePinText": "Enter the backup phrase to restore your PIN",
-    "buy": "Buy turpial device"
+    "restorePinText": "Enter the backup phrase to restore your PIN"
   },
   "Drawer": {
     "contacts": "Contacts",
@@ -65,7 +64,8 @@
   "Header": {
     "contacts": "Contacts",
     "settings": "Settings",
-    "search": "Search"
+    "search": "Search",
+    "notConnected": "Not connected"
   },
   "Chats": {
     "message": "Message",
@@ -107,7 +107,18 @@
     "ChangeCredencial": "Add new Credentials",
     "ChangePassword": "Change password",
     "usernameError": "This field can't be empty",
-    "passwordError": "This field can't be empty",
+    "passwordExrror": "This field can't be empty",
     "confirmPassword": "Passwords don't match"
+  },
+  "WifiConnect": {
+    "title": "connect to a valid AP",
+    "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+    "buttonConnect": "Connect",
+    "buttonCancel": "Cancel",
+    "connectionError": "connection error",
+    "successfulConnection": "successful connection",
+    "inputSSID":"Enter SSID",
+    "inputPasword":"Enter Password"
+
   }
 }
