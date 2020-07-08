@@ -2,7 +2,7 @@
 
 _AODVv2_ especifica que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (_MANET_) Packet/Message Format [RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
 
-El _RFC5444_ dota de una mayor eficiencia a las trasmisiones de los mensajes de control, estructura el contenido  reduciendo el número de bytes a transmitir.
+El _RFC5444_ dota de una mayor eficiencia a las trasmisiones de los mensajes de control, estructura el contenido reduciendo el número de bytes a transmitir.
 
 El formato _RFC5444_ define los siguientes elementos:
 - Paquete: Es la entidad de mayor nivel. Un paquete contiene una cabecera y cero o más mensajes.
@@ -32,7 +32,7 @@ _AODVv2_ no requiere acceso al encabezado del paquete [RFC5444].
 
 En el encabezado del paquete AODVv2 usa:
 
-**msg-addr-length** indica el tamano de la direccion en el mensaje, cuyo valor corresponde a `addr_length en octetos -1`, por ejemplo para IPV4 seria 3 y para IPV6 seria igual 15.
+**msg-addr-length** indica el tamaño de la dirección en el mensaje, cuyo valor corresponde a `addr_length en octetos -1`, por ejemplo para IPV4 sería 3 y para IPV6 sería igual 15.
 
 ## 9.1 Información del paquete.
 Para esto primero vamos a revisar cuales son los campos de cabecera del paquete _RFC5444_ que utiliza _AODVv2_.
@@ -57,12 +57,12 @@ Lo definimos como sigue:
 
 **pkt-seq-num**: Es omitido si el _phaseseqnum flag_ está establecido a cero('0'). En caso contrario, es un entero sin signo de 16 bits, especificando el número de secuencia de un paquete.
 
-**tlv*block**: Es omitido si el _phastlv  flag_ esta establecido a cero('0'). En caso contrario, se define en [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
+**tlv*block**: Es omitido si el _phastlv -flag_ está establecido a cero ('0'). En caso contrario, se define en [RFC4544 sección 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
 
 ## 9.2 Mensajes.
 Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. Los mensajes contienen:
 
- - Un mensaje header
+ - Un mensaje header.
  - Un bloque de mensaje _TLV_ que contiene cero o más _TLVs_, asociados con el mensaje completo.
  - Cero o más bloques de direcciones, cada bloque conteniendo uno o más objetos de direcciones.
  - Un bloque _TLV_ de bloque de dirección, que contiene cero o más _TLVs_.
@@ -98,13 +98,13 @@ Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. L
 
 **No revisar aun EN PROCESO DE DESARROLLO** Es un campo que contiene un entero sin signo de 8 bits
 
-AODVv2 utilza los siguientes campos del mensaje Header RFC5444
+AODVv2 utiliza los siguientes campos del mensaje Header RFC5444
 
 <figure>
     <img src="../pics/header-rfc5444.png"/>
 </figure>
 
-### El address block esta formado por
+### El address block está formado por:
 
 <figure>
     <img src="../pics/tlv-addr-block.png"/>
