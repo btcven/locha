@@ -47,7 +47,7 @@ Las comunicaciones por Internet o teléfono podrían dejar de funcionar durante 
 
 Usar Internet hoy parece simple e inocente, pero en realidad, Internet está plagado de aplicaciones invasivas de la privacidad, vigilancia, bloqueos, cortes y también sitios web, proveedores de Internt (ISPs), gobiernos e incluso algoritmos espiando su actividad en Internet y plataformas de redes sociales. Además, para tener Internet en casa o datos móviles en tu teléfono debes entregar tu información personal. Si estás viajando y necesitas una tarjeta SIM del país que estás visitando, debes entregar tu documento de identidad o incluso escanear tu cara, sino no activarán el servicio.
 
-This can be very dangerous if you are a political dissident, or even if you are just expressing your views in a hostile place, or denouncing abuses, it could get you in trouble, jailed or worse as they already have the information they need and the way to find you (your phone data connection).
+Esto puede ser muy peligroso si eres un disidente político, o incluso si sólo estás expresando tu opinión en un lugar hostil, o denunciando abusos, te podrías meter en problemas, te podrían encarcelar o peor ya que tienen la información que necesitan y la forma de encontrarte (tu conexión de datos móviles).
 
 Creemos que estas situationes se pueden evitar y que las comunicaciones deben ser privadas y seguras. Para leer más sobre esto, dirígete a [Motivación](./chapter_01.md).
 
@@ -61,11 +61,11 @@ El dispositivo Turpial de Locha Mesh puede actualmente pre-ordenarse haciendo un
 
 
 #### ¿Cuántos dispositivos corriendo el protocolo de Locha Mesh hacen falta para crear una mesh?
-Two or three devices can already be a mesh, but it would not be a resilient communication method. Cuantos más dispositivos como el Turpial, versiones DIY, y nodos Harpia existan mejor será Locha Mesh porque habrá más saltos y rutas disponibles por los cuales transmitir los datos.
+Con sólo dos o tres dispositivos puedes formar una red mesh, pero eso no sería un método de comunicación resiliente. Cuantos más dispositivos como el Turpial, versiones DIY, y nodos Harpia existan mejor será Locha Mesh porque habrá más saltos y rutas disponibles por los cuales transmitir los datos.
 
 
-#### Do I need to be ‘on-line’ at all times to receive messages?
-Yes. The Locha Mesh is completely peer-to-peer, there are no servers or intermediaries, so the messages sent to you over the Locha Mesh while you are disconnected are not stored anywhere waiting for you to connect again. If a user is online, your message will send back an ACK response (acknowledgement response) when has been received by the other party, but if the user is offline you’ll receive a NACK response (negative acknowledgement response).
+#### ¿Necesito estar conectado todo el tiempo para poder recibir mensajes?
+Sí. Locha Mesh es completamente peer-to-peer, no hay servidores o intermediarios, así que los mensajes que te envíen a través de Locha Mesh mientras estabas desconectado no se están guardando en ningún sitio esperando a que te vuelvas a conectar. If a user is online, your message will send back an ACK response (acknowledgement response) when has been received by the other party, but if the user is offline you’ll receive a NACK response (negative acknowledgement response).
 
 For these situations, other nodes can work as ‘servers’ and store messages for an amount of time and then try to deliver them to you in a later time. The owner of the ‘server’ node may charge you for the service provided.
 
