@@ -108,8 +108,8 @@
         "confirmPassword": "Passwords don't match"
     },
     "WifiConnect": {
-        "title": "connect to a valid AP",
-        "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+        "title": "Connect to a valid AP",
+        "subtitle": "For this application to work correctly you need to be connected to a compatible IPv6 network. Please connect to a valid AP.",
         "buttonConnect": "Connect",
         "buttonCancel": "Cancel",
         "connectionError": "connection error",
