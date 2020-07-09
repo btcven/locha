@@ -29,14 +29,14 @@
         "textUsername": "Por favor ingrese su nombre o alias",
         "restorePinTitle": "Restaurar pin",
         "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin",
-        "buy": "Buy turpial device"
+        "buy": "Pre-order Turpial device"
     },
     "Drawer": {
         "contacts": "Contactos",
         "setting": "Configuración"
     },
     "Settings": {
-        "deviceSettings": "device Settings",
+        "deviceSettings": "Device settings",
         "name": "Nombre",
         "editName": "Editar nombre",
         "enterName": "Ingrese nombre",
@@ -66,7 +66,7 @@
         "contacts": "Contactos",
         "settings": "Configuración",
         "search": "Buscar",
-        "notConnected": "Not connected"
+        "notConnected": "Desconectado"
     },
     "Chats": {
         "message": "Mensaje",
@@ -79,13 +79,9 @@
         "copyingMessage": "Mensaje copiado",
         "photo": "Foto"
     },
-    "Languages": {
-        "en": "English",
-        "es": "Spanish"
-    },
     "DeviceSettings": {
         "retryButton": "Reintentar",
-        "headerTitle": "device settings",
+        "headerTitle": "Configuración del Dispositivo",
         "errorInfo": "Falló la conexión, verifique que esté conectada al dispositivo Turpial.",
         "deviceTitle": "Características del dispositivo",
         "bateryStatus": "Estado de la batería",
@@ -112,8 +108,8 @@
         "confirmPassword": "Las contraseñas no coinciden"
     },
     "WifiConnect": {
-        "title": "connect to a valid AP",
-        "subtitle": "This application to work correctly it is necessary to connect to a network compatible with ipv6, please connect to a valid network.",
+        "title": "Connect to a valid AP",
+        "subtitle": "For this application to work correctly you need to be connected to a compatible IPv6 network. Please connect to a valid AP.",
         "buttonConnect": "Connect",
         "buttonCancel": "Cancel",
         "connectionError": "connection error",
