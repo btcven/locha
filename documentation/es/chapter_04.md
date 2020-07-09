@@ -1,6 +1,6 @@
 # 4. Estructura de descomposición del proyecto Locha Mesh
 
-La estructura de descomposición del trabajo o EDT, agrupa y define el trabajo que se realizará en el proyecto. A continuación se presenta la lista de tareas necesarias para alcanzar los objetivos:
+The WBS of Locha Mesh is based on the following:
 
 **Formación**: La formación para desarrollar el proyecto se parte en tres:
 - RIOT OS: El sistema operativo en el que se basa la aplicación a implementar.

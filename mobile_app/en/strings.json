@@ -36,6 +36,7 @@
         "setting": "Settings"
     },
     "Settings": {
+        "deviceSettings": "Device settings",
         "name": "Name",
         "editName": "Edit nickname",
         "enterName": "Nickname",
@@ -47,9 +48,8 @@
         "language": "Language",
         "qrText": "Friends can scan this QR to add you as contact",
         "textBackup": "Enter your PIN code to continue",
-        "erroPin": "Wrong PIN",
-        "createBackup": "Create backup file",
-        "deviceSettings": "Device settings"
+        "errorPin": "Wrong PIN",
+        "createBackup": "Create backup file"
     },
     "Contacts": {
         "addContact": "Add contact",
@@ -65,7 +65,8 @@
     "Header": {
         "contacts": "Contacts",
         "settings": "Settings",
-        "search": "Search"
+        "search": "Search",
+        "notConnected": "Not connected"
     },
     "Chats": {
         "message": "Message",
@@ -105,5 +106,15 @@
         "usernameError": "This field can't be empty",
         "passwordError": "This field can't be empty",
         "confirmPassword": "Passwords don't match"
+    },
+    "WifiConnect": {
+        "title": "Connect to a valid AP",
+        "subtitle": "For this application to work correctly you need to be connected to a compatible IPv6 network. Please connect to a valid AP.",
+        "buttonConnect": "Connect",
+        "buttonCancel": "Cancel",
+        "connectionError": "connection error",
+        "successfulConnection": "successful connection",
+        "inputSSID": "Enter SSID",
+        "inputPassword": "Enter Password"
     }
 }

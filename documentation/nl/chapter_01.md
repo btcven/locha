@@ -1,8 +1,8 @@
 ## 1. Motivatie
 
-Even though telecom technology has taken a big leap in terms of development, it becomes evident it's own susceptibility. We're not talking about technology by itself but about people, those are the ones vulnerable to the side effects of communication isolation resulting from centralization, and regulation of communication standards worldwide.
+Hoewel de telecomtechnologie een grote sprong voorwaarts heeft gemaakt in termen van ontwikkeling, wordt het duidelijk dat het zelf gevoelig is. We hebben het niet alleen over technologie, maar ook over mensen. dat zijn degenen die kwetsbaar zijn voor de neveneffecten van isolatie van communicatie als gevolg van centralisatie en wereldwijde regulering van communicatienormen.
 
-The advances that have emerged since the appearance of wireless networks in 1970, it's growth and demand in the last decade has been exponential. Specifically, there are two perspectives in this subject attending the underlying architecture of the network: wireless network infrastructure and infrastructurless wireless networks.
+De vooruitgang die is geboekt sinds het verschijnen van draadloze netwerken in 1970, de groei en de vraag in de afgelopen tien jaar zijn exponentieel geweest. Specifically, there are two perspectives in this subject attending the underlying architecture of the network: wireless network infrastructure and infrastructurless wireless networks.
 
 As an example for wireless networking infrastructure we can take a look to cellular networks, in these networks the user can connect wireless to the main network as long as it's inside the coverage range of the network, this is how it can serve a large number of users inside an extense geographic area by using a limited frequency spectrum. The service provided is high quality and is often compared to the wired telephone systems. In this network, the routers or base stations, are in fixed-locations and wired, the mobile units connect to it and communicate through it. If this mobile unit goes further than the range of its base a handoff to another base its produced.
 
