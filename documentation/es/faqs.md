@@ -65,20 +65,20 @@ Con sólo dos o tres dispositivos puedes formar una red mesh, pero eso no sería
 
 
 #### ¿Necesito estar conectado todo el tiempo para poder recibir mensajes?
-Sí. Locha Mesh es completamente peer-to-peer, no hay servidores o intermediarios, así que los mensajes que te envíen a través de Locha Mesh mientras estabas desconectado no se están guardando en ningún sitio esperando a que te vuelvas a conectar. If a user is online, your message will send back an ACK response (acknowledgement response) when has been received by the other party, but if the user is offline you’ll receive a NACK response (negative acknowledgement response).
+Sí. Locha Mesh es completamente peer-to-peer, no hay servidores o intermediarios, así que los mensajes que te envíen a través de Locha Mesh mientras estabas desconectado no se están guardando en ningún sitio esperando a que te vuelvas a conectar. Si el usuario está conectado, tu mensaje enviará de vuelta una respuesta de reconocimiento (ACK) cuando sea recibido por el destinatario, pero si el usuario está desconectado recibirás una respuesta de reconocimiento negativo (NACK).
 
-For these situations, other nodes can work as ‘servers’ and store messages for an amount of time and then try to deliver them to you in a later time. The owner of the ‘server’ node may charge you for the service provided.
-
-
-#### I want to contribute. Where do I start?
-Thank you for joining us! Please read our [Contributing section](https://github.com/btcven/locha/blob/master/CONTRIBUTING.md) before you make a PR or open an [issue](https://github.com/btcven/locha/issues).
+Para estas situaciones, otros nodos pueden funcionar como 'servidores' y guardar mensajes por un tiempo determinado y luego intentar entregarselo más tarde. El dueño del nodo 'servidor' puede cobrarle por el servicio prestado.
 
 
-#### I can’t donate any money, nor code. How else can I help?
-We appreciate any help effort made by anyone. You can help with [translations to other languages](https://crowdin.com/project/locha-mesh) so this project reaches more people, you can also try to assemble your own Turpial device following the [DIY instructions](./diy_turpial.md) and share your experience with us. Spreading the word and social media interactions (posts, likes, tweets, retweets) could also help us reach a bigger audience and attract more collaborators.
+#### Quiero contribuir. ¿Dónde empiezo?
+¡Gracias por tu apoyo! Por favor, lea nuestra [sección de contribución](https://github.com/btcven/locha/blob/master/CONTRIBUTING.md) antes de hacer un PR o abrir un [issue](https://github.com/btcven/locha/issues).
 
 
-### Can’t find an answer to your question?
-If you have a question [send us an email](mailto:contacto+lochameshquestion@bitcoinvenezuela.com) describing the matter and we’ll get back to you as soon as possible. If you'll like to suggest a question to be added to this FAQs, please, open an issue and make a pull request with your suggestion so we can review it.
+#### No puedo donar, ni programar. ¿Cómo puedo ayudar?
+Agradecemos cualquier ayuda. Puedes contribuir con [traducciones a otros idiomas](https://crowdin.com/project/locha-mesh) para que este proyecto llegue a más personas, también puedes intentar montar tu propio dispositivo Turpial siguiendo las instrucciones [DIY (hazlo tú mismo)](./diy_turpial.md) y compartir tu experiencia con nosotros. Comparte este proyecto con tus amigos, interacciones en redes sociales (como publicaciones, me gusta, tweets, retweets) también pueden ayudarnos a alcanzar una mayor audiencia y atraer más colaboradores.
 
-You can also join the discussions on our public channels. We’d love to hear feedback from the community!
+
+### ¿No has encontrado una respuesta a tu pregunta?
+Si tienes una pregunta [envíanos un correo electrónico](mailto:contacto+lochameshquestion@bitcoinvenezuela.com) describiendo el asunto y te responderemos lo antes posible. Si te gustaría sugerir una pregunta para ser añadida a estas Preguntas Frecuentes, por favor, abre un issue y haz un pull request con tu sugerencia para que podamos revisarlo.
+
+Puedes unirte a los debates en nuestros canales públicos. ¡Nos gustaría recibir sugerencias de la comunidad!

@@ -48,7 +48,7 @@
         "language": "Taal",
         "qrText": "Vrienden kunnen deze QR scannen om u toe te voegen als contact",
         "textBackup": "Voer uw PIN-code in om door te gaan",
-        "erroPin": "Onjuiste PIN",
+        "errorPin": "Wrong PIN",
         "createBackup": "Back-upbestand maken"
     },
     "Contacts": {
@@ -115,6 +115,6 @@
         "connectionError": "connection error",
         "successfulConnection": "successful connection",
         "inputSSID": "Enter SSID",
-        "inputPasword": "Enter Password"
+        "inputPassword": "Enter Password"
     }
 }
