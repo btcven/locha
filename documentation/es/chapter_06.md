@@ -26,7 +26,7 @@ La familia de MCUs `CC135x` cumplen con la mayoría de requerimientos, sin embar
 
 Para que el Turpial de Locha Mesh funcione de forma óptima, se debe seleccionar cuidadosamente el dispositivo que regulará la corriente proveniente de la batería y alimentará al dispositivo.
 
-<img src="../pics/powerSupply-selection.svg"  height="650" alt="Los parámetros a tomar en cuenta para la elección del dispositvo que alimenta al circuito:" />
+<img src="../pics/powerSupply-selection.svg"  height="650" />
 
 <br/>
 
