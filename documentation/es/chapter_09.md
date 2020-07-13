@@ -1,4 +1,3 @@
-
 # 9. Formato de paquetes para redes MANET.
 
 _AODVv2_ especifica que los mensajes de control tienen que mapearse en un contenedor llamado Generalized Mobile Ad Hoc Network (_MANET_) Packet/Message Format [RFC5444]. Este formato de paquete proporciona un encapsulado único para múltiples protocolos de enrutamiento Ad Hoc.
@@ -10,7 +9,7 @@ El formato _RFC5444_ define los siguientes elementos:
 - Mensaje: Es la entidad que transporta la información del protocolo. Un mensaje está formado por una cabecera, un bloque TLV (type-length-value) y un bloque de direcciones.
 - Bloque de direcciones: Está formado por una o más direcciones, y un bloque de atributos.
 - Bloque TLV: Está formado por uno o más TLV.
-- TLV: Es una estructura donde: 
+- TLV: Es una estructura donde:
   - Type: Es el identificador del tipo de dato que viene a continuación.
   - Length: Este campo indica cuantos bytes ocupa el campo value.
   - Value: Es el valor concreto del objeto al que se refiere.
@@ -24,7 +23,7 @@ Cada tipo de mensaje de control se tiene que adaptar al formato del paquete _RFC
 _AODVv2_ no requiere acceso al encabezado del paquete [RFC5444].
 
 En el encabezado del paquete AODVv2 usa:
-- **msg-type**. 
+- **msg-type**.
 - **msg-hop-limit**.
 - **msg-addr-length**.
 
@@ -36,7 +35,7 @@ En el encabezado del paquete AODVv2 usa:
 Esta sección del mensaje permite conocer rápidamente información como:
  - Versión del paquete.
 -  Número de secuencia.
-- _Flags_ que permiten conocer si los _TLV_ están en el paquete sin deserializar el mismo. 
+- _Flags_ que permiten conocer si los _TLV_ están en el paquete sin deserializar el mismo.
 
 ### 9.1.1 pkt-header.
 
@@ -48,7 +47,7 @@ Lo definimos como sigue:
 - **bit 0** (_phaseseqnum_) si está indicado uno('1'), entonces significa que el **pkt-seq--num** está incluido en el **pkt-header**. En caso contrario, no lo está.
 - **bit 1**(_phastlv_): Si está indicado uno('1'), significa que el **tlv-block** está incluido en el **pkt-header**. En caso contrario, no lo está.
 - **bit 2-3**: Están reservados y deberían ser limpiados en cada transmisión y deben ser ignorados en cada recepción.
- 
+
 **pkt-seq-num**: Es omitido si el _phaseseqnum flag_ está establecido a cero('0'). En caso contrario, es un entero sin signo de 16 bits, especificando el número de secuencia de un paquete.
 
 **tlv*block**: Es omitido si el _phastlv  flag_ esta establecido a cero('0'). En caso contrario, se define en [RFC4544 seccion 5.4](https://tools.ietf.org/html/rfc5444#section-5.2)
@@ -89,7 +88,7 @@ Los paquetes pueden contener el encabezado del paquete, y uno o más mensajes. L
 ### 9.2.2 msg-header-length
 
 **No revisar aun EN PROCESO DE DESARROLLO**
-Es un campo que contiene un entero sin signo de 8 bits 
+Es un campo que contiene un entero sin signo de 8 bits
 
 AODVv2 utilza los siguientes campos del mensaje Header RFC5444
 
