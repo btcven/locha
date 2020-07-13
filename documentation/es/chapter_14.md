@@ -275,7 +275,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
    <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -289,7 +289,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
    <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -302,7 +302,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
    <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -315,7 +315,7 @@ In this stage we can realized node D doesn't stored information about Node C rou
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
    <td> wireless SetPosition radio 110 0 0 </td>
     <td>110</td>
@@ -354,7 +354,7 @@ After carry out the request the following picture show the content of route tabl
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
  </tr>
  <tr>
@@ -363,7 +363,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
  </tr>
  <tr>
@@ -372,7 +372,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
  </tr>
   <tr>
@@ -381,7 +381,7 @@ After carry out the request the following picture show the content of route tabl
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:2:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
  </tr>
 </table>
@@ -390,7 +390,7 @@ After carry out the request the following picture show the content of route tabl
 # 14.6 third stage environment
 henceforth we are going to avoid __find_route__, because the AODV firmaware was created to be reactive and this feature is triggered when any node try to send __UDP__ packets to any destination and not path are found inside the rote table.
 
-El firmware actual ha implementado un __UDP__ servidor y cliente para escuchar y enviar paquetes hacia/desde cualquier lugar. Cuando la pila de red no es capaz de resolver la dirección remota, __AODV__ es activada y __find_route__ el comando se ejecuta automáticamente.
+The current firmware has implemented an __UDP__ server and client to listend and send packets to/from anywhere.\ When network stack is not able to resolve the remote address, __AODV__is triggered and  __find_route__ command is execute automatically.
 
 
 In this stage we are going to set up the staging environment with up 6 nodes. Initially all routing tables and buffers are empty, the originator and destination of the data packets are identified as nodes A, B, C, D, E and F.
@@ -425,7 +425,7 @@ In the below picture we can realized based on information in its route table tha
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
     <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -439,7 +439,7 @@ In the below picture we can realized based on information in its route table tha
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:1:0:0 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:3:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
     <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -452,7 +452,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:2:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 170 70 0 </td>
     <td>170</td>
@@ -465,7 +465,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:3:0:0/128 via fe80::200:1:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -478,7 +478,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:5:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 170 -70 0 </td>
     <td>170</td>
@@ -491,7 +491,7 @@ In the below picture we can realized based on information in its route table tha
         <ul>
             <li>2001::200:6:0:0/128 dev #7</li>
             <li>2001::200:4:0:0/128 via fe80::200:5:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 210 0 0 </td>
     <td>210</td>
@@ -548,7 +548,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:1:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:4:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
     <td> wireless SetPosition radio 0 0 0 </td>
     <td>0</td>
@@ -561,7 +561,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:2:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
     <td> wireless SetPosition radio 70 70 0 </td>
     <td>70</td>
@@ -574,7 +574,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:3:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 170 70 0 </td>
     <td>170</td>
@@ -587,7 +587,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:4:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 70 -70 0 </td>
     <td>70</td>
@@ -600,7 +600,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:5:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 170 -70 0 </td>
     <td>170</td>
@@ -613,7 +613,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:6:0:0/128 dev #7</li>
             <li>2001::200:7:0:0/128 via fe80::200:7:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 120 0 0 </td>
     <td>120</td>
@@ -626,7 +626,7 @@ Here we can realized node F is able to reach five nodes when carry out a RREQ, a
         <ul>
             <li>2001::200:7:0:0/128 dev #7</li>
             <li>2001::200:6:0:0/128 via fe80::200:6:0:0 dev #7</li>
-        </ul>
+        </ul> 
     </td>
       <td> wireless SetPosition radio 210 0 0 </td>
     <td>210</td>
@@ -664,7 +664,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:1:0:0/128 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>0</td>
     <td>0</td>
@@ -678,7 +678,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
             <li><code>2001::200:2:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>100</td>
     <td>0</td>
@@ -692,7 +692,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
             <li><code>2001::200:3:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:2:0:0 dev #7</code></li>
              <li><code>2001::200:10:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>200</td>
     <td>0</td>
@@ -706,7 +706,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
             <li><code>2001::200:4:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
              <li><code>2001::200:10:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>300</td>
     <td>0</td>
@@ -719,7 +719,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:5:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:1:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>0</td>
     <td>-100</td>
@@ -732,7 +732,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:6:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>100</td>
     <td>-100</td>
@@ -745,7 +745,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:7:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:3:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>200</td>
     <td>-100</td>
@@ -759,7 +759,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
             <li><code>2001::200:8:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:4:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>300</td>
     <td>-100</td>
@@ -772,7 +772,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:9:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:5:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>0</td>
     <td>-200</td>
@@ -785,7 +785,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:a:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>100</td>
     <td>-200</td>
@@ -798,7 +798,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:b:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:a:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>200</td>
     <td>-200</td>
@@ -812,7 +812,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
             <li><code>2001::200:c:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:8:0:0 dev #7</code></li>
             <li><code>2001::200:10:0:0/128 via fe80::200:10:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>300</td>
     <td>-200</td>
@@ -825,7 +825,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:d:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:9:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>0</td>
     <td>-300</td>
@@ -838,7 +838,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:e:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:d:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>100</td>
     <td>-300</td>
@@ -851,7 +851,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:f:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:e:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>200</td>
     <td>-300</td>
@@ -864,7 +864,7 @@ Each nodo can know about other ones as the rows connection between nodes are sho
         <ul>
             <li><code>2001::200:10:0:0/128 dev #7</code></li>
             <li><code>2001::200:1:0:0/128 via fe80::200:c:0:0 dev #7</code></li>
-        </ul>
+        </ul> 
     </td>
     <td>300</td>
     <td>-300</td>

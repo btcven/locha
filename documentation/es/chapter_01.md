@@ -4,9 +4,9 @@ A pesar de los grandes avances en las tecnologías de telecomunicaciones, es evi
 
 Los avances surgidos desde la aparición de las redes inalámbricas en 1970, su crecimiento y demanda en esta última década ha sido exponencial. Concretamente, existen dos vertientes en cuanto a redes inalámbricas se refiere, atendiendo a la arquitectura de red subyacente encontramos a las redes inalámbricas con infraestructura y las redes inalámbricas sin infraestructura.
 
-Como ejemplo de infraestructura de redes inalámbricas podemos echar un vistazo a las redes celulares. en estas redes el usuario puede conectarse inalámbrico a la red principal siempre y cuando esté dentro del rango de cobertura de la red, así es como puede servir a un gran número de usuarios dentro de un extenso área geográfica mediante el uso de un espectro de frecuencia limitada. Su servicio es de alta calidad, comparable con el de los sistemas telefónicos cableados. En este tipo de redes, los enrutadores o estaciones base, son fijos y cableados y las unidades móviles se conectan y se comunican con su estación base más cercana dentro de su radio de alcance. Si el dispositivo móvil sale del alcance de su estación base, se produce una transferencia o _handoff_ desde la estación base inicial hasta una nueva.
+Sobre las redes inálambricas con infraestructura podemos hablar de las redes celulares, éstas conectan de forma inalámbrica al usuario con la red telefónica básica siempre y cuando esté dentro del radio de cobertura de la red, acomodando un gran número de usuarios dentro de un área geográfica extensa empleando un espectro de frecuencia limitado; su servicio es de alta calidad, comparable con el de los sistemas telefónicos cableados. En este tipo de redes, los enrutadores o estaciones base, son fijos y cableados y las unidades móviles se conectan y se comunican con su estación base más cercana dentro de su radio de alcance. Si el dispositivo móvil sale del alcance de su estación base, se produce una transferencia o handoff desde la estación base inicial hasta una nueva.
 
-Podemos enfocar la popularidad de las redes inalámbricas en 1980 con el despliegue de teléfonos análogos de 1G, limitados solo a un país debido a los diferentes estándares establecidos por situación geográfica. Estas condiciones impulsaron el desarrollo de la generación 2G para la década siguiente, añadiendo fax, datos y mensajería, sin ser adoptada como estándar homogéneo a nivel mundial. Esta generación recientemente ha sido extendida a 2.5G mejorando el soporte de transmisión de datos de baja y alta velocidad. El cambio a la generación 3G determinó la adopción a un estándar globalizado, con capacidad de roaming internacional, incrementando el ancho de banda considerablemente. A pesar de estos avances, la red 3G presentó dificultades en su despliegue, también en el cumplimiento de prestaciones debido a las limitaciones en la arquitectura de su red, naciendo la red 4G, la cual se basa en una aproximación de sistemas abiertos, combinando tecnologías inalámbricas con líneas cableadas, convergiendo voz, contenido multimedia y datos sobre una misma troncal IP.
+Podemos enfocar la popularidad de las redes inlámbricas en 1980 con el despliegue de teléfonos análogos de 1G, limitados solo a un país debido a los diferentes estándares establecidos por situación geográfica. Estas condiciones impulsaron el desarrollo de la generación 2G para la decada siguiente, añadiendo fax, datos y mensajería, sin ser adoptada como estándar homogéneo a nivel mundial. Esta generación recientemente ha sido extendida a 2.5G mejorando el soporte de transmisión de datos de baja y alta velocidad. El cambio a la generación 3G determinó la adopción a un estándar globalizado, con capacidad de roaming internacional, incrementando el ancho de banda considerablemente. A pesar de estos avances, la red 3G presentó dificultades en su despliegue, también en el cumplimiento de prestaciones debido a las limitaciones en la arquitectura de su red, naciendo la red 4G, la cual se basa en una aproximación de sistemas abiertos, combinando tecnologías inalámbricas con líneas cableadas, convergiendo voz, contenido multimedia y datos sobre una misma troncal IP.
 
 Otros ejemplos relevantes de redes inalámbricas son las redes de área local inalámbrica WLAN (Wireless Local Area Network) y Bluetooth, siendo ampliamente utilizados en millones de productos que se interconectan entre sí o con aquellos de uso diario sirviendo de puente para estos a internet.
 
@@ -20,10 +20,11 @@ Las aplicaciones de este tipo de red pueden incluir otros como las operaciones d
 
 Vivimos en un mundo interconectado, las invenciones en este campo permiten realizar grandes puentes hacia un futuro en el que las comunicaciones mantengan una relación simbiótica con la infraestructura actual, y donde la descentralización de prestaciones sea el estándar que garantice el acceso de cualquier persona a la red y los contenidos dispuestos en ella, la cual sea un medio resiliente que permita aún en situaciones extremas e impredecibles la comunicación, la cooperación y el comercio entre los individuos.
 
-La Figura 1.1 muestra la arquitectura simplificada de una red celular frente a una red ad hoc inalámbrica. En la Figura 1.1 (a) se representan tres estaciones base que se comunican con sus correspondientes nodos móviles. Al contrario, en la Figura 1.1 (b) se exhibe una red ad hoc inalámbrica en la que los nodos no solo pueden ser dispositivos móviles, sino que también pueden formar parte otros elementos como punto de acceso.
+La Figura 1.1 muestra la arquitectura simplificada de una red celular frente a una red ad hoc inalámbrica.
+En la Figura 1.1 (a) se representan tres estaciones base que se comunican con sus correspondientes nodos móviles. Al contrario, en la Figura 1.1 (b) se exhibe una red ad hoc inalámbrica en la que los nodos no solo pueden ser dispositivos móviles, sino que también pueden formar parte otros elementos como punto de acceso.
 
 <figure>
-  <img src="../pics/network-topology.png"/>
+  <img src="../pics/network-topology.png" alt="network-topology" />
   <figcaption>Fig.1.1</figcaption>
 </figure>
 
@@ -48,19 +49,17 @@ Este propósito fundamental puede a su vez descomponerse en los objetivos parcia
 - Generación y análisis de resultados.
 - Extracción de conclusiones.
 - Redacción de la documentación.
+- Selección del sistema operativo a utilizar en el proyecto que cumpla con los requerimientos necesarios, basados en criterios expuestos más adelante.
+
 
 El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera óptima en las áreas de aplicación provistas para este tipo de redes, como lo son:
-
 
 * Topología dinámica
 * Restricciones de recursos (hardware)
 * Heterogeneidad entre nodos (diferencias en el hardware)
 
-
 ## 1.3 Planificación
-
 Hacemos énfasis en establecer y seguir una secuencia lógica de pasos para llevar a cabo este proyecto; el desarrollo de este proyecto se puede dividir en las siguientes subtareas:
-
 - Preparación y planificación: Durante la fase de preparación se acudió a diferentes fuentes bibliográficas para la obtención del conocimiento necesario acerca de las redes `ad-hoc` y de los diferentes `protocolos de enrutamineto` para completar la fase de documentación necesaria.
 - Diseño del Hardware necesario para completar este proyecto; el diseño del hardware a su vez se puede descomponer en varias subtareas como lo son:
   - Diseño de la fuente de voltaje que provee eficiencia energética y alimentación al circuito digital.
@@ -71,4 +70,3 @@ Hacemos énfasis en establecer y seguir una secuencia lógica de pasos para llev
   - Test del hardware para comprobar que todos los periféricos necesarios son funcionales.
 - Diseño de la aplicación móvil, la cual sirve como GUI o interface gráfica.
 - Diseño del driver necesario para hacer la integración del hardware con el sistema operativo.
-
