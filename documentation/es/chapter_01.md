@@ -52,7 +52,7 @@ Este propósito fundamental puede a su vez descomponerse en los objetivos parcia
 - Selección del sistema operativo a utilizar en el proyecto que cumpla con los requerimientos necesarios, basados en criterios expuestos más adelante.
 
 
-El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera óptima en las áreas de aplicación provistas para este tipo de redes, como lo son:
+El protocolo AODVv2 enfrenta algunos desafíos para poder trabajar de manera óptima en las áreas de aplicación provistas para este tipo de redes, como son:
 
 * Topología dinámica
 * Restricciones de recursos (hardware)
