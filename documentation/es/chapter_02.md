@@ -16,23 +16,23 @@ Este tipo de redes pueden proporcionar un medio de comunicación fiable y seguro
 
 La comunicación por radio frecuencia (RF) es una de las características básicas de una red de sensores inalámbrica (WSN), debido a las claras ventajas que presenta frente a otras tecnologías inalámbricas, como por ejemplo la transmisión por infrarrojos. El uso de dispositivos inalámbricos está regulado mundialmente, por lo que la mayoría de los países tiene un espacio en el espectro de radio que es de uso libre o sin licencia, es decir, que no se necesita un permiso especial para cada aplicación.
 
-La mayoría de los productos comerciales operan en estas bandas libres, también conocidas como bandas ISM (Industrial, Scientific and Medical) para sortear los mencionados costes de las licencias. Por ser las bandas ISM de uso libre, un gran número de tecnologías inalámbricas como ZigBee, Bluetooth, WiFi, y la telefonía inalámbrica, entre otras, utilizan estas frecuencias.
+La mayoría de los productos comerciales operan en estas bandas libres, también conocidas como bandas ISM (Industrial, Scientific and Medical) para sortear los mencionados costes de las licencias. Por ser las bandas ISM de uso libre, un gran número de tecnologías inalámbricas como ZigBee, Bluetooth, WiFi, y la telefonía inalámbrica, entre otras,utilizan estas frecuencias.
 
-Cada una de las bandas de radiofrecuencia mencionadas anteriormente, tiene una característica distintiva que la coloca en ventaja con respecto a las demás, según las necesidades de la aplicación final. Como mencionamos anteriormente, la banda de 2.4 GHz es la más utilizada, por permitir una mayor tasa de datos y por ser de uso libre mundialmente. Sin embargo, para aplicaciones de baja tasa de datos y donde el alcance sea la prioridad principal, las bandas sub-GHz parecen ser las que mejor se adaptan a estas condiciones.
+El espectro de radio está divido en bandas, y a su vez cada banda se divide en canales de ancho fijo. Las bandas ISM pueden subdividirse también en dos grandes grupos: 2.4 GHz y frecuencias sub-GHz, que incluyen las bandas de 315, 433, 784, 868 y 915 MHz; la elección de un grupo u otro dependerá siempre de las características de la aplicación, entre las que cabe destacar el alcance, el consumo de energía, la tasa de datos, el tamaño de la antena, el coste, etc.
 
 
-Hoy, las comunicaciones de las WSNs se basan en gran medida tanto en el estándar 802.15.4 como en el protocolo ZigBee. That protocol adds features to the network that are not available in such standard, and it operates in  2.4 GHz and 868/915 MHz ISM band. ZigBee was created to proportionate a protocol for wireless networks with low energy consumption and competitive price.
+Hoy, las comunicaciones de las WSNs se basan en gran medida tanto en el estándar 802.15.4 como en el protocolo ZigBee. Este último añade funcionalidades a la red no disponibles con el mencionado estándar, y opera en las bandas ISM de 2.4 GHz y 868/915 MHz, ya que fue creado con la finalidad de proporcionar un protocolo para dispositivos de redes inalámbricas, con bajo consumo de energía y que resultara competitivo en precio.
 
 
 El estándar IEEE 802.15.4 divide el espectro disponible de frecuencias mencionadas anteriormente en un total de 27 canales:
 
 - Canal k=0, para la frecuencia de 868.3 MHz, para uso en países de Europa.
 - Canales k=1...10, para frecuencias de 906+2*(k+1) MHz, para uso en Estados Unidos, Australia y otros pocos países.
-- Canales k=11...26, para frecuencias de 2405+5*(k-11) MHz de uso global.
+- Canales k=11...26, para frecuencias de 2405+5*(k-11) MHz de uso global
 
 ### 2.2.1 Comparativa: 2.4 GHz vs. 868/915 MHz
 
-Cada una de las bandas de radiofrecuencia mencionadas anteriormente, tiene una característica distintiva que la coloca en ventaja con respecto a las demás, según las necesidades de la aplicación final. Como mencionamos anteriormente, la banda de 2.4 GHz es la más utilizada, por permitir una mayor tasa de datos y por ser de uso libre mundialmente. Sin embargo, para aplicaciones de baja tasa de datos y donde el alcance sea la prioridad principal, las bandas sub-GHz parecen ser las que mejor se adaptan a estas condiciones.
+Cada una de las bandas de radiofrecuencia mencionadas anteriormente, tiene una característica distintiva que la coloca en ventaja con respecto a las demás,según las necesidades de la aplicación final. Como mencionamos anteriormente, la banda de 2.4 GHz es la más utilizada, por permitir una mayor tasa de datos y por ser de uso libre mundialmente. Sin embargo, para aplicaciones de baja tasa de datos y donde el alcance sea la prioridad principal, las bandas sub-GHz parecen ser las que mejor se adaptan a estas condiciones.
 
 La frecuencia y el ancho del canal de transmisión están directamente relacionados con la calidad de la comunicación inalámbrica. A mayores frecuencias, hay más espectro, y por lo tanto los canales son más anchos. Por ejemplo, hay 1000 veces más espacio de espectro entre 1 y 2 GHz que entre 1 y 2 MHz. Es por esto que la banda de 2.4 GHz tiene capacidad para transmitir una mayor tasa de datos que las bandas de menor frecuencia. Sin embargo, esta capacidad de datos trae como consecuencia una disminución de la distancia de transmisión, lo que penaliza la funcionalidad de redes a altas frecuencias en entornos de áreas muy amplias.
 
