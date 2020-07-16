@@ -48,7 +48,7 @@
         "language": "Language",
         "qrText": "Friends can scan this QR to add you as contact",
         "textBackup": "Enter your PIN code to continue",
-        "erroPin": "Wrong PIN",
+        "errorPin": "Wrong PIN",
         "createBackup": "Create backup file"
     },
     "Contacts": {
@@ -115,6 +115,6 @@
         "connectionError": "connection error",
         "successfulConnection": "successful connection",
         "inputSSID": "Enter SSID",
-        "inputPasword": "Enter Password"
+        "inputPassword": "Enter Password"
     }
 }

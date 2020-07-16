@@ -48,7 +48,7 @@
         "language": "Idioma",
         "qrText": "Escanee el código QR para agregarlo como contacto",
         "textBackup": "Ingrese su código PIN para continuar",
-        "erroPin": "PIN incorrecto",
+        "errorPin": "Wrong PIN",
         "createBackup": "Crear archivo de respaldo"
     },
     "Contacts": {
@@ -115,6 +115,6 @@
         "connectionError": "connection error",
         "successfulConnection": "successful connection",
         "inputSSID": "Enter SSID",
-        "inputPasword": "Enter Password"
+        "inputPassword": "Enter Password"
     }
 }
