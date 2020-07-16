@@ -1,6 +1,6 @@
 # Get started
 
-[1. Setup build enviroment]()
+[1. Setup build environment]()
 
 [2. Configuring]()
 
@@ -9,24 +9,24 @@
 
 ---
 
-## 1. Setup build enviroment
+## 1. Setup build environment
 
-We recommend to follow this step by step before to start the development process or build the firmware for your **Locha Mesh** device.
+We recommend to follow this step by step before starting the development process or build the firmware for your **Locha Mesh** device.
 
-Depending if you have a Turpial or a DIY version of any flavour, this process can be a bit different but in principle we can to divide it in two main sections:
+If you have a Turpial or a DIY version of any flavour, this process can be a bit different but in principle we can divide it in two main sections:
 
-### Enviroment for the radio system (CC1312R)
+### Environment for the radio system (CC1312R)
 
 This setup process is applicable for the DIY version or Turpial and **only** for the radio system.
 
-Actually only Linux and MacOS systems are supported, for MacOS a package manager is required, please install your prefered package manager before to install the next requirements:
-    
+Currently only Linux and MacOS systems are supported, for MacOS a package manager is required, please install your preferred package manager before installing the next requirements:
+
     * git
     * wget
     * gcc compiler
 
 
-#### Download and install the arm-embedded toolchain 
+#### Download and install the arm-embedded toolchain
 
 - Linux
 
@@ -59,13 +59,13 @@ Install TI's Uniflash tool for your operating system. This tool allows you to up
 
 ## The Locha Mesh _radio-firmware_
 
-The **Locha Mesh** radio firmware is the main software of any hardware compatible with our network. 
+The **Locha Mesh** radio firmware is the main software of any hardware compatible with our network.
 
-With the aim to convert the _CC1312R_ radio system in a network interface, we need to connect an empty LaunchPad or Turpial through the USB port with our computer.
+With the aim to convert the _CC1312R_ radio system into a network interface, we need to connect an empty LaunchPad or Turpial device through the USB port with our computer.
 
 ### Clone it, initialize it
 
-```sh 
+```sh
 $ git clone https://github.com/btcven/radio-firmware.git
 
 $ cd radio-firmware
@@ -75,7 +75,7 @@ $ git submodule update --init --recursive
 
 ### Build it, flash it, enjoy it
 
-Depending of your hardware follow the steps in the section **(a)** Turpial or **(b)** for ther compatible systems
+Depending on the hardware you have, follow the steps in the section **(a)** Turpial, or **(b)** for the DIY compatible systems
 
 #### a) Turpial
 
@@ -104,9 +104,9 @@ Flash it with:
 $ make make BOARD=cc1312r-launchpad flash
 ```
 
-PD: If you are using other LaunchPad compatible; CC1352R, CC1352P, etc. change the `BOARD` variable to `cc1352p-launchpad`, `cc1352r-launchpad`, etc. Check out the [RIOT-OS documentation](#1) for a list of supported MCUs.
+PD: If you are using other compatible LaunchPad; CC1352R, CC1352P, etc. change the `BOARD` variable to `cc1352p-launchpad`, `cc1352r-launchpad`, etc. Checkout the [RIOT-OS documentation](#1) for a list of supported MCUs.
 
 
 
 
-### Enviroment for the WiFi interface (esp32)
+### environment for the WiFi interface (esp32)
