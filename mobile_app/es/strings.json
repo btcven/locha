@@ -12,34 +12,34 @@
         "restore": "Restaurar cuenta",
         "titleCreateAccount": "Crear Cuenta",
         "subTitleCreateAccount": "Asegúrate de guardar correctamente tu frase de respaldo en caso de que la necesites para restaurar tu cuenta",
-        "titleConfirm": "Confirmar Palabras",
-        "subTitleCorfirm": "Confirme sus palabras para continuar con el proceso de crear cuenta",
+        "titleConfirm": "Confirmar frase de respaldo",
+        "subTitleCorfirm": "Confirma tu frase de respaldo para continuar",
         "titlePin": "Agregue su código PIN",
-        "subtitlePin": "Es muy importante que recuerde el pin ingresado, con él tendrá acceso a su cuenta.",
-        "subtitlePin2": "Ingrese su PIN para acceder a su cuenta",
-        "forgotPin": "¿Olvidaste tú pin?",
+        "subtitlePin": "Es muy importante que recuerdes el PIN ingresado, con él accederás a tu cuenta.",
+        "subtitlePin2": "Ingresa tu PIN para acceder a tu cuenta",
+        "forgotPin": "¿Olvidaste tu pin?",
         "click": "Haz click aquí",
-        "error1": "Pin erróneo",
+        "error1": "PIN incorrecto",
         "error2": "Es obligatorio completar todos los campos",
         "error3": "Las palabras no coinciden, compruébalo e inténtalo de nuevo",
         "titleRestore": "Restaurar cuenta",
         "buttonFile": "Restaurar desde un archivo",
-        "subtitleRestore": "Para restaurar su cuenta con una frase de respaldo, introduzca las palabras en el orden correcto.",
-        "titleUsername": "Agregar Nombre de Usuario",
-        "textUsername": "Por favor ingrese su nombre o alias",
-        "restorePinTitle": "Restaurar pin",
-        "restorePinText": "Ingrese las palabras de respaldo para poder restaurar su pin",
-        "buy": "Pre-order Turpial device"
+        "subtitleRestore": "Para restaurar tu cuenta con una frase de respaldo, introduce las palabras en el orden correcto.",
+        "titleUsername": "Agregar alias",
+        "textUsername": "Por favor ingrese un alias",
+        "restorePinTitle": "Restaurar PIN",
+        "restorePinText": "Ingrese las palabras de respaldo para poder restaurar el PIN",
+        "buy": "Pre-ordenar dispositivo Turpial"
     },
     "Drawer": {
         "contacts": "Contactos",
         "setting": "Configuración"
     },
     "Settings": {
-        "deviceSettings": "Device settings",
+        "deviceSettings": "Configuración del dispositivo",
         "name": "Nombre",
-        "editName": "Editar nombre",
-        "enterName": "Ingrese nombre",
+        "editName": "Editar alias",
+        "enterName": "Ingrese alias",
         "cancelButton": "cancelar",
         "saveButton": "guardar",
         "gallery": "Galería",
@@ -48,7 +48,7 @@
         "language": "Idioma",
         "qrText": "Escanee el código QR para agregarlo como contacto",
         "textBackup": "Ingrese su código PIN para continuar",
-        "errorPin": "Wrong PIN",
+        "errorPin": "PIN incorrecto",
         "createBackup": "Crear archivo de respaldo"
     },
     "Contacts": {
@@ -108,13 +108,13 @@
         "confirmPassword": "Las contraseñas no coinciden"
     },
     "WifiConnect": {
-        "title": "Connect to a valid AP",
-        "subtitle": "For this application to work correctly you need to be connected to a compatible IPv6 network. Please connect to a valid AP.",
-        "buttonConnect": "Connect",
-        "buttonCancel": "Cancel",
-        "connectionError": "connection error",
-        "successfulConnection": "successful connection",
-        "inputSSID": "Enter SSID",
-        "inputPassword": "Enter Password"
+        "title": "Conéctate a un punto de acceso WiFi (AP) válido",
+        "subtitle": "Para que esta aplicación funcione correctamente necesitas estar conectado a una red compatible con IPv6. Por favor, conéctate a un punto de acceso WiFI (AP) válido.",
+        "buttonConnect": "Conectar",
+        "buttonCancel": "Cancelar",
+        "connectionError": "error de conexión",
+        "successfulConnection": "conexión exitosa",
+        "inputSSID": "Introduce el nombre del WiFi (SSID)",
+        "inputPassword": "Introduce la Contraseña"
     }
 }

@@ -48,7 +48,7 @@
         "language": "Taal",
         "qrText": "Vrienden kunnen deze QR scannen om u toe te voegen als contact",
         "textBackup": "Voer uw PIN-code in om door te gaan",
-        "errorPin": "Wrong PIN",
+        "errorPin": "Onjuiste PIN",
         "createBackup": "Back-upbestand maken"
     },
     "Contacts": {
