@@ -1,10 +1,10 @@
 # Get started
 
-[1. Setup build environment]()
+[1. Setup build environment](#setup-build-environment)
 
-[2. Configuring]()
+[2. Building and flashing the Locha Mesh _radio-firmware_]()
 
-[3. Compiling & Flashing]()
+[3. 3. Configuring the network interface]()
 
 
 ---
@@ -55,15 +55,39 @@ export PATH="${PATH}:/path/to/arm-none-eabi-gcc"
 
 You can do it permanent adding the previous command to your `.bashrc` or `.zshrc` file
 
-#### Install Uniflash
+#### Install flash tool
 
-Install TI's Uniflash tool for your operating system. This tool allows you to upload the built firmware to the _CC1312R_ radio module or compatible. Please read carefully the instructions in the [Uniflash site](https://www.ti.com/tool/UNIFLASH) before to continuing the follow steps
+In order to flash the firmware for the CC1312R we need to use either OpenOCD (free & open source) or [Texas Instrument's Uniflash] which is closed source.
 
-## The Locha Mesh _radio-firmware_
+[Texas Instrument's Uniflash]: https://www.ti.com/tool/UNIFLASH
 
-The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network.
+**Note:** If you choose to install Uniflash, make sure you set the `UNIFLASH_PATH` environment variable, so that the build system knows where to find it.
 
-With the aim to convert the _CC1312R_ radio system into a network interface, we need to connect an empty LaunchPad or Turpial device through the USB port with our computer.
+##### Installing OpenOCD
+
+We need to use the 0.10.0 version of OpenOCD from Texas Instruments if using the XDS 110 debugger (which is found on CC1312 Launchpad Development Kit).
+
+Compiling and installing it is easy, change `--prefix` parameter if you prefer another installation location.
+
+```sh
+$ git clone https://git.ti.com/git/sdo-emu/openocd.git openocd-ti
+
+$ cd openocd-ti/openocd
+
+$ ./configure --prefix=/usr/local --disable-werror
+
+$ make
+
+$ sudo make install
+```
+
+Warning as errors (-Werror) are disabled since newer GCC versions might introduce new warnings.
+
+## 2. Building and flashing the Locha Mesh _radio-firmware_
+
+The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network, it acts as a router and it lets us access the Mesh network.
+
+To use the _CC1312R_ or _Turpial_ as a network interface, we need to flash the radio firmware and connect it to the USB port of a computer.
 
 ### Clone it, initialize it
 
@@ -77,35 +101,58 @@ $ git submodule update --init --recursive
 
 ### Build it, flash it, enjoy it
 
-Depending on the hardware you have, follow the steps in the section **(a)** Turpial, or **(b)** for the DIY compatible systems
+Depending on the hardware you have you have to pass specific parameters to compile the source code and flash it.
 
-#### a) Turpial
+#### Firmware configuration
 
-Build it with:
+The `BOARD` variable controls the hardware we're using, here you can find a list of supported boards:
 
-```sh
-$ make
-```
+- Board support provided by Locha (our custom hardware): https://github.com/btcven/radio-firmware/tree/master/boards/
+- Boards that RIOT-OS supports: https://github.com/RIOT-OS/RIOT/tree/master/boards
 
-Flash it with:
+The `USE_SLIPTTY` variable controls wether we want to use SLIP as our serial connection, or a raw standard I/O serial connection. To use the board as a network interface set `USE_SLIPPTY=1` in the make command line.
 
-```sh
-$ make flash
-```
+**Note**: *You can pass these variables on the command line or export them as environment variables*
 
-
-#### b) CC1312R-LaunchPad or compatible system
+So, for example, to build for the `turpial` board we can do:
 
 ```sh
-$ make BOARD=cc1312r-launchpad
+$ make USE_SLIPTTY=1 BOARD=turpial
 ```
 
-Flash it with:
+And then we can flash it with:
 
 ```sh
-$ make make BOARD=cc1312r-launchpad flash
+$ make USE_SLIPTTY=1 BOARD=turpial flash
 ```
 
-PD: If you are using other compatible LaunchPad; CC1352R, CC1352P, etc. change the `BOARD` variable to `cc1352p-launchpad`, `cc1352r-launchpad`, etc. Checkout the [RIOT-OS documentation](#1) for a list of supported MCUs.
+**Note:** *Using any other board is the same process, for example, using `cc1312-launchpad` as our board should work.*/
 
-### environment for the WiFi interface (esp32)
+## 3. Configuring the network interface
+
+- Now that we have the firmware on our device it's time to create and configure our network interface:
+
+```sh
+$ make USE_SLIPTTY=1 BOARD=turpial term
+```
+
+It will ask for sudo (root) password as we need to create a tunnel network interface. This terminal, where we created the network interface can not be closed as it kill the serial connection to our hardware.
+
+The next step is to configure this network interface, we have an script under `radio-firmware/dist/tools/vaina` directory which automates this process, the only we need to care about is our IP address.
+
+We can edit the file and give it a random IPv6 address:
+
+```sh
+# Randomly generate a Unique Local Address (begins with fc00::).
+$ hexdump -n 16 -e '2/2 ":%04x"' /dev/urandom | sed "s/^:[a-zA-Z0-9_.-]*:/fc00:/g"
+```
+
+The address generated should be copied into the `autoconfigure.sh` in `radio-firmware/dist/tools/vaina`, now we run it on a separate terminal:
+
+```sh
+$ ./radio-firmware/dist/tools/vaina/autoconfigure.sh
+```
+
+It will ask again for root rights to configure the interface, and now if we type `ip address` on our console we should see a network interface named `sl0` (or `tun0` on MacOS X) with the address we just generated.
+
+With this other peers can send us any data without any more configuration to our IPv6 address.
