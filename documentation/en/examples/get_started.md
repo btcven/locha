@@ -61,7 +61,7 @@ Install TI's Uniflash tool for your operating system. This tool allows you to up
 
 ## The Locha Mesh _radio-firmware_
 
-The **Locha Mesh** radio firmware is the main software of any hardware compatible with our network.
+The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network.
 
 With the aim to convert the _CC1312R_ radio system into a network interface, we need to connect an empty LaunchPad or Turpial device through the USB port with our computer.
 
