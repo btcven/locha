@@ -83,6 +83,8 @@ $ sudo make install
 
 Warning as errors (-Werror) are disabled since newer GCC versions might introduce new warnings.
 
+<br /><br />
+
 ## 2. Building and flashing the Locha Mesh _radio-firmware_
 
 The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network, it acts as a router and it lets us access the Mesh network.
@@ -127,6 +129,8 @@ $ make USE_SLIPTTY=1 BOARD=turpial flash
 ```
 
 **Note:** *Using any other board is the same process, for example, using `cc1312-launchpad` as our board should work.*/
+
+<br /><br />
 
 ## 3. Configuring the network interface
 
