@@ -101,7 +101,7 @@ $ git submodule update --init --recursive
 
 ### Build it, flash it, enjoy it
 
-Depending on the hardware you have you have to pass specific parameters to compile the source code and flash it.
+Depending on the hardware you have you need to pass specific parameters to compile the source code and flash it.
 
 #### Firmware configuration
 
