@@ -9,6 +9,8 @@
 
 ---
 
+<br />
+
 ## 1. Setup build environment
 
 We recommend to follow this step by step before starting the development process or build the firmware for your **Locha Mesh** device.
