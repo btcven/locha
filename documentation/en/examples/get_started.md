@@ -1,23 +1,26 @@
+<br/>
+
 # Get started
 
-[1. Setup build environment](#setup-build-environment)
+[Setup build environment](#setup-build-environment)
 
-[2. Building and flashing the Locha Mesh _radio-firmware_]()
+[Building and flashing the Locha Mesh _radio-firmware_](#)
 
-[3. 3. Configuring the network interface]()
+[Configuring the network interface](#)
 
 
 ---
 
-<br />
+<br/>
+<br/>
 
-## 1. Setup build environment
+# Setup build environment
 
 We recommend to follow this step by step before starting the development process or build the firmware for your **Locha Mesh** device.
 
 If you have a Turpial or a DIY version of any flavour, this process can be a bit different but in principle we can divide it in two main sections:
 
-### Environment for the radio system (CC1312R)
+## Environment for the radio system (CC1312R)
 
 This setup process is applicable for the DIY version or Turpial and **only** for the radio system.
 
@@ -31,11 +34,10 @@ Currently only Linux and MacOS systems are supported, for MacOS a package manage
 
 On Debian based systems, the `build-essential` packages bundles the necessary tools to have a build environment.
 
-#### Download and install the arm-embedded toolchain
+### Download and install the arm-embedded toolchain
 
-To compile the firmware we'll need the ARM Toolchain GCC compiler, we need the latest since the packaged version by most distributions are quite outdated. [Here][arm-toolchain] we can download the compiler, just copy the link of the most recent version for your OS.
-
-[arm-toolchain]: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+To compile the firmware we'll need the ARM Toolchain GCC compiler.
+Download and install the latest [ARM toolchain][https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads] available for your OS.
 
 - First we download the toolchain (Linux & MacOS X):
 
@@ -57,43 +59,26 @@ export PATH="${PATH}:/path/to/arm-none-eabi-gcc"
 
 You can do it permanent adding the previous command to your `.bashrc` or `.zshrc` file
 
-#### Install flash tool
+### Install flash tool
 
-In order to flash the firmware for the CC1312R we need to use either OpenOCD (free & open source) or [Texas Instrument's Uniflash] which is closed source.
+In order to flash the built firmware for the CC1312R we need to use OpenOCD or Uniflash, select one of the tools and read the instructions before to install
 
-[Texas Instrument's Uniflash]: https://www.ti.com/tool/UNIFLASH
+- [Texas Instrument's Uniflash](https://www.ti.com/tool/UNIFLASH)
+
+- [OpenOCD](https://git.ti.com/git/sdo-emu/openocd)
 
 **Note:** If you choose to install Uniflash, make sure you set the `UNIFLASH_PATH` environment variable, so that the build system knows where to find it.
 
-##### Installing OpenOCD
+<br/>
+<br/>
 
-We need to use the 0.10.0 version of OpenOCD from Texas Instruments if using the XDS 110 debugger (which is found on CC1312 Launchpad Development Kit).
-
-Compiling and installing it is easy, change `--prefix` parameter if you prefer another installation location.
-
-```sh
-$ git clone https://git.ti.com/git/sdo-emu/openocd.git openocd-ti
-
-$ cd openocd-ti/openocd
-
-$ ./configure --prefix=/usr/local --disable-werror
-
-$ make
-
-$ sudo make install
-```
-
-Warning as errors (-Werror) are disabled since newer GCC versions might introduce new warnings.
-
-<br /><br />
-
-## 2. Building and flashing the Locha Mesh _radio-firmware_
+# Building and flashing the Locha Mesh _radio-firmware_
 
 The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network, it acts as a router and it lets us access the Mesh network.
 
 To use the _CC1312R_ or _Turpial_ as a network interface, we need to flash the radio firmware and connect it to the USB port of a computer.
 
-### Clone it, initialize it
+## Clone it, initialize it
 
 ```sh
 $ git clone https://github.com/btcven/radio-firmware.git
@@ -103,11 +88,11 @@ $ cd radio-firmware
 $ git submodule update --init --recursive
 ```
 
-### Build it, flash it, enjoy it
+## Build it, flash it, enjoy it
 
 Depending on the hardware you have you need to pass specific parameters to compile the source code and flash it.
 
-#### Firmware configuration
+## Firmware configuration
 
 The `BOARD` variable controls the hardware we're using, here you can find a list of supported boards:
 
@@ -132,11 +117,12 @@ $ make USE_SLIPTTY=1 BOARD=turpial flash
 
 **Note:** *Using any other board is the same process, for example, using `cc1312-launchpad` as our board should work.*/
 
-<br /><br />
+<br/>
+<br/>
 
-## 3. Configuring the network interface
+# Configuring the network interface
 
-- Now that we have the firmware on our device it's time to create and configure our network interface:
+Now that we have the firmware on our device it's time to create and configure our network interface:
 
 ```sh
 $ make USE_SLIPTTY=1 BOARD=turpial term
@@ -146,7 +132,7 @@ It will ask for sudo (root) password as we need to create a tunnel network inter
 
 The next step is to configure this network interface, we have an script under `radio-firmware/dist/tools/vaina` directory which automates this process, the only we need to care about is our IP address.
 
-We can edit the file and give it a random IPv6 address:
+We must edit the file and give it IPv6 address:
 
 ```sh
 # Randomly generate a Unique Local Address (begins with fc00::).
@@ -159,6 +145,10 @@ The address generated should be copied into the `autoconfigure.sh` in `radio-fir
 $ ./radio-firmware/dist/tools/vaina/autoconfigure.sh
 ```
 
-It will ask again for root rights to configure the interface, and now if we type `ip address` on our console we should see a network interface named `sl0` (or `tun0` on MacOS X) with the address we just generated.
+It will ask again for root rights to configure the interface, and now if we type `ip address` on our console we should see a network interface named `sl0` (`tun0` on MacOS) with the address we just generated.
 
-With this other peers can send us any data without any more configuration to our IPv6 address.
+# Enjoy it
+
+With this, other peers can send us any data without any more configuration to our IPv6 address.
+
+You can use **Locha Mesh** for any service that can run on IPV6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin or Monero daemons. Help us to build the people's mesh and test your prefered applications over **Locha Mesh**
