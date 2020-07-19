@@ -151,4 +151,14 @@ It will ask again for root rights to configure the interface, and now if we type
 
 With this, other peers can send us any data without any more configuration to our IPv6 address.
 
-You can use **Locha Mesh** for any service that can run on IPV6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin or Monero daemons. Help us to build the people's mesh and test your prefered applications over **Locha Mesh**
+You can use **Locha Mesh** for any service that can run on IPV6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin or Monero daemons. 
+As example, we propose some environments to test Locha Mesh:
+
+- [Monero GUI through Locha Mesh]()
+- [Bitcoin daemons talking in the mesh network]()
+- [Sharing files through the _Torrent_ protocol]()
+
+
+Help us to build the people's mesh, test your prefered applications over **Locha Mesh** and share your setup for help others.
+
+
