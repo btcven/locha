@@ -37,7 +37,7 @@ On Debian based systems, the `build-essential` packages bundles the necessary to
 ### Download and install the arm-embedded toolchain
 
 To compile the firmware we'll need the ARM Toolchain GCC compiler.
-Download and install the latest [ARM toolchain][https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads] available for your OS.
+Download and install the latest [ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) available for your OS.
 
 - First we download the toolchain (Linux & MacOS X):
 
