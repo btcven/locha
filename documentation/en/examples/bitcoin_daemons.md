@@ -1,1 +1,1 @@
-# Using bitcoin daemons in Locha Mesh
+# Using Bitcoin daemons in Locha Mesh
