@@ -78,7 +78,7 @@ The **Locha Mesh** radio firmware is the main software for any hardware compatib
 
 To use the _CC1312R_ or _Turpial_ as a network interface, we need to flash the radio firmware and connect it to the USB port of a computer.
 
-## Clone it, initialize it
+### Clone it, initialize it
 
 ```sh
 $ git clone https://github.com/btcven/radio-firmware.git
@@ -88,11 +88,11 @@ $ cd radio-firmware
 $ git submodule update --init --recursive
 ```
 
-## Build it, flash it, enjoy it
+### Build it, flash it, enjoy it
 
 Depending on the hardware you have you need to pass specific parameters to compile the source code and flash it.
 
-## Firmware configuration
+### Firmware configuration
 
 The `BOARD` variable controls the hardware we're using, here you can find a list of supported boards:
 
@@ -151,14 +151,13 @@ It will ask again for root rights to configure the interface, and now if we type
 
 With this, other peers can send us any data without any more configuration to our IPv6 address.
 
-You can use **Locha Mesh** for any service that can run on IPV6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin or Monero daemons. 
-As example, we propose some environments to test Locha Mesh:
+You can use the **Locha Mesh** for any service that can run on IPv6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin and Monero daemons. You can find some example environments to test the Locha Mesh below:
 
 - [Monero GUI through Locha Mesh]()
-- [Bitcoin daemons talking in the mesh network]()
-- [Sharing files through the _Torrent_ protocol]()
+- [Bitcoin daemons talking in the Locha Mesh network]()
+- [Sharing files using the the _Torrent_ protocol]()
 
 
-Help us to build the people's mesh, test your prefered applications over **Locha Mesh** and share your setup for help others.
+Help us build the resilient network, test your favorite applications in the **Locha Mesh** and share your setup to help others get started.
 
 
