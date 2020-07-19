@@ -12,15 +12,13 @@
 ---
 
 <br/>
-<br/>
 
 # Setup build environment
 
 We recommend to follow this step by step before starting the development process or build the firmware for your **Locha Mesh** device.
-
 If you have a Turpial or a DIY version of any flavour, this process can be a bit different but in principle we can divide it in two main sections:
 
-## Environment for the radio system (CC1312R)
+## 1. Environment for the radio system (CC1312R)
 
 This setup process is applicable for the DIY version or Turpial and **only** for the radio system.
 
@@ -39,13 +37,13 @@ On Debian based systems, the `build-essential` packages bundles the necessary to
 To compile the firmware we'll need the ARM Toolchain GCC compiler.
 Download and install the latest [ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) available for your OS.
 
-- First we download the toolchain (Linux & MacOS X):
+First we download the toolchain (Linux & MacOS X):
 
 ```sh
 $ wget <copied-url> -O arm-toolchain.tar.bz2
 ```
 
-- Unzip files (Linux & MacOS):
+Unzip files (Linux & MacOS):
 
 ```sh
 $ tar -xjf arm-toolchain.tar.bz2
@@ -70,15 +68,14 @@ In order to flash the built firmware for the CC1312R we need to use OpenOCD or U
 **Note:** If you choose to install Uniflash, make sure you set the `UNIFLASH_PATH` environment variable, so that the build system knows where to find it.
 
 <br/>
-<br/>
 
-# Building and flashing the Locha Mesh _radio-firmware_
+### Building and flashing the Locha Mesh _radio-firmware_
 
 The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network, it acts as a router and it lets us access the Mesh network.
 
 To use the _CC1312R_ or _Turpial_ as a network interface, we need to flash the radio firmware and connect it to the USB port of a computer.
 
-### Clone it, initialize it
+#### Clone it, initialize it
 
 ```sh
 $ git clone https://github.com/btcven/radio-firmware.git
@@ -88,11 +85,11 @@ $ cd radio-firmware
 $ git submodule update --init --recursive
 ```
 
-### Build it, flash it, enjoy it
+#### Build it, flash it, enjoy it
 
 Depending on the hardware you have you need to pass specific parameters to compile the source code and flash it.
 
-### Firmware configuration
+#### Firmware configuration
 
 The `BOARD` variable controls the hardware we're using, here you can find a list of supported boards:
 
@@ -118,9 +115,8 @@ $ make USE_SLIPTTY=1 BOARD=turpial flash
 **Note:** *Using any other board is the same process, for example, using `cc1312-launchpad` as our board should work.*/
 
 <br/>
-<br/>
 
-# Configuring the network interface
+### Configuring the network interface
 
 Now that we have the firmware on our device it's time to create and configure our network interface:
 
@@ -147,7 +143,7 @@ $ ./radio-firmware/dist/tools/vaina/autoconfigure.sh
 
 It will ask again for root rights to configure the interface, and now if we type `ip address` on our console we should see a network interface named `sl0` (`tun0` on MacOS) with the address we just generated.
 
-# Enjoy it
+### Enjoy it
 
 With this, other peers can send us any data without any more configuration to our IPv6 address.
 
