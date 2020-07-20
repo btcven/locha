@@ -20,7 +20,7 @@ No special setup or requirements for run this test, only a synchronized daemon a
 
    ![Monero GUI](../../pics/monero_gui.png)
 
-   **Note:** A small bug was detected when a IPV6 is used in address/port fields under `Settings > Node`, it was [reported] and [PR] was open.
+   **Note:** A small bug was detected when an IPV6 was used in the address/port fields under `Settings > Node`, it was [reported] and a [PR] was open.
 
 2. Receiving and sending a transaction
 
