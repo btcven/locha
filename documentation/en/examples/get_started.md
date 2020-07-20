@@ -135,13 +135,13 @@ We must edit the file and give it IPv6 address:
 $ hexdump -n 16 -e '2/2 ":%04x"' /dev/urandom | sed "s/^:[a-zA-Z0-9_.-]*:/fc00:/g"
 ```
 
-The address generated should be copied into the `autoconfigure.sh` in `radio-firmware/dist/tools/vaina`, now we run it on a separate terminal:
+The generated address must be copied and pasted into `radio-firmware/dist/tools/vaina/autoconfigure.sh`, after it, run the script on a new terminal:
 
 ```sh
 $ ./radio-firmware/dist/tools/vaina/autoconfigure.sh
 ```
 
-It will ask again for root rights to configure the interface, and now if we type `ip address` on our console we should see a network interface named `sl0` (`tun0` on MacOS) with the address we just generated.
+It will ask again for root rights to configure the interface, and now if we type `ip address` or `ifconfig` on our console we should see a network interface named `sl0` (`tun0` on MacOS) with the address we just generated.
 
 ### Enjoy it
 
@@ -160,5 +160,3 @@ __In Progress__
 
 
 Help us build the resilient network, test your favorite applications in the **Locha Mesh** and share your setup to help others get started.
-
-
