@@ -149,9 +149,14 @@ With this, other peers can send us any data without any more configuration to ou
 
 You can use the **Locha Mesh** for any service that can run on IPv6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin and Monero daemons. You can find some example environments to test the Locha Mesh below:
 
-- [Monero GUI through Locha Mesh]()
-- [Bitcoin daemons talking in the Locha Mesh network]()
-- [Sharing files using the the _Torrent_ protocol]()
+__Done__
+
+- [Monero GUI through Locha Mesh](monero_gui.md)
+- [Bitcoin daemons talking in the Locha Mesh network](bitcoin_daemons.md)
+
+__In Progress__
+- [Electrum Server](electrum_server.md)
+- [Sharing files using the the _Torrent_ protocol](torrent_protocol.md)
 
 
 Help us build the resilient network, test your favorite applications in the **Locha Mesh** and share your setup to help others get started.
