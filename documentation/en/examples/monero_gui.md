@@ -8,11 +8,11 @@ Using in a node the [Monero] GUI and other node with the Monero daemon, we can s
 |-------------|-------------|--------------------------------------------------------|
 | fc00:db8::1 | Locha Mesh  | Laptop as Client running the GUI                       |
 | fc00:?::1   | Locha Mesh  |2 Turpial nodes that transmit data packets if necessary |
-| fc00:db8::1 | Locha Mesh & Internet | Server running Monero daemon                 |
+| fc00:db9::1 | Locha Mesh & Internet | Server running Monero daemon                 |
 
 ## Requirements
 
-No special setup or requirements for run this test, only a updated daemon and a functional Locha Mesh network.
+No special setup or requirements for run this test, only a synchronized daemon and a functional Locha Mesh network.
 
 ## Procedure
 
