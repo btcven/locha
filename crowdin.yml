@@ -4,5 +4,7 @@ preserve_hierarchy: true
 files:
   - source: /documentation/en/*.md
     translation: /documentation/%two_letters_code%/%original_file_name%
+  - source: /documentation/en/examples/*.md
+    translation: /documentation/%two_letters_code%/examples/%original_file_name%
   - source: /mobile_app/en/strings.json
     translation: /mobile_app/%two_letters_code%/strings.json
