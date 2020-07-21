@@ -1,313 +1,265 @@
-- [Capitulo 1 Ondas](#chapter-1-waves)
-  - [1 Caracteristicas de una onda](#1-caracteristicas-de-una-onda)
-    - [1.1.1 Amplitud (A)](#111-amplitud-a)
-    - [1.1.2 Frecuencia (f)](#112-frecuencia-f)
-    - [1.1.3 Periodo de tiempo (T)](#113-periodo-de-tiempo-t)
-    - [1.1.4 Longitud de onda (λ)](#114-longitud-de-onda-%ce%bb)
-    - [1.1.5 Velocidad (v)](#115-velocidad-v)
-  - [2 Clasificación de las ondas](#2-clasificaci%c3%b3n-de-las-ondas)
-    - [2.1 En función del medio en el que se propagan](#21-en-funci%c3%b3n-del-medio-en-el-que-se-propagan)
-      - [2.1.1 Ondas mecánicas:](#211-ondas-mec%c3%a1nicas)
-      - [2.1.2 Ondas electromagnéticas](#212-ondas-electromagn%c3%a9ticas)
-      - [2.1.3 Ondas gravitacionales](#213-ondas-gravitacionales)
-    - [2.2 En función de su dirección](#22-en-funci%c3%b3n-de-su-direcci%c3%b3n)
-      - [2.2.1 Ondas unidimensionales](#221-ondas-unidimensionales)
-      - [2.2.2 Ondas bidimensionales o superficiales](#222-ondas-bidimensionales-o-superficiales)
-      - [2.2.3 Ondas tridimensionales o esféricas](#223-ondas-tridimensionales-o-esf%c3%a9ricas)
-    - [2.3 En función del movimiento de sus partículas](#23-en-funci%c3%b3n-del-movimiento-de-sus-part%c3%adculas)
-      - [2.3.1 Ondas longitudinales](#231-ondas-longitudinales)
-      - [2.3.2 Ondas transversales](#232-ondas-transversales)
-    - [2.4  En función de su periodicidad](#24-en-funci%c3%b3n-de-su-periodicidad)
-      - [2.4.1 Ondas periódicas](#241-ondas-peri%c3%b3dicas)
-      - [2.4.2 Ondas no periódicas](#242-ondas-no-peri%c3%b3dicas)
-- [Capitulo 2 Moduladores y demoduladores](#capitulo-2-moduladores-y-demoduladores)
-  - [2.1 Señal portadora](#21-se%c3%b1al-portadora)
-  - [2.2 Señal moduladora](#22-se%c3%b1al-moduladora)
-  - [2.3 Por que modular una señal?](#23-por-que-modular-una-se%c3%b1al)
-  - [2.4 Técnicas de modulación empleadas](#24-t%c3%a9cnicas-de-modulaci%c3%b3n-empleadas)
-  - [2.5 Tipos de moduladores](#25-tipos-de-moduladores)
-    - [2.5.1 Modulación analógica:](#251-modulaci%c3%b3n-anal%c3%b3gica)
-      - [2.5.1.1 Modulación de la amplitud.](#2511-modulaci%c3%b3n-de-la-amplitud)
-      - [2.5.1.2 Modulación de la frecuencia.](#2512-modulaci%c3%b3n-de-la-frecuencia)
-      - [2.5.1.3 Modulación de la fase.](#2513-modulaci%c3%b3n-de-la-fase)
-    - [2.5.2 Modulación digital](#252-modulaci%c3%b3n-digital)
-      - [2.5.2.1 Modulación por desplazamiento de amplitud (**ASK, Amplitude Shift Keying**)](#2521-modulaci%c3%b3n-por-desplazamiento-de-amplitud-ask-amplitude-shift-keying)
-      - [2.5.2.2 Modulación por desplazamiento de frecuencia (**FSK,Frecuency Shift Keying**)](#2522-modulaci%c3%b3n-por-desplazamiento-de-frecuencia-fskfrecuency-shift-keying)
-        - [2.5.2.2.1 Multiplexacion de 2 diferentes frecuencias.</h4>](#25221-multiplexacion-de-2-diferentes-frecuenciash4)
-        - [2.5.2.2.2 Oscilador controlado por tensión (VCO).](#25222-oscilador-controlado-por-tensi%c3%b3n-vco)
-      - [2.5.2.3 Modulación por desplazamiento de frecuencia Gausiana (GFSK)](#2523-modulaci%c3%b3n-por-desplazamiento-de-frecuencia-gausiana-gfsk)
-      - [2.5.2.4 Modulación por desplazamiento de fase (**PSK, Phase Shift Keying**)](#2524-modulaci%c3%b3n-por-desplazamiento-de-fase-psk-phase-shift-keying)
-- [Capitulo 3 Filtros](#capitulo-3-filtros)
-  - [3.1 ¿Qué es un filtro de frecuencia?](#31-%c2%bfqu%c3%a9-es-un-filtro-de-frecuencia)
-  - [3.2 Clasificación de los filtros](#32-clasificaci%c3%b3n-de-los-filtros)
-    - [3.2.1 Respuesta en frecuencia](#321-respuesta-en-frecuencia)
-- [Capitulo 4 Demodulador FSK](#capitulo-4-demodulador-fsk)
+[Waves, Modulators and some signal theory](#waves)
+  - [1 Characteristics of a wave](#1-caracteristicas-de-una-onda)
+    - [Amplitude (A)](#111-amplitud-a)
+    - [Frequency (f)](#112-frecuencia-f)
+    - [Period (T)](#113-periodo-de-tiempo-t)
+    - [Length (λ)](#114-longitud-de-onda-%ce%bb)
+    - [Velocity (v)](#115-velocidad-v)
+  - [2 Wave classification](#2-clasificaci%c3%b3n-de-las-ondas)
+    - [2.1 Depending on the propagation medium](#21-en-funci%c3%b3n-del-medio-en-el-que-se-propagan)
+      - [Mechanical Waves](#211-ondas-mec%c3%a1nicas)
+      - [Electromagnetic waves](#212-ondas-electromagn%c3%a9ticas)
+      - [Gravitational waves](#213-ondas-gravitacionales)
+    - [2.2 Depending on its direcction](#22-en-funci%c3%b3n-de-su-direcci%c3%b3n)
+      - [One-dimensional waves](#221-ondas-unidimensionales)
+      - [Two-dimensional or surface waves](#222-ondas-bidimensionales-o-superficiales)
+      - [Three-dimensional or spherical waves](#223-ondas-tridimensionales-o-esf%c3%a9ricas)
+    - [2.3 Depending on movement of its particles](#23-en-funci%c3%b3n-del-movimiento-de-sus-part%c3%adculas)
+      - [Longitudinal waves](#231-ondas-longitudinales)
+      - [Transverse waves](#232-ondas-transversales)
+    - [2.4  Depending on its periodicity](#24-en-funci%c3%b3n-de-su-periodicidad)
+      - [Periodic waves](#241-ondas-peri%c3%b3dicas)
+      - [Non-periodic waves](#242-ondas-no-peri%c3%b3dicas)
+2. [Modulators and de-modulators](#capitulo-2-moduladores-y-demoduladores)
+    - [2.1 Signal carrier](#21-se%c3%b1al-portadora)
+    - [2.2 Modulation signal](#22-se%c3%b1al-moduladora)
+    - [2.3 Why modulate a signal?](#23-por-que-modular-una-se%c3%b1al)
+    - [2.4 Modulation techniques](#24-t%c3%a9cnicas-de-modulaci%c3%b3n-empleadas)
+    - [2.5 Modulator types](#25-tipos-de-moduladores)
+      - [Analóg modulation](#251-modulaci%c3%b3n-anal%c3%b3gica)
+        - [Amplitude modulation](#2511-modulaci%c3%b3n-de-la-amplitud)
+        - [requency modulation](#2512-modulaci%c3%b3n-de-la-frecuencia)
+        - [Phase modulation](#2513-modulaci%c3%b3n-de-la-fase)
+      - [Digital modulation](#252-modulaci%c3%b3n-digital)
+        - [Amplitude Shift Keying _(ASK)_](#2521-modulaci%c3%b3n-por-desplazamiento-de-amplitud-ask-amplitude-shift-keying)
+        - [Frecuency Shift Keying _(FSK)_](#2522-modulaci%c3%b3n-por-desplazamiento-de-frecuencia-fskfrecuency-shift-keying)
+        - [Multiplexing 2 different frequencies](#25221-multiplexacion-de-2-diferentes-frecuenciash4)
+        - [Voltage Controlled oscillator O _(VCO)_](#25222-oscilador-controlado-por-tensi%c3%b3n-vco)
+        - [Gaussian Frequency Shift Keying _(GFSK)_](#2523-modulaci%c3%b3n-por-desplazamiento-de-frecuencia-gausiana-gfsk)
+        - [2.5.2.4 Phase Shift Keying _(PSK)_](#2524-modulaci%c3%b3n-por-desplazamiento-de-fase-psk-phase-shift-keying)
+3. [Filters](#capitulo-3-filtros)
+   - [3.1 What is a frequency filter?](#31-%c2%bfqu%c3%a9-es-un-filtro-de-frecuencia)
+    - [3.2 Filter Types](#32-clasificaci%c3%b3n-de-los-filtros)
 
 
+<br/>
 
-# Teoría de señales y moduladores
+This paper aims to explain the principles and fundamental concepts that make possible the wireless interconnection between nodes irradiating signals and receiving it, by applying techniques described in this section.
 
-En este documento se pretende explicar los principios y conceptos fundamentales que hacen posible interconectar nodos de manera inalámbrica sin necesidad de cables, irradiando y recibiendo señales por medio de técnicas descritas en esta sección.
+# Waves
 
-# Capitulo 1 Ondas
-
-Una onda consiste en la propagación de una perturbación de alguna propiedad del espacio, por ejemplo:
+A wave is a disturbance of some space property travelling through it:
 
 - Densidad.
 - Presión.
 - Campo eléctrico.
 - Campo magnético.
 
-En el ejemplo de la imagen generando una onda con una cuerda, se puede apreciar la deformación del medio el cual representa el transporte de energía, sin transportar la materia misma.
+Implies an energy transport without matter transport.
+
+![wave](../pics/wave.svg)
+
+The example in the figure generating a wave with a string, it can be appreciate the deformity of the medium in which the energy transport is represented, without having to transport the matter itself.
+
+## Wave characteristics
+
+![wave_characteristics](../pics/wave-characteristics.svg) ![frequency](../pics/frequency.svg)
+
+### Amplitude (A)
+
+Is the distance between a crest and the medium point of the wave.
+
+### Frequency (f)
+
+The number of vibrations (full cycle) produced in a second is called wave frequency _f_. The frequency unit in the International System (SI) is the Hertz (Hz).
+
+![Frequency](../pics/frequency_form.png)
+
+### Time period (T)
+
+The time required to produced a full cycle is called time period of the wave (T). The IS of the Time is the second.
+
+![Time](../pics/time_form.png)
+
+### Wavelenght (λ)
+
+The minimum distance in which a wave repeats is called wavelength. In a wave, the distance between the center of two consecutive compressions or two rarefactions are also denominated as wavelength (λ, Lambda). The SI unit is the meter (m).
+
+### Velocity (V)
+
+The distance traveled by the wave in a second it's called propagation speed. The unit in the SI for this is m/s.
+
+![Velocity](../pics/velocity_form.png)
+
+## Type of waves
+
+### By Propagation medium
+
+- #### Mechanical waves
+
+  These waves need an elastic medium to propagate. The particles in the medium oscillate around a fixed point, by which neat transport of the matter thourgh the medium doesn't occur. In this type we can find the elastic waves, water surface waves or waves in a controlled explosion, sound waves and gravitational waves.
+
+- #### Electromagnetic waves
+
+  The electromagnetic waves propagate through the space vacuum without a medium. This is due by the oscilations of the electric field in relation with the magnetic field. These waves travel at around 300,000 Km/s, depending on the speed it can be grouped in frequency. This ordering is known as electromagnetic spectrum, it measures the waves frequency. The X-rays, visible light or ultraviolet rays belong in this type.
+
+- #### Gravitational wave The gravitational waves are disturbances altering the geometry of spacetime.
+
+### By Wave Dimension
+
+- #### Unidimensional wave These waves propagate through space in one direction, as in strings.
+
+- #### Two-dimensional or surface wave The two-dimensional wave propagates in two directions, like the waves produced in a liquid surface at rest when a rock is let drop in it.
+
+- #### Three-dimensional or spherical The distrubance is propagated in all directions from the source, it's also known as spherical wave.
 
 
-<img src="../pics/wave.svg" alt="drawing" height="300" width="400" align="block" />
+### By particles movement
 
-Una onda puede ser completamente descrita por 5 características llamadas amplitud, frecuencia, periodo, longitud de onda y velocidad.
+- #### Longitudinal waves In this type of wave the disturbance is parallel to the direction of the propagation. Compressing an elastic spring results in a longitudinal wave.
 
-## 1. Wave characteristics
+- #### Transverse waves In the transverse waves the disturbance vibrate perpendicularly to the propagation of the propagation, like the waves in a string, and seismic waves.
 
-<figure>
-  <img src="../pics/wave-characteristics.svg" alt="drawing" height="330" width="400" align="left"/>
-  <img src="../pics/frequency.svg" alt="drawing" height="330" width="400" align="left"/>
-</figure>
+### By periodicity
 
-### 1.1.1 Amplitude (A)
+- #### Periodic wave The local disturbance that originates this type of waves it's produced in repetitive cicles, e.g. a sine wave.
 
-Es la distancia vertical entre una cresta y el punto medio de la onda.
+- #### Non-periodic wave
 
-### Modulación en Frecuencia - FM.
+  The disturbance that originates them are isolated, or in case it repeats, the following disturbances have different characteristics. These isolated waves are known as pulse wave.
 
-La frecuencia instantánea de salida del oscilador es controlada por el voltaje de entrada. Es un tipo de oscilador que puede producir una frecuencia de señal de salida en un amplio rango (pocos Hertz-cientos de Giga Hertz) dependiendo de la tensión de entrada de corriente continua que se le haya asignado.
+<br />
+<br />
 
-```
-f = 1/T
-
-```
-
-
-### 1.1.3 Time period (T)
-
-El tiempo requerido para producir una vibración completa (onda o ciclo) se llama período de tiempo de la onda. The IS of the Time is the second (s).
-
-```
-T = 1/f
-```
-
-### 1.1.4 Wavelenght (λ)
-
-La distancia mínima en la que se repite una onda de sonido se denomina longitud de onda. En una onda de sonido, la distancia entre los centros de dos compresiones consecutivas o dos rarefacciones consecutivas también se llama longitud de onda. La unidad SI de longitud de onda es metro (m).
-
-
-### 1.1.5 Speed (V)
-
-The distance traveled by the wave in a second it's called propagation speed. La unidad SI de longitud de onda es metro (m).
-
-```
-V = 1/T
-```
-
-
-## 2. Type of waves
-
-### 2.1 Propagation medium
-
-#### 2.1.1 Mechanical waves
-
-Las ondas mecánicas necesitan un medio material elástico (sólido, líquido o gaseoso) para propagarse. Las partículas del medio oscilan alrededor de un punto fijo, por lo que no existe transporte neto de materia a través del medio. Dentro de las ondas mecánicas tenemos las ondas elásticas, las ondas que se propagan en la superficie del agua o en una explosión controlada, las ondas sonoras y las ondas de gravedad.
-
-#### 2.1.2 Electromagnetic waves
-
-las ondas electromagnéticas se propagan por el espacio sin necesidad de un medio material, pudiendo por lo tanto propagarse en el vacío. Esto es debido a que las ondas electromagnéticas son producidas por las oscilaciones de un campo eléctrico, en relación con un campo magnético asociado. Las ondas electromagnéticas viajan aproximadamente a una velocidad de 300000 km/s, de acuerdo a la velocidad puede ser agrupado en rango de frecuencia. Este ordenamiento es conocido como Espectro Electromagnético, objeto que mide la frecuencia de las ondas. Los rayos X, la luz visible o los rayos ultravioleta son ejemplos de ondas electromagnéticas.
-
-#### 2.1.3 Gravitational wave
-Las ondas gravitacionales son perturbaciones que alteran la geometría misma del espacio-tiempo y aunque es común representarlas viajando en el vacío, técnicamente no podemos afirmar que se desplacen por ningún espacio, sino que en sí mismas son alteraciones del espacio-tiempo.
-
-### 2.2 Wave Dimension
-
-#### 2.2.1 Unidimensional wave
-La distancia recorrida por la onda de sonido en un segundo se llama velocidad de propagación La unidad SI de velocidad de propagación es m /s.
-
-#### 2.2.2 Two-dimensional or surface wave
-La distancia recorrida por la onda de sonido en un segundo se llama velocidad de propagación La unidad SI de velocidad de propagación es m /s.
-
-#### 2.2.3 Three-dimensional or spherical
-The distrubance is propagated in all directions from the source, it's also known as spherical wave.
-
-
-### 2.3 Particles movement
-
-#### 2.3.1  Longitudinal waves
-Son aquellas que se caracterizan porque las partículas del medio se mueven o vibran paralelamente a la dirección de propagación de la onda. Por ejemplo, las ondas sísmicas, las ondas sonoras y un muelle que se comprime dan lugar a una onda longitudinal.
-
-#### 2.3.2 Transverse waves
-La distancia recorrida por la onda de sonido en un segundo se llama velocidad de propagación La unidad SI de velocidad de propagación es m /s.
-
-### 2.4 Periodicity
-
-#### 2.4.1 Periodic wave
-La perturbación local que las origina se produce en ciclos repetitivos por ejemplo una onda senoidal.
-
-#### 2.4.2 Non-periodic wave
-
-La perturbación que las origina se da aisladamente o, en el caso de que se repita, las perturbaciones sucesivas tienen características diferentes. Las ondas aisladas también se denominan pulsos.
-
-
-# Modulación en Fase - PM.
+# Modulators and demodulators
 
 Information signals are rarely in an appropiate state for transmission. Signals must be carried between the transmisor and the receiver on some medium.
 
 Modulation is a process in which the carrier signal is altered in one of its characteristics in order to properly transmit the data, protecting it from noise and interferences. [15]
 
-La Demodulación es el proceso inverso (es decir, la onda modulada se convierte nuevamente a su forma original). La modulación se realiza en el transmisor en un circuito llamado modulador, y la demodulación se realiza en el receptor en un circuito llamado demodulador o detector.
+Demodulation is the reverse process, it turns the modulated signal to its original form in order to read the data in it. Modulation happens on the transmissor side, while demodulation on the receiver side.
 
-## Una señal portadora es una onda eléctrica que puede ser modificada en alguno de sus parámetros por la señal de información (sonido, imagen o datos) para obtener una señal modulada y que se transporta por el canal de comunicaciones.
+## Carrier wave
 
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+A carrier wave is an modulated signal that allows more efficient transmissions and receptions by reducing the wavelenght, which positively affects hardwarde requirements, such as the antenna size. It also allows the multiplexing of different frequencies to transmit over the same channel.
 
-## Es necesario modular las señales por diferentes razones:
+## Modulated signal
 
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+A modulated signal can be a signal of audio, video, or data. Any of these signals mixed with the carrier generate the modulated signal transmitted through the antenna.
 
+![modulated_signal](../pics/modulator1.svg)
 
-<img src="../pics/modulator1.svg" alt="drawing" height="180" width="400" align="block" />
+## Why modulate a signal?
 
+As stated before, modulation allows to take advantage of the communication channel, by making possible the transmission of more data simultaneously over the same channel and protect the data from possible interferences or noises.
 
-## Es necesario modular las señales por diferentes razones:
+## Types of modulation
 
-Como se dijo antes una señal moduladora, puede ser una señal de audio, video, o datos; cualquier señal de éstas al ser mezclada con la portadora generan la señal modulada que se transmite a través de la antena.
+![modulator_types](../pics/modulator-types.svg)
 
+### Analog Modulation
 
-## Las formas básicas de Modulación son:
+- #### Amplitude Modulation (AM)
 
-<img src="../pics/modulator-types.svg" alt="drawing" height="400" width="800" align="center" />
+  ![AM](../pics/AM_modulator.svg)
 
-
-### Las tres técnicas de modulación analógica son:
-
-
-#### Modulación en Fase - PM.
-<br/>
-<img src="../pics/AM_modulator.svg" alt="drawing" height="200" width="400" align="left" />
-
-En este tipo de técnica, lo que se obtiene a la salida es la señal portadora o carrier alterada en amplitud, proporcional a la amplitud de la señal moduladora o en este caso la señal proveniente del micrófono. Dicha señal es la responsable de alterar la señal de alta frecuencia.
+  In AM modulation, the amplitude of the sine wave its altered. The high frequency of the carrier its modulated to a low frequency signal.
 
 <br/>
-<br/>
-<br/>
-<br/>
 
-#### Modulación en Frecuencia - FM.
+- #### Frequency modulation
 
-<img src="../pics/FM_modulator.svg" alt="drawing" height="220" width="600" align="center" />
-<br/>
-<br/>
+  ![FM](../pics/FM_modulator.svg)
 
-Modulación en Frecuencia - FM.
+  In this type of modulation the amplitude of the carrier signal is constant while the frequency varies, this can be done in two ways, direct or indirec, for instance, FM Radio uses the indirect method for radio broadcasts.
 
-#### Modulación en Fase - PM.
+- #### Phase modulation
 
-La forma de las señales de modulación de frecuencia y modulación de fase son muy parecidas. De hecho, es imposible diferenciarlas sin tener un conocimiento previo de la función de modulación.
+  With phase modulation, the carrier wave phase is varied in order to transmit the information contained in it. Frequency modulation signals and phase modulation are very much alike.
 
-### Modulación en Frecuencia - FM.
+### Digital modulation
 
-#### La modulación por desplazamiento de amplitud, en inglés Amplitude-shift keying (ASK), es una forma de modulación en la cual se representan los datos digitales como variaciones de amplitud de la onda portadora en función de los datos a enviar.
+- #### Amplitude Shift Keying (ASK)
 
-La modulación por desplazamiento de amplitud, en inglés Amplitude-shift keying (ASK), es una forma de modulación en la cual se representan los datos digitales como variaciones de amplitud de la onda portadora en función de los datos a enviar.
+  ASK its a modulation technique in which the amplitude shift into two or more amplitude levels that can be represented by binary 0 and 1.
 
-As AM, ASK is also linear and sensitive to atmospheric noise, distortions, and propagation conditions in different routes on PSTN, among other factors. Amplitude modulation requires an excessive bandwidth and therefore an energy expense[16], but modulation and demodulation are cheap enough.
+  As AM, ASK is also linear and sensitive to atmospheric noise, distortions, and propagation conditions in different routes on PSTN, among other factors. Amplitude modulation requires an excessive bandwidth and therefore an energy expense[16], but modulation and demodulation are cheap enough.
 
-<img src="../pics/ask_modulator.svg" alt="drawing" height="400" width="400" align="center" />
+  ![ASK](../pics/ask_modulator.svg)
 
+- #### Frecuency Shift Keying (FSK)
 
-#### La modulación por desplazamiento de frecuencia o FSK (del inglés Frequency Shift Keying), es una técnica de modulación para la transmisión digital de información, utilizando dos o más frecuencias diferentes para cada símbolo.​ La señal moduladora solo varía entre dos valores de tensión discretos formando un tren de pulsos donde uno representa un "1" o "marca" y el otro representa el "0" o "espacio".
+  FSK is a digital frequency modulation technique for binary data transmission. As in FM, the data is encoded in the carrier wave by shifting its frequency between preset frequencies. This technique is also used for Morse code, among other uses.
 
-FSK is a digital frequency modulation technique for binary data transmission. As in FM, the data is encoded in the carrier wave by shifting its frequency between preset frequencies. This technique is also used for Morse code, among other uses.
+  ![FSK](../pics/fsk_modulator.svg)
 
-<img src="../pics/fsk_modulator.svg" alt="drawing" height="400" width="400" align="center" />
+  In this modulation form the sine carrier takes two frequency values directly determined by the binary data signal. [17]
 
-En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
+- #### Multiplexing of 2 different frequencies
 
+  On the next figure we have two carriers with different frequencies to represent the different symbols inside the message, in this case 0 and 1. The frequency of the oscillator 1 must be different to the oscillator 2 but keeping in mind that the difference can't be too big.
 
-##### En la siguiente figura tenemos dos portadoras con diferente frecuencia, para representar los diferentes símbolos dentro del mensaje, en este caso cero(0) y uno(lógico), la frecuencia del oscilador 1 debe ser diferente a la del oscilador 2 pero teniendo en cuanta que la diferencia no debe ser muy grande.
+  These two frequencies act like two phase digital switch controlled by a digital signal, in this case a digital message which generates an output shown in the switch.
 
-On the next figure we have two carriers with different frequencies to represent the different symbols inside the message, in this case 0 and 1. The frequency of the oscillator 1 must be different to the oscillator 2 but keeping in mind that the difference can't be too big.
+  This technique has a drawback in which abrupt changes take place while switching the frequencies, such changes generate undesirable harmonics (sine wave) increasing the bandwidth, which is not desirable in signal modulation.
 
-En la siguiente figura tenemos dos portadoras con diferente frecuencia, para representar los diferentes símbolos dentro del mensaje, en este caso cero (0) y uno (lógico), la frecuencia del oscilador 1 debe ser diferente a la del oscilador 2 pero teniendo en cuenta que la diferencia no debe ser muy grande.
+  ![modulator_switch](../pics/modulator-switch.svg)
 
-En este tipo de modulación, la señal moduladora tiene una amplitud constante pero varia la frecuencia, la cual es utilizada para alterar la frecuencia de la señal portadora o carrier.
+- #### Voltage Controlled Oscillator (VCO)
 
-<img src="../pics/modulator-switch.svg" alt="drawing" height="200" width="600" align="center" />
+  Instant frequency of the oscillator output its controlled by the input voltage. This kind of oscillator can produced a high frequency output on a wide range (few Hertz, or houndreds of Giga Hertz) depending on the DC input voltage asigned.
 
+  This type of oscillators doesn't presents any input voltage so it must oscillate in frequency called **suppressed oscillation frequency** _[needs reference]_ and by increasing the input voltage, the output signal will be altered in its frequency, linear growing regarding the input voltage.
 
+  In this particular case in which we want to modulate a digital signal (pulse generation), we can observe two differents voltage to controll the VCO: when the data signal is on a high level or logic 1, its equivalent to having a voltage different from zero, and when the logic 0 is the current state is like having the VCO in the suppressed oscillation frequency for which it has been designed.
 
-##### 2.5.2.2.2 Voltage Controlled Oscillator (VCO)
+  This modulation technique, like the previous one, handles a different frequency for each symbol. The difference is the VCO deletes the abrupt changes in the frequency due it doesn't needs to multiplex between different frequency generators, it consists in controlling the the frequency coming from the generator.
 
-### VCO
+  ![VCO](../pics/modulation-vco.svg)
 
-La frecuencia instantánea de salida del oscilador es controlada por el voltaje de entrada. Es un tipo de oscilador que puede producir una frecuencia de señal de salida en un amplio rango (pocos Hertz-cientos de Giga Hertz) dependiendo de la tensión de entrada de corriente continua que se le haya asignado.
+- #### Gaussian Frequency Shift Keying (GFSK)
 
-Este tipo de osciladores al no presentar voltaje en su entrada o lo que es igual a 0 voltios, debe oscilar en una frecuencia llamada frecuencia libre de oscilación, y al empezar a incrementar el voltaje de entrada, la señal de salida se ve alterada en su frecuencia creciendo de forma lineal respecto al voltaje de entrada.
+  ![GFSK](../pics/Gaussian-filter.svg)
 
-Los siguientes son algunos casos extremos de estas técnicas:
+  This technique is similar to the FSK, previously described, with an improvement on the signal bandwidth.
 
-This modulation technique, like the previous one, handles a different frequency for each symbol. The difference is the VCO deletes the abrupt changes in the frequency due it doesn't needs to multiplex between different frequency generators, it consists in controlling the the frequency coming from the generator.
+  The technique consists on soften the pulse generation (data or modulated signal), as we know such pulse generation represents a square wave which stands for abrupt changes when it passes from logic 0 to logic 1, increasing the bandwidth of the signal spectrum.
 
-<img src="../pics/modulation-vco.svg" alt="drawing" height="250" width="800" align="center" />
+  As the modulated signal (data) travels through a Gaussian filter to the output it's very similar to a sine wave which presents soft transitions from 0 to 1.
 
+  We can observe that:
 
-#### modulación GFSK = filtro Gaussiano + FSK
+  _GFSK modulation = Gaussian filter + FSK_
 
-<img src="../pics/Gaussian-filter.svg" alt="drawing" height="300" width="450" align="left" />
+  We said before that having these abrupt changes from 0 to 1 in the modulated signal increases the bandwidth. We conclude that the improvement that this type of filter provides in FSK modulation is the decrease of the spectrum bandwidth in the output signal.
 
-Esta técnica es similar a la técnica de FSK descrita en el apartado anterior, con una pequeña mejora en el ancho de banda de la señal.
+- #### Phase Shift Keying (PSK)
 
-Esta técnica consiste en suavizar el tren de pulsos (datos o señal moduladora), como sabemos dicho tren de pulsos representa una onda cuadrada la cual presenta cambios abruptos cuando pasa de cero lógico a uno lógico, aumentando el ancho de banda del espectro de señal.
+  PSK is another digital modulation technique in which the phase of the carrier is discretly changed. This modulation and its variants are widely used.
 
-Al pasar la señal moduladora (Data) a través de un filtro Gaussiano la salida es muy similar a una onda senoidal la cual presenta transiciones suaves de cero a uno.
+<br />
+<br />
 
-Con esto observamos que:
+# Filters
 
-`modulación GFSK = filtro Gaussiano + FSK`
+## What is a filter?
 
-We said before that having these abrupt changes from 0 to 1 in the modulated signal increases the bandwidth. We conclude that the improvement that this type of filter provides in FSK modulation is the decrease of the spectrum bandwidth in the output signal.
+An electronic filter is a circuit that uses electrical and electronics components to attenuate, correct or reject a frequency range on any kind of signal.
 
-#### 2.5.2.4 Phase Shift Keying (PSK)
+## Electronic filters
 
-En esta forma de modulación la portadora sinusoidal toma dos valores de frecuencia, determinados directamente por la señal de datos binaria. El modulador puede realizarse en varios modos, los cuales se describen a continuación.
+By their functionality:
 
-
-# Chapter 3 Filters
-
-## Existen diferentes tipos de filtros clasificados por su funcionalidad:
-
-Filtros Análogos: Procesa señales continuas, basado en componentes electrónicos análogos.
-
-## Filtros Análogos: Procesa señales continuas, basado en componentes electrónicos análogos.
-
-Existen diferentes tipos de filtros clasificados por su funcionalidad:
-- Filtros Digitales: Procesa Señales discretas, este tipo de filtro es basado en software.
-  - Modulación en Amplitud - Doble banda lateral con portadora - AM.
-  - Doble banda lateral sin portadora - DBL-SP.
-  - Banda lateral única - BLU.
-- Filtros Análogos: Procesa señales continuas, basado en componentes electrónicos análogos.
-  - Pasivos: Basado en Condensadores, Bobinas y Resistencias, presenta pérdidas por atenuación. It presents attenuation losses.
-   - Pasa bajos.
-   - Pasa altos.
-   - Pasa banda.
-  - Activos: Basado en Condensadores, Bobinas y Resistencias. These offer amplitude.
-   - Pasa bajos.
-   - Pasa altos.
-   - Pasa banda.
-
-### Modulación en Frecuencia - FM.
-
-<img src="../pics/filter-graph.svg" alt="drawing" height="300" width="450" align="center" />
-
-# modulación GFSK = filtro Gaussiano + FSK
-
-This chapter shows some insight in the process involved in the reception of a signal modulated on FSK, emitted by a node. To receive the original data without the carrier some process must be done, for this goal we will use low-pass filters, which allows filter the modulated signal removing its high frequency components, leaving just the original message, this process is known as demodulation.
-
-Estas dos frecuencias se hacen pasar por un interruptor digital de dos estados controlado por una señal digital, en este caso el mensaje digital y el cual genera la salida mostrada en la salida del interruptor.
-- Detección síncrona.
-- Detección de envolvente.
+- Digital filters: Process discrete signals, this kind of filter is software based.
+  - Low-pass.
+  - High-pass.
+  - Band-pass.
+- Analog filter: Process continous signals based on analog components.
+  - Passive:  Based on capacitors, coils, and resistances. It presents attenuation losses.
+     - Low-pass.
+     - High-pass.
+     - Band-pass.
+  - Active: Based on IC, capacitors, coils and resistances. These offer amplitude.
+    - Low-pass.
+    - High-pass.
+    - Band-pass.
