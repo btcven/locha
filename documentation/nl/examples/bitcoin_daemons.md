@@ -1,16 +1,16 @@
-# Using Bitcoin daemons in Locha Mesh
+# Bitcoin Daemons in Locha Mesh gebruiken
 
-The main purpose of this demostration is to perform a stress test. Two [Bitcoin][] nodes are talking and sharing blocks, trying to update their blockchains
+Het belangrijkste doel van deze demostratie is het uitvoeren van een stresstest. Twee [Bitcoin][]-nodes praten en delen blokken en proberen hun blockchains bij te werken
 
-The next figure represents the used environment:
+De volgende afbeelding vertegenwoordigt de gebruikte omgeving:
 
 ![Bitcoin Daemons Environment](../../pics/demo_bitcoin_daemons.svg)
 
-| node | address     | connections           | Description                                             |
-|:----:| ----------- | --------------------- | ------------------------------------------------------- |
-|  n1  | fc00:db8::1 | Locha Mesh            | pc running bitcoind with no-syncronized blockchain      |
-|  n?  | fc00:?::1   | Locha Mesh            | 2 Turpial nodes that transmit data packets if necessary |
-|  ne  | fc00:db9::1 | Locha Mesh & Internet | pc running bitcoind with a synchronized blockchain      |
+| node | adres       | verbindingen          | Beschrijving                                             |
+|:----:| ----------- | --------------------- | -------------------------------------------------------- |
+|  n1  | fc00:db8::1 | Locha Mesh            | pc met bitcoind zonder gesynchroniseerde blockchain      |
+|  n?  | fc00:?::1   | Locha Mesh            | 2 Turpial-nodes die indien nodig datapakketten verzenden |
+|  ne  | fc00:db9::1 | Locha Mesh & internet | pc met bitcoind met een gesynchroniseerde blockchain     |
 
 
 ## Requirements
