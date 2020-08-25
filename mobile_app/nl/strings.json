@@ -12,8 +12,8 @@
         "restore": "Account herstellen",
         "titleCreateAccount": "Account aanmaken",
         "subTitleCreateAccount": "Make sure to properly store your backup phrase in case you need to restore from it",
-        "titleConfirm": "Confirm backup phrase",
-        "subTitleCorfirm": "Confirm your backup phrase to continue",
+        "titleConfirm": "Bevestig backup phrase",
+        "subTitleCorfirm": "Bevestig je backup phrase om door te gaan",
         "titlePin": "PIN toevoegen",
         "subtitlePin": "It is very important that you remember the PIN entered, with it you will have access to your account.",
         "subtitlePin2": "Voer uw PIN in om toegang te krijgen tot uw account",
@@ -29,14 +29,14 @@
         "textUsername": "Voer een gebruikersnaam in",
         "restorePinTitle": "PIN herstellen",
         "restorePinText": "Enter the backup phrase to restore your PIN",
-        "buy": "Pre-order Turpial device"
+        "buy": "Pre-order Turpial-apparaat"
     },
     "Drawer": {
         "contacts": "Contacten",
         "setting": "Instellingen"
     },
     "Settings": {
-        "deviceSettings": "Device settings",
+        "deviceSettings": "Apparaatinstellingen",
         "name": "Naam",
         "editName": "Gebruikersnaam wijzigen",
         "enterName": "Gebruikersnaam",
@@ -66,7 +66,7 @@
         "contacts": "Contacten",
         "settings": "Instellingen",
         "search": "Zoeken",
-        "notConnected": "Not connected"
+        "notConnected": "Niet verbonden"
     },
     "Chats": {
         "message": "Bericht",
@@ -80,13 +80,13 @@
         "photo": "Foto"
     },
     "DeviceSettings": {
-        "retryButton": "retry",
-        "headerTitle": "Device Settings",
+        "retryButton": "probeer opnieuw",
+        "headerTitle": "Apparaatinstellingen",
         "errorInfo": "Connection failed. Please verify that you are connected to a Turpial device's WiFi hotspot.",
         "deviceTitle": "Apparaateigenschappen",
         "bateryStatus": "Batterijstatus",
         "devicename": "Apparaatnaam",
-        "compilationVersion": "Compilation version",
+        "compilationVersion": "Compilatieversie",
         "availableMemory": "Beschikbaar geheugen",
         "wapTitle": "WAP (WiFi Access Point)",
         "changePassword": "Wachtwoord wijzigen",
@@ -108,13 +108,13 @@
         "confirmPassword": "Wachtwoorden komen niet overeen"
     },
     "WifiConnect": {
-        "title": "Connect to a valid AP",
+        "title": "Verbind met een geldige AP",
         "subtitle": "For this application to work correctly you need to be connected to a compatible IPv6 network. Please connect to a valid AP.",
-        "buttonConnect": "Connect",
-        "buttonCancel": "Cancel",
-        "connectionError": "connection error",
-        "successfulConnection": "successful connection",
-        "inputSSID": "Enter SSID",
-        "inputPassword": "Enter Password"
+        "buttonConnect": "Verbind",
+        "buttonCancel": "Annuleer",
+        "connectionError": "verbindingsfout",
+        "successfulConnection": "succesvolle verbinding",
+        "inputSSID": "Voer SSID in",
+        "inputPassword": "Voer wachtwoord in"
     }
 }
