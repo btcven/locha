@@ -1,12 +1,12 @@
 <br/>
 
-# Get started
+# Aan de slag
 
 [Setup build environment](#setup-build-environment)
 
-[Building and flashing the Locha Mesh _radio-firmware_](#)
+[Building en flashing van de Locha Mesh _radio-firmware_](#)
 
-[Configuring the network interface](#)
+[Configureer de netwerkinterface](#)
 
 
 ---
@@ -15,65 +15,65 @@
 
 # Setup build environment
 
-We recommend to follow this step by step before starting the development process or build the firmware for your **Locha Mesh** device. If you have a Turpial or a DIY version of any flavour, this process can be a bit different but in principle we can divide it in two main sections:
+We raden aan om deze stap-voor-stap te volgen voordat je het ontwikkelproces start of de firmware build voor je **Locha Mesh**-apparaat. Als je een Turpial of een DIY-versie van welke flavour dan ook hebt, kan dit proces een tikkeltje anders zijn, maar in principe kunnen we het in twee hoofdsecties indelen:
 
-## 1. Environment for the radio system (CC1312R)
+## 1. Environment voor het radiosysteem (CC1312R)
 
-This setup process is applicable for the DIY version or Turpial and **only** for the radio system.
+Dit installatieproces is van toepassing op de DIY-versie of Turpial en **alleen** voor het radiosysteem.
 
-Currently only Linux and MacOS systems are supported, for MacOS a package manager is required, please install your preferred package manager before installing the next requirements:
+Momenteel worden alleen Linux en macOS-systemen ondersteund, voor macOS is een package manager vereist. Installeer de gewenste package manager voordat je de volgende requirements installeert:
 
  * git
  * wget
  * gcc compiler
  * make
- * python3 (optional)
+ * python3 (optioneel)
 
-On Debian based systems, the `build-essential` packages bundles the necessary tools to have a build environment.
+Op Debian gebaseerde systemen bundelen de `build-essential`-pakketten de nodige tools om een build environment te hebben.
 
-### Download and install the arm-embedded toolchain
+### Download en installeer de arm-embedded toolchain
 
-To compile the firmware we'll need the ARM Toolchain GCC compiler. Download and install the latest [ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) available for your OS.
+Om de firmware te compilen hebben we de ARM Toolchain GCC compiler nodig. Download en installeer de nieuwste [ARM toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads) die beschikbaar is voor je besturingssysteem.
 
-First we download the toolchain (Linux & MacOS X):
+Als eerste downloaden we de toolchain (Linux & macOS):
 
 ```sh
 $ wget <copied-url> -O arm-toolchain.tar.bz2
 ```
 
-Unzip files (Linux & MacOS):
+Unzip bestanden (Linux & macOS):
 
 ```sh
 $ tar -xjf arm-toolchain.tar.bz2
 ```
 
-Please note that you will have to add the directory with executables to your `PATH`. On a typical shell like bash or zsh this can be done using:
+Houd er rekening mee dat je de map met executables aan je `PATH` moet toevoegen. Op een shell als bash of zsh kan dit worden gedaan met behulp van:
 
 ```sh
 export PATH="${PATH}:/path/to/arm-none-eabi-gcc"
 ```
 
-You can do it permanent adding the previous command to your `.bashrc` or `.zshrc` file
+Je kunt het permanent doen door het vorige commando toe te voegen aan je `.bashrc` of `.zshrc ` bestand
 
-### Install flash tool
+### Installeer flash tool
 
-In order to flash the built firmware for the CC1312R we need to use OpenOCD or Uniflash, select one of the tools and read the instructions before to install
+Om de gebouwde firmware voor de CC1312R te flashen, moeten we OpenOCD of Uniflash gebruiken. Selecteer een van de tools en lees de instructies voor de installatie
 
 - [Texas Instrument's Uniflash](https://www.ti.com/tool/UNIFLASH)
 
 - [OpenOCD](https://git.ti.com/git/sdo-emu/openocd)
 
-**Note:** If you choose to install Uniflash, make sure you set the `UNIFLASH_PATH` environment variable, so that the build system knows where to find it.
+**Let op:** als je ervoor kiest om Uniflash te installeren, zorg er dan voor dat je de nvironment variable `UNIFLASH_PATH` instelt, zodat het build-systeem weet waar het te vinden is.
 
 <br/>
 
-### Building and flashing the Locha Mesh _radio-firmware_
+### Building en flashing van de Locha Mesh _radio-firmware_
 
-The **Locha Mesh** radio firmware is the main software for any hardware compatible with the network, it acts as a router and it lets us access the Mesh network.
+De **Locha Mesh** radio-firmware is de belangrijkste software voor hardware die compatibel is met het netwerk, het fungeert als router en het geeft ons toegang tot het Mesh-netwerk.
 
-To use the _CC1312R_ or _Turpial_ as a network interface, we need to flash the radio firmware and connect it to the USB port of a computer.
+Om de _CC1312R_ of _Turpial_ als netwerkinterface te gebruiken, moeten we de radio-firmware flashen en deze aansluiten op de USB-poort van een computer.
 
-#### Clone it, initialize it
+#### Clone & initialiseer het
 
 ```sh
 $ git clone https://github.com/btcven/radio-firmware.git
@@ -83,78 +83,78 @@ $ cd radio-firmware
 $ git submodule update --init --recursive
 ```
 
-#### Build it, flash it, enjoy it
+#### Build it, flash it & relax
 
-Depending on the hardware you have you need to pass specific parameters to compile the source code and flash it.
+Afhankelijk van de hardware moet je specifieke parameters doorgeven om de broncode te compilen en te flashen.
 
-#### Firmware configuration
+#### Firmware configuratie
 
-The `BOARD` variable controls the hardware we're using, here you can find a list of supported boards:
+De variabele `BOARD` controleert de hardware die we gebruiken, hier vind je een lijst van ondersteunde boards:
 
-- Board support provided by Locha (our custom hardware): https://github.com/btcven/radio-firmware/tree/master/boards/
-- Boards that RIOT-OS supports: https://github.com/RIOT-OS/RIOT/tree/master/boards
+- Board-ondersteuning geleverd door Locha (onze aangepaste hardware): https://github.com/btcven/radio-firmware/tree/master/boards/
+- Boards die RIOT-OS ondersteunt: https://github.com/RIOT-OS/RIOT/tree/master/boards
 
-The `USE_SLIPTTY` variable controls wether we want to use SLIP as our serial connection, or a raw standard I/O serial connection. To use the board as a network interface set `USE_SLIPPTY=1` in the make command line.
+De ` USE_SLIPTTY ` variabele regelt of we SLIP willen gebruiken als onze serial verbinding, of een raw standaard I/O serial verbinding. Om het board als een netwerkinterface te gebruiken, stel je `USE_SLIPPTY=1` in de make command line.
 
-**Note**: *You can pass these variables on the command line or export them as environment variables*
+**Let op:*** Je kan deze variabelen op de command line doorgeven of ze exporteren als environment variables*
 
-So, for example, to build for the `turpial` board we can do:
+Dus, om bijvoorbeeld te builden voor het `turpial`-board kunnen we het volgende doen:
 
 ```sh
 $ make USE_SLIPTTY=1 BOARD=turpial
 ```
 
-And then we can flash it with:
+En dan kunnen we het flashen met:
 
 ```sh
 $ make USE_SLIPTTY=1 BOARD=turpial flash
 ```
 
-**Note:** *Using any other board is the same process, for example, using `cc1312-launchpad` as our board should work.*/
+**Let op:** * het gebruik van een ander board is hetzelfde proces, bijvoorbeeld het gebruik van `cc1312-launchpad` zoals ons board zou moeten werken. * /
 
 <br/>
 
-### Configuring the network interface
+### Configureer de netwerkinterface
 
-Now that we have the firmware on our device it's time to create and configure our network interface:
+Nu we de firmware op ons apparaat hebben, is het tijd om onze netwerkinterface aan te maken en te configureren:
 
 ```sh
 $ make USE_SLIPTTY=1 BOARD=turpial term
 ```
 
-It will ask for sudo (root) password as we need to create a tunnel network interface. This terminal, where we created the network interface can not be closed as it kill the serial connection to our hardware.
+Het zal om een sudo (root) wachtwoord vragen, omdat we een tunnel-netwerkinterface moeten creëren. Deze terminal, waar we de netwerkinterface hebben gemaakt, kan niet worden gesloten omdat het de serial verbinding met onze hardware beëindigt.
 
-The next step is to configure this network interface, we have an script under `radio-firmware/dist/tools/vaina` directory which automates this process, the only we need to care about is our IP address.
+De volgende stap is om deze netwerkinterface te configureren, we hebben een script onder de `radio-firmware/dist/tools/vaina` directory die dit proces automatiseert, het enige waar we ons zorgen om moeten maken is ons IP-adres.
 
-We must edit the file and give it IPv6 address:
+We moeten het bestand bewerken en het IPv6-adres geven:
 
 ```sh
-# Randomly generate a Unique Local Address (begins with fc00::).
+# Willekeurig een uniek lokaal adres genereren (begint met fc00::).
 $ hexdump -n 16 -e '2/2 ":%04x"' /dev/urandom | sed "s/^:[a-zA-Z0-9_.-]*:/fc00:/g"
 ```
 
-The generated address must be copied and pasted into `radio-firmware/dist/tools/vaina/autoconfigure.sh`, after it, run the script on a new terminal:
+Het gegenereerde adres moet worden gekopieerd en geplakt in `radio-firmware/dist/tools/vaina/autoconfigure.sh`, vervolgens moet het script op een nieuwe terminal worden uitgevoerd:
 
 ```sh
 $ ./radio-firmware/dist/tools/vaina/autoconfigure.sh
 ```
 
-It will ask again for root rights to configure the interface, and now if we type `ip address` or `ifconfig` on our console we should see a network interface named `sl0` (`tun0` on MacOS) with the address we just generated.
+Het zal opnieuw om rootrechten vragen om de interface te configureren, en als we nu `ip-adres` of `ifconfig` typen op onze console, zouden we een netwerkinterface moeten zien met de naam `sl0` (`tun0` op macOS) met het adres dat we zojuist hebben gegenereerd.
 
-### Enjoy it
+### Geniet ervan
 
-With this, other peers can send us any data without any more configuration to our IPv6 address.
+Hiermee kunnen andere peers ons alle gegevens zonder verdere configuratie naar ons IPv6-adres sturen.
 
-You can use the **Locha Mesh** for any service that can run on IPv6 such as HTTP / HTTPS, SSH, FTP, RAW Sockets, etc, even Bitcoin and Monero daemons. You can find some example environments to test the Locha Mesh below:
+Ja kan de **Locha Mesh** gebruiken voor elke service die op IPv6 kan draaien, zoals HTTP / HTTPS, SSH, FTP, RAW Sockets, enz., zelfs voor Bitcoin- en Monero-daemons. Hieronder staan enkele voorbeeld environments om de Locha Mesh te testen:
 
-__Done__
+__Voltooid__
 
-- [Monero GUI through Locha Mesh](monero_gui.md)
-- [Bitcoin daemons talking in the Locha Mesh network](bitcoin_daemons.md)
+- [Monero GUI via Locha Mesh](monero_gui.md)
+- [Bitcoin-daemons die in het Locha Mesh-netwerk praten](bitcoin_daemons.md)
 
-__In Progress__
+__In uitvoering__
 - [Electrum Server](electrum_server.md)
-- [Sharing files using the the _Torrent_ protocol](torrent_protocol.md)
+- [Bestanden delen met behulp van het _Torrent_-protocol](torrent_protocol.md)
 
 
-Help us build the resilient network, test your favorite applications in the **Locha Mesh** and share your setup to help others get started.
+Help ons met het bouwen van het veerkrachtige netwerk, test je favoriete applicaties in de **Locha Mesh** en deel je setup om anderen te helpen aan de slag te gaan.
