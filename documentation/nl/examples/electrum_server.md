@@ -1,7 +1,7 @@
-# Electrum Server, offering services in the Locha Mesh
+# Electrum Server, die diensten aanbiedt in de Locha Mesh
 
 
-**Note:** This example is a work in progress.
+**Let op:** dit is een work in progress.
 
 
-![Electrum Demo](../../pics/demo_electrum.svg)
+![Demo Electrum](../../pics/demo_electrum.svg)
