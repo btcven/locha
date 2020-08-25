@@ -1,5 +1,5 @@
-# Sharing files through Locha Mesh
+# Bestanden delen via Locha Mesh
 
-**Note:** This is a work in progress.
+**Let op:** dit is een work in progress.
 
-![Torrent Demo](../../pics/demo_torrent.svg)
+![Torrentdemo](../../pics/demo_torrent.svg)
