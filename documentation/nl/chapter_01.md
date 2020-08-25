@@ -2,7 +2,7 @@
 
 Hoewel de telecomtechnologie een grote sprong voorwaarts heeft gemaakt in termen van ontwikkeling, wordt het duidelijk dat het zelf gevoelig is. We hebben het niet alleen over technologie, maar ook over mensen. dat zijn degenen die kwetsbaar zijn voor de neveneffecten van isolatie van communicatie als gevolg van centralisatie en wereldwijde regulering van communicatienormen.
 
-De vooruitgang die is geboekt sinds het verschijnen van draadloze netwerken in 1970, de groei en de vraag in de afgelopen tien jaar zijn exponentieel geweest. Specifically, there are two perspectives in this subject attending the underlying architecture of the network: wireless network infrastructure and infrastructurless wireless networks.
+De vooruitgang die is geboekt sinds het verschijnen van draadloze netwerken in 1970, de groei en de vraag in de afgelopen tien jaar zijn exponentieel geweest. Er zijn in dit verband twee perspectieven bij de onderliggende architectuur van het netwerk: draadloze netwerkinfrastructuur en draadloze netwerken.
 
 As an example for wireless networking infrastructure we can take a look to cellular networks, in these networks the user can connect wireless to the main network as long as it's inside the coverage range of the network, this is how it can serve a large number of users inside an extense geographic area by using a limited frequency spectrum. The service provided is high quality and is often compared to the wired telephone systems. In this network, the routers or base stations, are in fixed-locations and wired, the mobile units connect to it and communicate through it. If this mobile unit goes further than the range of its base a handoff to another base its produced.
 
@@ -29,46 +29,46 @@ Figure 1.1 shows the simplified architecture of a cellular network versus an ad-
 
 ## 1.2 Doelen
 
-Locha Mesh main goal is the implementation of the AODVv2 routing protocol to enable a resilient communication system, composed of the following:
+Het hoofddoel van Locha Mesh is de implementatie van het AODVv2-routing-protocol om een veerkrachtig communicatiesysteem mogelijk te maken, bestaande uit het volgende:
 
-1. Choosing the most suitable routing protocol for the packets transmission between nodes.
-2. Select the proper hardware for the execution of the software and storing the necessary data.
-3. Implementation of the AODVv2 protocol in an embedded system, for this case [RIOT-OS](https://www.riot-os.org/).
-4. Verify the performance of the AODVv2 protocol and contrast it with what was previously planned.
-5. Development of the driver needed for the integration with the OS and the hardware.
-6. Compute set of constant values for the network operation.
+1. Het meest geschikte routing-protocol voor de packets transmission tussen nodes.
+2. Selecteer de juiste hardware voor het draaien van de software en het opslaan van de benodigde data.
+3. Implementatie van het AODVv2-protocol in een embedded systeem, in dit geval [RIOT-OS](https://www.riot-os.org/).
+4. Verifieer de prestaties van het AODVv2-protocol en vergelijk dit met wat eerder was gepland.
+5. Ontwikkeling van de driver die nodig is voor de integratie met het besturingssysteem en de hardware.
+6. Bereken een reeks constante waarden voor de netwerkwerking.
 
-Our secondary goals are:
+Onze secundaire doelen zijn:
 
-- Theoretical research for ad-hoc wireless networks and routing protocols.
-- Familiarization with simulation tools.
-- Determine parameters for data generation.
-- Implementation and execution of a testbed.
-- Data collection.
-- Analysis of results and conclusions.
-- Drafting the documentation.
-- Choosing an OS based on the criteria latter exposed.
+- Theoretisch onderzoek naar ad-hoc wireless netwerken en routing-protocollen.
+- Vertrouwd raken met simulatietools.
+- Bepaal parameters voor het genereren van data.
+- Implementatie en uitvoering van een testbed.
+- Datacollectie.
+- Analyse van resultaten en conclusies.
+- Opstellen van de documentatie.
+- Kiezen van een besturingssysteem op basis van de laatstgenoemde criteria.
 
-AODVv2 protocol presents some challenges in order to work optimally in the application areas provided for this kind of network:
+AODVv2-protocol biedt een aantal uitdagingen om optimaal te werken in de toepassingsgebieden voor dit soort netwerk:
 
 
 * #### Dynamic topology
 * #### Scarce resourses (hardware)
-* #### Heterogeneity between nodes (hardware differences)
+* #### Heterogeneity between nodes (hardware verschillen)
 
 
 ## 1.3 Planning
 
-We strongly recommend to establish and follow a logical sequence for the development of this project:
+Voor de ontwikkeling van dit project, raden we je ten zeerste aan een logische volgorde voor de ontwikkeling vast te stellen en te volgen:
 
-- Preparedness and planning: during the preparation phase we researched about `ad-hoc` network and the many `routing protocols` to complete our documentation on this subject.
-- The hardware design:
-  - Power supply.
-  - Battery circuit.
-  - Radio module compatible with IEEE 802.15.4.
-  - Firmware in charge of receiving the information from the mobile app and send it to the radio module.
-  - Printed circuit board needed to assemble all of the components.
-  - Functionality test of the hardware.
-- Mobile App, which will be the GUI.
-- Driver for the integration of the hardware with the OS.
+- Voorbereiding en planning: tijdens de voorbereidingsfase hebben we onderzoek gedaan naar `ad-ho `-netwerk en de vele `routering-protocollen` om onze documentatie over dit onderwerp af te maken.
+- Het hardware design:
+  - Stroomvoorziening.
+  - Batterijcircuit.
+  - Radiomodule compatibel met IEEE 802.15.4.
+  - Firmware die verantwoordelijk is voor het ontvangen van de informatie van de mobiele app en deze naar de radiomodule stuurt.
+  - Printplaat nodig om alle componenten te monteren.
+  - Functionaliteitstest van de hardware.
+- Mobiele app, die de GUI zal zijn.
+- Driver voor de integratie van de hardware met het besturingssysteem.
 
