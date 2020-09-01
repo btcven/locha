@@ -1,35 +1,35 @@
-# Monero GUI through Locha Mesh
+# Monero GUI via Locha Mesh
 
-Using in a node the [Monero][] GUI and other node with the Monero daemon, we can send and receive transactions over Locha Mesh. The next figure represents the setup for this specific application:
+Met behulp van de [Monero][] GUI en andere node met de Monero-daemon kunnen we transacties versturen en ontvangen over Locha Mesh. De volgende afbeelding geeft de opstelling voor deze specifieke toepassing weer:
 
 ![demo_monero](../../pics/demo_monero.svg)
 
-| Address     | Connections           | Description                                             |
-| ----------- | --------------------- | ------------------------------------------------------- |
-| fc00:db8::1 | Locha Mesh            | Laptop as Client running the GUI                        |
-| fc00:?::1   | Locha Mesh            | 2 Turpial nodes that transmit data packets if necessary |
-| fc00:db9::1 | Locha Mesh & Internet | Server running Monero daemon                            |
+| Adres       | Verbindingen          | Omschrijving                                             |
+| ----------- | --------------------- | -------------------------------------------------------- |
+| fc00:db8::1 | Locha Mesh            | Laptop als client die de GUI draait                      |
+| fc00:?::1   | Locha Mesh            | 2 Turpial-nodes die indien nodig datapakketten versturen |
+| fc00:db9::1 | Locha Mesh & internet | Server die Monero-daemon draait                          |
 
-## Requirements
+## Vereisten
 
-No special setup or requirements for run this test, only a synchronized daemon and a functional Locha Mesh network.
+Er zijn geen speciale setups of vereisten om deze test uit te voeren, je hebt alleen een gesynchroniseerde Monero-daemon en een functioneel Locha Mesh netwerk nodig.
 
 ## Procedure
 
-1. Synchronize the wallet
+1. Synchroniseer de wallet
 
    ![Monero GUI](../../pics/monero_gui.png)
 
-   **Note:** A small bug was detected when an IPV6 was used in the address/port fields under `Settings > Node`, it was [reported][] and a [PR][] was open.
+   **Let op:** Er is een kleine bug gedetecteerd toen er een IPV6 in de adres/poort velden werd gebruikt onder `Instellingen > node`, het werd [gemeld][] en een [PR][] was open.
 
-2. Receiving and sending a transaction
+2. Ontvangen en versturen van een transactie
 
-   A video is available of the whole proccess including a quick setup and the node sync.
+   Er is een video beschikbaar van het hele process inclusief een snelle installatie en de node-synchronisatie.
 
-   [![Monero Demo Video](https://img.youtube.com/vi/pe9Buhp9OD8/0.jpg)](https://www.youtube.com/watch?v=pe9Buhp9OD8)
+   [![Monero demovideo](https://img.youtube.com/vi/pe9Buhp9OD8/0.jpg)](https://www.youtube.com/watch?v=pe9Buhp9OD8)
 
 
 
 [Monero]: https://web.getmonero.org/
-[reported]: https://github.com/monero-project/monero-gui/issues/2971
+[gemeld]: https://github.com/monero-project/monero-gui/issues/2971
 [PR]: https://github.com/monero-project/monero-gui/pull/2973

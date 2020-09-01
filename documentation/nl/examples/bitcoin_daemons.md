@@ -1,30 +1,30 @@
-# Using Bitcoin daemons in Locha Mesh
+# Bitcoin-daemons in Locha Mesh gebruiken
 
-The main purpose of this demostration is to perform a stress test. Two [Bitcoin][] nodes are talking and sharing blocks, trying to update their blockchains
+Het belangrijkste doel van deze demo is het uitvoeren van een stresstest. Twee [Bitcoin][]-nodes praten en delen blokken met elkaar, zo proberen ze hun blockchains te updaten
 
-The next figure represents the used environment:
+De volgende afbeelding vertegenwoordigt de gebruikte environment:
 
-![Bitcoin Daemons Environment](../../pics/demo_bitcoin_daemons.svg)
+![Bitcoin-daemons environment](../../pics/demo_bitcoin_daemons.svg)
 
-| node | address     | connections           | Description                                             |
-|:----:| ----------- | --------------------- | ------------------------------------------------------- |
-|  n1  | fc00:db8::1 | Locha Mesh            | pc running bitcoind with no-syncronized blockchain      |
-|  n?  | fc00:?::1   | Locha Mesh            | 2 Turpial nodes that transmit data packets if necessary |
-|  ne  | fc00:db9::1 | Locha Mesh & Internet | pc running bitcoind with a synchronized blockchain      |
+| node | adres       | verbindingen          | Omschrijving                                             |
+|:----:| ----------- | --------------------- | -------------------------------------------------------- |
+|  n1  | fc00:db8::1 | Locha Mesh            | pc met bitcoind zonder gesynchroniseerde blockchain      |
+|  n?  | fc00:?::1   | Locha Mesh            | 2 Turpial-nodes die indien nodig datapakketten versturen |
+|  ne  | fc00:db9::1 | Locha Mesh & internet | pc met bitcoind met een gesynchroniseerde blockchain     |
 
 
 ## Requirements
 
-There are no special setups or requirements to run this test, you only need a synchronized Bitcoin daemon and a functional Locha Mesh network.
+Er zijn geen speciale setups of requirements om deze test uit te voeren, je hebt alleen een gesynchroniseerde Bitcoin-daemon en een functioneel Locha Mesh-netwerk nodig.
 
 
 ## Procedure
 
-1. The **ne** node needs to be running and synchronized, connected via Turpial or _a compatible interface_ to the Locha Mesh and the Internet at the same time.
+1. De **ne**-node moet worden gedraaid en gesynchroniseerd, verbonden via Turpial of _een compatibele interface_ op de Locha Mesh en het internet tegelijkertijd.
 
-2. Start `bitcoind` on **n1**, using the Locha Mesh address of **ne** as parameter.
+2. Start `bitcoind` op **n1**, door het Locha Mesh-adres **ne** als parameter te gebruiken.
 
-3. In a few seconds, in the terminal we can see both demons doing a handshake, after that, the demons will start sharing blocks data and latest transactions.
+3. Binnen een paar seconden kunnen we in de terminal beide daemons een handshake zien uitvoeren, daarna zullen de daemons blokdata en de laatste transacties gaan delen.
 
 
 
