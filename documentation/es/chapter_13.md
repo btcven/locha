@@ -12,9 +12,9 @@ Después de procesar un mensaje, la información se almacena en la tabla de ruta
 ## 13.1 build_rfc_5444_message_header.
 
 ```cpp
-/* This pseudocode shows possible RFC 5444 actions, and would not
- be performed by the AODVv2 implementation. It is shown only to
- provide more understanding about the AODVv2 message that will be
+/* This pseudocode shows possible RFC 5444 actions, and would not 
+ be performed by the AODVv2 implementation. It is shown only to 
+ provide more understanding about the AODVv2 message that will be 
  constructed by RFC 5444.
  MAL = Message Address Length
  MF = Message Flags
@@ -30,7 +30,7 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size, hopLimit, hopCo
     msg-hop-limit = hopLimit;
 
     /* if hopCount is 0, do not include */
-    if (hopCount != 0)
+    if (hopCount != 0) 
     msg-hop-count = hopCount;
     msg.tlvs-length = tlvLength;
 }
@@ -43,7 +43,7 @@ build_rfc_5444_message_header (msgType, Flags, AddrFamily, Size, hopLimit, hopCo
 
 receive_RREQ (inRREQ, L)
 {
- if (inRREQ.NbrIP present in blacklist)
+ if (inRREQ.NbrIP present in blacklist) 
  {
  if (blacklist_expiration_time < CurrentTime)
  return; // don't process or regenerate RREQ
@@ -57,7 +57,7 @@ receive_RREQ (inRREQ, L)
  return;
  if (msg_hop_limit < 0)
  return;
- if (inRREQ.OrigAddr and inRREQ.TargAddr are not valid routable
+ if (inRREQ.OrigAddr and inRREQ.TargAddr are not valid routable 
  and unicast addresses)
  return;
  if (inRREQ.MetricType is present but an unknown value)
@@ -84,7 +84,7 @@ receive_RREQ (inRREQ, L)
 
  /* Update the RteMsgTable and determine if the RREQ needs
  to be regenerated */
- regenerate = Update_Rte_Msg_Table(inRREQ);
+ regenerate = Update_Rte_Msg_Table(inRREQ); 
 
  if (inRREQ.TargAddr is in Router Client list)
  generate_RREP(inRREQ, rte);
@@ -102,7 +102,7 @@ receive_RREQ (inRREQ, L)
 ```cpp
 /* Generate a route request message to find a route from OrigAddr
  to TargAddr using the given MetricType
- origAddr = IP address of Router Client which generated the
+ origAddr = IP address of Router Client which generated the 
  packet to be forwarded
  origPrefix = prefix length associated with the Router Client
  targAddr = destination IP address in the packet to be forwarded
@@ -116,17 +116,17 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
  /* Marshall parameters */
  outRREQ.HopLimit = MAX_HOPCOUNT;
- outRREQ.HopCount = 0; // if included
+ outRREQ.HopCount = 0; // if included 
  outRREQ.MetricType = mType; //include if not DEFAULT_METRIC_TYPE
- outRREQ.OrigAddr = origAddr;
+ outRREQ.OrigAddr = origAddr; 
  outRREQ.TargAddr = targAddr;
  outRREQ.OrigPrefixLen = origPrefix; //include if not address length
  outRREQ.OrigSeqNum = mySeqNum;
  outRREQ.TargSeqNum = targSeqNum; //included if available
  outRREQ.OrigMetric = Route[OrigAddr].Metric; //zero by default
- outRREQ.ValidityTime = limit for route to OrigAddr; //if required
+ outRREQ.ValidityTime = limit for route to OrigAddr; //if required 
 
- /* Build Address Blk using prefix length information from
+ /* Build Address Blk using prefix length information from 
  outRREQ.OrigPrefixLen if necessary */
  AddrBlk = {outRREQ.OrigAddr, outRREQ.TargAddr};
 
@@ -137,7 +137,7 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
  if (outRREQ.TargSeqNum is known)
  targSeqNumAddrBlkTlv.value = outRREQ.TargSeqNum;
 
- /* Build Metric Address Block TLV, include Metric AddrBlkTlv
+ /* Build Metric Address Block TLV, include Metric AddrBlkTlv 
  Extension type if a non-default metric */
  metricAddrBlkTlv.value = outRREQ.OrigMetric;
  if (outRREQ.MetricType != DEFAULT_METRIC_TYPE)
@@ -154,16 +154,15 @@ generate_RREQ(origAddr, origPrefix, targAddr, targSeqNum, mType)
 
  /* multicast RFC 5444 message to LL-MANET-Routers */
 }
-
 ```
 
 ## 13.4 regenerate_RREQ.
 
 ```cpp
-/* Called from receive_RREQ()
+/* Called from receive_RREQ() 
  rte = the route to OrigAddr */
 
-regenerate_RREQ (inRREQ, rte)
+regenerate_RREQ (inRREQ, rte) 
 {
  outRREQ.HopLimit = inRREQ.HopLimit - 1;
  if (outRREQ.HopLimit == 0)
@@ -181,15 +180,15 @@ regenerate_RREQ (inRREQ, rte)
  outRREQ.OrigAddr = rte.Address;
  outRREQ.TargAddr = inRREQ.TargAddr;
  /* include prefix length if not equal to address length */
- outRREQ.OrigPrefixLen = rte.PrefixLength;
+ outRREQ.OrigPrefixLen = rte.PrefixLength; 
  outRREQ.OrigSeqNum = rte.SeqNum;
  outRREQ.TargSeqNum = inRREQ.TargSeqNum; // if present
  outRREQ.OrigMetric = rte.Metric;
  outRREQ.ValidityTime = rte.ValidityTime;
- or the time limit this router wishes to put on
+ or the time limit this router wishes to put on 
  route to OrigAddr
 
- /* Build Address Block using prefix length information from
+ /* Build Address Block using prefix length information from 
  outRREQ.OrigPrefixLen if necessary */
  AddrBlk = {outRREQ.OrigAddr, outRREQ.TargAddr};
 
@@ -197,10 +196,10 @@ regenerate_RREQ (inRREQ, rte)
  /* OrigSeqNum Address Block TLV */
  origSeqNumAddrBlkTlv.value = outRREQ.OrigSeqNum;
  /* TargSeqNum Address Block TLV */
- if (outRREQ.TargSeqNum is known)
+ if (outRREQ.TargSeqNum is known) 
  targSeqNumAddrBlkTlv.value = outRREQ.TargSeqNum;
 
- /* Build Metric Address Block TLV, include Metric AddrBlkTlv
+ /* Build Metric Address Block TLV, include Metric AddrBlkTlv 
  Extension type if a non-default metric */
  metricAddrBlkTlv.value = outRREQ.OrigMetric;
  if (outRREQ.MetricType != DEFAULT_METRIC_TYPE)
@@ -221,6 +220,7 @@ regenerate_RREQ (inRREQ, rte)
 ```
 
 ## 13.5 generate_rrep.
+
 ```cpp
 generate_rrep(inRREQ, rte)
 {
@@ -243,20 +243,20 @@ generate_rrep(inRREQ, rte)
  outRREP.TargAddr = rte.TargAddr;
  outRREP.TargPrefixLen = rte.PrefixLength; //if not address length
  outRREP.TargSeqNum = mySeqNum;
- outRREP.TargMetric = rte.Metric;
+ outRREP.TargMetric = rte.Metric; 
  outRREP.ValidityTime = limit for route to TargAddr; //if required
 
  if (outRREP.AckReq == TRUE)
  /* include AckReq Message TLV */
 
- /* Build Address Block using prefix length information from
+ /* Build Address Block using prefix length information from 
  outRREP.TargPrefixLen if necessary */
  AddrBlk = {outRREP.OrigAddr, outRREP.TargAddr};
 
  /* TargSeqNum Address Block TLV */
  targSeqNumAddrBlkTlv.value = outRREP.TargSeqNum;
 
- /* Build Metric Address Block TLV include Metric AddrBlkTlv
+ /* Build Metric Address Block TLV include Metric AddrBlkTlv 
  Extension type if a non-default metric */
  metricAddrBlkTlv.value = outRREP.TargMetric;
  if (outRREP.MetricType != DEFAULT_METRIC_TYPE)
@@ -381,12 +381,12 @@ Regenerate_RREP(inRREP, rte)
 
  /* Build Address Block using prefix length information from
  outRREP.TargPrefixLen if necessary */
- AddrBlk = {outRREP.OrigAddr, outRREP.TargAddr};
+ AddrBlk = {outRREP.OrigAddr, outRREP.TargAddr}; 
 
  /* TargSeqNum Address Block TLV */
  targSeqNumAddrBlkTlv.value = outRREP.TargSeqNum;
 
- /* Build Metric Address Block TLV include Metric AddrBlkTlv
+ /* Build Metric Address Block TLV include Metric AddrBlkTlv 
  Extension type if a non-default metric */
  metricAddrBlkTlv.value = outRREP.TargMetric;
  if (outRREP.MetricType != DEFAULT_METRIC_TYPE)
@@ -401,8 +401,7 @@ Regenerate_RREP(inRREP, rte)
  Build_RFC_5444_Message_Header (RREP, 4, IPv4 or IPv6, NN,
  outRREP.HopLimit, 0, tlvLength);
 
- /* unicast RFC 5444 message to rte[OrigAddr].NextHop */
+ /* unicast RFC 5444 message to rte[OrigAddr].NextHop */ 
 }
-
 
 ```
