@@ -22,7 +22,7 @@ The MCUs family CC135X fulfills most of the requirements, nevertheless, provides
 
 For the Locha Mesh's Turpial to work optimally, the device that will regulate the voltage deriving from the battery and will power the device must be carefully selected. 
 
-![Power Supply](../pics/powerSupply-selection.svg"  height="650" alt="Power Supply Selection)
+![Power Supply](../pics/powerSupply-selection.svg)
 
 The parameters to take into account for the selection of the device that supplies the circuit are: 
 - Electric current: the circuit current must be greater or equal to 2 amps (A). 
