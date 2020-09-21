@@ -2,7 +2,6 @@
  
 This section presents the parameters that were used to choose all the control and transmission devices currently used in Locha Mesh. 
 
-
 ## 6.1 Radio frequency module 
 
 To choose the radio module that contains the microcontroller (MCU), the RF and modulation needed to transmit on the Sub-GHz ISM band some parameters were established:
@@ -19,15 +18,11 @@ The MCUs family CC135X fulfills most of the requirements, nevertheless, provides
 
 ![MCU](../pics/RF-selection.svg)
 
-<br/>
-
 ## 6.2 Voltage source
 
 For the Locha Mesh's Turpial to work optimally, the device that will regulate the voltage deriving from the battery and will power the device must be carefully selected. 
-<br/>
 
 ![Power Supply](../pics/powerSupply-selection.svg"  height="650" alt="Power Supply Selection)
-
 
 The parameters to take into account for the selection of the device that supplies the circuit are: 
 - Electric current: the circuit current must be greater or equal to 2 amps (A). 
@@ -37,20 +32,19 @@ The parameters to take into account for the selection of the device that supplie
 
 When weighting the difference devices, it is observed that the LTC3113 provides a good performance, it is full bridge and delivers currents above 2.5 A, but it's high-priced. We have decided to use the TPS63802 since it provides the benefits required to meet the goals of our project, it has wide market availability and has an affordable price.  
 
-
 ## 6.3 Battery charger
 
-<img src="../pics/BatteryChargerSelection.svg"  height="650" alt="Battery Charger Selection"/>
-<br>
+For charging the lithium battery we have decided to use the BQ2407x family chip, which is easy to acquire and it adapts to the linear load and durability requirements of the batteries by having a robust charging system like the one presented in the Turpial design.
 
-For charging the lithium battery we have decided to use the BQ2407x family chip, which is easy to acquire and it adapts to the linear load and durability requirements of the batteries by having a robust charging system like the one presented in the Turpial design. 
+![Battery Charger](../pics/BatteryChargerSelection.svg)
 
 ## 6.4 Battery power control 
-<img src="../pics/BatteryManagementSystem-selection.svg"  height="650" alt="Battery Management System"/>
 
 The power control is the system that is responsible for reading variables related to the battery such as available power, charging time, current supplied, etc. 
 
-When selecting the device that will perform this task, it must have I2C support, in the chart you can see two different devices from two different manufacturers, which have similar presentations but differ greatly in cost per unit, so The BQ27441-G1 will be used as a device for collecting battery related data to be sent to the main control unit. 
+When selecting the device that will perform this task, it must have I2C support, in the chart you can see two different devices from two different manufacturers, which have similar presentations but differ greatly in cost per unit, so The BQ27441-G1 will be used as a device for collecting battery related data to be sent to the main control unit.
+
+![Battery Management](../pics/BatteryManagementSystem-selection.svg)
 
 ## 6.5 WiFi Interface
 
@@ -73,16 +67,12 @@ Locha Mesh specifically works with ESP32 WROVER, consist of:
 
 It is perfect for the Turpial, since it has several UART ports, which allows us to communicate with the radio module and the PC through USB, it also has a network adapter that allows us to implement a web server for the control application and its configuration. 
 
-
 ## 6.6 Block diagram of the Turpial hardware 
 
-<img src="../pics/Hardware-Block.svg"  width="100%" alt="Hardware Block"/>
+![Hardware BLock](../pics/Hardware-Block.svg)
 
+## 6.7 Overview of the Turpial as a device.
 
-## 6.7 Block diagram of the control application. 
-
-## 6.8 Overview of the Turpial as a device. 
-
-<img src="../pics/turpial.svg" height="450"  alt="Turpial"/>
+![Turpial](../pics/turpial.svg)
 
 The figure shows the first prototype currently under development. 
