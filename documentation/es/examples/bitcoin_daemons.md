@@ -1,21 +1,21 @@
 # Using Bitcoin daemons in Locha Mesh
 
-The main purpose of this demostration is to perform a stress test. Two [Bitcoin][] nodes are talking and sharing blocks, trying to update their blockchains
+El propósito principal de esta demostración era realizar un test de estrés. Dos nodos [Bitcoin][] hablando entre ellos y compartiendo bloques, intentando actualizar sus cadenas de bloques
 
-The next figure represents the used environment:
+La siguiente figura representa el entorno utilizado:
 
 ![Bitcoin Daemons Environment](../../pics/demo_bitcoin_daemons.svg)
 
-| node | address     | connections           | Description                                             |
-|:----:| ----------- | --------------------- | ------------------------------------------------------- |
-|  n1  | fc00:db8::1 | Locha Mesh            | pc running bitcoind with no-syncronized blockchain      |
-|  n?  | fc00:?::1   | Locha Mesh            | 2 Turpial nodes that transmit data packets if necessary |
-|  ne  | fc00:db9::1 | Locha Mesh & Internet | pc running bitcoind with a synchronized blockchain      |
+| node | address     | connections           | Description                                                                         |
+|:----:| ----------- | --------------------- | ----------------------------------------------------------------------------------- |
+|  n1  | fc00:db8::1 | Locha Mesh            | pc ejecutando bitcoind con una blockchain no sincronizada                           |
+|  n?  | fc00:?::1   | Locha Mesh            | 2 nodos Turpial con la capacidad de transmitir paquetes de datos si fuera necesario |
+|  ne  | fc00:db9::1 | Locha Mesh & Internet | pc ejecutando bitcoind con la blockchain sincronizada                               |
 
 
 ## Requirements
 
-There are no special setups or requirements to run this test, you only need a synchronized Bitcoin daemon and a functional Locha Mesh network.
+No hay ninguna configuración especial para ejecutar este test, tan solo un demonio bitcoin sincronizado y una red Locha Mesh funcional.
 
 
 ## Procedure
