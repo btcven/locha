@@ -80,63 +80,8 @@ _RIOT-OS_ also offers standard POSIX APIs and the ability to code in standard pr
 
 ## 7.5 Comparative table of operating systems.
 
-
-<div>
-<table id="tblOne" style="width:100%;" >
- <tr align="center">
-    <th>OS</th>
-    <th>min RAM</th>
-    <th>min ROM</th>
-    <th>C support</th>
-    <th>C++ support</th>
-    <th>Multi-threading</th>
-    <th>MCU w/o MMU</th>
-    <th>Modularity</th>
-    <th>Real-time</th>
- </tr>
-  <tr align="center">
-    <td>TinyOS</td>
-    <td>< 1KB</td>
-    <td>< 4KB</td>
-    <td> &#10008 </td>
-    <td> &#10008 </td>
-    <td>&#10061</td>
-    <td>&#10004</td>
-    <td>&#10008</td>
-    <td>&#10008</td>
- </tr>
- <tr align="center">
-    <td>Contiki-ng</td>
-    <td>< 2KB</td>
-    <td>< 30KB</td>
-    <td> &#10061 </td>
-    <td> &#10008 </td>
-    <td>&#10061</td>
-    <td>&#10004</td>
-    <td>&#10061</td>
-    <td>&#10061</td>
- </tr>
- <tr align="center">
-    <td>RIOT-OS</td>
-    <td>~ 1.5KB</td>
-    <td>~ 5KB</td>
-    <td> &#10004 </td>
-    <td> &#10004 </td>
-    <td>&#10004</td>
-    <td>&#10004</td>
-    <td>&#10004</td>
-    <td>&#10004</td>
- </tr>
- <tr align="center">
-    <td>Linux</td>
-    <td>~ 1MB</td>
-    <td>~ 1MB</td>
-    <td> &#10004 </td>
-    <td> &#10004 </td>
-    <td>&#10004</td>
-    <td>&#10008</td>
-    <td>&#10061</td>
-    <td>&#10061</td>
- </tr>
-</table>
-</div>
+| OS         | RAM    | ROM   | C support | C++ support | Multi-threading | MCU w/o MMU | Modularity | Real-time |
+|------------|--------|-------|:---------:|:-----------:|:---------------:|:-----------:|:----------:|:---------:|
+| TinyOS     | <1KB   | <4KB  | ✘         | ✘           | ❍               | ✔           | ✘          | ✘         |
+| Contiki-ng | <2KB   | <30KB | ❍         | ✘           | ❍               | ✔           | ❍          | ❍         |
+| RIOT-OS    | ~1.5KB | ~5KB  | ✔         | ✔           | ✔               | ✔           | ✔          | ✔         |
