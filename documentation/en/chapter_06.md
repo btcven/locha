@@ -56,7 +56,7 @@ Benefits of the ESP32 family:
 - Extensive documentation available.
 - Incorporate BLE, which enables a wide range of possibilities. 
 
-Locha Mesh specifically works with ESP32 WROVER, consist of:
+Locha Mesh specifically works with ESP32 WROVER but also supports WROOM versions, consist of:
 - 4 Mb Flash SPI.
 - 8 Mb PSRAM.
 - 80 MHz a 240 MHz Frequency. 
@@ -65,7 +65,7 @@ Locha Mesh specifically works with ESP32 WROVER, consist of:
 - UART x3.
 - Dual core.
 
-It is perfect for the Turpial, since it has several UART ports, which allows us to communicate with the radio module and the PC through USB, it also has a network adapter that allows us to implement a web server for the control application and its configuration. 
+It is perfect for the Turpial, as it has several UART ports, which allows us to communicate with the radio module and the PC via USB. It also allows us to implement a web server as a configuration interface.
 
 ## 6.6 Block diagram of the Turpial hardware 
 
